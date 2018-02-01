@@ -16,14 +16,11 @@
 -->
 
 <resources>
-    <string name="app_name">BluetoothLeGatt</string>
+    <string name="app_name">Android Bluetooth low energy</string>
     <string name="intro_message">
         <![CDATA[
         
-            
-            This sample demonstrates how to use the Bluetooth LE Generic Attribute Profile (GATT)
-            to transmit arbitrary data between devices.
-            
+            Android application for educational purpose.
         
         ]]>
     </string>

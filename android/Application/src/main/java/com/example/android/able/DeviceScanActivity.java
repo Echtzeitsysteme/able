@@ -22,10 +22,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +51,7 @@ public class DeviceScanActivity extends ListActivity {
     private Handler mHandler;
 
     private static final int REQUEST_ENABLE_BT = 1;
+    private static final int REQUEST_ENABLE_LOCATION = 1;
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;
 
@@ -68,7 +72,18 @@ public class DeviceScanActivity extends ListActivity {
         // BluetoothAdapter through BluetoothManager.
         final BluetoothManager bluetoothManager =
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+
         mBluetoothAdapter = bluetoothManager.getAdapter();
+
+        //NEED TO REMOVE BEFORE Pushing finally
+        //Debugging check if there is an BluetootAdapterobject,
+//        if(mBluetoothAdapter != null)
+//        {
+//            // DEBUGGING LOG
+//            Log.d("BluetoothAdapter", "an BluetoothAdapterobject was created.");
+//            Toast.makeText(this, R.string.app_name, Toast.LENGTH_LONG).show();
+//        }//Object seems to get created
+        //NEED TO REMOVE CLOSE
 
         // Checks if Bluetooth is supported on the device.
         if (mBluetoothAdapter == null) {
@@ -86,6 +101,10 @@ public class DeviceScanActivity extends ListActivity {
             menu.findItem(R.id.menu_scan).setVisible(true);
             menu.findItem(R.id.menu_refresh).setActionView(null);
         } else {
+            //NEED TO REMOVE BEFORE Pushing finally
+            // DEBUGGING LOG
+            Log.d("SCANNING", "mScanning was true therefore scan should run...");
+            //NEED TO REMOVE CLOSE
             menu.findItem(R.id.menu_stop).setVisible(true);
             menu.findItem(R.id.menu_scan).setVisible(false);
             menu.findItem(R.id.menu_refresh).setActionView(
@@ -114,12 +133,16 @@ public class DeviceScanActivity extends ListActivity {
 
         // Ensures Bluetooth is enabled on the device.  If Bluetooth is not currently enabled,
         // fire an intent to display a dialog asking the user to grant permission to enable it.
-        if (!mBluetoothAdapter.isEnabled()) {
+
+        //outter if seems checked twice, maybe somekind of necessary but assuming typo
+        //if (!mBluetoothAdapter.isEnabled()) {
             if (!mBluetoothAdapter.isEnabled()) {
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                Intent enableLocationIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+                startActivityForResult(enableLocationIntent, REQUEST_ENABLE_LOCATION);
             }
-        }
+        //}
 
         // Initializes list view adapter.
         mLeDeviceListAdapter = new LeDeviceListAdapter();
