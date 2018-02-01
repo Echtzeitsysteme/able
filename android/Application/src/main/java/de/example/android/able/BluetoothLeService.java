@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.able;
+package de.example.android.able;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;

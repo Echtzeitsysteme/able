@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.able;
+package de.example.android.able;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -22,7 +22,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
