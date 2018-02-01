@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.example.android.able;
+package de.tudarmstadt.android.able;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
