@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.tudarmstadt.android.able;
+package de.tudarmstadt.es.able;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
