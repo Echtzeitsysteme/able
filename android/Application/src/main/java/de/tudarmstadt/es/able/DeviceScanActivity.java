@@ -192,7 +192,7 @@ import java.util.Map;
             Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
             finish();
         }
-        
+
         // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
         // BluetoothAdapter through BluetoothManager.
         final BluetoothManager bluetoothManager =
@@ -201,7 +201,7 @@ import java.util.Map;
         //assert bluetoothManager != null;
         mBluetoothAdapter = bluetoothManager.getAdapter();
 
-        //bluetooth permission handling
+        //bluetoothadapter handling
         if(mBluetoothAdapter == null){
             bluetoothStatus.setText("BlueTooth adapter not found");
             bluetoothButton.setText("BlueTooth Disabled");
@@ -224,7 +224,7 @@ import java.util.Map;
             }
         }
 
-        //location permission handling
+        //location permissiontext handling
         locationPermisstions = isLocationEnabled(getApplicationContext());
         if(!locationPermisstions){
             locationStatus.setText("location is currently OFF");
@@ -233,20 +233,7 @@ import java.util.Map;
             locationStatus.setText("location is currently ON");
             locationButton.setText("Switch OFF location");
         }
-
-
-        //NEED TO REMOVE BEFORE Pushing finally
-        //Debugging check if there is an BluetootAdapterobject,
-//        if(mBluetoothAdapter != null)
-//        {
-//            // DEBUGGING LOG
-//            Log.d("BluetoothAdapter", "an BluetoothAdapterobject was created.");
-//            Toast.makeText(this, R.string.app_name, Toast.LENGTH_LONG).show();
-//        }//Object seems to get created
-        //NEED TO REMOVE CLOSE
-
-        // Checks if Bluetooth is supported on the device.
-
+        
     }
 
     @Override
