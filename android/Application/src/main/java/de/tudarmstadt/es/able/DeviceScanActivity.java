@@ -186,22 +186,6 @@ import java.util.Map;
         bluetoothStatus = (TextView) findViewById(R.id.bluetoothStatus);
         locationStatus = (TextView) findViewById(R.id.locationStatus);
 
-        //USING SWITCHES AND LISTACTIVITIES SEEMS next to impossible...
-//    bluetooth_switch = (Switch) findViewById(R.id.bluetooth_switch);
-//    bluetooth_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//        @Override
-//        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//            if(isChecked) {
-//                bluetooth_switch.setText("Only Today's");  //To change the text near to switch
-//                Log.d("You are :", "Checked");
-//            }
-//            else {
-//                bluetooth_switch.setText("All List");  //To change the text near to switch
-//                Log.d("You are :", " Not Checked");
-//            }
-//        }
-//    });
-
         // Use this check to determine whether BLE is supported on the device.  Then you can
         // selectively disable BLE-related features.
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
