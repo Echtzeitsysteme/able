@@ -287,30 +287,6 @@ import java.util.Map;
 
     }
 
-    /*
-    @Override
-    public void onClick(View v) {
-
-        switch (v.getId()) {
-
-            case R.id.bluetoothButton:
-                //disable the bluetooth adapter
-                if (mBluetoothAdapter.isEnabled()) {
-                    mBluetoothAdapter.disable();
-                    status.setText("BlueTooth is currently switched OFF");
-                    bluetoothButton.setText("Switch ON Bluetooth");
-                }
-                //enable the bluetooth adapter
-                else {
-                    mBluetoothAdapter.enable();
-                    status.setText("BlueTooth is currently switched ON");
-                    bluetoothButton.setText("Switch OFF Bluetooth");
-                }
-                break;
-            // More buttons go here (if any) ...
-        }
-    }*/
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
