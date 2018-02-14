@@ -116,6 +116,7 @@ import java.util.Map;
                         //Settings.Secure.putInt(getContentResolver(), Settings.Secure.LOCATION_MODE,2);
                         startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
 
+
                         ArrayList<String> arrPerm = new ArrayList<>();
 
                         //BEST NOT PRACTICE... refactore might be useful...
