@@ -52,6 +52,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Map;
 
+//class to make permissionhandling more clear
+import static de.tudarmstadt.es.able.PermissionClass.getActivity;
+import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
+
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
  */
@@ -256,6 +260,7 @@ import java.util.Map;
         return true;
     }
 
+    /*
     //was static before
     //TODO: reuse this method for checking, not only during startup but extend to buttons, therefore needs to return array<strings>
     public boolean isLocationEnabled(Context context) {
@@ -286,6 +291,8 @@ import java.util.Map;
 
 
     }
+    */
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -324,36 +331,6 @@ import java.util.Map;
         scanLeDevice(true);
     }
 
-    public static Activity getActivity() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, NoSuchFieldException {
-        Class activityThreadClass = Class.forName("android.app.ActivityThread");
-        Object activityThread = null;
-        try {
-            activityThread = activityThreadClass.getMethod("currentActivityThread").invoke(null);
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        Field activitiesField = activityThreadClass.getDeclaredField("mActivities");
-        activitiesField.setAccessible(true);
-
-
-        Map<Object, Object> activities = (Map<Object, Object>) activitiesField.get(activityThread);
-        if (activities == null)
-            return null;
-
-        for (Object activityRecord : activities.values()) {
-            Class activityRecordClass = activityRecord.getClass();
-            Field pausedField = activityRecordClass.getDeclaredField("paused");
-            pausedField.setAccessible(true);
-            if (!pausedField.getBoolean(activityRecord)) {
-                Field activityField = activityRecordClass.getDeclaredField("activity");
-                activityField.setAccessible(true);
-                Activity activity = (Activity) activityField.get(activityRecord);
-                return activity;
-            }
-        }
-
-        return null;
-    }
 
 
     @Override
