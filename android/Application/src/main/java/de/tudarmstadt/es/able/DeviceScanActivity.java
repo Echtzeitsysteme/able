@@ -124,16 +124,6 @@ import java.util.Map;
                             arrPerm.add(Manifest.permission.ACCESS_FINE_LOCATION);
                         }
 
-                        //this one shall fix settings.secure.LOCATION_MODE,2)..
-                        /*
-                        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.LOCATION_HARDWARE)
-                                != PackageManager.PERMISSION_GRANTED)
-                        {
-                            arrPerm.add(Manifest.permission.LOCATION_HARDWARE);
-                        }*/
-                        //
-
-
                         if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
                                 != PackageManager.PERMISSION_GRANTED)
                         {
