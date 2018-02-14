@@ -32,7 +32,7 @@
         android:switchPadding="12dp"
         android:text="@string/Bluetooth_switch" />-->
 
-    <TextView android:id="@+id/status" android:layout_width="fill_parent"
+    <TextView android:id="@+id/bluetoothStatus" android:layout_width="fill_parent"
         android:layout_height="wrap_content" android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" android:layout_marginTop="10dp"
         android:text="BlueTooth is currently switched OFF"

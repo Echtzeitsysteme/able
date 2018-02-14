@@ -69,8 +69,10 @@ import java.util.Map;
 
     //additional elements to use switches and list
     private Switch bluetooth_switch;
+
     private Button bluetoothButton;
-    private TextView status;
+    private TextView bluetoothStatus;
+
     private Button locationButton;
     private TextView locationStatus;
 
@@ -90,13 +92,13 @@ import java.util.Map;
                     //disable the bluetooth adapter
                     if (mBluetoothAdapter.isEnabled()) {
                         mBluetoothAdapter.disable();
-                        status.setText("BlueTooth is currently switched OFF");
+                        bluetoothStatus.setText("BlueTooth is currently switched OFF");
                         bluetoothButton.setText("Switch ON Bluetooth");
                     }
                     //enable the bluetooth adapter
                     else {
                         mBluetoothAdapter.enable();
-                        status.setText("BlueTooth is currently switched ON");
+                        bluetoothStatus.setText("BlueTooth is currently switched ON");
                         bluetoothButton.setText("Switch OFF Bluetooth");
                     }
                     break;
@@ -119,7 +121,7 @@ import java.util.Map;
                         //Container to store all requests which should be permitted and are not available during startup
                         ArrayList<String> arrPerm = new ArrayList<>();
 
-                        //TODO: might be a better way to request for permissions
+                        //TODO: might be a better way to request for permissions, USE isLocationEnabled to check and create array
                         //application specific location permission
                         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                                 != PackageManager.PERMISSION_GRANTED)
@@ -153,7 +155,7 @@ import java.util.Map;
                         }
 
                         locationStatus.setText("locations are currently ON");
-                        bluetoothButton.setText("Switch OFF locations");
+                        locationButton.setText("Switch OFF locations");
                     }
                     break;
                 // More buttons go here (if any) ...
@@ -181,7 +183,7 @@ import java.util.Map;
         locationButton.setOnClickListener(buttonListener);
 
         //reference to the text views
-        status = (TextView) findViewById(R.id.status);
+        bluetoothStatus = (TextView) findViewById(R.id.bluetoothStatus);
         locationStatus = (TextView) findViewById(R.id.locationStatus);
 
         //USING SWITCHES AND LISTACTIVITIES SEEMS next to impossible...
@@ -220,7 +222,7 @@ import java.util.Map;
 
         //bluetooth permission handling
         if(mBluetoothAdapter == null){
-            status.setText("BlueTooth adapter not found");
+            bluetoothStatus.setText("BlueTooth adapter not found");
             bluetoothButton.setText("BlueTooth Disabled");
             bluetoothButton.setEnabled(false);
             Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_SHORT).show();
@@ -233,10 +235,10 @@ import java.util.Map;
         //check the status and set the button text accordingly
         else {
             if (mBluetoothAdapter.isEnabled()) {
-                status.setText("BlueTooth is currently switched ON");
+                bluetoothStatus.setText("BlueTooth is currently switched ON");
                 bluetoothButton.setText("Switch OFF Bluetooth");
             }else{
-                status.setText("BlueTooth is currently switched OFF");
+                bluetoothStatus.setText("BlueTooth is currently switched OFF");
                 bluetoothButton.setText("Switch ON Bluetooth");
             }
         }
@@ -287,6 +289,7 @@ import java.util.Map;
     }
 
     //was static before
+    //TODO: reuse this method for checking, not only during startup but extend to buttons, therefore needs to return array<strings>
     public boolean isLocationEnabled(Context context) {
         int locationMode = 0;
         String locationProviders;
