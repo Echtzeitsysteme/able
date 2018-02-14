@@ -111,26 +111,30 @@ import java.util.Map;
                     }
 
                     else {
-                        //enable stuff
+                        //differend kind of permissions are handled differently, general/specific permission as seen here
+
+                        //general location permission
                         startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
 
                         //Container to store all requests which should be permitted and are not available during startup
                         ArrayList<String> arrPerm = new ArrayList<>();
 
-                        //BEST NOT PRACTICE... refactore might be useful...
+                        //TODO: might be a better way to request for permissions
+                        //application specific location permission
                         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                                 != PackageManager.PERMISSION_GRANTED)
                         {
                             arrPerm.add(Manifest.permission.ACCESS_FINE_LOCATION);
                         }
 
+                        //application specific location permission
                         if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
                                 != PackageManager.PERMISSION_GRANTED)
                         {
                             arrPerm.add(Manifest.permission.ACCESS_COARSE_LOCATION);
                         }
 
-
+                        //permissions get requested, index by index
                         if(!arrPerm.isEmpty()) {
                             String[] permissions = new String[arrPerm.size()];
                             permissions = arrPerm.toArray(permissions);
@@ -148,10 +152,6 @@ import java.util.Map;
                             }
                         }
 
-
-
-                        //Settings.Secure.
-                        //mBluetoothAdapter.enable();
                         locationStatus.setText("locations are currently ON");
                         bluetoothButton.setText("Switch OFF locations");
                     }
