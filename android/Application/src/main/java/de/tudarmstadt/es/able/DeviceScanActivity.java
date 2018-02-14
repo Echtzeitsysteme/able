@@ -192,10 +192,7 @@ import java.util.Map;
             Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
             finish();
         }
-
-
-        //final LocationManager
-                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        
         // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
         // BluetoothAdapter through BluetoothManager.
         final BluetoothManager bluetoothManager =
