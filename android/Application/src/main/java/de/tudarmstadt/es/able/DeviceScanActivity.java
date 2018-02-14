@@ -112,11 +112,9 @@ import java.util.Map;
 
                     else {
                         //enable stuff
-                        //locationManager.
-                        //Settings.Secure.putInt(getContentResolver(), Settings.Secure.LOCATION_MODE,2);
                         startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
 
-
+                        //Container to store all requests which should be permitted and are not available during startup
                         ArrayList<String> arrPerm = new ArrayList<>();
 
                         //BEST NOT PRACTICE... refactore might be useful...
