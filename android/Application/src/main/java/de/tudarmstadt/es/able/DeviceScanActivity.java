@@ -23,6 +23,7 @@ import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.BluetoothLeScanner;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -64,6 +65,7 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
 
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
+    private BluetoothLeScanner mBluetoothScanner;
     private boolean mScanning;
     private Handler mHandler;
     LocationManager locationManager = null;
@@ -179,7 +181,6 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
         //reference to the buttons
         bluetoothButton = new Button(this);
         bluetoothButton = (Button) findViewById(R.id.bluetoothButton);
-        //bluetoothButton.setOnClickListener((View.OnClickListener) this.bluetoothButton);
         bluetoothButton.setOnClickListener(buttonListener);
 
         locationButton = new Button(this);
@@ -237,6 +238,11 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
             locationStatus.setText("location is currently ON");
             locationButton.setText("Switch OFF location");
         }
+
+
+        //LeDeviceListAdapter needs to be created, was recreated onResume before.
+        mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
+        setListAdapter(mLeDeviceListAdapter);
 
     }
 
@@ -326,9 +332,11 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
             */
 
         // Initializes list view adapter.
-        mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
-        setListAdapter(mLeDeviceListAdapter);
-        scanLeDevice(true);
+        //mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
+        //setListAdapter(mLeDeviceListAdapter);
+
+        //no scanning without interaction
+        //scanLeDevice(true);
     }
 
 
@@ -347,7 +355,9 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
     protected void onPause() {
         super.onPause();
         scanLeDevice(false);
-        mLeDeviceListAdapter.clear();
+
+        //not clearing the devicelist
+        //mLeDeviceListAdapter.clear();
     }
 
     @Override
@@ -378,6 +388,8 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
 
             mScanning = true;
             mBluetoothAdapter.startLeScan(mLeScanCallback);
+
+            //mBluetoothAdapter.getBluetoothLeScanner()
         } else {
             mScanning = false;
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
