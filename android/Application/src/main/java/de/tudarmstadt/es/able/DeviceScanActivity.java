@@ -326,6 +326,8 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
         //no scanning without interaction
         //scanLeDevice(true);
 
+
+        bluetoothTextSet();
         locationTextSet();
     }
 
@@ -446,5 +448,16 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
             locationButton.setText("Switch OFF location");
         }
 
+    }
+
+    private void bluetoothTextSet()
+    {
+        if (mBluetoothAdapter.isEnabled()) {
+            bluetoothStatus.setText("BlueTooth is currently switched ON");
+            bluetoothButton.setText("Switch OFF Bluetooth");
+        }else{
+            bluetoothStatus.setText("BlueTooth is currently switched OFF");
+            bluetoothButton.setText("Switch ON Bluetooth");
+        }
     }
 }
