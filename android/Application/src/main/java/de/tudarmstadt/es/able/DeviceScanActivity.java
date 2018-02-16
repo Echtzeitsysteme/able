@@ -68,7 +68,7 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
     private BluetoothLeScanner mBluetoothScanner;
     private boolean mScanning;
     private Handler mHandler;
-    LocationManager locationManager = null;
+    LocationManager mLocationManager;
     boolean gps_enabled = false;
     boolean network_enabled = false;
     boolean locationPermisstions = false;
@@ -113,16 +113,42 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
                     //disable the bluetooth adapter
                     if (locationPermisstions) {
                         //disable stuff
-                        mBluetoothAdapter.disable();
-                        locationStatus.setText("BlueTooth is currently switched OFF");
-                        bluetoothButton.setText("Switch ON Bluetooth");
+
+                        //mBluetoothAdapter.disable();
+                        //should start activity
+                        //int result = 0;
+                        //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+
+                        //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
+                        startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+
+                        //should set showed text to aimed status
+                        //seems not to work, does not wait till resume, trying onResume
+
+                        /*maybe startActivityForResult is what I was looking for...
+                        //oneway to check for generall location
+                        mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+                        //more generic way to check for generall location
+                        Context currentContext = getApplicationContext();
+                        try {
+                            Settings.Secure.getInt(currentContext.getContentResolver(), Settings.Secure.LOCATION_MODE);
+                        } catch (Settings.SettingNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        */
+
+                        locationTextSet();
+
                     }
 
                     else {
                         //differend kind of permissions are handled differently, general/specific permission as seen here
 
                         //general location permission
-                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
+                        startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
 
                         //Container to store all requests which should be permitted and are not available during startup
                         ArrayList<String> arrPerm = new ArrayList<>();
@@ -160,8 +186,8 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
                             }
                         }
 
-                        locationStatus.setText("locations are currently ON");
-                        locationButton.setText("Switch OFF locations");
+                        locationTextSet();
+
                     }
                     break;
                 // More buttons go here (if any) ...
@@ -177,6 +203,10 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
         setContentView(R.layout.permission_handling);
+
+
+        //mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                //Context.getSystemService(LocationManager.class) -> available from API23
 
         //reference to the buttons
         bluetoothButton = new Button(this);
@@ -228,16 +258,7 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
                 bluetoothButton.setText("Switch ON Bluetooth");
             }
         }
-
-        //location permissiontext handling
-        locationPermisstions = isLocationEnabled(getApplicationContext());
-        if(!locationPermisstions){
-            locationStatus.setText("location is currently OFF");
-            locationButton.setText("Switch ON location");
-        }else{
-            locationStatus.setText("location is currently ON");
-            locationButton.setText("Switch OFF location");
-        }
+        locationTextSet();
 
 
         //LeDeviceListAdapter needs to be created, was recreated onResume before.
@@ -265,39 +286,6 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
         }
         return true;
     }
-
-    /*
-    //was static before
-    //TODO: reuse this method for checking, not only during startup but extend to buttons, therefore needs to return array<strings>
-    public boolean isLocationEnabled(Context context) {
-        int locationMode = 0;
-        String locationProviders;
-        int permissionCheckFine = 1;
-        int permissionCheckCoarse = 1;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-            try {
-                locationMode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE);
-                permissionCheckFine = ContextCompat.checkSelfPermission(this , Manifest.permission.ACCESS_FINE_LOCATION);
-                permissionCheckCoarse = ContextCompat.checkSelfPermission(this , Manifest.permission.ACCESS_COARSE_LOCATION);
-
-            } catch (Settings.SettingNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            }
-
-            boolean result = (locationMode != Settings.Secure.LOCATION_MODE_OFF)&&
-                    (0 == permissionCheckFine) && (0 == permissionCheckCoarse);
-            return result;
-
-        }else{
-            locationProviders = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
-            return !TextUtils.isEmpty(locationProviders);
-        }
-
-
-    }
-    */
 
 
     @Override
@@ -337,6 +325,8 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
 
         //no scanning without interaction
         //scanLeDevice(true);
+
+        locationTextSet();
     }
 
 
@@ -348,6 +338,20 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
             finish();
             return;
         }
+
+        if (requestCode == resultCode) {
+            Log.d("ActivityResult", "so expected");
+
+            locationTextSet();
+
+            onRestart();
+            return;
+        }
+
+        if (requestCode != resultCode) {
+            Log.d("ActivityResult", "expected does not match received");
+            return;
+        }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -356,8 +360,19 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
         super.onPause();
         scanLeDevice(false);
 
+        locationTextSet();
+
         //not clearing the devicelist
         //mLeDeviceListAdapter.clear();
+    }
+
+
+    //after pressing back the application seems to disappear(not crashing), needs to be accessed again
+    @Override
+    protected void onStop() {
+        //probably going to use later
+        super.onStop();
+
     }
 
     @Override
@@ -416,5 +431,20 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
     static class ViewHolder {
         TextView deviceName;
         TextView deviceAddress;
+    }
+
+    private void locationTextSet()
+    {
+
+        locationPermisstions = isLocationEnabled(getApplicationContext());
+        if(!locationPermisstions)
+        {
+            locationStatus.setText("location is currently OFF");
+            locationButton.setText("Switch ON location");
+        }else{
+            locationStatus.setText("location is currently ON");
+            locationButton.setText("Switch OFF location");
+        }
+
     }
 }
