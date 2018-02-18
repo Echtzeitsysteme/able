@@ -19,43 +19,6 @@ import java.util.Map;
 public class PermissionClass {
 
 
-
-
-
-    //method to get current activity(ies)
-    public static Activity getActivity() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, NoSuchFieldException {
-        Class activityThreadClass = Class.forName("android.app.ActivityThread");
-        Object activityThread = null;
-        try {
-            activityThread = activityThreadClass.getMethod("currentActivityThread").invoke(null);
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        Field activitiesField = activityThreadClass.getDeclaredField("mActivities");
-        activitiesField.setAccessible(true);
-
-
-        Map<Object, Object> activities = (Map<Object, Object>) activitiesField.get(activityThread);
-        if (activities == null)
-            return null;
-
-        for (Object activityRecord : activities.values()) {
-            Class activityRecordClass = activityRecord.getClass();
-            Field pausedField = activityRecordClass.getDeclaredField("paused");
-            pausedField.setAccessible(true);
-            if (!pausedField.getBoolean(activityRecord)) {
-                Field activityField = activityRecordClass.getDeclaredField("activity");
-                activityField.setAccessible(true);
-                Activity activity = (Activity) activityField.get(activityRecord);
-                return activity;
-            }
-        }
-
-        return null;
-    }
-
-
-
     public static boolean isLocationEnabled(Context context) {
         int locationMode = 0;
         String locationProviders;

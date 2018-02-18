@@ -54,7 +54,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 //class to make permissionhandling more clear
-import static de.tudarmstadt.es.able.PermissionClass.getActivity;
 import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
 
 /**
@@ -172,18 +171,8 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
                         if(!arrPerm.isEmpty()) {
                             String[] permissions = new String[arrPerm.size()];
                             permissions = arrPerm.toArray(permissions);
-                            try {
-                                ActivityCompat.
-                                        requestPermissions(getActivity(), permissions, MY_PERMISSIONS_REQUEST);
-                            } catch (ClassNotFoundException e) {
-                                e.printStackTrace();
-                            } catch (NoSuchMethodException e) {
-                                e.printStackTrace();
-                            } catch (IllegalAccessException e) {
-                                e.printStackTrace();
-                            } catch (NoSuchFieldException e) {
-                                e.printStackTrace();
-                            }
+                            ActivityCompat.
+                                    requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
                         }
 
                         locationTextSet();
