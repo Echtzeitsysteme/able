@@ -29,6 +29,7 @@ import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -180,9 +181,10 @@ public class BluetoothLeService extends Service {
      * @return Return true if the initialization is successful.
      */
     public boolean initialize() {
-        // For API level 18 and above, get a reference to BluetoothAdapter through
-        // BluetoothManager.
+
+
         if (mBluetoothManager == null) {
+
             mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
             if (mBluetoothManager == null) {
                 Log.e(TAG, "Unable to initialize BluetoothManager.");
@@ -190,7 +192,16 @@ public class BluetoothLeService extends Service {
             }
         }
 
-        mBluetoothAdapter = mBluetoothManager.getAdapter();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
+        {
+            mBluetoothAdapter = mBluetoothManager.getAdapter();
+        }else
+            {
+                //this  should never be accessed, ble is supported from API 18 and above
+                mBluetoothAdapter.getDefaultAdapter();
+            }
+
+
         if (mBluetoothAdapter == null) {
             Log.e(TAG, "Unable to obtain a BluetoothAdapter.");
             return false;
