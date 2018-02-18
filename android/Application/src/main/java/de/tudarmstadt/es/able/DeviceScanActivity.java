@@ -259,15 +259,12 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+
         if (!mScanning) {
             menu.findItem(R.id.menu_stop).setVisible(false);
             menu.findItem(R.id.menu_scan).setVisible(true);
             menu.findItem(R.id.menu_refresh).setActionView(null);
         } else {
-            //NEED TO REMOVE BEFORE Pushing finally
-            // DEBUGGING LOG
-            Log.d("SCANNING", "mScanning was true therefore scan should run...");
-            //NEED TO REMOVE CLOSE
             menu.findItem(R.id.menu_stop).setVisible(true);
             menu.findItem(R.id.menu_scan).setVisible(false);
             menu.findItem(R.id.menu_refresh).setActionView(
@@ -281,6 +278,13 @@ import static de.tudarmstadt.es.able.PermissionClass.isLocationEnabled;
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_scan:
+                //break condition, scan should only be available if all requirements fulfilled
+                //make it visible to the user via shown text.
+                if(mBluetoothAdapter ==null || !locationPermisstions)
+                {
+                    Toast.makeText(this, "Bluetooth or Location is NOT enabled, use the buttons please.", Toast.LENGTH_SHORT).show();
+                    break;
+                }
                 mLeDeviceListAdapter.clear();
                 scanLeDevice(true);
                 break;
