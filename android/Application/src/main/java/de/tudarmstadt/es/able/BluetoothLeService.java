@@ -228,7 +228,10 @@ public class BluetoothLeService extends Service {
         if (mBluetoothAdapter == null || address == null) {
             Toast.makeText(this, "BlutoothManager is null or unspecified address, calling connect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized or unspecified address.");
-            return false;
+
+            //TODO: check if necessary
+            throw new IllegalArgumentException();
+            //return false;
         }
 
         // Previously connected device.  Try to reconnect.
@@ -272,7 +275,10 @@ public class BluetoothLeService extends Service {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Toast.makeText(this, "BluetoothAdapter not initialized, calling disconnect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized");
-            return;
+
+            //TODO: check if necessary
+            throw new IllegalArgumentException();
+            //return;
         }
         mBluetoothGatt.disconnect();
     }
