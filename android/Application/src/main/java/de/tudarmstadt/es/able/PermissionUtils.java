@@ -16,7 +16,7 @@ import java.util.Map;
  * Created by user on 14.02.18.
  */
 
-public class PermissionClass {
+public class PermissionUtils {
 
 
     public static boolean isLocationEnabled(Context context) {
