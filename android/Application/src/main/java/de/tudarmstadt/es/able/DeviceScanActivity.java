@@ -89,6 +89,7 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
                         mBluetoothAdapter.disable();
                         bluetoothStatus.setText("BlueTooth is currently switched OFF");
                         bluetoothButton.setText("Switch ON Bluetooth");
+                        //mLeDeviceListAdapter.clear();
                     }
                     //enable the bluetooth adapter
                     else {
@@ -166,6 +167,7 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
                         }
 
                         locationTextSet();
+                        //mLeDeviceListAdapter.clear();
 
                     }
                     break;
@@ -189,16 +191,16 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
 
         //reference to the buttons
         bluetoothButton = new Button(this);
-        bluetoothButton = (Button) findViewById(R.id.bluetoothButton);
+        bluetoothButton = findViewById(R.id.bluetoothButton);
         bluetoothButton.setOnClickListener(buttonListener);
 
         locationButton = new Button(this);
-        locationButton = (Button) findViewById(R.id.locationButton);
+        locationButton = findViewById(R.id.locationButton);
         locationButton.setOnClickListener(buttonListener);
 
         //reference to the text views
-        bluetoothStatus = (TextView) findViewById(R.id.bluetoothStatus);
-        locationStatus = (TextView) findViewById(R.id.locationStatus);
+        bluetoothStatus = findViewById(R.id.bluetoothStatus);
+        locationStatus = findViewById(R.id.locationStatus);
 
         // Use this check to determine whether BLE is supported on the device.  Then you can
         // selectively disable BLE-related features.
@@ -270,7 +272,7 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
             case R.id.menu_scan:
                 //break condition, scan should only be available if all requirements fulfilled
                 //make it visible to the user via shown text.
-                if(mBluetoothAdapter ==null || !locationPermisstions)
+                if(!mBluetoothAdapter.isEnabled() || !locationPermisstions)
                 {
                     Toast.makeText(this, "Bluetooth or Location is NOT enabled, use the buttons please.", Toast.LENGTH_SHORT).show();
                     break;
