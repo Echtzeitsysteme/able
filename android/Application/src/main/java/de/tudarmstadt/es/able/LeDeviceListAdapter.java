@@ -8,19 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by user on 14.02.18.
  */
 // Adapter for holding devices found through scanning.
 class LeDeviceListAdapter extends BaseAdapter {
-    private ArrayList<BluetoothDevice> mLeDevices;
+    private List<BluetoothDevice> mLeDevices;
     private LayoutInflater mInflator;
 
     //Constructor
     public LeDeviceListAdapter(LayoutInflater inflater) {
         super();
-        mLeDevices = new ArrayList<BluetoothDevice>();
+        mLeDevices = new ArrayList<>();
         //mInflator = DeviceScanActivity.this.getLayoutInflater();
         mInflator = inflater;
     }
