@@ -72,3 +72,8 @@ local.properties
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 *.iml
+
+
+# UML specific attributes
+*.suml
+android/vpproject/
