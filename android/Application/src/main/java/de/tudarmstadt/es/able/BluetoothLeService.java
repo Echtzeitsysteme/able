@@ -55,6 +55,12 @@ public class BluetoothLeService extends Service {
     private static final int STATE_CONNECTING = 1;
     private static final int STATE_CONNECTED = 2;
 
+    private final boolean CONNECTION_SUCCEEDED = true;
+    private final boolean CONNECTION_FAILED = false;
+    private final boolean INITIALIZATION_SUCCEEDED = true;
+    private final boolean INITIALIZATION_FAILED = false;
+
+
     public final static String ACTION_GATT_CONNECTED =
             "com.example.bluetooth.le.ACTION_GATT_CONNECTED";
     public final static String ACTION_GATT_DISCONNECTED =
@@ -193,7 +199,7 @@ public class BluetoothLeService extends Service {
             if (mBluetoothManager == null) {
                 Toast.makeText(this, "Blutooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "Unable to initialize BluetoothManager.");
-                return false;
+                return INITIALIZATION_FAILED;
             }
         }
 
@@ -210,10 +216,10 @@ public class BluetoothLeService extends Service {
         if (mBluetoothAdapter == null) {
             Log.e(TAG, "Unable to obtain a BluetoothAdapter.");
             Toast.makeText(this, "Blutooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
-            return false;
+            return INITIALIZATION_FAILED;
         }
 
-        return true;
+        return INITIALIZATION_SUCCEEDED;
     }
 
     /**
@@ -231,7 +237,7 @@ public class BluetoothLeService extends Service {
             Toast.makeText(this, "BlutoothManager is null or unspecified address, calling connect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized or unspecified address.");
 
-            return false;
+            return CONNECTION_FAILED;
         }
 
         // Previously connected device.  Try to reconnect.
@@ -243,9 +249,9 @@ public class BluetoothLeService extends Service {
                     "Therefore try to disconnect and reconnect.", Toast.LENGTH_SHORT).show();
             if (mBluetoothGatt.connect()) {
                 mConnectionState = STATE_CONNECTING;
-                return true;
+                return CONNECTION_SUCCEEDED;
             } else {
-                return false;
+                return CONNECTION_FAILED;
             }
         }
 
@@ -253,18 +259,20 @@ public class BluetoothLeService extends Service {
         if (device == null) {
             Log.w(TAG, "Device not found.  Unable to connect.");
             Toast.makeText(this, "This device is no longer available. Try to refresh the list.", Toast.LENGTH_SHORT).show();
-            return false;
+            return CONNECTION_FAILED;
         }
         // We want to directly connect to the device, so we are setting the autoConnect
-        // parameter to false.
-        mBluetoothGatt = device.connectGatt(this, false, mGattCallback);
+        // For better understanding to choose this parameter take a look at the following link:
+        // https://stackoverflow.com/questions/40156699/which-correct-flag-of-autoconnect-in-connectgatt-of-ble
+        boolean noReconnectIfDisconnected = false;//attribute represent the intened behaviour, false means no reconnect intended
+        mBluetoothGatt = device.connectGatt(this, noReconnectIfDisconnected, mGattCallback);
         Log.d(TAG, "Trying to create a new connection.");
         //TODO: is this messageing necessary? was used for debugging earlier
         //this gets shown everytime a connection is established, may or may not be useful
         //Toast.makeText(this, "Trying to create a new connection, calling connect() .", Toast.LENGTH_SHORT).show();
         mBluetoothDeviceAddress = address;
         mConnectionState = STATE_CONNECTING;
-        return true;
+        return CONNECTION_SUCCEEDED;
     }
 
     /**
@@ -274,6 +282,7 @@ public class BluetoothLeService extends Service {
      * callback.
      */
     public void disconnect() {
+
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Toast.makeText(this, "BluetoothAdapter not initialized, calling disconnect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized");
