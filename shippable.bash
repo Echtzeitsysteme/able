@@ -6,7 +6,11 @@
 
 # Build Android application
 cd ./android
+
 bash ./gradlew clean test assemble
+exitCode=$?
+[ "$exitCode" == "0" ] || exit $exitCode
+
 cd ..
 
 # Provide test reports to Shippable

@@ -50,7 +50,7 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
  * Activity for scanning and displaying available Bluetooth LE devices.
  */
 //public class DeviceScanActivity extends ListActivity implements View.OnClickListener {
-    public class DeviceScanActivity extends ListActivity{
+public class DeviceScanActivity extends ListActivity{
 
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
