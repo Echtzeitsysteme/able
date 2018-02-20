@@ -4,8 +4,17 @@
 # Author: Roland Kluge
 # Date: 2017-02-20
 
+if [ ! -d "$ANDROID_HOME" ];
+then
+  echo "The ANDROID_HOME variable should point to the Android SDK installation. But is currently set to '$ANDROID_HOME'"
+  exit -1
+fi
+
 # Build Android application
 cd ./android
+
+# Accept licenses by copying the Android license to the Android SDK home
+cp ./licenses $ANDROID_HOME
 
 bash ./gradlew clean test assemble
 exitCode=$?
