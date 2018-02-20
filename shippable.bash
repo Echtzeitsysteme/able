@@ -14,7 +14,9 @@ fi
 cd ./android
 
 # Accept licenses by copying the Android license to the Android SDK home
-cp ./licenses $ANDROID_HOME
+# See also: https://developer.android.com/studio/intro/update.html#download-with-gradle
+mkdir -p $ANDROID_HOME/licenses
+cp -r ./licenses/* $ANDROID_HOME/licenses
 
 bash ./gradlew clean test assemble
 exitCode=$?
