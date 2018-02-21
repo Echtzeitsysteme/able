@@ -94,23 +94,35 @@ public class DeviceControlActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
+
+            if (isGattConnected(action))
+            {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
-            } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
+            }else
+
+            if (isGattDisconnected(action))
+            {
                 mConnected = false;
                 updateConnectionState(R.string.disconnected);
                 invalidateOptionsMenu();
                 clearUI();
-            } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
+            } else
+
+            if (hasDiscoveredGattservice(action))
+            {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
-            } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+            } else
+
+            if (availableData(action))
+            {
                 displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
             }
         }
     };
+
 
     // If a given GATT characteristic is selected, check for supported features.  This sample
     // demonstrates 'Read' and 'Notify' features.  See
@@ -297,6 +309,10 @@ public class DeviceControlActivity extends Activity {
         mGattServicesList.setAdapter(gattServiceAdapter);
     }
 
+    /**
+     * method to check changes using broadcastreceiver
+     * @return filterobject which contains all "keyphrases" the broadcaster shall listen to
+     */
     private static IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
@@ -304,5 +320,35 @@ public class DeviceControlActivity extends Activity {
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         return intentFilter;
+    }
+
+    /**
+     * Documentation for
+     * isGattConnected
+     * isGattDisconnected
+     * hasDiscoveredGassservice
+     * availableData
+     * methods created to make behaviour of broadcastreceiver more understandable/readable
+     * @param action
+     * @return
+     */
+    private boolean isGattConnected(String action)
+    {
+        return BluetoothLeService.ACTION_GATT_CONNECTED.equals(action);
+    }
+
+    private boolean isGattDisconnected(String action)
+    {
+        return BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action);
+    }
+
+    private boolean hasDiscoveredGattservice(String action)
+    {
+        return BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action);
+    }
+
+    private boolean availableData(String action)
+    {
+        return BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action);
     }
 }
