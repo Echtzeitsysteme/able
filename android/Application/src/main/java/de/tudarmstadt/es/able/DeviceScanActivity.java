@@ -23,12 +23,16 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -44,6 +48,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 //class to make permissionhandling more clear
+import static android.content.ContentValues.TAG;
 import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
 
 /**
@@ -77,6 +82,12 @@ public class DeviceScanActivity extends ListActivity{
     private static final int MY_PERMISSIONS_REQUEST= 1;
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;
+
+    //----------------------------------------------------------------------------------------------
+    //-Part of move of service----------------------------------------------------------------------
+    //private BluetoothLeService mBluetoothLeService;
+
+    //----------------------------------------------------------------------------------------------
 
     private View.OnClickListener buttonListener = new View.OnClickListener(){
         @Override
@@ -246,6 +257,11 @@ public class DeviceScanActivity extends ListActivity{
         mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
         setListAdapter(mLeDeviceListAdapter);
 
+        //Commented because of move to MainActivity-------------------------------------------------
+        //Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        //bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+        //------------------------------------------------------------------------------------------
+
     }
 
     @Override
@@ -314,6 +330,16 @@ public class DeviceScanActivity extends ListActivity{
 
         bluetoothTextSet();
         locationTextSet();
+
+        //Commented because of move to MainActivity-------------------------------------------------
+
+        /*registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
+        if (mBluetoothLeService != null) {
+            final boolean result = mBluetoothLeService.connect(mDeviceAddress);
+            Log.d(TAG, "Connect request result=" + result);
+        }
+*/
+        //------------------------------------------------------------------------------------------
     }
 
 
@@ -351,6 +377,11 @@ public class DeviceScanActivity extends ListActivity{
 
         //not clearing the devicelist
         //mLeDeviceListAdapter.clear();
+
+
+        //Commented because of move to MainActivity-------------------------------------------------
+        //unregisterReceiver(mGattUpdateReceiver);
+        //------------------------------------------------------------------------------------------
     }
 
 
@@ -360,6 +391,16 @@ public class DeviceScanActivity extends ListActivity{
         //probably going to use later
         super.onStop();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        //Commented because of move to MainActivity-------------------------------------------------
+        /*unbindService(mServiceConnection);
+        mBluetoothLeService = null;*/
+        //------------------------------------------------------------------------------------------
     }
 
     @Override
@@ -373,6 +414,11 @@ public class DeviceScanActivity extends ListActivity{
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
             mScanning = false;
         }
+
+        //This is going to be the section, where the service checks for all
+
+
+
         startActivity(intent);
     }
 
@@ -444,5 +490,116 @@ public class DeviceScanActivity extends ListActivity{
             bluetoothStatus.setText("BlueTooth is currently switched OFF");
             bluetoothButton.setText("Switch ON Bluetooth");
         }
+    }
+
+
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------
+    //First step is to move initializing and handling of bleService to MainActivity-----------------
+    //----------------------------------------------------------------------------------------------
+    // Code to manage Service lifecycle.
+    /*private final ServiceConnection mServiceConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder service) {
+            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+            if (!mBluetoothLeService.initialize()) {
+                Log.e(TAG, "Unable to initialize Bluetooth");
+                finish();
+            }
+            // Automatically connects to the device upon successful start-up initialization.
+            mBluetoothLeService.connect(mDeviceAddress);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            mBluetoothLeService = null;
+        }
+    };
+
+    // Handles various events fired by the Service.
+    // ACTION_GATT_CONNECTED: connected to a GATT server.
+    // ACTION_GATT_DISCONNECTED: disconnected from a GATT server.
+    // ACTION_GATT_SERVICES_DISCOVERED: discovered GATT services.
+    // ACTION_DATA_AVAILABLE: received data from the device.  This can be a result of read
+    //                        or notification operations.
+    private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+
+            if (isGattConnected(action))
+            {
+                mConnected = true;
+                updateConnectionState(R.string.connected);
+                invalidateOptionsMenu();
+            }else
+
+            if (isGattDisconnected(action))
+            {
+                mConnected = false;
+                updateConnectionState(R.string.disconnected);
+                invalidateOptionsMenu();
+                clearUI();
+            } else
+
+            if (hasDiscoveredGattservice(action))
+            {
+                // Show all the supported services and characteristics on the user interface.
+                displayGattServices(mBluetoothLeService.getSupportedGattServices());
+            } else
+
+            if (availableData(action))
+            {
+                displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+            }
+        }
+    };*/
+
+    /**
+     * Documentation for
+     * isGattConnected
+     * isGattDisconnected
+     * hasDiscoveredGassservice
+     * availableData
+     * methods created to make behaviour of broadcastreceiver more understandable/readable
+     * @param action
+     * @return
+     */
+    private boolean isGattConnected(String action)
+    {
+        return BluetoothLeService.ACTION_GATT_CONNECTED.equals(action);
+    }
+
+    private boolean isGattDisconnected(String action)
+    {
+        return BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action);
+    }
+
+    private boolean hasDiscoveredGattservice(String action)
+    {
+        return BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action);
+    }
+
+    private boolean availableData(String action)
+    {
+        return BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action);
+    }
+
+    /**
+     * method to check changes using broadcastreceiver
+     * @return filterobject which contains all "keyphrases" the broadcaster shall listen to
+     */
+    private static IntentFilter makeGattUpdateIntentFilter() {
+        final IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
+        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
+        intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
+        return intentFilter;
     }
 }
