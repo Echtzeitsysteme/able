@@ -34,11 +34,13 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
 import static de.tudarmstadt.es.able.CharacteristicSorterClass.settingUpServices;
 
 
@@ -86,7 +88,7 @@ public class DeviceControlActivity extends Activity {
     //Commented because of move to MainActivity
     //*
     // Code to manage Service lifecycle.
-    private final ServiceConnection mServiceConnection = new ServiceConnection() {
+   /* private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
@@ -98,13 +100,14 @@ public class DeviceControlActivity extends Activity {
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
             Log.d(TAG, "onServiceConnected: WE BOUND OUR SERVICE !");
+            Log.d(TAG, "onServiceConnected: HAHA NEVER HAPPENDED");
         }
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
             mBluetoothLeService = null;
         }
-    };
+    };*/
 
 
 
@@ -160,6 +163,7 @@ public class DeviceControlActivity extends Activity {
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
 
+
         // Sets up UI references.
         ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
         mGattServicesList = findViewById(R.id.gatt_services_list);
@@ -171,8 +175,8 @@ public class DeviceControlActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Commented because of move to MainActivity------------------------------------------------
-        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
-        bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+        //Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        //bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
         //------------------------------------------------------------------------------------------
         ins = this;
@@ -190,7 +194,11 @@ public class DeviceControlActivity extends Activity {
         //Commented because of move to MainActivity-------------------------------------------------
         registerReceiver(thisReceiver ,
                 BroadcastReceiverAndFilterDefinition.makeGattUpdateIntentFilter());
+        mBluetoothLeService = DeviceScanActivity.getmBluetoothLeService();
+
+
         if (mBluetoothLeService != null) {
+            Toast.makeText(this, "BluetoothLeService is static, hope that works out :)", Toast.LENGTH_SHORT).show();
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
             Log.d(TAG, "Connect request result=" + result);
         }
@@ -210,7 +218,7 @@ public class DeviceControlActivity extends Activity {
         super.onDestroy();
 
         //Commented because of move to MainActivity-------------------------------------------------
-        unbindService(mServiceConnection);
+        //unbindService(mServiceConnection);
         mBluetoothLeService = null;
         //------------------------------------------------------------------------------------------
     }
@@ -234,6 +242,11 @@ public class DeviceControlActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_connect:
+                //Toast.makeText(this, mDeviceAddress, Toast.LENGTH_SHORT).show();
+                if(mBluetoothLeService == null)
+                {
+                    Toast.makeText(this, "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
+                }
                 mBluetoothLeService.connect(mDeviceAddress);
                 return true;
             case R.id.menu_disconnect:

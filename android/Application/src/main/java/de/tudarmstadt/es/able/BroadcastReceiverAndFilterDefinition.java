@@ -54,10 +54,6 @@ public class BroadcastReceiverAndFilterDefinition extends BroadcastReceiver {
 
         if (hasDiscoveredGattservice(action))
         {
-            // Show all the supported services and characteristics on the user interface.
-            //if(mBluetoothLeService.getSupportedGattServices() == null){
-            //    Log.d(TAG, "getSupportedGattServices: DUDE WE GOT NULL SERVICES ATTENTION");
-            //}
             getInstaceOfDeviceControlActivity().displayGattServices(
                     getInstaceOfDeviceControlActivity().getmBluetoothLeService().getSupportedGattServices());
         } else
@@ -110,26 +106,6 @@ public class BroadcastReceiverAndFilterDefinition extends BroadcastReceiver {
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         return intentFilter;
     }
-
-    /*private void updateConnectionState(final int resourceId) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mConnectionState.setText(resourceId);
-            }
-        });
-    }
-
-    private void displayData(String data) {
-        if (data != null) {
-            mDataField.setText(data);
-        }
-    }
-
-    private void clearUI() {
-        mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
-        mDataField.setText(R.string.no_data);
-    }*/
 
 
 }

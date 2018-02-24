@@ -261,7 +261,7 @@ public class BluetoothLeService extends Service {
             Toast.makeText(this, "This device is no longer available. Try to refresh the list.", Toast.LENGTH_SHORT).show();
             return CONNECTION_FAILED;
         }
-        // We want to directly connect to the device, so we are setting the autoConnect
+        // We want directly connect to the device, so we are setting the autoConnect
         // For better understanding to choose this parameter take a look at the following link:
         // https://stackoverflow.com/questions/40156699/which-correct-flag-of-autoconnect-in-connectgatt-of-ble
         boolean noReconnectIfDisconnected = false;//attribute represent the intened behaviour, false means no reconnect intended

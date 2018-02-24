@@ -86,7 +86,12 @@ public class DeviceScanActivity extends ListActivity{
     //----------------------------------------------------------------------------------------------
     //-Part of move of service----------------------------------------------------------------------
     //private BluetoothLeService mBluetoothLeService;
-
+    private static BluetoothLeService mBluetoothLeService;
+    BroadcastReceiverAndFilterDefinition DeviceScanActivityReiceiver;//probably always the same receiver..
+    int someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
+    private String mDeviceName;
+    private String mDeviceAddress;
+    private boolean mConnected = false;
     //----------------------------------------------------------------------------------------------
 
     private View.OnClickListener buttonListener = new View.OnClickListener(){
@@ -188,6 +193,10 @@ public class DeviceScanActivity extends ListActivity{
     };
 
 
+    public BluetoothLeService getmBluetoothLeServiceFromDeviceScanActivity() {
+        return mBluetoothLeService;
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -258,9 +267,10 @@ public class DeviceScanActivity extends ListActivity{
         setListAdapter(mLeDeviceListAdapter);
 
         //Commented because of move to MainActivity-------------------------------------------------
-        //Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
-        //bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
         //------------------------------------------------------------------------------------------
+
 
     }
 
@@ -331,6 +341,10 @@ public class DeviceScanActivity extends ListActivity{
         bluetoothTextSet();
         locationTextSet();
 
+        DeviceScanActivityReiceiver = new BroadcastReceiverAndFilterDefinition(mConnected);
+        //Commented because of move to MainActivity-------------------------------------------------
+        registerReceiver(DeviceScanActivityReiceiver ,
+                BroadcastReceiverAndFilterDefinition.makeGattUpdateIntentFilter());
         //Commented because of move to MainActivity-------------------------------------------------
 
         /*registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
@@ -396,20 +410,32 @@ public class DeviceScanActivity extends ListActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         //Commented because of move to MainActivity-------------------------------------------------
-        /*unbindService(mServiceConnection);
-        mBluetoothLeService = null;*/
+        unbindService(mServiceConnection);
+        //mBluetoothLeService = null;
         //------------------------------------------------------------------------------------------
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    protected void onListItemClick(ListView l, View v, int position, long id)
+    {
+        if(someFreakyCounterCauseIDoNotSeeAnotherWay <= 2)
+        {
+            Toast.makeText(this, "Next step is to trigger a search for specific services.", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "onListItemClick: counter works fine...");
+            someFreakyCounterCauseIDoNotSeeAnotherWay++;
+            return;
+        }
         final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
         if (device == null) return;
         final Intent intent = new Intent(this, DeviceControlActivity.class);
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+
+        //-----
+        mDeviceName = device.getName();
+        mDeviceAddress = device.getAddress();
+        //-----
         if (mScanning) {
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
             mScanning = false;
@@ -418,9 +444,11 @@ public class DeviceScanActivity extends ListActivity{
         //This is going to be the section, where the service checks for all
 
 
-
+        someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
         startActivity(intent);
     }
+
+
 
     private void scanLeDevice(final boolean enable) {
         if (enable) {
@@ -502,7 +530,7 @@ public class DeviceScanActivity extends ListActivity{
     //First step is to move initializing and handling of bleService to MainActivity-----------------
     //----------------------------------------------------------------------------------------------
     // Code to manage Service lifecycle.
-    /*private final ServiceConnection mServiceConnection = new ServiceConnection() {
+    private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
@@ -513,15 +541,21 @@ public class DeviceScanActivity extends ListActivity{
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
+            Log.d(TAG, "onServiceConnected: WE BOUND OUR SERVICE !");
         }
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
             mBluetoothLeService = null;
+            Log.d(TAG, "onServiceConnected: WE UN....BOUND OUR SERVICE !");
         }
     };
 
-    */
+    public static BluetoothLeService getmBluetoothLeService() {
+        return mBluetoothLeService;
+    }
+
+
 
 
 }
