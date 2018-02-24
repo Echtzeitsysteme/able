@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static de.tudarmstadt.es.able.characteristicSorterClass.settingUpServices;
+import static de.tudarmstadt.es.able.CharacteristicSorterClass.settingUpServices;
 
 
 /**
@@ -62,10 +62,14 @@ public class DeviceControlActivity extends Activity {
 
     //Commented because of move to MainActivity-----------------------------------------------------
     private BluetoothLeService mBluetoothLeService;
-    //--tryout
-    characteristicSorterClass containsCollections = null;
+    //--tryout. Those objects needed to be declared,
+    // to not get NullPointerExceptions if the declaration and assignment
+    // is done in onResume. Thats
+    CharacteristicSorterClass containsCollections = null;
     List<HashMap<String, String>> gattServiceData = new ArrayList<>();
     List<ArrayList<HashMap<String, String>>> gattCharacteristicData = new ArrayList<>();
+    private static DeviceControlActivity ins;
+    BroadcastReceiverAndFilterDefinition thisReceiver;
     //----------------------------------------------------------------------------------------------
 
     private List<List<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<>();
@@ -75,6 +79,9 @@ public class DeviceControlActivity extends Activity {
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
 
+    public BluetoothLeService getmBluetoothLeService() {
+        return mBluetoothLeService;
+    }
 
     //Commented because of move to MainActivity
     //*
@@ -90,6 +97,7 @@ public class DeviceControlActivity extends Activity {
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
+            Log.d(TAG, "onServiceConnected: WE BOUND OUR SERVICE !");
         }
 
         @Override
@@ -99,44 +107,7 @@ public class DeviceControlActivity extends Activity {
     };
 
 
-    // Handles various events fired by the Service.
-    // ACTION_GATT_CONNECTED: connected to a GATT server.
-    // ACTION_GATT_DISCONNECTED: disconnected from a GATT server.
-    // ACTION_GATT_SERVICES_DISCOVERED: discovered GATT services.
-    // ACTION_DATA_AVAILABLE: received data from the device.  This can be a result of read
-    //                        or notification operations.
-    private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final String action = intent.getAction();
 
-            if (isGattConnected(action))
-            {
-                mConnected = true;
-                updateConnectionState(R.string.connected);
-                invalidateOptionsMenu();
-            }else
-
-            if (isGattDisconnected(action))
-            {
-                mConnected = false;
-                updateConnectionState(R.string.disconnected);
-                invalidateOptionsMenu();
-                clearUI();
-            } else
-
-            if (hasDiscoveredGattservice(action))
-            {
-                // Show all the supported services and characteristics on the user interface.
-                displayGattServices(mBluetoothLeService.getSupportedGattServices());
-            } else
-
-            if (availableData(action))
-            {
-                displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
-            }
-        }
-    };
     //*/
 
 
@@ -174,7 +145,8 @@ public class DeviceControlActivity extends Activity {
                 }
     };
 
-    private void clearUI() {
+
+    void clearUI() {
         mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
         mDataField.setText(R.string.no_data);
     }
@@ -201,16 +173,23 @@ public class DeviceControlActivity extends Activity {
         //Commented because of move to MainActivity------------------------------------------------
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
         //------------------------------------------------------------------------------------------
+        ins = this;
+    }
+
+    public static DeviceControlActivity  getInstaceOfDeviceControlActivity(){
+        return ins;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-
+        thisReceiver= new BroadcastReceiverAndFilterDefinition(mConnected);
         //Commented because of move to MainActivity-------------------------------------------------
-        registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
+        registerReceiver(thisReceiver ,
+                BroadcastReceiverAndFilterDefinition.makeGattUpdateIntentFilter());
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
             Log.d(TAG, "Connect request result=" + result);
@@ -222,7 +201,7 @@ public class DeviceControlActivity extends Activity {
     protected void onPause() {
         super.onPause();
         //Commented because of move to MainActivity-------------------------------------------------
-        unregisterReceiver(mGattUpdateReceiver);
+        unregisterReceiver(thisReceiver);
         //------------------------------------------------------------------------------------------
     }
 
@@ -270,8 +249,8 @@ public class DeviceControlActivity extends Activity {
 
 
 
-
-    private void updateConnectionState(final int resourceId) {
+    //Not Commented because of move to MainActivity, but reused-------------------------------------
+    void updateConnectionState(final int resourceId) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -280,20 +259,21 @@ public class DeviceControlActivity extends Activity {
         });
     }
 
-    private void displayData(String data) {
+    void displayData(String data) {
         if (data != null) {
             mDataField.setText(data);
         }
     }
+    //----------------------------------------------------------------------------------------------
 
 
-    //TODO THIS NEED TO BE SEPERATED, VISUALIZATION AND SETTING UP THE COLLECTION !!!
+    // NOW visualization is done in the activity, while sorting gets done from settingsUpServices(..)
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.
     // In this sample, we populate the data structure that is bound to the ExpandableListView
     // on the UI.
-    private void displayGattServices(List<BluetoothGattService> gattServices) {
+    void displayGattServices(List<BluetoothGattService> gattServices) {
         if (gattServices == null) return;
-        
+
         containsCollections = settingUpServices(gattServices, LIST_NAME, LIST_UUID, mGattCharacteristics, this);
         gattServiceData = containsCollections.getGattServiceData();
         gattCharacteristicData = containsCollections.getGattCharacteristicData();
@@ -313,50 +293,4 @@ public class DeviceControlActivity extends Activity {
         mGattServicesList.setAdapter(gattServiceAdapter);
     }
 
-
-    //Commented because of move to MainActivity
-    /**
-     * method to check changes using broadcastreceiver
-     * @return filterobject which contains all "keyphrases" the broadcaster shall listen to
-     */
-    //*
-    private static IntentFilter makeGattUpdateIntentFilter() {
-        final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
-        intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
-        return intentFilter;
-    }//*/
-
-    /**
-     * Documentation for
-     * isGattConnected
-     * isGattDisconnected
-     * hasDiscoveredGassservice
-     * availableData
-     * methods created to make behaviour of broadcastreceiver more understandable/readable
-     * @param action
-     * @return
-     */
-    //*
-    private boolean isGattConnected(String action)
-    {
-        return BluetoothLeService.ACTION_GATT_CONNECTED.equals(action);
-    }
-
-    private boolean isGattDisconnected(String action)
-    {
-        return BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action);
-    }
-
-    private boolean hasDiscoveredGattservice(String action)
-    {
-        return BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action);
-    }
-
-    private boolean availableData(String action)
-    {
-        return BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action);
-    }//*/
 }

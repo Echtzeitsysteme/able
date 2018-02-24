@@ -12,13 +12,13 @@ import java.util.List;
  * Created by user on 23.02.18.
  */
 
-public class characteristicSorterClass {
+public class CharacteristicSorterClass {
 
     private List<HashMap<String, String>> gattServiceData = null;
     private List<ArrayList<HashMap<String, String>>> gattCharacteristicData = null;
     List<List<BluetoothGattCharacteristic>> characteristicList = null;
 
-    public characteristicSorterClass(List<HashMap<String, String>> gattServiceData,
+    public CharacteristicSorterClass(List<HashMap<String, String>> gattServiceData,
                                      List<ArrayList<HashMap<String, String>>> gattCharacteristicData,
                                      List<List<BluetoothGattCharacteristic>> characteristicList)
     {
@@ -29,7 +29,7 @@ public class characteristicSorterClass {
 
 
 
-    static characteristicSorterClass settingUpServices(List<BluetoothGattService> gattServices, String listName, String listUUID,
+    static CharacteristicSorterClass settingUpServices(List<BluetoothGattService> gattServices, String listName, String listUUID,
                                                        List<List<BluetoothGattCharacteristic>> characteristicList, Context context) {
         String uuid = null;
         String unknownServiceString = context.getResources().getString(R.string.unknown_service);
@@ -69,7 +69,7 @@ public class characteristicSorterClass {
             gattCharacteristicData.add(gattCharacteristicGroupData);
         }
 
-        characteristicSorterClass objectToReturn = new characteristicSorterClass(gattServiceData, gattCharacteristicData,characteristicList);
+        CharacteristicSorterClass objectToReturn = new CharacteristicSorterClass(gattServiceData, gattCharacteristicData,characteristicList);
 
         return objectToReturn;
     }
