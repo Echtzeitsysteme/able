@@ -26,7 +26,6 @@ import android.bluetooth.le.BluetoothLeScanner;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
@@ -55,7 +54,7 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
  * Activity for scanning and displaying available Bluetooth LE devices.
  */
 //public class DeviceScanActivity extends ListActivity implements View.OnClickListener {
-public class DeviceScanActivity extends ListActivity{
+public class DeviceScanActivity extends ListActivity implements BLEServiceListener{
 
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
@@ -87,7 +86,7 @@ public class DeviceScanActivity extends ListActivity{
     //-Part of move of service----------------------------------------------------------------------
     //private BluetoothLeService mBluetoothLeService;
     private static BluetoothLeService mBluetoothLeService;
-    BroadcastReceiverAndFilterDefinition DeviceScanActivityReiceiver;//probably always the same receiver..
+    BLEBroadcastReceiver DeviceScanActivityReiceiver;//probably always the same receiver..
     int someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
     private String mDeviceName;
     private String mDeviceAddress;
@@ -341,10 +340,10 @@ public class DeviceScanActivity extends ListActivity{
         bluetoothTextSet();
         locationTextSet();
 
-        DeviceScanActivityReiceiver = new BroadcastReceiverAndFilterDefinition(mConnected);
+        DeviceScanActivityReiceiver = new BLEBroadcastReceiver(this);
         //Commented because of move to MainActivity-------------------------------------------------
         registerReceiver(DeviceScanActivityReiceiver ,
-                BroadcastReceiverAndFilterDefinition.makeGattUpdateIntentFilter());
+                DeviceScanActivityReiceiver.makeGattUpdateIntentFilter());
         //Commented because of move to MainActivity-------------------------------------------------
 
         /*registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
@@ -360,6 +359,8 @@ public class DeviceScanActivity extends ListActivity{
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // this needs to be overriden to use startActivityForResult(...)
+        // should be tweaked for better behavior in according to userbehaviour
         // User chose not to enable Bluetooth.
         if (requestCode == REQUEST_ENABLE_BT && resultCode == Activity.RESULT_CANCELED) {
             finish();
@@ -419,7 +420,7 @@ public class DeviceScanActivity extends ListActivity{
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id)
     {
-        if(someFreakyCounterCauseIDoNotSeeAnotherWay <= 2)
+        if(someFreakyCounterCauseIDoNotSeeAnotherWay <1 )
         {
             Toast.makeText(this, "Next step is to trigger a search for specific services.", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "onListItemClick: counter works fine...");
@@ -488,6 +489,28 @@ public class DeviceScanActivity extends ListActivity{
             });
         }
     };
+
+
+    //methods which needed to be implemented because of the BLEServiceListener interface
+    @Override
+    public void gattConnected() {
+
+    }
+
+    @Override
+    public void gattDisconnected() {
+
+    }
+
+    @Override
+    public void gattServicesDiscovered() {
+
+    }
+
+    @Override
+    public void dataAvailable(Intent intent) {
+
+    }
 
     static class ViewHolder {
         TextView deviceName;

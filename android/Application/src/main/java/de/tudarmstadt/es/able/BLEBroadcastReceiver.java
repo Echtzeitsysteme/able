@@ -15,16 +15,16 @@ import static de.tudarmstadt.es.able.DeviceControlActivity.*;
  * Created by user on 23.02.18.
  */
 
-public class BroadcastReceiverAndFilterDefinition extends BroadcastReceiver {
+public class BLEBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = "BroadcastReceiverAndFil";
 
-    private boolean mConnected = false;
+    //private boolean mConnected = false;
     //private BluetoothLeService mBluetoothLeService;
     //private DeviceControlActivity fakeActivity = null;
+    private BLEServiceListener listener;
 
-
-    public BroadcastReceiverAndFilterDefinition(boolean mConnected) {
-        this.mConnected = mConnected;
+    public BLEBroadcastReceiver(BLEServiceListener listener) {
+        this.listener = listener;
     }
 
     // Handles various events fired by the Service.
@@ -39,28 +39,22 @@ public class BroadcastReceiverAndFilterDefinition extends BroadcastReceiver {
 
         if (isGattConnected(action))
         {
-            mConnected = true;
-            getInstaceOfDeviceControlActivity().updateConnectionState(R.string.connected);
-            getInstaceOfDeviceControlActivity().invalidateOptionsMenu();
+            listener.gattConnected();
         }else
 
         if (isGattDisconnected(action))
         {
-            mConnected = false;
-            getInstaceOfDeviceControlActivity().updateConnectionState(R.string.disconnected);
-            getInstaceOfDeviceControlActivity().invalidateOptionsMenu();
-            getInstaceOfDeviceControlActivity().clearUI();
+            listener.gattDisconnected();
         } else
 
         if (hasDiscoveredGattservice(action))
         {
-            getInstaceOfDeviceControlActivity().displayGattServices(
-                    getInstaceOfDeviceControlActivity().getmBluetoothLeService().getSupportedGattServices());
+            listener.gattServicesDiscovered();
         } else
 
         if (availableData(action))
         {
-            getInstaceOfDeviceControlActivity().displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+            listener.dataAvailable(intent);
         }
     }
 
@@ -98,7 +92,7 @@ public class BroadcastReceiverAndFilterDefinition extends BroadcastReceiver {
      * method to check changes using broadcastreceiver
      * @return filterobject which contains all "keyphrases" the broadcaster shall listen to
      */
-    static IntentFilter makeGattUpdateIntentFilter() {
+    IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);

@@ -19,14 +19,8 @@ package de.tudarmstadt.es.able;
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,7 +34,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static android.content.ContentValues.TAG;
 import static de.tudarmstadt.es.able.CharacteristicSorterClass.settingUpServices;
 
 
@@ -50,7 +43,7 @@ import static de.tudarmstadt.es.able.CharacteristicSorterClass.settingUpServices
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
  */
-public class DeviceControlActivity extends Activity {
+public class DeviceControlActivity extends Activity implements BLEServiceListener {
     private final static String TAG = DeviceControlActivity.class.getSimpleName();
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
@@ -70,8 +63,7 @@ public class DeviceControlActivity extends Activity {
     CharacteristicSorterClass containsCollections = null;
     List<HashMap<String, String>> gattServiceData = new ArrayList<>();
     List<ArrayList<HashMap<String, String>>> gattCharacteristicData = new ArrayList<>();
-    private static DeviceControlActivity ins;
-    BroadcastReceiverAndFilterDefinition thisReceiver;
+    BLEBroadcastReceiver thisReceiver;
     //----------------------------------------------------------------------------------------------
 
     private List<List<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<>();
@@ -179,22 +171,20 @@ public class DeviceControlActivity extends Activity {
         //bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
         //------------------------------------------------------------------------------------------
-        ins = this;
     }
 
-    public static DeviceControlActivity  getInstaceOfDeviceControlActivity(){
-        return ins;
-    }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
 
-        thisReceiver= new BroadcastReceiverAndFilterDefinition(mConnected);
+        thisReceiver= new BLEBroadcastReceiver(this);
         //Commented because of move to MainActivity-------------------------------------------------
         registerReceiver(thisReceiver ,
-                BroadcastReceiverAndFilterDefinition.makeGattUpdateIntentFilter());
+                thisReceiver.makeGattUpdateIntentFilter());
         mBluetoothLeService = DeviceScanActivity.getmBluetoothLeService();
+
 
 
         if (mBluetoothLeService != null) {
@@ -306,4 +296,33 @@ public class DeviceControlActivity extends Activity {
         mGattServicesList.setAdapter(gattServiceAdapter);
     }
 
+
+    //methods which needed to be implemented because of the BLEServiceListener interface
+    @Override
+    public void gattConnected() {
+
+        mConnected = true;
+        updateConnectionState(R.string.connected);
+        invalidateOptionsMenu();
+
+    }
+
+    @Override
+    public void gattDisconnected() {
+        mConnected = false;
+        updateConnectionState(R.string.disconnected);
+        invalidateOptionsMenu();
+        clearUI();
+    }
+
+    @Override
+    public void gattServicesDiscovered() {
+        displayGattServices(getmBluetoothLeService().getSupportedGattServices());
+    }
+
+    @Override
+    public void dataAvailable(Intent intent)
+    {
+        displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+    }
 }
