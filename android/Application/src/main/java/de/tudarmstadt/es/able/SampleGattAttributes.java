@@ -26,6 +26,13 @@ public class SampleGattAttributes {
     public static String HEART_RATE_MEASUREMENT = "00002a37-0000-1000-8000-00805f9b34fb";
     public static String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
 
+    //contains characteristic data
+    //private final static String baseUUID =               "00000000-0000-1000-8000-00805f9b34f";
+    //private final static String capsenseLedServiceUUID =      baseUUID + "0";
+    //public  final static String ledCharacteristicUUID =       baseUUID + "1";
+    //public  final static String capsenseCharacteristicUUID =  baseUUID + "2";
+
+
     static {
         // Sample Services.
         attributes.put("0000180d-0000-1000-8000-00805f9b34fb", "Heart Rate Service");

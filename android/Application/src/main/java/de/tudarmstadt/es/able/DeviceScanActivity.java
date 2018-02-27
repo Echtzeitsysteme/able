@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.content.ComponentName;
@@ -29,6 +30,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -45,6 +47,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //class to make permissionhandling more clear
 import static android.content.ContentValues.TAG;
@@ -91,6 +94,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private String mDeviceName;
     private String mDeviceAddress;
     private boolean mConnected = false;
+    private boolean isKnownToSystem = false;
     //----------------------------------------------------------------------------------------------
 
     private View.OnClickListener buttonListener = new View.OnClickListener(){
@@ -389,6 +393,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         scanLeDevice(false);
 
         locationTextSet();
+        unregisterReceiver(DeviceScanActivityReiceiver);
 
         //not clearing the devicelist
         //mLeDeviceListAdapter.clear();
@@ -420,13 +425,43 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id)
     {
-        if(someFreakyCounterCauseIDoNotSeeAnotherWay <1 )
+        //implementing connection before changing activity...---------------------------------BEGINN
+        //isKnownToSystem = false;
+        if(someFreakyCounterCauseIDoNotSeeAnotherWay <2 )
         {
-            Toast.makeText(this, "Next step is to trigger a search for specific services.", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "onListItemClick: counter works fine...");
+
+            final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
+            if (device == null) return;
+            if (mBluetoothLeService != null)
+            {
+
+                final boolean result = mBluetoothLeService.connect(device.getAddress());
+                Log.d(TAG, "Connect request result=" + result);
+                Toast.makeText(this, "Connect request result=" + result, Toast.LENGTH_SHORT).show();
+            }
+            //HERE the Receiver works, therefore actually we need to wait for his methodcall gets done.
+
+
+            if(isKnownToSystem)
+            {
+                final Intent specificIntent = new Intent(this, CapLedActivity.class);
+                specificIntent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                specificIntent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+
+                    if (mScanning) {
+                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                        mScanning = false;
+                    }
+
+                    someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
+                    isKnownToSystem = false;
+                    startActivity(specificIntent);
+                    return;
+            }
             someFreakyCounterCauseIDoNotSeeAnotherWay++;
             return;
         }
+        //implementing connection before changing activity...-----------------------------------DONE
         final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
         if (device == null) return;
         final Intent intent = new Intent(this, DeviceControlActivity.class);
@@ -442,7 +477,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             mScanning = false;
         }
 
-        //This is going to be the section, where the service checks for all
+
 
 
         someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
@@ -490,11 +525,35 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         }
     };
 
+    private boolean checkForKnownServices()
+    {
+        List<BluetoothGattService>  tmpList = mBluetoothLeService.getSupportedGattServices();
+        Toast.makeText(this, "Looking for "+ UUID_Enum.capsenseLedServiceUUID.getRepresentation() , Toast.LENGTH_SHORT).show();
+
+        for(BluetoothGattService tmpGattService : tmpList)
+        {
+
+            Toast.makeText(this, "tmpGattService.getUuid().toString() "+ tmpGattService.getUuid().toString() , Toast.LENGTH_SHORT).show();
+            //TODO: can be expanded by iteration over given servicecollection/enum like below
+            //for(UUID_Enum currentUUID : UUID_Enum.values()){foo && bar;}
+
+            if(tmpGattService.getUuid().toString().equalsIgnoreCase(UUID_Enum.capsenseLedServiceUUID.getRepresentation()))
+            {
+
+                Toast.makeText(this, "Found a known service "+ UUID_Enum.capsenseLedServiceUUID
+                        +" now we can activate specific activity.", Toast.LENGTH_SHORT).show();
+                mBluetoothLeService.disconnect();
+                return true;
+            }
+        }
+        mBluetoothLeService.disconnect();
+        return false;
+    };
 
     //methods which needed to be implemented because of the BLEServiceListener interface
     @Override
     public void gattConnected() {
-
+        Toast.makeText(this, "Connected to gatt from BroadcastReceiver.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -504,7 +563,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
     @Override
     public void gattServicesDiscovered() {
-
+        isKnownToSystem = checkForKnownServices();
     }
 
     @Override
@@ -577,8 +636,5 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     public static BluetoothLeService getmBluetoothLeService() {
         return mBluetoothLeService;
     }
-
-
-
 
 }

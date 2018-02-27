@@ -243,6 +243,7 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
                 mBluetoothLeService.disconnect();
                 return true;
             case android.R.id.home:
+                mBluetoothLeService.disconnect();
                 onBackPressed();
                 return true;
         }
