@@ -30,7 +30,6 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -57,7 +56,7 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
  * Activity for scanning and displaying available Bluetooth LE devices.
  */
 //public class DeviceScanActivity extends ListActivity implements View.OnClickListener {
-public class DeviceScanActivity extends ListActivity implements BLEServiceListener{
+public class DeviceScanActivity extends ListActivity implements BLEServiceListener,CapLedConstants{
 
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
@@ -89,7 +88,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     //-Part of move of service----------------------------------------------------------------------
     //private BluetoothLeService mBluetoothLeService;
     private static BluetoothLeService mBluetoothLeService;
-    BLEBroadcastReceiver DeviceScanActivityReiceiver;//probably always the same receiver..
+    private BLEBroadcastReceiver deviceScanActivityReiceiver;//probably always the same receiver..
     int someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
     private String mDeviceName;
     private String mDeviceAddress;
@@ -344,10 +343,10 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         bluetoothTextSet();
         locationTextSet();
 
-        DeviceScanActivityReiceiver = new BLEBroadcastReceiver(this);
+        deviceScanActivityReiceiver = new BLEBroadcastReceiver(this);
         //Commented because of move to MainActivity-------------------------------------------------
-        registerReceiver(DeviceScanActivityReiceiver ,
-                DeviceScanActivityReiceiver.makeGattUpdateIntentFilter());
+        registerReceiver(deviceScanActivityReiceiver,
+                deviceScanActivityReiceiver.makeGattUpdateIntentFilter());
         //Commented because of move to MainActivity-------------------------------------------------
 
         /*registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
@@ -393,7 +392,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         scanLeDevice(false);
 
         locationTextSet();
-        unregisterReceiver(DeviceScanActivityReiceiver);
+        unregisterReceiver(deviceScanActivityReiceiver);
 
         //not clearing the devicelist
         //mLeDeviceListAdapter.clear();
@@ -537,7 +536,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             //TODO: can be expanded by iteration over given servicecollection/enum like below
             //for(UUID_Enum currentUUID : UUID_Enum.values()){foo && bar;}
 
-            if(tmpGattService.getUuid().toString().equalsIgnoreCase(UUID_Enum.capsenseLedServiceUUID.getRepresentation()))
+            //if(tmpGattService.getUuid().toString().equalsIgnoreCase(UUID_Enum.capsenseLedServiceUUID.getRepresentation()))
+            if(tmpGattService.getUuid().toString().equalsIgnoreCase(capsenseLedServiceUUID))
             {
 
                 Toast.makeText(this, "Found a known service "+ UUID_Enum.capsenseLedServiceUUID
