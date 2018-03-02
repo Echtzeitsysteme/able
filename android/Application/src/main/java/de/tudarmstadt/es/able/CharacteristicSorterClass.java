@@ -43,8 +43,9 @@ public class CharacteristicSorterClass {
         for (BluetoothGattService gattService : gattServices) {
             HashMap<String, String> currentServiceData = new HashMap<String, String>();
             uuid = gattService.getUuid().toString();
-            currentServiceData.put(
-                    listName, SampleGattAttributes.lookup(uuid, unknownServiceString));
+            currentServiceData.put(listName, unknownServiceString);
+                    //Used to lookup known Services by UUID and set names by String, known in class/interface
+                    //listName, SampleGattAttributes.lookup(uuid, unknownServiceString));
             currentServiceData.put(listUUID, uuid);
             gattServiceData.add(currentServiceData);
 
@@ -60,8 +61,9 @@ public class CharacteristicSorterClass {
                 charas.add(gattCharacteristic);
                 HashMap<String, String> currentCharaData = new HashMap<String, String>();
                 uuid = gattCharacteristic.getUuid().toString();
-                currentCharaData.put(
-                        listName, SampleGattAttributes.lookup(uuid, unknownCharaString));
+                currentCharaData.put(listName, unknownCharaString);
+                        //Used to lookup known characteristic by UUID and set names by String, known in class/interface
+                        //listName, SampleGattAttributes.lookup(uuid, unknownCharaString));
                 currentCharaData.put(listUUID, uuid);
                 gattCharacteristicGroupData.add(currentCharaData);
             }

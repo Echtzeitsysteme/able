@@ -528,7 +528,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private boolean checkForKnownServices()
     {
         List<BluetoothGattService>  tmpList = mBluetoothLeService.getSupportedGattServices();
-        Toast.makeText(this, "Looking for "+ UUID_Enum.capsenseLedServiceUUID.getRepresentation() , Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Looking for "+ CapLedConstants.CAPLED_SERVICE_UUID , Toast.LENGTH_SHORT).show();
 
         for(BluetoothGattService tmpGattService : tmpList)
         {
@@ -544,7 +544,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             if(tmpGattService.getUuid().equals(CapLedConstants.CAPLED_SERVICE_UUID))
             {
 
-                Toast.makeText(this, "Found a known service "+ UUID_Enum.capsenseLedServiceUUID
+                Toast.makeText(this, "Found a known service "+ CapLedConstants.CAPLED_SERVICE_UUID
                         +" now we can activate specific activity.", Toast.LENGTH_SHORT).show();
                 mBluetoothLeService.disconnect();
                 return true;
