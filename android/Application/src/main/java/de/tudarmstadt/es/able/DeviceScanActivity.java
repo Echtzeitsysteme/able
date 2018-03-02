@@ -47,6 +47,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 //class to make permissionhandling more clear
 import static android.content.ContentValues.TAG;
@@ -56,7 +57,7 @@ import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
  * Activity for scanning and displaying available Bluetooth LE devices.
  */
 //public class DeviceScanActivity extends ListActivity implements View.OnClickListener {
-public class DeviceScanActivity extends ListActivity implements BLEServiceListener,CapLedConstants{
+public class DeviceScanActivity extends ListActivity implements BLEServiceListener{
 
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
@@ -537,7 +538,10 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             //for(UUID_Enum currentUUID : UUID_Enum.values()){foo && bar;}
 
             //if(tmpGattService.getUuid().toString().equalsIgnoreCase(UUID_Enum.capsenseLedServiceUUID.getRepresentation()))
-            if(tmpGattService.getUuid().toString().equalsIgnoreCase(capsenseLedServiceUUID))
+            //if(tmpGattService.getUuid().toString().equalsIgnoreCase(capsenseLedServiceUUID))
+
+            //TODO überprüfen auf Lauffähigkeit
+            if(tmpGattService.getUuid().equals(CapLedConstants.CAPLED_SERVICE_UUID))
             {
 
                 Toast.makeText(this, "Found a known service "+ UUID_Enum.capsenseLedServiceUUID
@@ -564,6 +568,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     public void gattServicesDiscovered() {
         isKnownToSystem = checkForKnownServices();
+
     }
 
     @Override
