@@ -59,7 +59,7 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
     private BluetoothLeService mBluetoothLeService;
     //--tryout. Those objects needed to be declared,
     // to not get NullPointerExceptions if the declaration and assignment
-    // is done in onResume. Thats
+    // is done in onResume.
     CharacteristicSorterClass containsCollections = null;
     List<HashMap<String, String>> gattServiceData = new ArrayList<>();
     List<ArrayList<HashMap<String, String>>> gattCharacteristicData = new ArrayList<>();
@@ -76,34 +76,6 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
     public BluetoothLeService getmBluetoothLeService() {
         return mBluetoothLeService;
     }
-
-    //Commented because of move to MainActivity
-    //*
-    // Code to manage Service lifecycle.
-   /* private final ServiceConnection mServiceConnection = new ServiceConnection() {
-
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder service) {
-            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
-            if (!mBluetoothLeService.initialize()) {
-                Log.e(TAG, "Unable to initialize Bluetooth");
-                finish();
-            }
-            // Automatically connects to the device upon successful start-up initialization.
-            mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "onServiceConnected: WE BOUND OUR SERVICE !");
-            Log.d(TAG, "onServiceConnected: HAHA NEVER HAPPENDED");
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-            mBluetoothLeService = null;
-        }
-    };*/
-
-
-
-    //*/
 
 
     // If a given GATT characteristic is selected, check for supported features.  This sample
@@ -166,11 +138,6 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Commented because of move to MainActivity------------------------------------------------
-        //Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
-        //bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
-
-        //------------------------------------------------------------------------------------------
     }
 
 

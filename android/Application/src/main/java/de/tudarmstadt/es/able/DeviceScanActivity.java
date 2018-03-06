@@ -47,7 +47,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 //class to make permissionhandling more clear
 import static android.content.ContentValues.TAG;
@@ -95,6 +94,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private String mDeviceAddress;
     private boolean mConnected = false;
     private boolean isKnownToSystem = false;
+    BluetoothDevice device = null;
     //----------------------------------------------------------------------------------------------
 
     private View.OnClickListener buttonListener = new View.OnClickListener(){
@@ -121,31 +121,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                 case R.id.locationButton:
                     //disable the bluetooth adapter
                     if (locationPermisstions) {
-                        //disable stuff
+                        //disable, this permission is only accessible by the user
 
-                        //mBluetoothAdapter.disable();
-                        //should start activity
-                        //int result = 0;
-                        //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-
-                        //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
                         startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
-
-                        //should set showed text to aimed status
-                        //seems not to work, does not wait till resume, trying onResume
-
-                        /*maybe startActivityForResult is what I was looking for...
-                        //oneway to check for generall location
-                        mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-
-                        //more generic way to check for generall location
-                        Context currentContext = getApplicationContext();
-                        try {
-                            Settings.Secure.getInt(currentContext.getContentResolver(), Settings.Secure.LOCATION_MODE);
-                        } catch (Settings.SettingNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                        */
 
                         locationTextSet();
 
@@ -269,7 +247,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
         setListAdapter(mLeDeviceListAdapter);
 
-        //Commented because of move to MainActivity-------------------------------------------------
+        //(un-)Bind only happens during the main activity, service can be reused in all activities--
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
         //------------------------------------------------------------------------------------------
@@ -344,19 +322,10 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         bluetoothTextSet();
         locationTextSet();
 
+        //receiver gets registered and unregistered depending on this activity is running or not
         deviceScanActivityReiceiver = new BLEBroadcastReceiver(this);
-        //Commented because of move to MainActivity-------------------------------------------------
         registerReceiver(deviceScanActivityReiceiver,
                 deviceScanActivityReiceiver.makeGattUpdateIntentFilter());
-        //Commented because of move to MainActivity-------------------------------------------------
-
-        /*registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
-        if (mBluetoothLeService != null) {
-            final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Connect request result=" + result);
-        }
-*/
-        //------------------------------------------------------------------------------------------
     }
 
 
@@ -373,9 +342,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         if (requestCode == resultCode) {
             Log.d("ActivityResult", "so expected");
-
             locationTextSet();
-
             onRestart();
             return;
         }
@@ -398,14 +365,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         //not clearing the devicelist
         //mLeDeviceListAdapter.clear();
 
-
-        //Commented because of move to MainActivity-------------------------------------------------
-        //unregisterReceiver(mGattUpdateReceiver);
-        //------------------------------------------------------------------------------------------
     }
 
 
-    //after pressing back the application seems to disappear(not crashing), needs to be accessed again
     @Override
     protected void onStop() {
         //probably going to use later
@@ -425,12 +387,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id)
     {
-        //implementing connection before changing activity...---------------------------------BEGINN
-        //isKnownToSystem = false;
-        if(someFreakyCounterCauseIDoNotSeeAnotherWay <2 )
-        {
-
-            final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
+            device = mLeDeviceListAdapter.getDevice(position);
             if (device == null) return;
             if (mBluetoothLeService != null)
             {
@@ -440,48 +397,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                 Toast.makeText(this, "Connect request result=" + result, Toast.LENGTH_SHORT).show();
             }
             //HERE the Receiver works, therefore actually we need to wait for his methodcall gets done.
+            //INTENT GOT MOVED TO GATTSERVICEDISCOVERED
 
-
-            if(isKnownToSystem)
-            {
-                final Intent specificIntent = new Intent(this, CapLedActivity.class);
-                specificIntent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-                specificIntent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-
-                    if (mScanning) {
-                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
-                        mScanning = false;
-                    }
-
-                    someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
-                    isKnownToSystem = false;
-                    startActivity(specificIntent);
-                    return;
-            }
-            someFreakyCounterCauseIDoNotSeeAnotherWay++;
-            return;
-        }
-        //implementing connection before changing activity...-----------------------------------DONE
-        final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
-        if (device == null) return;
-        final Intent intent = new Intent(this, DeviceControlActivity.class);
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-
-        //-----
-        mDeviceName = device.getName();
-        mDeviceAddress = device.getAddress();
-        //-----
-        if (mScanning) {
-            mBluetoothAdapter.stopLeScan(mLeScanCallback);
-            mScanning = false;
-        }
-
-
-
-
-        someFreakyCounterCauseIDoNotSeeAnotherWay = 0;
-        startActivity(intent);
     }
 
 
@@ -532,20 +449,12 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         for(BluetoothGattService tmpGattService : tmpList)
         {
-
             Toast.makeText(this, "tmpGattService.getUuid().toString() "+ tmpGattService.getUuid().toString() , Toast.LENGTH_SHORT).show();
             //TODO: can be expanded by iteration over given servicecollection/enum like below
             //for(UUID_Enum currentUUID : UUID_Enum.values()){foo && bar;}
 
-            //if(tmpGattService.getUuid().toString().equalsIgnoreCase(UUID_Enum.capsenseLedServiceUUID.getRepresentation()))
-            //if(tmpGattService.getUuid().toString().equalsIgnoreCase(capsenseLedServiceUUID))
-
-            //TODO überprüfen auf Lauffähigkeit
             if(tmpGattService.getUuid().equals(CapLedConstants.CAPLED_SERVICE_UUID))
             {
-
-                Toast.makeText(this, "Found a known service "+ CapLedConstants.CAPLED_SERVICE_UUID
-                        +" now we can activate specific activity.", Toast.LENGTH_SHORT).show();
                 mBluetoothLeService.disconnect();
                 return true;
             }
@@ -557,7 +466,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     //methods which needed to be implemented because of the BLEServiceListener interface
     @Override
     public void gattConnected() {
-        Toast.makeText(this, "Connected to gatt from BroadcastReceiver.", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Connected to gatt from BroadcastReceiver.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -567,8 +476,27 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
     @Override
     public void gattServicesDiscovered() {
-        isKnownToSystem = checkForKnownServices();
+        //now the intent starts here
+        Intent intent = new Intent(this, DeviceControlActivity.class);
 
+        if(checkForKnownServices())
+        //if(false)
+        {
+            //TODO need a better way to pass the second parameter...
+            intent = new Intent(this, CapLedActivity.class);
+        }
+
+        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+
+            if (mScanning) {
+                mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                mScanning = false;
+            }
+            mBluetoothLeService.disconnect();
+
+
+        startActivity(intent);
     }
 
     @Override
@@ -608,15 +536,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     }
 
 
-
-
-
-
-
-    //----------------------------------------------------------------------------------------------
-    //First step is to move initializing and handling of bleService to MainActivity-----------------
-    //----------------------------------------------------------------------------------------------
-    // Code to manage Service lifecycle.
+    // This manages the Service lifecycle.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
         @Override
