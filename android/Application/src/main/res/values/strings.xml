@@ -24,6 +24,7 @@
     <string name="title_devices">Able</string>
     <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
     <string name="Bluetooth_switch">Bluetooth</string>
+    <string name="RedLED">Red LED</string>
 
     <string name="unknown_device">Unknown device</string>
     <string name="unknown_characteristic">Unknown characteristic</string>

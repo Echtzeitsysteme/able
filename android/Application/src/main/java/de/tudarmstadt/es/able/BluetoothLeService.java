@@ -48,7 +48,7 @@ public class BluetoothLeService extends Service {
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
     private String mBluetoothDeviceAddress;
-    private BluetoothGatt mBluetoothGatt;
+    static BluetoothGatt mBluetoothGatt;
     private int mConnectionState = STATE_DISCONNECTED;
 
     private static final int STATE_DISCONNECTED = 0;
@@ -359,5 +359,27 @@ public class BluetoothLeService extends Service {
         if (mBluetoothGatt == null) return null;
 
         return mBluetoothGatt.getServices();
+    }
+
+    //------------
+    //some methods,getter to communication between service and characteristics
+    public static boolean existBluetoothAdapter(){
+        if(DeviceScanActivity.getmBluetoothLeService() != null){return true;}
+        else return false;
+    }
+
+    public static boolean existBluetoothGatt(){
+        if(mBluetoothGatt != null){return true;}
+        else return false;
+    }
+
+    public static void genericReadCharacteristic(BluetoothGattCharacteristic someCharToRead){
+        mBluetoothGatt.readCharacteristic(someCharToRead);
+        return;
+    }
+
+    public static void genericWriteCharacteristic(BluetoothGattCharacteristic someCharToWrite){
+        mBluetoothGatt.writeCharacteristic(someCharToWrite);
+        return;
     }
 }

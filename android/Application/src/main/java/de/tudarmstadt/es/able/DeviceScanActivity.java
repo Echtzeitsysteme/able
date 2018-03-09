@@ -445,11 +445,11 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private boolean checkForKnownServices()
     {
         List<BluetoothGattService>  tmpList = mBluetoothLeService.getSupportedGattServices();
-        Toast.makeText(this, "Looking for "+ CapLedConstants.CAPLED_SERVICE_UUID , Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Looking for "+ CapLedConstants.CAPLED_SERVICE_UUID , Toast.LENGTH_SHORT).show();
 
         for(BluetoothGattService tmpGattService : tmpList)
         {
-            Toast.makeText(this, "tmpGattService.getUuid().toString() "+ tmpGattService.getUuid().toString() , Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "tmpGattService.getUuid().toString() "+ tmpGattService.getUuid().toString() , Toast.LENGTH_SHORT).show();
             //TODO: can be expanded by iteration over given servicecollection/enum like below
             //for(UUID_Enum currentUUID : UUID_Enum.values()){foo && bar;}
 

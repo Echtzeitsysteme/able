@@ -1,13 +1,20 @@
 package de.tudarmstadt.es.able;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.UUID;
+
 
 /**
  * Created by user on 27.02.18.
@@ -26,6 +33,11 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
     private boolean mConnected = false;
 
     private BluetoothLeService mBluetoothLeService;
+    //write and read values is called by BluetoothGattObject
+    private static BluetoothGatt mBluetoothGatt;
+    private static Switch led_switch;
+    private static boolean mLedSwitchState = false;
+    public static BluetoothGattCharacteristic mLedCharacteristic;
 
     BLEBroadcastReceiver thisReceiver;
 
@@ -33,7 +45,8 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gatt_services_characteristics);
+        //setContentView(R.layout.gatt_services_characteristics);
+        setContentView(R.layout.capled_activity);
 
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
@@ -45,10 +58,20 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
 
         mConnectionState = findViewById(R.id.connection_state);
         mDataField = findViewById(R.id.data_value);
+        led_switch = (Switch) findViewById(R.id.led_switch);
 
-        getActionBar().setTitle(mDeviceName + " specific. TAM TAM TAM");
+        getActionBar().setTitle(mDeviceName + " specific.");
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
+        /* This will be called when the LED On/Off switch is touched */
+        led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Turn the LED on or OFF based on the state of the switch
+                writeLedCharacteristic(isChecked);
+            }
+        });
     }
 
     @Override
@@ -124,6 +147,27 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
 
 
 
+    public void writeLedCharacteristic(boolean value) {
+        byte[] byteVal = new byte[1];
+        if (value) {
+            byteVal[0] = (byte) (1);
+        } else {
+            byteVal[0] = (byte) (0);
+        }
+        Log.i(TAG, "LED " + value);
+        mLedSwitchState = value;
+        mLedCharacteristic.setValue(byteVal);
+        BluetoothLeService.genericWriteCharacteristic(mLedCharacteristic);
+    }
+
+    public void readLedCharacteristic() {
+        if (BluetoothLeService.existBluetoothAdapter() == false ||
+                BluetoothLeService.existBluetoothGatt() == false) {
+            Log.w(TAG, "BluetoothAdapter not initialized");
+            return;
+        }
+        BluetoothLeService.genericReadCharacteristic(mLedCharacteristic);
+    }
 
 
 
@@ -158,15 +202,29 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
         updateConnectionState(R.string.disconnected);
         mDataField.setText(R.string.no_data);
         invalidateOptionsMenu();
+        led_switch.setChecked(false);
+        led_switch.setEnabled(false);
     }
 
     @Override
     public void gattServicesDiscovered() {
         Toast.makeText(this, "gattServicesDiscovered...", Toast.LENGTH_SHORT).show();
+        BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(UUID.fromString(CapLedConstants.capsenseLedServiceUUID));
+
+        mLedCharacteristic = mService.getCharacteristic(UUID.fromString(CapLedConstants.ledCharacteristicUUID));
+
+        readLedCharacteristic();
+
+        led_switch.setEnabled(true);
+
     }
 
     @Override
     public void dataAvailable(Intent intent) {
-
+        if(mLedSwitchState){
+            led_switch.setChecked(true);
+        } else {
+            led_switch.setChecked(false);
+        }
     }
 }
