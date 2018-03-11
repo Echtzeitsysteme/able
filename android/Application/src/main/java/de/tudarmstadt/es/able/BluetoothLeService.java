@@ -51,6 +51,8 @@ public class BluetoothLeService extends Service {
     static BluetoothGatt mBluetoothGatt;
     private int mConnectionState = STATE_DISCONNECTED;
 
+    private static BluetoothGattCharacteristic mCharacteristicToPass;
+
     private static final int STATE_DISCONNECTED = 0;
     private static final int STATE_CONNECTING = 1;
     private static final int STATE_CONNECTED = 2;
@@ -118,6 +120,7 @@ public class BluetoothLeService extends Service {
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt,
                                             BluetoothGattCharacteristic characteristic) {
+
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
         }
     };
@@ -162,6 +165,9 @@ public class BluetoothLeService extends Service {
                 intent.putExtra(EXTRA_DATA, new String(data) + "\n" + stringBuilder.toString());
             }
         }
+
+        mCharacteristicToPass = characteristic;
+
         sendBroadcast(intent);
     }
 
@@ -381,5 +387,9 @@ public class BluetoothLeService extends Service {
     public static void genericWriteCharacteristic(BluetoothGattCharacteristic someCharToWrite){
         mBluetoothGatt.writeCharacteristic(someCharToWrite);
         return;
+    }
+
+    public static BluetoothGattCharacteristic getmCharacteristicToPass() {
+        return mCharacteristicToPass;
     }
 }

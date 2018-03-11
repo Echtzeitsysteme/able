@@ -80,6 +80,45 @@
         android:switchPadding="12dp"
         android:enabled="false"
         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        >
+
+        <Switch
+            android:id="@+id/capsense_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Notify"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:switchPadding="12dp"
+            android:enabled="false"
+            android:layout_alignParentTop="true"
+            />
+        <TextView
+            android:id="@+id/capsense_header"
+            android:text="@string/Capsense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:layout_below="@id/capsense_switch"
+            />
+
+        <TextView
+            android:id="@+id/capsense_value"
+            android:text="@string/NotifyOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/capsense_header"
+            android:paddingTop="6dp"
+            android:layout_below="@id/capsense_switch"
+            />
+
+    </RelativeLayout>
 
 
 </LinearLayout>
