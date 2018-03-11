@@ -205,7 +205,7 @@ public class BluetoothLeService extends Service {
 
             mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
             if (mBluetoothManager == null) {
-                Toast.makeText(this, "Blutooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Bluetooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "Unable to initialize BluetoothManager.");
                 return INITIALIZATION_FAILED;
             }
@@ -223,7 +223,7 @@ public class BluetoothLeService extends Service {
 
         if (mBluetoothAdapter == null) {
             Log.e(TAG, "Unable to obtain a BluetoothAdapter.");
-            Toast.makeText(this, "Blutooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Bluetooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
             return INITIALIZATION_FAILED;
         }
 
@@ -242,7 +242,7 @@ public class BluetoothLeService extends Service {
      */
     public boolean connect(final String address) {
         if (mBluetoothAdapter == null || address == null) {
-            Toast.makeText(this, "BlutoothManager is null or unspecified address, calling connect() .", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "BluetoothManager is null or unspecified address, calling connect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized or unspecified address.");
 
             return CONNECTION_FAILED;
@@ -252,9 +252,9 @@ public class BluetoothLeService extends Service {
         if (mBluetoothDeviceAddress != null && address.equals(mBluetoothDeviceAddress)
                 && mBluetoothGatt != null) {
             Log.d(TAG, "Trying to use an existing mBluetoothGatt for connection.");
-            Toast.makeText(this, "This device was connected and is not reachable now. " +
-                    "Please make sure the device is avaible and in range. " +
-                    "Therefore try to disconnect and reconnect.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "This device was connected and is not reachable now. " +
+            //        "Please make sure the device is avaible and in range. " +
+            //        "Therefore try to disconnect and reconnect.", Toast.LENGTH_SHORT).show();
             if (mBluetoothGatt.connect()) {
                 mConnectionState = STATE_CONNECTING;
                 return CONNECTION_SUCCEEDED;
@@ -292,7 +292,7 @@ public class BluetoothLeService extends Service {
     public void disconnect() {
 
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
-            Toast.makeText(this, "BluetoothAdapter not initialized, calling disconnect() .", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "BluetoothAdapter not initialized, calling disconnect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized");
 
             return;
@@ -322,7 +322,7 @@ public class BluetoothLeService extends Service {
     public void readCharacteristic(BluetoothGattCharacteristic characteristic) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Toast.makeText(this, "Reading Characteristics did not work yet." +
-                    "Try to reconnect an read again.", Toast.LENGTH_SHORT).show();
+                    "Try to reconnect and read again.", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
         }
@@ -338,7 +338,7 @@ public class BluetoothLeService extends Service {
     public void setCharacteristicNotification(BluetoothGattCharacteristic characteristic,
                                               boolean enabled) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
-            Toast.makeText(this, "Setting notifications did not work yet. Try to reconnect and set again.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Setting notifications did not work yet. Try to reconnect and set again.", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
         }

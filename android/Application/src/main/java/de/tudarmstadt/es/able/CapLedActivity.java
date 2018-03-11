@@ -118,9 +118,8 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
 
 
         if (mBluetoothLeService != null) {
-            Toast.makeText(this, "BluetoothLeService is static, hope that works out :)", Toast.LENGTH_SHORT).show();
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Connect request result=" + result);
+            //Log.d(TAG, "Connect request result=" + result);
         }
 
         //updateConnectionState()
@@ -243,7 +242,7 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
     public void gattConnected() {
         mConnected = true;
         updateConnectionState(R.string.connected);
-        Toast.makeText(this, "gattConnected ", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "gattConnected ", Toast.LENGTH_SHORT).show();
         invalidateOptionsMenu();
 
     }
@@ -262,7 +261,7 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
 
     @Override
     public void gattServicesDiscovered() {
-        Toast.makeText(this, "gattServicesDiscovered...", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "gattServicesDiscovered...", Toast.LENGTH_SHORT).show();
         BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(UUID.fromString(CapLedConstants.capsenseLedServiceUUID));
 
         mLedCharacteristic = mService.getCharacteristic(UUID.fromString(CapLedConstants.ledCharacteristicUUID));

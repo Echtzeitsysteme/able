@@ -394,7 +394,10 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
                 final boolean result = mBluetoothLeService.connect(device.getAddress());
                 Log.d(TAG, "Connect request result=" + result);
-                Toast.makeText(this, "Connect request result=" + result, Toast.LENGTH_SHORT).show();
+                if(result)
+                {
+                    Toast.makeText(this, "Connection in progress please wait.", Toast.LENGTH_SHORT).show();
+                }
             }
             //HERE the Receiver works, therefore actually we need to wait for his methodcall gets done.
             //INTENT GOT MOVED TO GATTSERVICEDISCOVERED
@@ -466,7 +469,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     //methods which needed to be implemented because of the BLEServiceListener interface
     @Override
     public void gattConnected() {
-        //Toast.makeText(this, "Connected to gatt from BroadcastReceiver.", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Connected to gatt, heard from broadcastReceiver.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -478,7 +481,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     public void gattServicesDiscovered() {
         //now the intent starts here
         Intent intent = new Intent(this, DeviceControlActivity.class);
-
+        //Toast.makeText(this, "GattServices discovered.", Toast.LENGTH_SHORT).show();
         if(checkForKnownServices())
         //if(false)
         {

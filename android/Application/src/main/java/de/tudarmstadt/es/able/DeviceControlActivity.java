@@ -155,9 +155,8 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
 
 
         if (mBluetoothLeService != null) {
-            Toast.makeText(this, "BluetoothLeService is static, hope that works out :)", Toast.LENGTH_SHORT).show();
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Connect request result=" + result);
+            //Log.d(TAG, "Connect request result=" + result);
         }
         //------------------------------------------------------------------------------------------
     }
