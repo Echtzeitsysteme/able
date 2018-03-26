@@ -74,7 +74,6 @@ public class BluetoothLeService extends Service {
     public final static String EXTRA_DATA =
             "com.example.bluetooth.le.EXTRA_DATA";
 
-    //public final static UUID UUID_HEART_RATE_MEASUREMENT =UUID.fromString(SampleGattAttributes.HEART_RATE_MEASUREMENT);
 
     // Implements callback methods for GATT events that the app cares about.  For example,
     // connection change and services discovered.
@@ -135,25 +134,6 @@ public class BluetoothLeService extends Service {
     private void broadcastUpdate(final String action,
                                  final BluetoothGattCharacteristic characteristic) {
         final Intent intent = new Intent(action);
-
-
-        /*// This is special handling for the Heart Rate Measurement profile.  Data parsing is
-        // carried out as per profile specifications:
-        // http://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.heart_rate_measurement.xml
-        if (UUID_HEART_RATE_MEASUREMENT.equals(characteristic.getUuid())) {
-            int flag = characteristic.getProperties();
-            int format = -1;
-            if ((flag & 0x01) != 0) {
-                format = BluetoothGattCharacteristic.FORMAT_UINT16;
-                Log.d(TAG, "Heart rate format UINT16.");
-            } else {
-                format = BluetoothGattCharacteristic.FORMAT_UINT8;
-                Log.d(TAG, "Heart rate format UINT8.");
-            }
-            final int heartRate = characteristic.getIntValue(format, 1);
-            Log.d(TAG, String.format("Received heart rate: %d", heartRate));
-            intent.putExtra(EXTRA_DATA, String.valueOf(heartRate));
-        } else*/
 
             {
             // For all other profiles, writes the data formatted in HEX.
@@ -275,9 +255,6 @@ public class BluetoothLeService extends Service {
         boolean noReconnectIfDisconnected = false;//attribute represent the intened behaviour, false means no reconnect intended
         mBluetoothGatt = device.connectGatt(this, noReconnectIfDisconnected, mGattCallback);
         Log.d(TAG, "Trying to create a new connection.");
-        //TODO: is this messageing necessary? was used for debugging earlier
-        //this gets shown everytime a connection is established, may or may not be useful
-        //Toast.makeText(this, "Trying to create a new connection, calling connect() .", Toast.LENGTH_SHORT).show();
         mBluetoothDeviceAddress = address;
         mConnectionState = STATE_CONNECTING;
         return CONNECTION_SUCCEEDED;

@@ -3,7 +3,9 @@ package de.tudarmstadt.es.able;
 import android.content.Intent;
 
 /**
- * Created by user on 26.02.18.
+ * This interface needs to be implemented by every activity you want to create,
+ * this measure makes sure you handle every indispensable situation considering a bluetooth connection
+ * For a better understanding take a look at the BLEBroadcastReceiver class
  */
 
 public interface BLEServiceListener {

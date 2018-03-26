@@ -14,11 +14,13 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.UUID;
 
 
 /**
- * Created by user on 27.02.18.
+ * For a given specific BLE device, this Activity provides the user interface to connect, display data,
+ * and display GATT services and characteristics supported by the device.  The Activity
+ * communicates with {@code BluetoothLeService}, which in turn interacts with the
+ * Bluetooth LE API.
  */
 
 public class CapLedActivity extends Activity implements BLEServiceListener  {
@@ -41,10 +43,6 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
     private static Switch cap_switch;
     private static boolean mLedSwitchState = false;
     public static BluetoothGattCharacteristic mLedCharacteristic;
-    // Bluetooth characteristics that we need to read/write
-    //------------
-    //private static BluetoothGattCharacteristic mLedCharacterisitc;
-    //------------
 
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
     private static BluetoothGattDescriptor mCapSenseCccd;
@@ -59,7 +57,6 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.gatt_services_characteristics);
         setContentView(R.layout.capled_activity);
 
         final Intent intent = getIntent();
@@ -218,13 +215,8 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
         // Write Notification value to the device
         Log.i(TAG, "CapSense Notification " + value);
         mCapSenseCccd.setValue(byteVal);
-        //mBluetoothGatt.writeDescriptor(mCapSenseCccd);
         BluetoothLeService.mBluetoothGatt.writeDescriptor(mCapSenseCccd);
     }
-
-
-
-
 
 
 
@@ -262,10 +254,10 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
     @Override
     public void gattServicesDiscovered() {
         //Toast.makeText(this, "gattServicesDiscovered...", Toast.LENGTH_SHORT).show();
-        BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(UUID.fromString(CapLedConstants.capsenseLedServiceUUID));
+        BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(CapLedConstants.CAPLED_SERVICE_UUID);
 
-        mLedCharacteristic = mService.getCharacteristic(UUID.fromString(CapLedConstants.ledCharacteristicUUID));
-        mCapsenseCharacteristic = mService.getCharacteristic(UUID.fromString(CapLedConstants.capsenseCharacteristicUUID));
+        mLedCharacteristic = mService.getCharacteristic(CapLedConstants.CAPLED_LED_CHARACTERISTIC_UUID);
+        mCapsenseCharacteristic = mService.getCharacteristic(CapLedConstants.CAPLED_CAP_CHARACTERISTIC_UUID);
 
         /* Get the CapSense CCCD */
         mCapSenseCccd = mCapsenseCharacteristic.getDescriptor(CapLedConstants.CccdUUID);
@@ -285,11 +277,8 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
             led_switch.setChecked(false);
         }
 
-        //BluetoothGattService tempService = BluetoothLeService.mBluetoothGatt.getService(UUID.fromString(CapLedConstants.capsenseLedServiceUUID));
-        //mCapsenseCharacteristic = tempService.getCharacteristic(UUID.fromString(CapLedConstants.capsenseCharacteristicUUID));
-        //mCapSenseValue =  mCapsenseCharacteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16,0).toString();
         String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
-        if(uuid.equals(CapLedConstants.capsenseCharacteristicUUID))
+        if(uuid.equals(CapLedConstants.CAPLED_CAP_CHARACTERISTIC_UUID))
         {
             mCapSenseValue = BluetoothLeService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16,0).toString();
         }
