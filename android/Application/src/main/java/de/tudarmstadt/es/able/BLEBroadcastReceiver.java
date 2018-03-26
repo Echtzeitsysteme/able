@@ -12,15 +12,12 @@ import static android.support.v4.app.ActivityCompat.invalidateOptionsMenu;
 import static de.tudarmstadt.es.able.DeviceControlActivity.*;
 
 /**
- * Created by user on 23.02.18.
+ * This class sets up the filter and the BroadcastReceiver which uses the filter
  */
 
 public class BLEBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = "BroadcastReceiverAndFil";
 
-    //private boolean mConnected = false;
-    //private BluetoothLeService mBluetoothLeService;
-    //private DeviceControlActivity fakeActivity = null;
     private BLEServiceListener listener;
 
     public BLEBroadcastReceiver(BLEServiceListener listener) {

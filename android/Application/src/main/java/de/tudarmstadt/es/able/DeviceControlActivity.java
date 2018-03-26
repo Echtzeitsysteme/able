@@ -55,16 +55,12 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
     private String mDeviceAddress;
     private ExpandableListView mGattServicesList;
 
-    //Commented because of move to MainActivity-----------------------------------------------------
     private BluetoothLeService mBluetoothLeService;
-    //--tryout. Those objects needed to be declared,
-    // to not get NullPointerExceptions if the declaration and assignment
-    // is done in onResume.
+
     CharacteristicSorterClass containsCollections = null;
     List<HashMap<String, String>> gattServiceData = new ArrayList<>();
     List<ArrayList<HashMap<String, String>>> gattCharacteristicData = new ArrayList<>();
     BLEBroadcastReceiver thisReceiver;
-    //----------------------------------------------------------------------------------------------
 
     private List<List<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<>();
     private boolean mConnected = false;
@@ -147,7 +143,6 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         super.onResume();
 
         thisReceiver= new BLEBroadcastReceiver(this);
-        //Commented because of move to MainActivity-------------------------------------------------
         registerReceiver(thisReceiver ,
                 thisReceiver.makeGattUpdateIntentFilter());
         mBluetoothLeService = DeviceScanActivity.getmBluetoothLeService();
@@ -155,29 +150,21 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
 
 
         if (mBluetoothLeService != null) {
-            Toast.makeText(this, "BluetoothLeService is static, hope that works out :)", Toast.LENGTH_SHORT).show();
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Connect request result=" + result);
+            //Log.d(TAG, "Connect request result=" + result);
         }
-        //------------------------------------------------------------------------------------------
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        //Commented because of move to MainActivity-------------------------------------------------
         unregisterReceiver(thisReceiver);
-        //------------------------------------------------------------------------------------------
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        //Commented because of move to MainActivity-------------------------------------------------
-        //unbindService(mServiceConnection);
         mBluetoothLeService = null;
-        //------------------------------------------------------------------------------------------
     }
 
     @Override
@@ -193,8 +180,6 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         return true;
     }
 
-
-    //Not Commented because of move to MainActivity, but reused-------------------------------------
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
@@ -216,11 +201,7 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         }
         return super.onOptionsItemSelected(item);
     }
-    //----------------------------------------------------------------------------------------------
 
-
-
-    //Not Commented because of move to MainActivity, but reused-------------------------------------
     void updateConnectionState(final int resourceId) {
         runOnUiThread(new Runnable() {
             @Override
@@ -235,8 +216,6 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
             mDataField.setText(data);
         }
     }
-    //----------------------------------------------------------------------------------------------
-
 
     // NOW visualization is done in the activity, while sorting gets done from settingsUpServices(..)
     // Demonstrates how to iterate through the supported GATT Services/Characteristics.

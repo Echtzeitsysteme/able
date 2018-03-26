@@ -1,0 +1,6 @@
+D:\ProjektSeminarSoftwareSysteme\bleapp-master\PSoC_Creator\capsenseled\capsenseled.cydsn\capsenseled.cyprj|88ad9cfe-1fe9-4589-a23d-08a4947100aa
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|dcf1f206-340f-4eb2-a8ae-ab8d28a31b0c
+C:\Users\Art\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|72f0a940-28ba-448c-9f78-ba3a77fed921
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|de145ed2-2c95-4bd5-aea9-69b9d263a602
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|eece24e6-5418-444a-8af4-959f65902b5a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|895e9843-0055-4a6e-8b15-cfc9ab758d25
