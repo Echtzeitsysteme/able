@@ -276,7 +276,7 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
         }
 
         String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
-        if(uuid.equals(CapLedConstants.CAPLED_CAP_CHARACTERISTIC_UUID))
+        if(uuid.equals(CapLedConstants.CAPLED_CAP_CHARACTERISTIC_UUID.toString()))
         {
             mCapSenseValue = BluetoothLeService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16,0).toString();
         }

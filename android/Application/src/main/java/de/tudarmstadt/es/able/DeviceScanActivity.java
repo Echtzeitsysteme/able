@@ -437,8 +437,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         //now the intent starts here
         Intent intent = new Intent(this, DeviceControlActivity.class);
         //Toast.makeText(this, "GattServices discovered.", Toast.LENGTH_SHORT).show();
-        //if(checkForKnownServices())
-        if(false)
+        if(checkForKnownServices())
+        //if(false)
         {
             intent = new Intent(this, CapLedActivity.class);
         }
