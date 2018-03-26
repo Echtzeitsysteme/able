@@ -203,7 +203,6 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
      */
     public void writeCapSenseNotification(boolean value) {
         // Set notifications locally in the CCCD
-        //mBluetoothGatt.setCharacteristicNotification(mCapsenseCharacteristic, value);
         BluetoothLeService.mBluetoothGatt.setCharacteristicNotification(mCapsenseCharacteristic, value);
 
         byte[] byteVal = new byte[1];
@@ -234,7 +233,6 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
     public void gattConnected() {
         mConnected = true;
         updateConnectionState(R.string.connected);
-        //Toast.makeText(this, "gattConnected ", Toast.LENGTH_SHORT).show();
         invalidateOptionsMenu();
 
     }
