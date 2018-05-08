@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
   28:Generated_Source\PSoC4/pwm_PM.c **** *  Saves the current user configuration of the component.
   29:Generated_Source\PSoC4/pwm_PM.c **** *
   30:Generated_Source\PSoC4/pwm_PM.c **** * Parameters:
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 2
 
 
   31:Generated_Source\PSoC4/pwm_PM.c **** *  None
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
   64:Generated_Source\PSoC4/pwm_PM.c ****             pwm_backup.PWMControlRegister = pwm_ReadControlRegister();
   49              		.loc 1 64 0
   50 0016 FFF7FEFF 		bl	pwm_ReadControlRegister
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 3
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 3
 
 
   51              	.LVL2:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
   90:Generated_Source\PSoC4/pwm_PM.c ****         #if(!pwm_UsingFixedFunction)
   91:Generated_Source\PSoC4/pwm_PM.c ****             #if(!pwm_PWMModeIsCenterAligned)
   92:Generated_Source\PSoC4/pwm_PM.c ****                 pwm_WritePeriod(pwm_backup.PWMPeriod);
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 4
 
 
   80              		.loc 1 92 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  112              		.thumb_func
  113              		.type	pwm_Sleep, %function
  114              	pwm_Sleep:
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 5
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 5
 
 
  115              	.LFB4:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  136              		.loc 1 147 0
  137 0014 0022     		movs	r2, #0
  138 0016 044B     		ldr	r3, .L10+4
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 6
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 6
 
 
  139 0018 1A70     		strb	r2, [r3]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  175:Generated_Source\PSoC4/pwm_PM.c **** *  block on wakeup from sleep mode.
  176:Generated_Source\PSoC4/pwm_PM.c **** *
  177:Generated_Source\PSoC4/pwm_PM.c **** *******************************************************************************/
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 7
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 7
 
 
  178:Generated_Source\PSoC4/pwm_PM.c **** void pwm_Wakeup(void) 
@@ -418,32 +418,32 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  207              		.section	.debug_info,"",%progbits
  208              	.Ldebug_info0:
  209 0000 13020000 		.4byte	0x213
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 8
 
 
  210 0004 0400     		.2byte	0x4
  211 0006 00000000 		.4byte	.Ldebug_abbrev0
  212 000a 04       		.byte	0x4
  213 000b 01       		.uleb128 0x1
- 214 000c 82010000 		.4byte	.LASF34
+ 214 000c 64010000 		.4byte	.LASF34
  215 0010 0C       		.byte	0xc
- 216 0011 81020000 		.4byte	.LASF35
- 217 0015 CF000000 		.4byte	.LASF36
+ 216 0011 63020000 		.4byte	.LASF35
+ 217 0015 52000000 		.4byte	.LASF36
  218 0019 00000000 		.4byte	.Ldebug_ranges0+0
  219 001d 00000000 		.4byte	0
  220 0021 00000000 		.4byte	.Ldebug_line0
  221 0025 02       		.uleb128 0x2
  222 0026 01       		.byte	0x1
  223 0027 06       		.byte	0x6
- 224 0028 AD020000 		.4byte	.LASF0
+ 224 0028 8F020000 		.4byte	.LASF0
  225 002c 02       		.uleb128 0x2
  226 002d 01       		.byte	0x1
  227 002e 08       		.byte	0x8
- 228 002f 70000000 		.4byte	.LASF1
+ 228 002f AC000000 		.4byte	.LASF1
  229 0033 02       		.uleb128 0x2
  230 0034 02       		.byte	0x2
  231 0035 05       		.byte	0x5
- 232 0036 54020000 		.4byte	.LASF2
+ 232 0036 36020000 		.4byte	.LASF2
  233 003a 02       		.uleb128 0x2
  234 003b 02       		.byte	0x2
  235 003c 07       		.byte	0x7
@@ -451,19 +451,19 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  237 0041 02       		.uleb128 0x2
  238 0042 04       		.byte	0x4
  239 0043 05       		.byte	0x5
- 240 0044 78020000 		.4byte	.LASF4
+ 240 0044 5A020000 		.4byte	.LASF4
  241 0048 02       		.uleb128 0x2
  242 0049 04       		.byte	0x4
  243 004a 07       		.byte	0x7
- 244 004b 8D000000 		.4byte	.LASF5
+ 244 004b C9000000 		.4byte	.LASF5
  245 004f 02       		.uleb128 0x2
  246 0050 08       		.byte	0x8
  247 0051 05       		.byte	0x5
- 248 0052 28020000 		.4byte	.LASF6
+ 248 0052 0A020000 		.4byte	.LASF6
  249 0056 02       		.uleb128 0x2
  250 0057 08       		.byte	0x8
  251 0058 07       		.byte	0x7
- 252 0059 41010000 		.4byte	.LASF7
+ 252 0059 23010000 		.4byte	.LASF7
  253 005d 03       		.uleb128 0x3
  254 005e 04       		.byte	0x4
  255 005f 05       		.byte	0x5
@@ -471,29 +471,29 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  257 0064 02       		.uleb128 0x2
  258 0065 04       		.byte	0x4
  259 0066 07       		.byte	0x7
- 260 0067 34010000 		.4byte	.LASF8
+ 260 0067 16010000 		.4byte	.LASF8
  261 006b 04       		.uleb128 0x4
- 262 006c 9F000000 		.4byte	.LASF12
+ 262 006c DB000000 		.4byte	.LASF12
  263 0070 02       		.byte	0x2
  264 0071 D201     		.2byte	0x1d2
  265 0073 2C000000 		.4byte	0x2c
  266 0077 02       		.uleb128 0x2
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 9
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 9
 
 
  267 0078 04       		.byte	0x4
  268 0079 04       		.byte	0x4
- 269 007a 6A000000 		.4byte	.LASF9
+ 269 007a A6000000 		.4byte	.LASF9
  270 007e 02       		.uleb128 0x2
  271 007f 08       		.byte	0x8
  272 0080 04       		.byte	0x4
- 273 0081 C8000000 		.4byte	.LASF10
+ 273 0081 04010000 		.4byte	.LASF10
  274 0085 02       		.uleb128 0x2
  275 0086 01       		.byte	0x1
  276 0087 08       		.byte	0x8
- 277 0088 46020000 		.4byte	.LASF11
+ 277 0088 28020000 		.4byte	.LASF11
  278 008c 04       		.uleb128 0x4
- 279 008d 10020000 		.4byte	.LASF13
+ 279 008d F2010000 		.4byte	.LASF13
  280 0091 02       		.byte	0x2
  281 0092 7C02     		.2byte	0x27c
  282 0094 98000000 		.4byte	0x98
@@ -502,18 +502,18 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  285 009d 02       		.uleb128 0x2
  286 009e 08       		.byte	0x8
  287 009f 04       		.byte	0x4
- 288 00a0 A1020000 		.4byte	.LASF14
+ 288 00a0 83020000 		.4byte	.LASF14
  289 00a4 02       		.uleb128 0x2
  290 00a5 04       		.byte	0x4
  291 00a6 07       		.byte	0x7
- 292 00a7 1F020000 		.4byte	.LASF15
+ 292 00a7 01020000 		.4byte	.LASF15
  293 00ab 06       		.uleb128 0x6
  294 00ac 05       		.byte	0x5
  295 00ad 03       		.byte	0x3
  296 00ae 6B       		.byte	0x6b
  297 00af F0000000 		.4byte	0xf0
  298 00b3 07       		.uleb128 0x7
- 299 00b4 7E000000 		.4byte	.LASF16
+ 299 00b4 BA000000 		.4byte	.LASF16
  300 00b8 03       		.byte	0x3
  301 00b9 6E       		.byte	0x6e
  302 00ba 6B000000 		.4byte	0x6b
@@ -531,14 +531,14 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  314 00d2 6B000000 		.4byte	0x6b
  315 00d6 02       		.byte	0x2
  316 00d7 07       		.uleb128 0x7
- 317 00d8 B9020000 		.4byte	.LASF19
+ 317 00d8 9B020000 		.4byte	.LASF19
  318 00dc 03       		.byte	0x3
  319 00dd 76       		.byte	0x76
  320 00de 6B000000 		.4byte	0x6b
  321 00e2 03       		.byte	0x3
  322 00e3 07       		.uleb128 0x7
- 323 00e4 B5000000 		.4byte	.LASF20
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 10
+ 323 00e4 F1000000 		.4byte	.LASF20
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 10
 
 
  324 00e8 03       		.byte	0x3
@@ -552,7 +552,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  332 00f6 8B       		.byte	0x8b
  333 00f7 AB000000 		.4byte	0xab
  334 00fb 09       		.uleb128 0x9
- 335 00fc CC020000 		.4byte	.LASF22
+ 335 00fc AE020000 		.4byte	.LASF22
  336 0100 01       		.byte	0x1
  337 0101 2A       		.byte	0x2a
  338 0102 00000000 		.4byte	.LFB2
@@ -590,7 +590,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  370 0158 F5010000 		.4byte	0x1f5
  371 015c 00       		.byte	0
  372 015d 09       		.uleb128 0x9
- 373 015e 15020000 		.4byte	.LASF24
+ 373 015e F7010000 		.4byte	.LASF24
  374 0162 01       		.byte	0x1
  375 0163 88       		.byte	0x88
  376 0164 00000000 		.4byte	.LFB4
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  378 016c 01       		.uleb128 0x1
  379 016d 9C       		.byte	0x9c
  380 016e 85010000 		.4byte	0x185
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 11
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 11
 
 
  381 0172 0A       		.uleb128 0xa
@@ -609,7 +609,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  386 0180 FB000000 		.4byte	0xfb
  387 0184 00       		.byte	0
  388 0185 09       		.uleb128 0x9
- 389 0186 29010000 		.4byte	.LASF25
+ 389 0186 0B010000 		.4byte	.LASF25
  390 018a 01       		.byte	0x1
  391 018b B2       		.byte	0xb2
  392 018c 00000000 		.4byte	.LFB5
@@ -633,46 +633,46 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  410 01b9 03       		.byte	0x3
  411 01ba 00000000 		.4byte	pwm_backup
  412 01be 0C       		.uleb128 0xc
- 413 01bf 69020000 		.4byte	.LASF26
- 414 01c3 69020000 		.4byte	.LASF26
+ 413 01bf 4B020000 		.4byte	.LASF26
+ 414 01c3 4B020000 		.4byte	.LASF26
  415 01c7 03       		.byte	0x3
  416 01c8 C0       		.byte	0xc0
  417 01c9 0C       		.uleb128 0xc
- 418 01ca A5000000 		.4byte	.LASF27
- 419 01ce A5000000 		.4byte	.LASF27
+ 418 01ca E1000000 		.4byte	.LASF27
+ 419 01ce E1000000 		.4byte	.LASF27
  420 01d2 03       		.byte	0x3
  421 01d3 B3       		.byte	0xb3
  422 01d4 0C       		.uleb128 0xc
- 423 01d5 52000000 		.4byte	.LASF28
- 424 01d9 52000000 		.4byte	.LASF28
+ 423 01d5 8E000000 		.4byte	.LASF28
+ 424 01d9 8E000000 		.4byte	.LASF28
  425 01dd 03       		.byte	0x3
  426 01de 9D       		.byte	0x9d
  427 01df 0C       		.uleb128 0xc
- 428 01e0 36020000 		.4byte	.LASF29
- 429 01e4 36020000 		.4byte	.LASF29
+ 428 01e0 18020000 		.4byte	.LASF29
+ 429 01e4 18020000 		.4byte	.LASF29
  430 01e8 03       		.byte	0x3
  431 01e9 BE       		.byte	0xbe
  432 01ea 0C       		.uleb128 0xc
- 433 01eb 58010000 		.4byte	.LASF30
- 434 01ef 58010000 		.4byte	.LASF30
+ 433 01eb 3A010000 		.4byte	.LASF30
+ 434 01ef 3A010000 		.4byte	.LASF30
  435 01f3 03       		.byte	0x3
  436 01f4 BA       		.byte	0xba
  437 01f5 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 12
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 12
 
 
- 438 01f6 69010000 		.4byte	.LASF31
- 439 01fa 69010000 		.4byte	.LASF31
+ 438 01f6 4B010000 		.4byte	.LASF31
+ 439 01fa 4B010000 		.4byte	.LASF31
  440 01fe 03       		.byte	0x3
  441 01ff 9E       		.byte	0x9e
  442 0200 0C       		.uleb128 0xc
- 443 0201 4B020000 		.4byte	.LASF32
- 444 0205 4B020000 		.4byte	.LASF32
+ 443 0201 2D020000 		.4byte	.LASF32
+ 444 0205 2D020000 		.4byte	.LASF32
  445 0209 03       		.byte	0x3
  446 020a 93       		.byte	0x93
  447 020b 0C       		.uleb128 0xc
- 448 020c 5E020000 		.4byte	.LASF33
- 449 0210 5E020000 		.4byte	.LASF33
+ 448 020c 40020000 		.4byte	.LASF33
+ 449 0210 40020000 		.4byte	.LASF33
  450 0214 03       		.byte	0x3
  451 0215 DB       		.byte	0xdb
  452 0216 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  492 0025 03       		.uleb128 0x3
  493 0026 08       		.uleb128 0x8
  494 0027 00       		.byte	0
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 13
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 13
 
 
  495 0028 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  549 005e 3A       		.uleb128 0x3a
  550 005f 0B       		.uleb128 0xb
  551 0060 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 14
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 14
 
 
  552 0061 0B       		.uleb128 0xb
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  606 009a 0C       		.uleb128 0xc
  607 009b 2E       		.uleb128 0x2e
  608 009c 00       		.byte	0
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 15
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 15
 
 
  609 009d 3F       		.uleb128 0x3f
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  658      646200
  659              	.LASF23:
  660 0007 70776D5F 		.ascii	"pwm_RestoreConfig\000"
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 16
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 16
 
 
  660      52657374 
@@ -925,178 +925,177 @@ ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 1
  668 0047 70776D5F 		.ascii	"pwm_backup\000"
  668      6261636B 
  668      757000
- 669              	.LASF28:
- 670 0052 70776D5F 		.ascii	"pwm_ReadControlRegister\000"
- 670      52656164 
- 670      436F6E74 
- 670      726F6C52 
- 670      65676973 
- 671              	.LASF9:
- 672 006a 666C6F61 		.ascii	"float\000"
- 672      7400
- 673              	.LASF1:
- 674 0070 756E7369 		.ascii	"unsigned char\000"
- 674      676E6564 
- 674      20636861 
- 674      7200
- 675              	.LASF16:
- 676 007e 50574D45 		.ascii	"PWMEnableState\000"
- 676      6E61626C 
- 676      65537461 
- 676      746500
- 677              	.LASF5:
- 678 008d 6C6F6E67 		.ascii	"long unsigned int\000"
- 678      20756E73 
- 678      69676E65 
- 678      6420696E 
- 678      7400
- 679              	.LASF12:
- 680 009f 75696E74 		.ascii	"uint8\000"
- 680      3800
- 681              	.LASF27:
- 682 00a5 70776D5F 		.ascii	"pwm_ReadCounter\000"
- 682      52656164 
- 682      436F756E 
- 682      74657200 
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 17
+ 669              	.LASF36:
+ 670 0052 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\able\\capsenseled\\cap"
+ 670      73657273 
+ 670      5C707572 
+ 670      69615C44 
+ 670      6F63756D 
+ 671 007f 73656E73 		.ascii	"senseled.cydsn\000"
+ 671      656C6564 
+ 671      2E637964 
+ 671      736E00
+ 672              	.LASF28:
+ 673 008e 70776D5F 		.ascii	"pwm_ReadControlRegister\000"
+ 673      52656164 
+ 673      436F6E74 
+ 673      726F6C52 
+ 673      65676973 
+ 674              	.LASF9:
+ 675 00a6 666C6F61 		.ascii	"float\000"
+ 675      7400
+ 676              	.LASF1:
+ 677 00ac 756E7369 		.ascii	"unsigned char\000"
+ 677      676E6564 
+ 677      20636861 
+ 677      7200
+ 678              	.LASF16:
+ 679 00ba 50574D45 		.ascii	"PWMEnableState\000"
+ 679      6E61626C 
+ 679      65537461 
+ 679      746500
+ 680              	.LASF5:
+ 681 00c9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 681      20756E73 
+ 681      69676E65 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 17
 
 
- 683              	.LASF20:
- 684 00b5 50574D43 		.ascii	"PWMControlRegister\000"
- 684      6F6E7472 
- 684      6F6C5265 
- 684      67697374 
- 684      657200
- 685              	.LASF10:
- 686 00c8 646F7562 		.ascii	"double\000"
- 686      6C6500
- 687              	.LASF36:
- 688 00cf 443A5C50 		.ascii	"D:\\ProjektSeminarSoftwareSysteme\\bleapp-master\\P"
- 688      726F6A65 
- 688      6B745365 
- 688      6D696E61 
- 688      72536F66 
- 689 00ff 536F435F 		.ascii	"SoC_Creator\\capsenseled\\capsenseled.cydsn\000"
- 689      43726561 
- 689      746F725C 
- 689      63617073 
- 689      656E7365 
+ 681      6420696E 
+ 681      7400
+ 682              	.LASF12:
+ 683 00db 75696E74 		.ascii	"uint8\000"
+ 683      3800
+ 684              	.LASF27:
+ 685 00e1 70776D5F 		.ascii	"pwm_ReadCounter\000"
+ 685      52656164 
+ 685      436F756E 
+ 685      74657200 
+ 686              	.LASF20:
+ 687 00f1 50574D43 		.ascii	"PWMControlRegister\000"
+ 687      6F6E7472 
+ 687      6F6C5265 
+ 687      67697374 
+ 687      657200
+ 688              	.LASF10:
+ 689 0104 646F7562 		.ascii	"double\000"
+ 689      6C6500
  690              	.LASF25:
- 691 0129 70776D5F 		.ascii	"pwm_Wakeup\000"
+ 691 010b 70776D5F 		.ascii	"pwm_Wakeup\000"
  691      57616B65 
  691      757000
  692              	.LASF8:
- 693 0134 756E7369 		.ascii	"unsigned int\000"
+ 693 0116 756E7369 		.ascii	"unsigned int\000"
  693      676E6564 
  693      20696E74 
  693      00
  694              	.LASF7:
- 695 0141 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 695 0123 6C6F6E67 		.ascii	"long long unsigned int\000"
  695      206C6F6E 
  695      6720756E 
  695      7369676E 
  695      65642069 
  696              	.LASF30:
- 697 0158 70776D5F 		.ascii	"pwm_WriteCounter\000"
+ 697 013a 70776D5F 		.ascii	"pwm_WriteCounter\000"
  697      57726974 
  697      65436F75 
  697      6E746572 
  697      00
  698              	.LASF31:
- 699 0169 70776D5F 		.ascii	"pwm_WriteControlRegister\000"
+ 699 014b 70776D5F 		.ascii	"pwm_WriteControlRegister\000"
  699      57726974 
  699      65436F6E 
  699      74726F6C 
  699      52656769 
  700              	.LASF34:
- 701 0182 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 701 0164 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  701      43313120 
  701      352E342E 
  701      31203230 
  701      31363036 
- 702 01b5 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 702 0197 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
  702      20726576 
  702      6973696F 
  702      6E203233 
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 18
-
-
  702      37373135 
- 703 01e8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 18
+
+
+ 703 01ca 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  703      66756E63 
  703      74696F6E 
  703      2D736563 
  703      74696F6E 
  704              	.LASF13:
- 705 0210 72656738 		.ascii	"reg8\000"
+ 705 01f2 72656738 		.ascii	"reg8\000"
  705      00
  706              	.LASF24:
- 707 0215 70776D5F 		.ascii	"pwm_Sleep\000"
+ 707 01f7 70776D5F 		.ascii	"pwm_Sleep\000"
  707      536C6565 
  707      7000
  708              	.LASF15:
- 709 021f 73697A65 		.ascii	"sizetype\000"
+ 709 0201 73697A65 		.ascii	"sizetype\000"
  709      74797065 
  709      00
  710              	.LASF6:
- 711 0228 6C6F6E67 		.ascii	"long long int\000"
+ 711 020a 6C6F6E67 		.ascii	"long long int\000"
  711      206C6F6E 
  711      6720696E 
  711      7400
  712              	.LASF29:
- 713 0236 70776D5F 		.ascii	"pwm_WritePeriod\000"
+ 713 0218 70776D5F 		.ascii	"pwm_WritePeriod\000"
  713      57726974 
  713      65506572 
  713      696F6400 
  714              	.LASF11:
- 715 0246 63686172 		.ascii	"char\000"
+ 715 0228 63686172 		.ascii	"char\000"
  715      00
  716              	.LASF32:
- 717 024b 70776D5F 		.ascii	"pwm_Stop\000"
+ 717 022d 70776D5F 		.ascii	"pwm_Stop\000"
  717      53746F70 
  717      00
  718              	.LASF2:
- 719 0254 73686F72 		.ascii	"short int\000"
+ 719 0236 73686F72 		.ascii	"short int\000"
  719      7420696E 
  719      7400
  720              	.LASF33:
- 721 025e 70776D5F 		.ascii	"pwm_Enable\000"
+ 721 0240 70776D5F 		.ascii	"pwm_Enable\000"
  721      456E6162 
  721      6C6500
  722              	.LASF26:
- 723 0269 70776D5F 		.ascii	"pwm_ReadPeriod\000"
+ 723 024b 70776D5F 		.ascii	"pwm_ReadPeriod\000"
  723      52656164 
  723      50657269 
  723      6F6400
  724              	.LASF4:
- 725 0278 6C6F6E67 		.ascii	"long int\000"
+ 725 025a 6C6F6E67 		.ascii	"long int\000"
  725      20696E74 
  725      00
  726              	.LASF35:
- 727 0281 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm_PM.c\000"
+ 727 0263 47656E65 		.ascii	"Generated_Source\\PSoC4\\pwm_PM.c\000"
  727      72617465 
  727      645F536F 
  727      75726365 
  727      5C50536F 
-ARM GAS  C:\Users\Art\AppData\Local\Temp\ccH42FhQ.s 			page 19
-
-
  728              	.LASF14:
- 729 02a1 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccaVKXLA.s 			page 19
+
+
+ 729 0283 6C6F6E67 		.ascii	"long double\000"
  729      20646F75 
  729      626C6500 
  730              	.LASF0:
- 731 02ad 7369676E 		.ascii	"signed char\000"
+ 731 028f 7369676E 		.ascii	"signed char\000"
  731      65642063 
  731      68617200 
  732              	.LASF19:
- 733 02b9 496E7465 		.ascii	"InterruptMaskValue\000"
+ 733 029b 496E7465 		.ascii	"InterruptMaskValue\000"
  733      72727570 
  733      744D6173 
  733      6B56616C 
  733      756500
  734              	.LASF22:
- 735 02cc 70776D5F 		.ascii	"pwm_SaveConfig\000"
+ 735 02ae 70776D5F 		.ascii	"pwm_SaveConfig\000"
  735      53617665 
  735      436F6E66 
  735      696700

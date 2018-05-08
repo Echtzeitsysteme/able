@@ -71,6 +71,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private Button locationButton;
     private TextView locationStatus;
 
+    private Button scanButton;
 
     private static final int REQUEST_ENABLE_BT = 1;
     private static final int MY_PERMISSIONS_REQUEST= 1;
@@ -82,6 +83,16 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private String mDeviceName;
     private String mDeviceAddress;
     BluetoothDevice device = null;
+
+    private String descriptionBluetoothOff = "Bluetooth is deactivated";
+    private String descriptionBluetoothOn = "Bluetooth is activated";
+    private String buttonBluetoothOn = "Activate Bluetooth";
+    private String buttonBluetoothOff = "Deactivate Bluetooth";
+
+    private String descriptionLocationOff = "Location data not accessible";
+    private String descriptionLocationOn = "Location data accessible";
+    private String buttonLocationOn = "Activate location data";
+    private String buttonLocationOff = "Deactivate location data";
     //----------------------------------------------------------------------------------------------
 
     private View.OnClickListener buttonListener = new View.OnClickListener(){
@@ -93,15 +104,15 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                     //disable the bluetooth adapter
                     if (mBluetoothAdapter.isEnabled()) {
                         mBluetoothAdapter.disable();
-                        bluetoothStatus.setText("BlueTooth is currently switched OFF");
-                        bluetoothButton.setText("Switch ON Bluetooth");
+                        bluetoothStatus.setText(descriptionBluetoothOff);
+                        bluetoothButton.setText(buttonBluetoothOn);
                         //mLeDeviceListAdapter.clear();
                     }
                     //enable the bluetooth adapter
                     else {
                         mBluetoothAdapter.enable();
-                        bluetoothStatus.setText("BlueTooth is currently switched ON");
-                        bluetoothButton.setText("Switch OFF Bluetooth");
+                        bluetoothStatus.setText(descriptionBluetoothOn);
+                        bluetoothButton.setText(buttonBluetoothOff);
                     }
                     break;
 
@@ -155,6 +166,20 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                     }
                     break;
                 // More buttons go here (if any) ...
+                case R.id.scanButton:
+                    if (mBluetoothAdapter.isEnabled() && locationPermisstions && !mScanning) {
+                        scanButton.setText("Stop scan");
+                        mLeDeviceListAdapter.clear();
+                        scanLeDevice(true);
+                    }
+                    //enable the bluetooth adapter
+                    else {
+                        scanButton.setText("Start scan");
+                        scanLeDevice(false);
+                    }
+
+                break;
+
             }
         }
     };
@@ -184,6 +209,10 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         locationButton = new Button(this);
         locationButton = findViewById(R.id.locationButton);
         locationButton.setOnClickListener(buttonListener);
+
+        scanButton = new Button(this);
+        scanButton = findViewById(R.id.scanButton);
+        scanButton.setOnClickListener(buttonListener);
 
         //reference to the text views
         bluetoothStatus = findViewById(R.id.bluetoothStatus);
@@ -219,11 +248,11 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         //check the status and set the button text accordingly
         else {
             if (mBluetoothAdapter.isEnabled()) {
-                bluetoothStatus.setText("BlueTooth is currently switched ON");
-                bluetoothButton.setText("Switch OFF Bluetooth");
+                bluetoothStatus.setText(descriptionBluetoothOn);
+                bluetoothButton.setText(buttonBluetoothOff);
             }else{
-                bluetoothStatus.setText("BlueTooth is currently switched OFF");
-                bluetoothButton.setText("Switch ON Bluetooth");
+                bluetoothStatus.setText(descriptionBluetoothOff);
+                bluetoothButton.setText(buttonBluetoothOn);
             }
         }
         locationTextSet();
@@ -472,11 +501,11 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         locationPermisstions = isLocationEnabled(getApplicationContext());
         if(!locationPermisstions)
         {
-            locationStatus.setText("location is currently OFF");
-            locationButton.setText("Switch ON location");
+            locationStatus.setText(descriptionLocationOff);
+            locationButton.setText(buttonLocationOn);
         }else{
-            locationStatus.setText("location is currently ON");
-            locationButton.setText("Switch OFF location");
+            locationStatus.setText(descriptionLocationOn);
+            locationButton.setText(buttonLocationOff);
         }
 
     }
@@ -484,11 +513,11 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private void bluetoothTextSet()
     {
         if (mBluetoothAdapter.isEnabled()) {
-            bluetoothStatus.setText("BlueTooth is currently switched ON");
-            bluetoothButton.setText("Switch OFF Bluetooth");
+            bluetoothStatus.setText(descriptionBluetoothOn);
+            bluetoothButton.setText(buttonBluetoothOff);
         }else{
-            bluetoothStatus.setText("BlueTooth is currently switched OFF");
-            bluetoothButton.setText("Switch ON Bluetooth");
+            bluetoothStatus.setText(descriptionBluetoothOff);
+            bluetoothButton.setText(buttonBluetoothOn);
         }
     }
 
