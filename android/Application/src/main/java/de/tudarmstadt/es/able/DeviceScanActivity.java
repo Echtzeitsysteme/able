@@ -93,6 +93,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private String descriptionLocationOn = "Location data accessible";
     private String buttonLocationOn = "Activate location data";
     private String buttonLocationOff = "Deactivate location data";
+
+    private ServiceRegistry serviceRegistry;
     //----------------------------------------------------------------------------------------------
 
     private View.OnClickListener buttonListener = new View.OnClickListener(){
@@ -171,13 +173,15 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                         scanButton.setText("Stop scan");
                         mLeDeviceListAdapter.clear();
                         scanLeDevice(true);
+                        break;
                     }
                     //enable the bluetooth adapter
                     else {
                         scanButton.setText("Start scan");
+                        // TODO: BUG mLeDeviceListAdapter.clear doesn't clear the GUI only the data in the background
+                        // mLeDeviceListAdapter.clear();
                         scanLeDevice(false);
                     }
-
                 break;
 
             }
@@ -196,6 +200,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
         setContentView(R.layout.permission_handling);
+
+        serviceRegistry = new ServiceRegistry();
 
 
         //mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -235,8 +241,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         //bluetoothadapter handling
         if(mBluetoothAdapter == null){
-            bluetoothStatus.setText("BlueTooth adapter not found");
-            bluetoothButton.setText("BlueTooth Disabled");
+            bluetoothStatus.setText("Bluetooth adapter not found");
+            bluetoothButton.setText("Bluetooth Disabled");
             bluetoothButton.setEnabled(false);
             Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_SHORT).show();
 
@@ -273,16 +279,21 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+        menu.findItem(R.id.menu_stop).setVisible(false);
+        menu.findItem(R.id.menu_scan).setVisible(false);
+
 
         if (!mScanning) {
-            menu.findItem(R.id.menu_stop).setVisible(false);
-            menu.findItem(R.id.menu_scan).setVisible(true);
+            //menu.findItem(R.id.menu_stop).setVisible(false);
+            //menu.findItem(R.id.menu_scan).setVisible(true);
             menu.findItem(R.id.menu_refresh).setActionView(null);
+            scanButton.setText("Start scan");
         } else {
-            menu.findItem(R.id.menu_stop).setVisible(true);
-            menu.findItem(R.id.menu_scan).setVisible(false);
+            //menu.findItem(R.id.menu_stop).setVisible(true);
+            //menu.findItem(R.id.menu_scan).setVisible(false);
             menu.findItem(R.id.menu_refresh).setActionView(
                     R.layout.actionbar_indeterminate_progress);
+            scanButton.setText("Stop scan");
         }
         return true;
     }
@@ -379,7 +390,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             if (device == null) return;
             if (mBluetoothLeService != null)
             {
-
                 final boolean result = mBluetoothLeService.connect(device.getAddress());
                 Log.d(TAG, "Connect request result=" + result);
                 if(result)
@@ -430,25 +440,23 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         }
     };
 
-    private boolean checkForKnownServices()
+    private Class<?> checkForKnownServices()
     {
         List<BluetoothGattService>  tmpList = mBluetoothLeService.getSupportedGattServices();
         //Toast.makeText(this, "Looking for "+ CapLedConstants.CAPLED_SERVICE_UUID , Toast.LENGTH_SHORT).show();
-
+        Class<?> choosenActivity = DeviceControlActivity.class;
         for(BluetoothGattService tmpGattService : tmpList)
         {
-            //Toast.makeText(this, "tmpGattService.getUuid().toString() "+ tmpGattService.getUuid().toString() , Toast.LENGTH_SHORT).show();
-            //TODO: can be expanded by iteration over given UUIDs
-
-            if(tmpGattService.getUuid().equals(CapLedConstants.CAPLED_SERVICE_UUID))
-            {
-                mBluetoothLeService.disconnect();
-                return true;
-            }
+                if(serviceRegistry.getRegisteredServices().containsKey(tmpGattService.getUuid())) {
+                    mBluetoothLeService.disconnect();
+                    choosenActivity = serviceRegistry.getServiceClass(tmpGattService.getUuid());
+                    break;
+                }
         }
+        //TODO: Give the user a List of Options on the GUI which Activity should be run if multiple Services are found
         mBluetoothLeService.disconnect();
-        return false;
-    };
+        return choosenActivity;
+    }
 
     //methods which needed to be implemented because of the BLEServiceListener interface
     @Override
@@ -463,14 +471,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
     @Override
     public void gattServicesDiscovered() {
-        //now the intent starts here
-        Intent intent = new Intent(this, DeviceControlActivity.class);
-        //Toast.makeText(this, "GattServices discovered.", Toast.LENGTH_SHORT).show();
-        if(checkForKnownServices())
-        //if(false)
-        {
-            intent = new Intent(this, CapLedActivity.class);
-        }
+        Intent intent = new Intent(this, checkForKnownServices());
 
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());

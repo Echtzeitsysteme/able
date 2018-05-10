@@ -17,7 +17,10 @@
              android:layout_height="wrap_content"
              android:layout_width="56dp"
              android:minWidth="56dp">
-    <ProgressBar android:layout_width="32dp"
-                 android:layout_height="32dp"
-                 android:layout_gravity="center"/>
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Large"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center" />
 </FrameLayout>

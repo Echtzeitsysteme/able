@@ -59,6 +59,7 @@ public class CapLedActivity extends Activity implements BLEServiceListener  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.capled_activity);
 
+
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
