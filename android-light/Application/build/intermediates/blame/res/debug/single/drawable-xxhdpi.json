@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_launcher.png",
+        "source": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_launcher.png",
+        "source": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    }
+]

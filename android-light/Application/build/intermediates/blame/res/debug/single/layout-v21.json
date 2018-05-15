@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/puria/.android/build-cache/ef40b268c27fad073bc4c08baed388296961003b/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]

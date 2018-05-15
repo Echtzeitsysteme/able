@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/build/intermediates/res/merged/debug/menu/gatt_services.xml",
+        "source": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-light-android/Application/src/main/res/menu/gatt_services.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/build/intermediates/res/merged/debug/menu/gatt_services.xml",
+        "source": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/src/main/res/menu/gatt_services.xml"
+    },
+    {
+        "merged": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/puria/Documents/1. Studium/2. Master/3. Semester/4. Able/able-android/Application/src/main/res/menu/main.xml"
+    }
+]
