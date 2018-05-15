@@ -453,7 +453,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                     break;
                 }
         }
-        //TODO: Give the user a List of Options on the GUI which Activity should be run if multiple Services are found
         mBluetoothLeService.disconnect();
         return choosenActivity;
     }
