@@ -1,3 +1,22 @@
+apply plugin: 'org.owasp.dependencycheck'
+apply plugin: 'pmd'
+
+// Invoke ./gradlew dependencyCheckAnalyze to conduct security analysis
+dependencyCheck {
+    autoUpdate=true
+    cveValidForHours=24
+    format='HTML'
+}
+
+// Invoke ./gradlew check to run code quality assessements
+pmd {
+    toolVersion = '5.5.5'
+    ignoreFailures = false
+    sourceSets = [sourceSets.main]
+    reportsDir = file("$project.buildDir/reports/pmd")
+    ruleSets =  ["java-basic", "java-braces", "java-j2ee", "java-naming", "java-imports", "java-sunsecure", "java-unusedcode", "java-unnecessary","java-codesize"]
+    rulePriority = 3
+}
 
 buildscript {
     repositories {
@@ -6,6 +25,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'org.owasp:dependency-check-gradle:3.2.0'
     }
 }
 
