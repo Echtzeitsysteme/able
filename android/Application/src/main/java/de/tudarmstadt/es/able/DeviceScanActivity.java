@@ -19,6 +19,7 @@ package de.tudarmstadt.es.able;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGattService;
@@ -29,6 +30,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -40,6 +42,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -65,11 +68,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private Handler mHandler;
     boolean locationPermisstions = false;
 
-    private Button bluetoothButton;
-    private TextView bluetoothStatus;
 
-    private Button locationButton;
-    private TextView locationStatus;
 
     private Button scanButton;
 
@@ -84,15 +83,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private String mDeviceAddress;
     BluetoothDevice device = null;
 
-    private String descriptionBluetoothOff = "Bluetooth is deactivated";
-    private String descriptionBluetoothOn = "Bluetooth is activated";
-    private String buttonBluetoothOn = "Activate Bluetooth";
-    private String buttonBluetoothOff = "Deactivate Bluetooth";
+    private Switch bluetoothSwitch;
+    private Switch locationSwitch;
 
-    private String descriptionLocationOff = "Location data not accessible";
-    private String descriptionLocationOn = "Location data accessible";
-    private String buttonLocationOn = "Activate location data";
-    private String buttonLocationOff = "Deactivate location data";
 
     private ServiceRegistry serviceRegistry;
     //----------------------------------------------------------------------------------------------
@@ -101,73 +94,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         @Override
         public void onClick(View v){
             switch (v.getId()) {
-
-                case R.id.bluetoothButton:
-                    //disable the bluetooth adapter
-                    if (mBluetoothAdapter.isEnabled()) {
-                        mBluetoothAdapter.disable();
-                        bluetoothStatus.setText(descriptionBluetoothOff);
-                        bluetoothButton.setText(buttonBluetoothOn);
-                        //mLeDeviceListAdapter.clear();
-                    }
-                    //enable the bluetooth adapter
-                    else {
-                        mBluetoothAdapter.enable();
-                        bluetoothStatus.setText(descriptionBluetoothOn);
-                        bluetoothButton.setText(buttonBluetoothOff);
-                    }
-                    break;
-
-                case R.id.locationButton:
-                    //disable the bluetooth adapter
-                    if (locationPermisstions) {
-                        //disable, this permission is only accessible by the user
-
-                        startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
-
-                        locationTextSet();
-
-                    }
-
-                    else {
-                        //differend kind of permissions are handled differently, general/specific permission as seen here
-
-                        //general location permission
-                        //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                        //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
-                        startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
-
-                        //Container to store all requests which should be permitted and are not available during startup
-                        ArrayList<String> arrPerm = new ArrayList<>();
-
-                        //application specific location permission
-                        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-                                != PackageManager.PERMISSION_GRANTED)
-                        {
-                            arrPerm.add(Manifest.permission.ACCESS_FINE_LOCATION);
-                        }
-
-                        //application specific location permission
-                        if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
-                                != PackageManager.PERMISSION_GRANTED)
-                        {
-                            arrPerm.add(Manifest.permission.ACCESS_COARSE_LOCATION);
-                        }
-
-                        //permissions get requested, index by index
-                        if(!arrPerm.isEmpty()) {
-                            String[] permissions = new String[arrPerm.size()];
-                            permissions = arrPerm.toArray(permissions);
-                            ActivityCompat.
-                                    requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
-                        }
-
-                        locationTextSet();
-                        //mLeDeviceListAdapter.clear();
-
-                    }
-                    break;
-                // More buttons go here (if any) ...
                 case R.id.scanButton:
                     if (mBluetoothAdapter.isEnabled() && locationPermisstions && !mScanning) {
                         scanButton.setText("Stop scan");
@@ -178,13 +104,14 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                     //enable the bluetooth adapter
                     else {
                         scanButton.setText("Start scan");
-                        // TODO: BUG mLeDeviceListAdapter.clear doesn't clear the GUI only the data in the background
-                        // mLeDeviceListAdapter.clear();
+                        mLeDeviceListAdapter.clear();
+                        mLeDeviceListAdapter.notifyDataSetInvalidated();
                         scanLeDevice(false);
                     }
                 break;
-
+                // Add more buttons for the UI here ...
             }
+
         }
     };
 
@@ -197,32 +124,89 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // TODO: Include drawable for top bar, to differentiate between it and the app icon
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
         setContentView(R.layout.permission_handling);
 
-        serviceRegistry = new ServiceRegistry();
-
+        serviceRegistry = ServiceRegistry.getInstance();
 
         //mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 //Context.getSystemService(LocationManager.class) -> available from API23
 
-        //reference to the buttons
-        bluetoothButton = new Button(this);
-        bluetoothButton = findViewById(R.id.bluetoothButton);
-        bluetoothButton.setOnClickListener(buttonListener);
 
-        locationButton = new Button(this);
-        locationButton = findViewById(R.id.locationButton);
-        locationButton.setOnClickListener(buttonListener);
 
         scanButton = new Button(this);
         scanButton = findViewById(R.id.scanButton);
         scanButton.setOnClickListener(buttonListener);
 
-        //reference to the text views
-        bluetoothStatus = findViewById(R.id.bluetoothStatus);
-        locationStatus = findViewById(R.id.locationStatus);
+
+        //reference to switches
+        bluetoothSwitch = findViewById(R.id.bluetoothSwitch);
+        locationSwitch = findViewById(R.id.locationSwitch);
+
+        // This will be called when the Bluetooth ON/OFF switch is touched
+        bluetoothSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mBluetoothAdapter.enable();
+                    //mLeDeviceListAdapter.clear();
+                }
+                else {
+                    mBluetoothAdapter.disable();
+                    // TODO: BUG app doesn't work if this is activated
+                    // mLeDeviceListAdapter.clear();
+                }
+
+            }
+        });
+
+        locationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+                    setLocationSwitch();
+                }
+                else {
+                    //different kind of permissions are handled differently, general/specific permission as seen here
+
+                    //general location permission
+                    //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
+                    startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+
+                    //Container to store all requests which should be permitted and are not available during startup
+                    ArrayList<String> arrPerm = new ArrayList<>();
+
+                    //application specific location permission
+                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED)
+                    {
+                        arrPerm.add(Manifest.permission.ACCESS_FINE_LOCATION);
+                    }
+
+                    //application specific location permission
+                    if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED)
+                    {
+                        arrPerm.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                    }
+
+                    //permissions get requested, index by index
+                    if(!arrPerm.isEmpty()) {
+                        String[] permissions = new String[arrPerm.size()];
+                        permissions = arrPerm.toArray(permissions);
+                        ActivityCompat.
+                                requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
+                    }
+                    setLocationSwitch();
+
+                    //mLeDeviceListAdapter.clear();
+
+                }
+
+            }
+        });
 
         // Use this check to determine whether BLE is supported on the device.  Then you can
         // selectively disable BLE-related features.
@@ -241,9 +225,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         //bluetoothadapter handling
         if(mBluetoothAdapter == null){
-            bluetoothStatus.setText("Bluetooth adapter not found");
-            bluetoothButton.setText("Bluetooth Disabled");
-            bluetoothButton.setEnabled(false);
+            bluetoothSwitch.setChecked(false);
             Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_SHORT).show();
 
             //some final options to end program, without bluetooth there is no functionality
@@ -253,16 +235,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         //check the status and set the button text accordingly
         else {
-            if (mBluetoothAdapter.isEnabled()) {
-                bluetoothStatus.setText(descriptionBluetoothOn);
-                bluetoothButton.setText(buttonBluetoothOff);
-            }else{
-                bluetoothStatus.setText(descriptionBluetoothOff);
-                bluetoothButton.setText(buttonBluetoothOn);
-            }
+            setBluetoothSwitch();
         }
-        locationTextSet();
-
+        setLocationSwitch();
 
         //LeDeviceListAdapter needs to be created, was recreated onResume before.
         mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
@@ -324,8 +299,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     protected void onResume() {
         super.onResume();
 
-        bluetoothTextSet();
-        locationTextSet();
+        setBluetoothSwitch();
+        setLocationSwitch();
+
 
         //receiver gets registered and unregistered depending on this activity is running or not
         deviceScanActivityReiceiver = new BLEBroadcastReceiver(this);
@@ -347,7 +323,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         if (requestCode == resultCode) {
             Log.d("ActivityResult", "so expected");
-            locationTextSet();
+
+            setLocationSwitch();
+
             onRestart();
             return;
         }
@@ -364,7 +342,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         super.onPause();
         scanLeDevice(false);
 
-        locationTextSet();
+        setLocationSwitch();
         unregisterReceiver(deviceScanActivityReiceiver);
 
 
@@ -443,7 +421,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private Class<?> checkForKnownServices()
     {
         List<BluetoothGattService>  tmpList = mBluetoothLeService.getSupportedGattServices();
-        //Toast.makeText(this, "Looking for "+ CapLedConstants.CAPLED_SERVICE_UUID , Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Looking for "+ CapLEDConstants.CAPLED_SERVICE_UUID , Toast.LENGTH_SHORT).show();
         Class<?> choosenActivity = DeviceControlActivity.class;
         for(BluetoothGattService tmpGattService : tmpList)
         {
@@ -455,6 +433,24 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         }
         mBluetoothLeService.disconnect();
         return choosenActivity;
+    }
+
+    private void setBluetoothSwitch(){
+        if (mBluetoothAdapter.isEnabled()) {
+            bluetoothSwitch.setChecked(true);
+        }else{
+            bluetoothSwitch.setChecked(false);
+        }
+    }
+
+    private void setLocationSwitch(){
+        locationPermisstions = isLocationEnabled(getApplicationContext());
+        if(!locationPermisstions)
+        {
+            locationSwitch.setChecked(false);
+        }else{
+            locationSwitch.setChecked(true);
+        }
     }
 
     //methods which needed to be implemented because of the BLEServiceListener interface
@@ -495,31 +491,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         TextView deviceAddress;
     }
 
-    private void locationTextSet()
-    {
-
-        locationPermisstions = isLocationEnabled(getApplicationContext());
-        if(!locationPermisstions)
-        {
-            locationStatus.setText(descriptionLocationOff);
-            locationButton.setText(buttonLocationOn);
-        }else{
-            locationStatus.setText(descriptionLocationOn);
-            locationButton.setText(buttonLocationOff);
-        }
-
-    }
-
-    private void bluetoothTextSet()
-    {
-        if (mBluetoothAdapter.isEnabled()) {
-            bluetoothStatus.setText(descriptionBluetoothOn);
-            bluetoothButton.setText(buttonBluetoothOff);
-        }else{
-            bluetoothStatus.setText(descriptionBluetoothOff);
-            bluetoothButton.setText(buttonBluetoothOn);
-        }
-    }
 
 
     // This manages the Service lifecycle.
