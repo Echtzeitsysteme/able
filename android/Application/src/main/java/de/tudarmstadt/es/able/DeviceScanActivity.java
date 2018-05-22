@@ -18,6 +18,7 @@ package de.tudarmstadt.es.able;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
@@ -30,6 +31,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -85,7 +87,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
     private Switch bluetoothSwitch;
     private Switch locationSwitch;
-
+    private final String scanButtonStart = "START SCAN";
+    private final String scanButtonStop = "STOP SCAN";
 
     private ServiceRegistry serviceRegistry;
     //----------------------------------------------------------------------------------------------
@@ -96,14 +99,15 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             switch (v.getId()) {
                 case R.id.scanButton:
                     if (mBluetoothAdapter.isEnabled() && locationPermisstions && !mScanning) {
-                        scanButton.setText("Stop scan");
+                        scanButton.setText(scanButtonStop);
                         mLeDeviceListAdapter.clear();
                         scanLeDevice(true);
                         break;
                     }
                     //enable the bluetooth adapter
                     else {
-                        scanButton.setText("Start scan");
+                        scanButton.setActivated(false);
+                        scanButton.setText(scanButtonStart);
                         mLeDeviceListAdapter.clear();
                         mLeDeviceListAdapter.notifyDataSetInvalidated();
                         scanLeDevice(false);
@@ -125,6 +129,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: Include drawable for top bar, to differentiate between it and the app icon
+        //getActionBar().setBackgroundDrawable(getDrawable(R.drawable.es_fg_logo_able));
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
         setContentView(R.layout.permission_handling);
@@ -133,7 +138,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         //mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 //Context.getSystemService(LocationManager.class) -> available from API23
-
 
 
         scanButton = new Button(this);
@@ -151,9 +155,23 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                 if (isChecked) {
                     mBluetoothAdapter.enable();
                     //mLeDeviceListAdapter.clear();
+                    // TODO: DEBUG THIS SECTION
+                    if(isLocationEnabled(getApplicationContext())){
+                        scanButton.setActivated(true);
+                        scanButton.setClickable(true);
+                        scanButton.setBackgroundColor(Color.rgb(45,45,45));
+                    }
+                    else{
+                        scanButton.setActivated(false);
+                        scanButton.setClickable(false);
+                        scanButton.setBackgroundColor(Color.rgb(220,220,220));
+                    }
                 }
                 else {
                     mBluetoothAdapter.disable();
+                    scanButton.setActivated(false);
+                    scanButton.setClickable(false);
+                    scanButton.setBackgroundColor(Color.rgb(220,220,220));
                     // TODO: BUG app doesn't work if this is activated
                     // mLeDeviceListAdapter.clear();
                 }
@@ -164,8 +182,20 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         locationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+                    //startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                     setLocationSwitch();
+                    // TODO: DEBUG THIS SECTION
+                    if(mBluetoothAdapter.isEnabled()){
+                        scanButton.setActivated(true);
+                        scanButton.setClickable(true);
+                        scanButton.setBackgroundColor(Color.rgb(45,45,45));
+                    }
+                    else{
+                        scanButton.setActivated(false);
+                        scanButton.setClickable(false);
+                        scanButton.setBackgroundColor(Color.rgb(220,220,220));
+                    }
                 }
                 else {
                     //different kind of permissions are handled differently, general/specific permission as seen here
@@ -173,7 +203,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                     //general location permission
                     //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                     //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
-                    startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+                    //startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
 
                     //Container to store all requests which should be permitted and are not available during startup
                     ArrayList<String> arrPerm = new ArrayList<>();
@@ -200,11 +231,13 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                                 requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
                     }
                     setLocationSwitch();
-
+                    // TODO: DEBUG THIS SECTION
+                    scanButton.setActivated(false);
+                    scanButton.setClickable(false);
+                    scanButton.setBackgroundColor(Color.rgb(220,220,220));
                     //mLeDeviceListAdapter.clear();
 
                 }
-
             }
         });
 
@@ -239,6 +272,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         }
         setLocationSwitch();
 
+        // TODO: DEBUG THIS SECTION
+        setScanButton();
+
         //LeDeviceListAdapter needs to be created, was recreated onResume before.
         mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
         setListAdapter(mLeDeviceListAdapter);
@@ -249,6 +285,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         //------------------------------------------------------------------------------------------
 
 
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     @Override
@@ -262,13 +301,13 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             //menu.findItem(R.id.menu_stop).setVisible(false);
             //menu.findItem(R.id.menu_scan).setVisible(true);
             menu.findItem(R.id.menu_refresh).setActionView(null);
-            scanButton.setText("Start scan");
+            scanButton.setText(scanButtonStart);
         } else {
             //menu.findItem(R.id.menu_stop).setVisible(true);
             //menu.findItem(R.id.menu_scan).setVisible(false);
             menu.findItem(R.id.menu_refresh).setActionView(
                     R.layout.actionbar_indeterminate_progress);
-            scanButton.setText("Stop scan");
+            scanButton.setText(scanButtonStop);
         }
         return true;
     }
@@ -450,6 +489,19 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             locationSwitch.setChecked(false);
         }else{
             locationSwitch.setChecked(true);
+        }
+    }
+
+    private void setScanButton(){
+        if(mBluetoothAdapter.isEnabled() && isLocationEnabled(getApplicationContext())){
+            scanButton.setActivated(true);
+            scanButton.setClickable(true);
+            scanButton.setBackgroundColor(Color.rgb(45,45,45));
+        }
+        else{
+            scanButton.setActivated(false);
+            scanButton.setClickable(false);
+            scanButton.setBackgroundColor(Color.rgb(220,220,220));
         }
     }
 

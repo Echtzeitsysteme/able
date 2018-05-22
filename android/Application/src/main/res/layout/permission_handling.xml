@@ -29,7 +29,7 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:paddingTop="15dp"
-        android:text="Please activate Bluetooth and location data access to start the ABLE scan."
+        android:text="Please activate Bluetooth and location services access to start scanning for Bluetooth devices."
         android:textSize="18sp" />
 
     <Space

@@ -18,8 +18,8 @@
              android:layout_width="56dp"
              android:minWidth="56dp">
 
+    <!-- style="@android:style/Widget.ProgressBar.Large" -->
     <ProgressBar
-        style="@android:style/Widget.ProgressBar.Large"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center" />
