@@ -27,7 +27,6 @@ public class ServiceRegistry {
         // TODO: Insert your (UUID,Acvity) tuple here
         //registeredServices.put(UUID.fromString("00000000-0000-1000-8000-00805f9b34f0"), DeviceControlActivity.class);
         registeredServices.put(UUID.fromString("00000000-0000-1000-8000-00805f9b34f0"), CapLEDActivity.class);
-
     }
 
     public Map<UUID, Class<?>> getRegisteredServices () {
@@ -40,6 +39,7 @@ public class ServiceRegistry {
         return DeviceControlActivity.class;
     }
 
+    // TODO: singleton delete
     public void register(UUID uuid, Class<?> activity){
         registeredServices.put(uuid, activity);
     }

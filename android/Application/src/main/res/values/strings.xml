@@ -28,16 +28,19 @@
     <string name="RedLED">Red LED</string>
     <string name="Capsense">CapSense Value =</string>
     <string name="NotifyOff">"Notify Off"</string>
-    <string name="Notify">Notify</string>
+    <string name="Notify">Notify CapSense</string>
     <string name="NoTouch">"No Touch"</string>
+    <string name="deviceScanWelcome">Please activate Bluetooth and location services access to start scanning for Bluetooth devices.</string>
+    <string name="capledWelcome">Here you can connect to the CapLED plattform of Cypress and control the peripherie on it. If notify is activated the CapSense will be scanned to register touch activities.</string>
+    <string name="capsenseData">CapSense status</string>
 
     <string name="unknown_device">Unknown device</string>
     <string name="unknown_characteristic">Unknown characteristic</string>
     <string name="unknown_service">Unknown service</string>
 
     <!-- Menu items -->
-    <string name="menu_connect">Connect</string>
-    <string name="menu_disconnect">Disconnect</string>
-    <string name="menu_scan">Scan</string>
-    <string name="menu_stop">Stop</string>
+    <string name="menu_connect">CONNECT</string>
+    <string name="menu_disconnect">DISCONNECT</string>
+    <string name="menu_scan">SCAN</string>
+    <string name="menu_stop">STOP</string>
 </resources>

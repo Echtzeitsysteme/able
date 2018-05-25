@@ -147,7 +147,11 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         //reference to switches
         bluetoothSwitch = findViewById(R.id.bluetoothSwitch);
+        bluetoothSwitch.setTag(false);
         locationSwitch = findViewById(R.id.locationSwitch);
+        locationSwitch.setTag(false);
+
+        // tag is set to true for notifying the onCheckedChangedListener
 
         // This will be called when the Bluetooth ON/OFF switch is touched
         bluetoothSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -179,64 +183,64 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             }
         });
 
+
         locationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    //startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
-                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                    setLocationSwitch();
-                    // TODO: DEBUG THIS SECTION
-                    if(mBluetoothAdapter.isEnabled()){
-                        scanButton.setActivated(true);
-                        scanButton.setClickable(true);
-                        scanButton.setBackgroundColor(Color.rgb(45,45,45));
-                    }
-                    else{
+                if(locationSwitch.getTag().equals(true)) {
+                    if (isChecked) {
+                        startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+                        //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        setLocationSwitch();
+                        // TODO: DEBUG THIS SECTION
+                        if (mBluetoothAdapter.isEnabled()) {
+                            scanButton.setActivated(true);
+                            scanButton.setClickable(true);
+                            scanButton.setBackgroundColor(Color.rgb(45, 45, 45));
+                        } else {
+                            scanButton.setActivated(false);
+                            scanButton.setClickable(false);
+                            scanButton.setBackgroundColor(Color.rgb(220, 220, 220));
+                        }
+                    } else {
+                        //different kind of permissions are handled differently, general/specific permission as seen here
+
+                        //general location permission
+                        //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
+                        startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+                        //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+
+                        //Container to store all requests which should be permitted and are not available during startup
+                        ArrayList<String> arrPerm = new ArrayList<>();
+
+                        //application specific location permission
+                        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                                != PackageManager.PERMISSION_GRANTED) {
+                            arrPerm.add(Manifest.permission.ACCESS_FINE_LOCATION);
+                        }
+
+                        //application specific location permission
+                        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                                != PackageManager.PERMISSION_GRANTED) {
+                            arrPerm.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                        }
+
+                        //permissions get requested, index by index
+                        if (!arrPerm.isEmpty()) {
+                            String[] permissions = new String[arrPerm.size()];
+                            permissions = arrPerm.toArray(permissions);
+                            ActivityCompat.
+                                    requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
+                        }
+                        //locationSwitch.setTag(false);
+                        setLocationSwitch();
+                        //locationSwitch.setTag(true);                        // TODO: DEBUG THIS SECTION
                         scanButton.setActivated(false);
                         scanButton.setClickable(false);
-                        scanButton.setBackgroundColor(Color.rgb(220,220,220));
+                        scanButton.setBackgroundColor(Color.rgb(220, 220, 220));
+                        //mLeDeviceListAdapter.clear();
+
                     }
-                }
-                else {
-                    //different kind of permissions are handled differently, general/specific permission as seen here
-
-                    //general location permission
-                    //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                    //REQUEST for 0 not 1, however otherwise the it will return to the start screen, NOT mainActivity
-                    //startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
-                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-
-                    //Container to store all requests which should be permitted and are not available during startup
-                    ArrayList<String> arrPerm = new ArrayList<>();
-
-                    //application specific location permission
-                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED)
-                    {
-                        arrPerm.add(Manifest.permission.ACCESS_FINE_LOCATION);
-                    }
-
-                    //application specific location permission
-                    if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED)
-                    {
-                        arrPerm.add(Manifest.permission.ACCESS_COARSE_LOCATION);
-                    }
-
-                    //permissions get requested, index by index
-                    if(!arrPerm.isEmpty()) {
-                        String[] permissions = new String[arrPerm.size()];
-                        permissions = arrPerm.toArray(permissions);
-                        ActivityCompat.
-                                requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
-                    }
-                    setLocationSwitch();
-                    // TODO: DEBUG THIS SECTION
-                    scanButton.setActivated(false);
-                    scanButton.setClickable(false);
-                    scanButton.setBackgroundColor(Color.rgb(220,220,220));
-                    //mLeDeviceListAdapter.clear();
-
                 }
             }
         });
@@ -271,6 +275,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             setBluetoothSwitch();
         }
         setLocationSwitch();
+
+        bluetoothSwitch.setTag(true);
+        locationSwitch.setTag(true);
 
         // TODO: DEBUG THIS SECTION
         setScanButton();
@@ -363,7 +370,11 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         if (requestCode == resultCode) {
             Log.d("ActivityResult", "so expected");
 
+            // TODO: DEBUG THIS PART
+            locationSwitch.setTag(false);
             setLocationSwitch();
+            locationSwitch.setTag(true);
+            setScanButton();
 
             onRestart();
             return;
@@ -477,7 +488,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private void setBluetoothSwitch(){
         if (mBluetoothAdapter.isEnabled()) {
             bluetoothSwitch.setChecked(true);
-        }else{
+        }else if(!mBluetoothAdapter.isEnabled() ){
             bluetoothSwitch.setChecked(false);
         }
     }
@@ -487,7 +498,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         if(!locationPermisstions)
         {
             locationSwitch.setChecked(false);
-        }else{
+        }else if(locationPermisstions){
             locationSwitch.setChecked(true);
         }
     }

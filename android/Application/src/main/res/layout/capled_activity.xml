@@ -15,52 +15,100 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:fontFamily="sans-serif-condensed"
+    android:orientation="vertical"
+    android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+    android:scrollbars="vertical">
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/capled" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:text="@string/capledWelcome"
+        android:textSize="18sp" />
+    <!--
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:paddingLeft="15dp"
         android:paddingTop="15dp"
-        android:text="CAPLED Wireless Control"
-        android:textSize="18sp"
+        android:text="CapLED"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+        -->
+
+    <Button
+        android:id="@+id/capledConnect"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/menu_connect"
         android:textStyle="bold" />
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp" />
-
-    <LinearLayout android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
             android:text="@string/label_device_address"
             android:textSize="18sp" />
 
-        <TextView android:id="@+id/device_address"
+        <TextView
+            android:id="@+id/device_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"/>
+            android:fontFamily="sans-serif-condensed"
+            android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
-    <LinearLayout android:orientation="horizontal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-        <TextView android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
             android:text="@string/label_state"
-            android:textSize="18sp"/>
-        <Space android:layout_width="5dp"
-            android:layout_height="wrap_content"/>
+            android:textSize="18sp" />
+
 
         <TextView
             android:id="@+id/connection_state"
@@ -68,20 +116,22 @@
             android:layout_height="wrap_content"
             android:text="@string/disconnected"
             android:textAlignment="textEnd"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-        <TextView android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_data"
-            android:textSize="18sp"/>
-        <Space android:layout_width="5dp"
-            android:layout_height="wrap_content"/>
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/data_value"
@@ -89,40 +139,67 @@
             android:layout_height="wrap_content"
             android:text="@string/no_data"
             android:textAlignment="textEnd"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
     <Switch
         android:id="@+id/led_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:paddingBottom="@dimen/activity_horizontal_margin"
-        android:paddingEnd="12dp"
-        android:paddingStart="12dp"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        android:switchPadding="12dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
         android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
         android:text="@string/RedLED"
-        android:textSize="18sp" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textOff="OFF"
+        android:textOn="ON"/>
+
+    <Switch
+        android:id="@+id/capsense_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="@string/Notify"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textOff="OFF"
+        android:textOn="ON"/>
+
+    <TextView
+        android:id="@+id/capsense_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="0dp"
+        android:text="@string/capsenseData"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/capsense_view"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/capsenseoff" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        >
-
-        <Switch
-            android:id="@+id/capsense_switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:enabled="false"
-            android:paddingEnd="12dp"
-            android:paddingStart="12dp"
-            android:switchPadding="12dp"
-            android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-            android:text="@string/Notify"
-            android:textSize="18sp" />
+        android:paddingTop="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/capsense_header"
@@ -145,10 +222,6 @@
             android:text="@string/NotifyOff"
             android:textSize="18sp" />
     </RelativeLayout>
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/capsense" />
 
 
 </LinearLayout>
