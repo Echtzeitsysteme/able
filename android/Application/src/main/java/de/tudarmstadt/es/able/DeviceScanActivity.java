@@ -65,7 +65,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
-    private BluetoothLeScanner mBluetoothScanner;
+    //private BluetoothLeScanner mBluetoothScanner;
     private boolean mScanning;
     private Handler mHandler;
     boolean locationPermisstions = false;
@@ -93,7 +93,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private ServiceRegistry serviceRegistry;
     //----------------------------------------------------------------------------------------------
 
-    private View.OnClickListener buttonListener = new View.OnClickListener(){
+    private View.OnClickListener buttonListener2 = new View.OnClickListener(){
         @Override
         public void onClick(View v){
             switch (v.getId()) {
@@ -142,7 +142,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         scanButton = new Button(this);
         scanButton = findViewById(R.id.scanButton);
-        scanButton.setOnClickListener(buttonListener);
+        scanButton.setOnClickListener(buttonListener2);
 
 
         //reference to switches
