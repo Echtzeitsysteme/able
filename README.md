@@ -1,4 +1,4 @@
-<img src="https://github.com/Echtzeitsysteme/able/blob/puria-dev/android/Application/src/main/res/drawable-hdpi/able_logo.png">
+<img src="https://github.com/Echtzeitsysteme/able/blob/puria-dev/android/Application/src/main/res/drawable-hdpi/able_logo.png" height="300px">
 
 ***
 # Welcome to the ABLE
