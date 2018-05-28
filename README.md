@@ -11,7 +11,9 @@ ABLE, Android Bluetooth-Low-Energy, is a framework that can help you to connect 
 # Screenshots of the app
 <table border="0">
 <tr>
-<td><img alt="Duck Hunt 2017" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE1.png" width="400px"/></td>
-<td><img alt="Pong 2017" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE2.png"   width="400px"/></td>
+<td><img alt="ABLE SCAN" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE1.png" width="200px"/></td>
+<td><img alt="ABLE STOP SCAN" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE2.png"   width="200px"/></td>
+<td><img alt="ABLE CAPLED" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE3.png"   width="200px"/></td>
+<td><img alt="ABLE CAPLED" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE4.png"   width="200px"/></td>
 </tr>
 </table>
