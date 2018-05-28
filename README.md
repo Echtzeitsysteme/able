@@ -9,5 +9,9 @@ ABLE, Android Bluetooth-Low-Energy, is a framework for prototyping applications 
 ABLE, Android Bluetooth-Low-Energy, is a framework that can help you to connect your IoT-device over Bluetooth-Low-Energy with an Android smartphone. The framework does for you the scanning and pairing process. It shows you a list of available Bluetooth LE devices and provides an interface to connect, display data and display GATT services and characteristics supported by the devices. So you can focus on the main issues you want to evaluate with your device.
 
 # Screenshots of the app
-![Screenshot1](https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE1.png)
-<img src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE2.png" height ="200px" />
+<table border="0">
+<tr>
+<td><img alt="Duck Hunt 2017" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE1.png" width="400px"/></td>
+<td><img alt="Pong 2017" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE2.png"   width="400px"/></td>
+</tr>
+</table>
