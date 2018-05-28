@@ -47,7 +47,6 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
 
     private BluetoothLeService mBluetoothLeService;
     //write and read values is called by BluetoothGattObject
-    private static TextView mCapsenseValue;
     private static BluetoothGatt mBluetoothGatt;
     private static Switch led_switch;
     private static Switch cap_switch;
@@ -107,7 +106,6 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         cap_switch = findViewById(R.id.capsense_switch);
         // Set up a variable to point to the CapSense value on the display
         mCapsenseView = findViewById(R.id.capsense_view);
-        //mCapsenseValue = findViewById(R.id.capsense_value);
 
         getActionBar().setTitle("");
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -133,11 +131,8 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
                 writeCapSenseNotification(isChecked);
                 CapSenseNotifyState = isChecked;  // Keep track of CapSense notification state
                 if(isChecked) { // Notifications are now on so text has to say "No Touch"
-                    //TODO: CLEAN UP
-                    //mCapsenseValue.setText(R.string.NoTouch);
                     mCapsenseView.setImageResource(R.drawable.capsense05);
                 } else { // Notifications are now off so text has to say "Notify Off"
-                    //mCapsenseValue.setText(R.string.NotifyOff);
                     mCapsenseView.setImageResource(R.drawable.capsenseoff);
                 }
             }
@@ -293,15 +288,11 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         int capSensePosition = Integer.parseInt(mCapSenseValue);
         if (mCapSenseValue.equals("-1")) {  // No Touch returns 0xFFFF which is -1
             if(!CapSenseNotifyState) { // Notifications are off
-                //TODO: CLEAN UP
-                //mCapsenseValue.setText(R.string.NotifyOff);
                 mCapsenseView.setImageResource(R.drawable.capsenseoff);
             } else { // Notifications are on but there is no finger on the slider
-                //mCapsenseValue.setText(R.string.NoTouch);
                 mCapsenseView.setImageResource(R.drawable.capsense05);
             }
         } else { // Valid CapSense value is returned
-            //TODO: CLEAN UP
             if(capSensePosition>=0 && capSensePosition<20)
                 mCapsenseView.setImageResource(R.drawable.capsense15);
             else if(capSensePosition>=20 && capSensePosition<40)
@@ -312,7 +303,6 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
                 mCapsenseView.setImageResource(R.drawable.capsense45);
             else if(capSensePosition>=80)
                 mCapsenseView.setImageResource(R.drawable.capsense55);
-            //mCapsenseValue.setText(CapSensePos);
         }
     }
 
