@@ -1,6 +1,6 @@
 <table border="0">
 <tr align="center">
-	<img src="https://github.com/Echtzeitsysteme/able/blob/puria-dev/android/Application/src/main/res/drawable-hdpi/able_github.jpg" style="max-width:100%;" />
+	<img src="https://github.com/Echtzeitsysteme/able/blob/master/android/Application/src/main/res/drawable-hdpi/able_github.jpg" style="max-width:100%;" />
 </tr>
 </table>
 
@@ -22,10 +22,10 @@ You find a detailed installation tutorial [here](https://github.com/Echtzeitsyst
 # Screenshots of the app
 <table border="0">
 <tr>
-<td><img alt="ABLE SCAN" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE1.png" width="200px"/></td>
-<td><img alt="ABLE STOP SCAN" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE2.png"   width="200px"/></td>
-<td><img alt="ABLE CAPLED" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE3.png"   width="200px"/></td>
-<td><img alt="ABLE CAPLED" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE4.png"   width="200px"/></td>
+<td><img alt="ABLE SCAN" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/master/android/screenshots/ABLE1.png" width="200px"/></td>
+<td><img alt="ABLE STOP SCAN" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/master/android/screenshots/ABLE2.png"   width="200px"/></td>
+<td><img alt="ABLE CAPLED" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/master/android/screenshots/ABLE3.png"   width="200px"/></td>
+<td><img alt="ABLE CAPLED" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/master/android/screenshots/ABLE4.png"   width="200px"/></td>
 </tr>
 </table>
 
