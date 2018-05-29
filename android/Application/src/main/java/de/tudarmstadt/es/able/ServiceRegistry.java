@@ -24,9 +24,7 @@ public class ServiceRegistry {
     public ServiceRegistry(){
         registeredServices = new HashMap<>();
 
-        // Here are all UUIDs and their Acivities are saved in the registeredServices <UUID, Class<?>> HashMap
         // TODO: Insert your (UUID,Acvity) tuple here
-        //registeredServices.put(UUID.fromString("00000000-0000-1000-8000-00805f9b34f0"), DeviceControlActivity.class);
         registeredServices.put(UUID.fromString("00000000-0000-1000-8000-00805f9b34f0"), CapLEDActivity.class);
     }
 

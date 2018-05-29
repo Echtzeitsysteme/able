@@ -13,12 +13,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 /**
- * Created by user on 14.02.18.
+ * This class is needed for the location data access controls.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.0
  */
 
 public class PermissionUtils {
 
-
+    /**
+     * This method checks if location data is accessible.
+     * @param context
+     * @return true if location data is accessible.
+     */
     public static boolean isLocationEnabled(Context context) {
         int locationMode = 0;
         String locationProviders;
@@ -43,7 +50,5 @@ public class PermissionUtils {
             locationProviders = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
             return !TextUtils.isEmpty(locationProviders);
         }
-
-
     }
 }

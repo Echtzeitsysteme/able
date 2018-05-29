@@ -95,7 +95,6 @@ public class BluetoothLeService extends Service {
                 mConnectionState = STATE_CONNECTED;
                 broadcastUpdate(intentAction);
                 Log.i(TAG, "Connected to GATT server.");
-                // Attempts to discover services after successful connection.
                 Log.i(TAG, "Attempting to start service discovery:" +
                         mBluetoothGatt.discoverServices());
 
@@ -168,7 +167,6 @@ public class BluetoothLeService extends Service {
                                  final BluetoothGattCharacteristic characteristic) {
         final Intent intent = new Intent(action);
             {
-            // For all other profiles, writes the data formatted in HEX.
             final byte[] data = characteristic.getValue();
             if (data != null && data.length > 0) {
                 final StringBuilder stringBuilder = new StringBuilder(data.length);
@@ -225,28 +223,21 @@ public class BluetoothLeService extends Service {
 
             mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
             if (mBluetoothManager == null) {
-                //Toast.makeText(this, "Bluetooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "Unable to initialize BluetoothManager.");
                 return INITIALIZATION_FAILED;
             }
         }
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
         {
             mBluetoothAdapter = mBluetoothManager.getAdapter();
         }else
             {
-                //this  should never be accessed, ble is supported from API 18 and above
                 mBluetoothAdapter.getDefaultAdapter();
             }
-
-
         if (mBluetoothAdapter == null) {
             Log.e(TAG, "Unable to obtain a BluetoothAdapter.");
-            //Toast.makeText(this, "Bluetooth seems not available. Try to turn it off and on again :)", Toast.LENGTH_SHORT).show();
             return INITIALIZATION_FAILED;
         }
-
         return INITIALIZATION_SUCCEEDED;
     }
 
@@ -261,19 +252,13 @@ public class BluetoothLeService extends Service {
      */
     public boolean connect(final String address) {
         if (mBluetoothAdapter == null || address == null) {
-            //Toast.makeText(this, "BluetoothManager is null or unspecified address, calling connect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized or unspecified address.");
 
             return CONNECTION_FAILED;
         }
-
-        // Previously connected device.  Try to reconnect.
         if (mBluetoothDeviceAddress != null && address.equals(mBluetoothDeviceAddress)
                 && mBluetoothGatt != null) {
             Log.d(TAG, "Trying to use an existing mBluetoothGatt for connection.");
-            //Toast.makeText(this, "This device was connected and is not reachable now. " +
-            //        "Please make sure the device is avaible and in range. " +
-            //        "Therefore try to disconnect and reconnect.", Toast.LENGTH_SHORT).show();
             if (mBluetoothGatt.connect()) {
                 mConnectionState = STATE_CONNECTING;
                 return CONNECTION_SUCCEEDED;
@@ -281,7 +266,6 @@ public class BluetoothLeService extends Service {
                 return CONNECTION_FAILED;
             }
         }
-
         final BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
         if (device == null) {
             Log.w(TAG, "Device not found.  Unable to connect.");
@@ -291,7 +275,7 @@ public class BluetoothLeService extends Service {
         // We want directly connect to the device, so we are setting the autoConnect
         // For better understanding to choose this parameter take a look at the following link:
         // https://stackoverflow.com/questions/40156699/which-correct-flag-of-autoconnect-in-connectgatt-of-ble
-        boolean noReconnectIfDisconnected = false;//attribute represent the intened behaviour, false means no reconnect intended
+        boolean noReconnectIfDisconnected = false; //attribute represent the intened behaviour, false means no reconnect intended
         mBluetoothGatt = device.connectGatt(this, noReconnectIfDisconnected, mGattCallback);
         Log.d(TAG, "Trying to create a new connection.");
         mBluetoothDeviceAddress = address;
@@ -306,11 +290,8 @@ public class BluetoothLeService extends Service {
      * callback.
      */
     public void disconnect() {
-
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
-            //Toast.makeText(this, "BluetoothAdapter not initialized, calling disconnect() .", Toast.LENGTH_SHORT).show();
             Log.w(TAG, "BluetoothAdapter not initialized");
-
             return;
         }
         mBluetoothGatt.disconnect();
@@ -400,8 +381,8 @@ public class BluetoothLeService extends Service {
     }
 
     /**
-     *
-     * @param someCharToWrite
+     * Rewrites a chosen characteristic.
+     * @param someCharToWrite the characteristic which is overwritten.
      */
     public static void genericWriteCharacteristic(BluetoothGattCharacteristic someCharToWrite){
         mBluetoothGatt.writeCharacteristic(someCharToWrite);
@@ -409,8 +390,7 @@ public class BluetoothLeService extends Service {
     }
 
     /**
-     *
-     * @return
+     * @return mCharacteristicToPass
      */
     public static BluetoothGattCharacteristic getmCharacteristicToPass() {
         return mCharacteristicToPass;
