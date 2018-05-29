@@ -47,7 +47,8 @@
             </intent-filter>
         </activity>
         <activity android:name="de.tudarmstadt.es.able.DeviceControlActivity"/>
-        <activity android:name="de.tudarmstadt.es.able.CapLedActivity" />
+        <activity android:name="de.tudarmstadt.es.capled.CapLEDActivity" />
+        <!-- <activity android:name="de.tudarmstadt.es.newDevice.newDeviceActivity" /> -->
 
         <service android:name="de.tudarmstadt.es.able.BluetoothLeService" android:enabled="true"/>
     </application>

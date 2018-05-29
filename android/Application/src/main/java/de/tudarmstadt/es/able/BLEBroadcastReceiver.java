@@ -89,7 +89,7 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
      * method to check changes using broadcastreceiver
      * @return filterobject which contains all "keyphrases" the broadcaster shall listen to
      */
-    IntentFilter makeGattUpdateIntentFilter() {
+    public IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);

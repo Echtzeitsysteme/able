@@ -19,47 +19,98 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               tools:context=".DeviceScanActivity">
-    <!--
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/able_logo" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:text="@string/deviceScanWelcome"
+        android:textSize="18sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <Switch
-        android:id="@+id/bluetooth_switch"
+        android:id="@+id/locationSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:paddingBottom="@dimen/activity_horizontal_margin"
-        android:paddingEnd="12dp"
-        android:paddingStart="12dp"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        android:switchPadding="12dp"
-        android:text="@string/Bluetooth_switch" />-->
-
-    <TextView android:id="@+id/bluetoothStatus" android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" android:layout_marginTop="10dp"
-        android:text="BlueTooth is currently switched OFF"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="Location"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Button android:id="@+id/bluetoothButton" style="?android:attr/buttonStyleSmall"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true" android:layout_below="@+id/status"
-        android:layout_marginTop="10dp" android:text="Switch ON Bluetooth"
-        android:textStyle="bold" />
-
-    <TextView android:id="@+id/locationStatus" android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" android:layout_marginTop="10dp"
-        android:text="Location or permission are currently OFF"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
-
-    <Button android:id="@+id/locationButton" style="?android:attr/buttonStyleSmall"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true" android:layout_below="@+id/status"
-        android:layout_marginTop="10dp" android:text="Switch ON location and permission"
-        android:textStyle="bold" />
-    <ListView
+    <Switch
+        android:id="@+id/bluetoothSwitch"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="Bluetooth"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/scanButton"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/menu_scan"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/android:list"
         android:layout_width="fill_parent"
-        android:id="@+id/android:list" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp" />
 
 </LinearLayout>

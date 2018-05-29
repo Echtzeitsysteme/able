@@ -16,10 +16,10 @@
 -->
 
 <resources>
-    <string name="app_name">Android Bluetooth low energy</string>
+    <string name="app_name">ABLE</string>
     <string name="intro_message">
         <![CDATA[
-        
+            Android Bluetooth low energy
             Android application for educational purpose.
         
         ]]>

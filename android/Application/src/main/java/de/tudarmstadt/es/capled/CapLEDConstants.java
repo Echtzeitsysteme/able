@@ -1,4 +1,4 @@
-package de.tudarmstadt.es.able;
+package de.tudarmstadt.es.capled;
 
 import java.util.UUID;
 
@@ -6,7 +6,7 @@ import java.util.UUID;
  * For a given specific BLE device, this interface contains all known UUIDs.
  */
 
-public interface CapLedConstants {
+public interface CapLEDConstants {
 
     //UUID BASE_UUID = UUID.fromString("00000000-0000-1000-8000-00805f9b34f");
     UUID CAPLED_SERVICE_UUID = UUID.fromString("00000000-0000-1000-8000-00805f9b34f0");

@@ -2,7 +2,7 @@
 --	Conversion of capsenseled.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Mar 02 15:42:32 2018
+--	Tue May 08 17:13:28 2018
 --
 
 USE cypress.cypress.all;
