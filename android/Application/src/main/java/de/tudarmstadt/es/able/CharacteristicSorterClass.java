@@ -9,7 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by user on 23.02.18.
+ * Scans through all the services of a GATT server and saves them with their data the into a List<List<BluetoothGattCharacteristic>>.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.0
  */
 
 public class CharacteristicSorterClass {
@@ -28,7 +31,16 @@ public class CharacteristicSorterClass {
     }
 
 
-
+    /**
+     * Constructor of the class, that scans all services and puts all data sorted in the lists
+     * gattServiceData, gattCharacteristicData and characteristicList.
+     * @param gattServices GATT services discovered by the ABLE scan.
+     * @param listName
+     * @param listUUID
+     * @param characteristicList
+     * @param context Android Java context of the app
+     * @return
+     */
     static CharacteristicSorterClass settingUpServices(List<BluetoothGattService> gattServices, String listName, String listUUID,
                                                        List<List<BluetoothGattCharacteristic>> characteristicList, Context context) {
         String uuid = null;

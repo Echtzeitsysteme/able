@@ -128,22 +128,15 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: Include drawable for top bar, to differentiate between it and the app icon
-        //getActionBar().setBackgroundDrawable(getDrawable(R.drawable.es_fg_logo_able));
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
         setContentView(R.layout.permission_handling);
 
-        serviceRegistry = ServiceRegistry.getInstance();
-
-        //mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                //Context.getSystemService(LocationManager.class) -> available from API23
-
+        serviceRegistry = new ServiceRegistry();
 
         scanButton = new Button(this);
         scanButton = findViewById(R.id.scanButton);
         scanButton.setOnClickListener(buttonListener2);
-
 
         //reference to switches
         bluetoothSwitch = findViewById(R.id.bluetoothSwitch);
@@ -158,8 +151,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     mBluetoothAdapter.enable();
-                    //mLeDeviceListAdapter.clear();
-                    // TODO: DEBUG THIS SECTION
                     if(isLocationEnabled(getApplicationContext())){
                         scanButton.setActivated(true);
                         scanButton.setClickable(true);
@@ -176,8 +167,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                     scanButton.setActivated(false);
                     scanButton.setClickable(false);
                     scanButton.setBackgroundColor(Color.rgb(220,220,220));
-                    // TODO: BUG app doesn't work if this is activated
-                    // mLeDeviceListAdapter.clear();
                 }
 
             }
@@ -191,7 +180,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                         startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
                         //startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                         setLocationSwitch();
-                        // TODO: DEBUG THIS SECTION
+
                         if (mBluetoothAdapter.isEnabled()) {
                             scanButton.setActivated(true);
                             scanButton.setClickable(true);
@@ -232,9 +221,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                             ActivityCompat.
                                     requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
                         }
-                        //locationSwitch.setTag(false);
                         setLocationSwitch();
-                        //locationSwitch.setTag(true);                        // TODO: DEBUG THIS SECTION
                         scanButton.setActivated(false);
                         scanButton.setClickable(false);
                         scanButton.setBackgroundColor(Color.rgb(220, 220, 220));
@@ -279,7 +266,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         bluetoothSwitch.setTag(true);
         locationSwitch.setTag(true);
 
-        // TODO: DEBUG THIS SECTION
         setScanButton();
 
         //LeDeviceListAdapter needs to be created, was recreated onResume before.
@@ -370,7 +356,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         if (requestCode == resultCode) {
             Log.d("ActivityResult", "so expected");
 
-            // TODO: DEBUG THIS PART
             locationSwitch.setTag(false);
             setLocationSwitch();
             locationSwitch.setTag(true);

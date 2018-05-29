@@ -39,8 +39,12 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Service for managing connection and data communication with a GATT server hosted on a
- * given Bluetooth LE device.
+ * This interface needs to be implemented by every activity you want to create,
+ * this measure makes sure you handle every indispensable situation considering a bluetooth connection.
+ * For a better understanding take a look at the BLEBroadcastReceiver.class.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.0
  */
 public class BluetoothLeService extends Service {
     private final static String TAG = BluetoothLeService.class.getSimpleName();
@@ -74,9 +78,14 @@ public class BluetoothLeService extends Service {
     public final static String EXTRA_DATA =
             "com.example.bluetooth.le.EXTRA_DATA";
 
-
-    // Implements callback methods for GATT events that the app cares about.  For example,
-    // connection change and services discovered.
+    /**
+     * Implements callback method for GATT events that the app cares about. For example, connection change and services discovered.
+     *
+     * @param gatt not used
+     * @param status not used
+     * @param newState the new Bluetooth connection state
+     * @return BluetoothGattCallback
+     */
     private final BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
         @Override
         public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
@@ -98,6 +107,11 @@ public class BluetoothLeService extends Service {
             }
         }
 
+        /**
+         * This method is called, if a GATT service is discovered.
+         * @param gatt not used
+         * @param status status of GATT connection
+         */
         @Override
         public void onServicesDiscovered(BluetoothGatt gatt, int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
@@ -107,6 +121,12 @@ public class BluetoothLeService extends Service {
             }
         }
 
+        /**
+         * This method is called, if a read command for a characteristic is sent.
+         * @param gatt not used
+         * @param characteristic chosen characteristic for the read process
+         * @param status status of GATT connection
+         */
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt,
                                          BluetoothGattCharacteristic characteristic,
@@ -116,6 +136,11 @@ public class BluetoothLeService extends Service {
             }
         }
 
+        /**
+         * If data of the observed characteristic is updated, this method is called.
+         * @param gatt not used
+         * @param characteristic chosen characteristic that is observed
+         */
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt,
                                             BluetoothGattCharacteristic characteristic) {
@@ -125,16 +150,23 @@ public class BluetoothLeService extends Service {
     };
 
 
-
+    /**
+     * Broadcast a chosen action.
+     * @param action that is braodcasted
+     */
     private void broadcastUpdate(final String action) {
         final Intent intent = new Intent(action);
         sendBroadcast(intent);
     }
 
+    /**
+     * This method broadcasts the new value of a characteristic.
+     * @param action
+     * @param characteristic characteristic of the value
+     */
     private void broadcastUpdate(final String action,
                                  final BluetoothGattCharacteristic characteristic) {
         final Intent intent = new Intent(action);
-
             {
             // For all other profiles, writes the data formatted in HEX.
             final byte[] data = characteristic.getValue();
@@ -145,28 +177,38 @@ public class BluetoothLeService extends Service {
                 intent.putExtra(EXTRA_DATA, new String(data) + "\n" + stringBuilder.toString());
             }
         }
-
         mCharacteristicToPass = characteristic;
-
         sendBroadcast(intent);
     }
 
+    /**
+     * Returns the BluetoothLeService.
+     */
     public class LocalBinder extends Binder {
         BluetoothLeService getService() {
             return BluetoothLeService.this;
         }
     }
 
+    /**
+     * Returns mBinder.
+     * @param intent not used
+     * @return IBinder
+     */
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
 
+    /**
+     * After using a given device, you should make sure that BluetoothGatt.close() is called
+     * such that resources are cleaned up properly.  In this particular example, close() is
+     * invoked when the UI is disconnected from the Service.
+     * @param intent
+     * @return
+     */
     @Override
     public boolean onUnbind(Intent intent) {
-        // After using a given device, you should make sure that BluetoothGatt.close() is called
-        // such that resources are cleaned up properly.  In this particular example, close() is
-        // invoked when the UI is disconnected from the Service.
         close();
         return super.onUnbind(intent);
     }
@@ -179,8 +221,6 @@ public class BluetoothLeService extends Service {
      * @return Return true if the initialization is successful.
      */
     public boolean initialize() {
-
-
         if (mBluetoothManager == null) {
 
             mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
@@ -214,7 +254,6 @@ public class BluetoothLeService extends Service {
      * Connects to the GATT server hosted on the Bluetooth LE device.
      *
      * @param address The device address of the destination device.
-     *
      * @return Return true if the connection is initiated successfully. The connection result
      *         is reported asynchronously through the
      *         {@code BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt, int, int)}
@@ -311,7 +350,7 @@ public class BluetoothLeService extends Service {
      *
      * @param characteristic Characteristic to act on.
      * @param enabled If true, enable notification.  False otherwise.
-     */
+     * */
     public void setCharacteristicNotification(BluetoothGattCharacteristic characteristic,
                                               boolean enabled) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
@@ -320,16 +359,6 @@ public class BluetoothLeService extends Service {
             return;
         }
         mBluetoothGatt.setCharacteristicNotification(characteristic, enabled);
-
-        /*
-        // This is specific to Heart Rate Measurement.
-        if (UUID_HEART_RATE_MEASUREMENT.equals(characteristic.getUuid())) {
-            BluetoothGattDescriptor descriptor = characteristic.getDescriptor(
-                    UUID.fromString(SampleGattAttributes.CLIENT_CHARACTERISTIC_CONFIG));
-            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-            mBluetoothGatt.writeDescriptor(descriptor);
-        }
-        */
     }
 
     /**
@@ -344,28 +373,45 @@ public class BluetoothLeService extends Service {
         return mBluetoothGatt.getServices();
     }
 
-    //------------
-    //some methods,getter to communication between service and characteristics
+
+    /**
+     * @return true, if DeviceScanActivity has a active BluetoothAdapter.
+     */
     public static boolean existBluetoothAdapter(){
         if(DeviceScanActivity.getmBluetoothLeService() != null){return true;}
         else return false;
     }
 
+    /**
+     * @return true, if a GATT server is active.
+     */
     public static boolean existBluetoothGatt(){
         if(mBluetoothGatt != null){return true;}
         else return false;
     }
 
+    /**
+     * Read a characteristic of a GATT server.
+     * @param someCharToRead the chosen characteristic.
+     */
     public static void genericReadCharacteristic(BluetoothGattCharacteristic someCharToRead){
         mBluetoothGatt.readCharacteristic(someCharToRead);
         return;
     }
 
+    /**
+     *
+     * @param someCharToWrite
+     */
     public static void genericWriteCharacteristic(BluetoothGattCharacteristic someCharToWrite){
         mBluetoothGatt.writeCharacteristic(someCharToWrite);
         return;
     }
 
+    /**
+     *
+     * @return
+     */
     public static BluetoothGattCharacteristic getmCharacteristicToPass() {
         return mCharacteristicToPass;
     }
