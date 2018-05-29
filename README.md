@@ -1,6 +1,6 @@
 <table border="0">
 <tr align="center">
-	<img src="https://github.com/Echtzeitsysteme/able/blob/puria-dev/android/Application/src/main/res/drawable-hdpi/able_github.jpg" width="800px">
+	<img src="https://github.com/Echtzeitsysteme/able/blob/puria-dev/android/Application/src/main/res/drawable-hdpi/able_github.jpg" style="max-width:100%;" />
 </tr>
 </table>
 
