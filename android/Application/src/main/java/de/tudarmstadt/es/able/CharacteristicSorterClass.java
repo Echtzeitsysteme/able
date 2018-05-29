@@ -9,7 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by user on 23.02.18.
+ * Scans through all the services of a GATT server and saves them with their data the into a List<List<BluetoothGattCharacteristic>>.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.0
  */
 
 public class CharacteristicSorterClass {
@@ -28,7 +31,16 @@ public class CharacteristicSorterClass {
     }
 
 
-
+    /**
+     * Constructor of the class, that scans all services and puts all data sorted in the lists
+     * gattServiceData, gattCharacteristicData and characteristicList.
+     * @param gattServices GATT services discovered by the ABLE scan.
+     * @param listName name of list
+     * @param listUUID name of UUID list
+     * @param characteristicList here all the characteristics are added
+     * @param context Android Java context of the app
+     * @return
+     */
     static CharacteristicSorterClass settingUpServices(List<BluetoothGattService> gattServices, String listName, String listUUID,
                                                        List<List<BluetoothGattCharacteristic>> characteristicList, Context context) {
         String uuid = null;
@@ -39,13 +51,10 @@ public class CharacteristicSorterClass {
                 = new ArrayList<>();
         characteristicList = new ArrayList<>();
 
-        // Loops through available GATT Services.
         for (BluetoothGattService gattService : gattServices) {
             HashMap<String, String> currentServiceData = new HashMap<String, String>();
             uuid = gattService.getUuid().toString();
             currentServiceData.put(listName, unknownServiceString);
-                    //Used to lookup known Services by UUID and set names by String, known in class/interface
-                    //listName, SampleGattAttributes.lookup(uuid, unknownServiceString));
             currentServiceData.put(listUUID, uuid);
             gattServiceData.add(currentServiceData);
 
@@ -56,46 +65,55 @@ public class CharacteristicSorterClass {
             ArrayList<BluetoothGattCharacteristic> charas =
                     new ArrayList<BluetoothGattCharacteristic>();
 
-            // Loops through available Characteristics.
             for (BluetoothGattCharacteristic gattCharacteristic : gattCharacteristics) {
                 charas.add(gattCharacteristic);
                 HashMap<String, String> currentCharaData = new HashMap<String, String>();
                 uuid = gattCharacteristic.getUuid().toString();
                 currentCharaData.put(listName, unknownCharaString);
-                        //Used to lookup known characteristic by UUID and set names by String, known in class/interface
-                        //listName, SampleGattAttributes.lookup(uuid, unknownCharaString));
                 currentCharaData.put(listUUID, uuid);
                 gattCharacteristicGroupData.add(currentCharaData);
             }
             characteristicList.add(charas);
             gattCharacteristicData.add(gattCharacteristicGroupData);
         }
-
         CharacteristicSorterClass objectToReturn = new CharacteristicSorterClass(gattServiceData, gattCharacteristicData,characteristicList);
-
         return objectToReturn;
     }
 
-
+    /**
+     * @return characteristicList
+     */
     public List<List<BluetoothGattCharacteristic>> getCharacteristicList() {
         return characteristicList;
     }
 
+    /**
+     * @return gattServiceData
+     */
     public List<HashMap<String, String>> getGattServiceData() {
         return gattServiceData;
     }
 
+    /**
+     * Sets the value gattServiceData
+     * @param gattServiceData new value for this.gattServiceData
+     */
     public void setGattServiceData(List<HashMap<String, String>> gattServiceData) {
         this.gattServiceData = gattServiceData;
     }
 
+    /**
+     * @return gattCharacteristicData
+     */
     public List<ArrayList<HashMap<String, String>>> getGattCharacteristicData() {
         return gattCharacteristicData;
     }
 
+    /**
+     * Sets gattCharacteristicData
+     * @param gattCharacteristicData new value for this.gattCharacteristicData
+     */
     public void setGattCharacteristicData(List<ArrayList<HashMap<String, String>>> gattCharacteristicData) {
         this.gattCharacteristicData = gattCharacteristicData;
     }
-
-
 }

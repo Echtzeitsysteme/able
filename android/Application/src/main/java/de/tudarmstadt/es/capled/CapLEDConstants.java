@@ -3,12 +3,13 @@ package de.tudarmstadt.es.capled;
 import java.util.UUID;
 
 /**
- * For a given specific BLE device, this interface contains all known UUIDs.
+ * This interfaces contains all the relevant UUIDs for the CapLED example.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.1
  */
 
 public interface CapLEDConstants {
-
-    //UUID BASE_UUID = UUID.fromString("00000000-0000-1000-8000-00805f9b34f");
     UUID CAPLED_SERVICE_UUID = UUID.fromString("00000000-0000-1000-8000-00805f9b34f0");
     UUID CAPLED_LED_CHARACTERISTIC_UUID = UUID.fromString("00000000-0000-1000-8000-00805f9b34f1");
     UUID CAPLED_CAP_CHARACTERISTIC_UUID = UUID.fromString("00000000-0000-1000-8000-00805f9b34f2");

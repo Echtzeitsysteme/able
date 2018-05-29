@@ -32,6 +32,13 @@ import de.tudarmstadt.es.able.DeviceScanActivity;
 import de.tudarmstadt.es.able.R;
 import de.tudarmstadt.es.able.BLEServiceListener;
 
+/**
+ * This activity is started, if its registered in the ServiceRegistry with a matching UUID.
+ * If started this activity can be used to controll the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.1
+ */
 
 public class CapLEDActivity extends Activity implements BLEServiceListener {
     private final static String TAG = CapLEDActivity.class.getSimpleName();
@@ -46,7 +53,7 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
     private boolean mConnected = false;
 
     private BluetoothLeService mBluetoothLeService;
-    //write and read values is called by BluetoothGattObject
+
     private static BluetoothGatt mBluetoothGatt;
     private static Switch led_switch;
     private static Switch cap_switch;
@@ -56,7 +63,6 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
     private static BluetoothGattDescriptor mCapSenseCccd;
 
-    // Keep track of whether CapSense Notifications are on or off
     private static boolean CapSenseNotifyState = false;
     private static ImageView mCapsenseView;
     private static String mCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
@@ -65,6 +71,9 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
 
     BLEBroadcastReceiver thisReceiver;
 
+    /**
+     * This a the GUI button listener.
+     */
     private View.OnClickListener buttonListener = new View.OnClickListener(){
         @Override
         public void onClick(View v){
@@ -76,15 +85,15 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
                     mBluetoothLeService.disconnect();
                     onBackPressed();
                     break;
-                // Add more buttons for the UI here ...
             }
 
         }
     };
 
-
-
-
+    /**
+     * Initializes activity and GUI objects.
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -96,15 +105,12 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
 
-
-        // Sets up UI references.
         ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
 
         mConnectionState = findViewById(R.id.connection_state);
         mDataField = findViewById(R.id.data_value);
         led_switch = findViewById(R.id.led_switch);
         cap_switch = findViewById(R.id.capsense_switch);
-        // Set up a variable to point to the CapSense value on the display
         mCapsenseView = findViewById(R.id.capsense_view);
 
         getActionBar().setTitle("");
@@ -114,31 +120,35 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         connectButton = findViewById(R.id.capledConnect);
         connectButton.setOnClickListener(buttonListener);
 
-
-
-        /* This will be called when the LED On/Off switch is touched */
+        /**
+         *  This will be called when the LED On/Off switch is touched
+         */
         led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Turn the LED on or OFF based on the state of the switch
                 writeLedCharacteristic(isChecked);
             }
         });
 
-        /* This will be called when the CapSense Notify On/Off switch is touched */
+        /**
+         * This will be called when the CapSense Notify On/Off switch is touched
+         */
         cap_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Turn CapSense Notifications on/off based on the state of the switch
                 writeCapSenseNotification(isChecked);
-                CapSenseNotifyState = isChecked;  // Keep track of CapSense notification state
-                if(isChecked) { // Notifications are now on so text has to say "No Touch"
+                CapSenseNotifyState = isChecked;
+                if(isChecked) {
                     mCapsenseView.setImageResource(R.drawable.capsense05);
-                } else { // Notifications are now off so text has to say "Notify Off"
+                } else {
                     mCapsenseView.setImageResource(R.drawable.capsenseoff);
                 }
             }
         });
         connectButton.setBackgroundColor(Color.rgb(42,42,42));
     }
+
+    /**
+     * Called after onCreate(..) and initializes BLE variables.
+     */
     @Override
     protected void onResume()
     {
@@ -149,33 +159,36 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
                 thisReceiver.makeGattUpdateIntentFilter());
         mBluetoothLeService = DeviceScanActivity.getmBluetoothLeService();
 
-
-
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            //Log.d(TAG, "Connect request result=" + result);
         }
-
-        //updateConnectionState()
         setScanButton();
-
     }
 
+    /**
+     * Called if the application is paused.
+     */
     @Override
     protected void onPause() {
         super.onPause();
         unregisterReceiver(thisReceiver);
     }
 
+    /**
+     * Called if the application is closed.
+     */
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
-
         mBluetoothLeService = null;
     }
 
 
+    /**
+     * Sets the LED characteristic to the boolean value.
+     * @param value if 1 then LED is on and if 0 LED is off.
+     */
     public void writeLedCharacteristic(boolean value) {
         byte[] byteVal = new byte[1];
         if (value) {
@@ -189,6 +202,9 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         BluetoothLeService.genericWriteCharacteristic(mLedCharacteristic);
     }
 
+    /**
+     * Reads if the LED is on or off.
+     */
     public void readLedCharacteristic() {
         if (BluetoothLeService.existBluetoothAdapter() == false ||
                 BluetoothLeService.existBluetoothGatt() == false) {
@@ -204,24 +220,22 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
      * @param value Turns notifications on (1) or off (0)
      */
     public void writeCapSenseNotification(boolean value) {
-        // Set notifications locally in the CCCD
         BluetoothLeService.mBluetoothGatt.setCharacteristicNotification(mCapsenseCharacteristic, value);
-
         byte[] byteVal = new byte[1];
         if (value) {
             byteVal[0] = 1;
         } else {
             byteVal[0] = 0;
         }
-        // Write Notification value to the device
         Log.i(TAG, "CapSense Notification " + value);
         mCapSenseCccd.setValue(byteVal);
         BluetoothLeService.mBluetoothGatt.writeDescriptor(mCapSenseCccd);
     }
 
-
-
-
+    /**
+     * Updates a GUI TextView object for the connection state.
+     * @param resourceId
+     */
     void updateConnectionState(final int resourceId) {
         runOnUiThread(new Runnable() {
             @Override
@@ -231,14 +245,19 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         });
     }
 
+    /**
+     * Called when GATT connection starts.
+     */
     @Override
     public void gattConnected() {
         mConnected = true;
         updateConnectionState(R.string.connected);
         invalidateOptionsMenu();
-
     }
 
+    /**
+     * Called when GATT connection ends.
+     */
     @Override
     public void gattDisconnected() {
         mConnected = false;
@@ -251,24 +270,28 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         cap_switch.setEnabled(false);
     }
 
+    /**
+     * Called when a GATT Service is discovered.
+     */
     @Override
     public void gattServicesDiscovered() {
-        //Toast.makeText(this, "gattServicesDiscovered...", Toast.LENGTH_SHORT).show();
         BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(CapLEDConstants.CAPLED_SERVICE_UUID);
 
         mLedCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_LED_CHARACTERISTIC_UUID);
         mCapsenseCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_CAP_CHARACTERISTIC_UUID);
-
-        /* Get the CapSense CCCD */
         mCapSenseCccd = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CccdUUID);
 
         readLedCharacteristic();
 
         led_switch.setEnabled(true);
         cap_switch.setEnabled(true);
-
     }
 
+    /**
+     * This method is called if data is available for the CapLED Service.
+     * Then the LED switch button GUI is refreshed and the CapSense GUI View refreshed.
+     * @param intent
+     */
     @Override
     public void dataAvailable(Intent intent) {
         if(mLedSwitchState){
@@ -283,33 +306,42 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
             mCapSenseValue = BluetoothLeService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16,0).toString();
         }
 
-        // Get CapSense Slider Value
-
         int capSensePosition = Integer.parseInt(mCapSenseValue);
-        if (mCapSenseValue.equals("-1")) {  // No Touch returns 0xFFFF which is -1
-            if(!CapSenseNotifyState) { // Notifications are off
+        if (mCapSenseValue.equals("-1")) {
+            if(!CapSenseNotifyState) {
                 mCapsenseView.setImageResource(R.drawable.capsenseoff);
-            } else { // Notifications are on but there is no finger on the slider
+            } else {
                 mCapsenseView.setImageResource(R.drawable.capsense05);
             }
-        } else { // Valid CapSense value is returned
-            if(capSensePosition>=0 && capSensePosition<20)
-                mCapsenseView.setImageResource(R.drawable.capsense15);
-            else if(capSensePosition>=20 && capSensePosition<40)
-                mCapsenseView.setImageResource(R.drawable.capsense25);
-            else if(capSensePosition>=40 && capSensePosition<60)
-                mCapsenseView.setImageResource(R.drawable.capsense35);
-            else if(capSensePosition>=60 && capSensePosition<80)
-                mCapsenseView.setImageResource(R.drawable.capsense45);
-            else if(capSensePosition>=80)
-                mCapsenseView.setImageResource(R.drawable.capsense55);
+        } else {
+            setCapSenseView(capSensePosition);
         }
     }
 
+    /**
+     * Sets the CapSense GUI picture.
+     */
+    public void setCapSenseView(int capSensePosition){
+        if(capSensePosition>=0 && capSensePosition<20)
+            mCapsenseView.setImageResource(R.drawable.capsense15);
+        else if(capSensePosition>=20 && capSensePosition<40)
+            mCapsenseView.setImageResource(R.drawable.capsense25);
+        else if(capSensePosition>=40 && capSensePosition<60)
+            mCapsenseView.setImageResource(R.drawable.capsense35);
+        else if(capSensePosition>=60 && capSensePosition<80)
+            mCapsenseView.setImageResource(R.drawable.capsense45);
+        else if(capSensePosition>=80)
+            mCapsenseView.setImageResource(R.drawable.capsense55);
+    }
+
+    /**
+     * Sets the GUI ScanButton.
+     */
     void setScanButton(){
         if(!mConnected) {
             if (mBluetoothLeService == null) {
-                //Toast.makeText(this, "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
+                //TODO: CHANGED
+                Toast.makeText(this, "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
             }
             mBluetoothLeService.connect(mDeviceAddress);
             connectButton.setText(R.string.menu_disconnect);

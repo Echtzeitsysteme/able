@@ -12,9 +12,16 @@ import static android.support.v4.app.ActivityCompat.invalidateOptionsMenu;
 import static de.tudarmstadt.es.able.DeviceControlActivity.*;
 
 /**
- * This class sets up the filter and the BroadcastReceiver which uses the filter
+ * This class sets up the filter and the BroadcastReceiver which uses the filter.
+ * These events are handled:
+ *  ACTION_GATT_CONNECTED: connected to a GATT server
+ *  ACTION_GATT_DISCONNECTED: disconnected from a GATT server.
+ *  ACTION_GATT_SERVICES_DISCOVERED: discovered GATT services.
+ *  ACTION_DATA_AVAILABLE: received data from the device.  This can be a result of read or notification operations.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.0
  */
-
 public class BLEBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = "BroadcastReceiverAndFil";
 
@@ -23,13 +30,6 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
     public BLEBroadcastReceiver(BLEServiceListener listener) {
         this.listener = listener;
     }
-
-    // Handles various events fired by the Service.
-    // ACTION_GATT_CONNECTED: connected to a GATT server.
-    // ACTION_GATT_DISCONNECTED: disconnected from a GATT server.
-    // ACTION_GATT_SERVICES_DISCOVERED: discovered GATT services.
-    // ACTION_DATA_AVAILABLE: received data from the device.  This can be a result of read
-    //                        or notification operations.
     @Override
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
@@ -56,38 +56,48 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
     }
 
     /**
-     * Documentation for
-     * isGattConnected
-     * isGattDisconnected
-     * hasDiscoveredGassservice
-     * availableData
-     * methods created to make behaviour of broadcastreceiver more understandable/readable
+     * isGattConnected checks if the GATT Server connection is successful.
      * @param action
-     * @return
+     * @return boolean true if connection was successful
      */
     private boolean isGattConnected(String action)
     {
         return BluetoothLeService.ACTION_GATT_CONNECTED.equals(action);
     }
 
+    /**
+     * isGattDisconnected checks if the GATT Server is disconnected successful.
+     * @param action
+     * @return boolean true if disconnection was successful
+     */
     private boolean isGattDisconnected(String action)
     {
         return BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action);
     }
 
+    /**
+     * hasDiscoveredGattservice checks if a GATT service was discovered matching the given action.
+     * @param action
+     * @return boolean true
+     */
     private boolean hasDiscoveredGattservice(String action)
     {
         return BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action);
     }
 
+    /**
+     * availableData checks if Data is available for the given action.
+     * @param action
+     * @return boolean true
+     */
     private boolean availableData(String action)
     {
         return BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action);
     }
 
     /**
-     * method to check changes using broadcastreceiver
-     * @return filterobject which contains all "keyphrases" the broadcaster shall listen to
+     * makeGattUpdateIntentFilter checks changes using BroadcastReceiver.
+     * @return IntentFilter object which contains all "keyphrases" the broadcaster shall listen to
      */
     public IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();

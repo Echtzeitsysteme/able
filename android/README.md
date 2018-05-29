@@ -4,7 +4,7 @@
 </tr>
 </table>
 
-[![Run Status](https://api.shippable.com/projects/5a2b9d4dcf141c0700bd1465/badge?branch=puria-dev)](https://app.shippable.com/github/Echtzeitsysteme/able)
+[![Run Status](https://api.shippable.com/projects/5a2b9d4dcf141c0700bd1465/badge?branch=master)](https://app.shippable.com/github/Echtzeitsysteme/able)
 
 ***
 # Welcome to ABLE

@@ -42,6 +42,9 @@ import static de.tudarmstadt.es.able.CharacteristicSorterClass.settingUpServices
  * and display GATT services and characteristics supported by the device.  The Activity
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.0
  */
 public class DeviceControlActivity extends Activity implements BLEServiceListener {
     private final static String TAG = DeviceControlActivity.class.getSimpleName();
@@ -69,15 +72,13 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
 
-    public BluetoothLeService getmBluetoothLeService() {
-        return mBluetoothLeService;
-    }
 
-
-    // If a given GATT characteristic is selected, check for supported features.  This sample
-    // demonstrates 'Read' and 'Notify' features.  See
-    // http://d.android.com/reference/android/bluetooth/BluetoothGatt.html for the complete
-    // list of supported characteristic features.
+    /**
+     * If a given GATT characteristic is selected, check for supported features.  This sample
+     * demonstrates 'Read' and 'Notify' features.  See
+     * http://d.android.com/reference/android/bluetooth/BluetoothGatt.html for the complete
+     * list of supported characteristic features.
+     */
     private final ExpandableListView.OnChildClickListener servicesListClickListner =
             new ExpandableListView.OnChildClickListener() {
                 @Override
@@ -88,8 +89,6 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
                                     mGattCharacteristics.get(groupPosition).get(childPosition);
                         final int charaProp = characteristic.getProperties();
                         if ((charaProp | BluetoothGattCharacteristic.PROPERTY_READ) > 0) {
-                            // If there is an active notification on a characteristic, clear
-                            // it first so it doesn't update the data field on the user interface.
                             if (mNotifyCharacteristic != null) {
                                 mBluetoothLeService.setCharacteristicNotification(
                                         mNotifyCharacteristic, false);
@@ -109,11 +108,18 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
     };
 
 
+    /**
+     * Clears all the shown characteristics on the GUI.
+     */
     void clearUI() {
         mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
         mDataField.setText(R.string.no_data);
     }
 
+    /**
+     * Starting method for the instantiation of the GUI elements.
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,8 +129,6 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
 
-
-        // Sets up UI references.
         ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
         mGattServicesList = findViewById(R.id.gatt_services_list);
         mGattServicesList.setOnChildClickListener(servicesListClickListner);
@@ -136,7 +140,9 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
 
     }
 
-
+    /**
+     * Called after onCreate and sets GATT variables.
+     */
     @Override
     protected void onResume()
     {
@@ -147,26 +153,34 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
                 thisReceiver.makeGattUpdateIntentFilter());
         mBluetoothLeService = DeviceScanActivity.getmBluetoothLeService();
 
-
-
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            //Log.d(TAG, "Connect request result=" + result);
         }
     }
 
+    /**
+     * Called every time the app is paused.
+     */
     @Override
     protected void onPause() {
         super.onPause();
         unregisterReceiver(thisReceiver);
     }
 
+    /**
+     * Called if the app is closed.
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mBluetoothLeService = null;
     }
 
+    /**
+     * Initialization of the GUI menu.
+     * @param menu used by the method getMenuInflater()
+     * @return true if menu added successfully
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.gatt_services, menu);
@@ -180,11 +194,15 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         return true;
     }
 
+    /**
+     * Called if an item of the menu is selected.
+     * @param item the selected item of the menu.
+     * @return true, if everything was handled correctly.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_connect:
-                //Toast.makeText(this, mDeviceAddress, Toast.LENGTH_SHORT).show();
                 if(mBluetoothLeService == null)
                 {
                     Toast.makeText(this, "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
@@ -202,6 +220,17 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * @return mBluetoothLeService
+     */
+    public BluetoothLeService getmBluetoothLeService() {
+        return mBluetoothLeService;
+    }
+
+    /**
+     * Updates the TextView GUI object which represents the connection state.
+     * @param resourceId a GUI object ID
+     */
     void updateConnectionState(final int resourceId) {
         runOnUiThread(new Runnable() {
             @Override
@@ -211,16 +240,22 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         });
     }
 
+    /**
+     * Set the TextView element mDataField of the GUI to the String data.
+     * @param data
+     */
     void displayData(String data) {
         if (data != null) {
             mDataField.setText(data);
         }
     }
 
-    // NOW visualization is done in the activity, while sorting gets done from settingsUpServices(..)
-    // Demonstrates how to iterate through the supported GATT Services/Characteristics.
-    // In this sample, we populate the data structure that is bound to the ExpandableListView
-    // on the UI.
+    /**
+     * Sorting gets done from settingsUpServices(..) and iterates through the supported GATT Services/Characteristics.
+     * In this sample, we populate the data structure that is bound to the ExpandableListView
+     * on the UI.
+     * @param gattServices
+     */
     void displayGattServices(List<BluetoothGattService> gattServices) {
         if (gattServices == null) return;
 
@@ -244,16 +279,19 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
     }
 
 
-    //methods which needed to be implemented because of the BLEServiceListener interface
+    /**
+     * Called when GATT connection starts.
+     */
     @Override
     public void gattConnected() {
-
         mConnected = true;
         updateConnectionState(R.string.connected);
         invalidateOptionsMenu();
-
     }
 
+    /**
+     * Called when GATT connection ends.
+     */
     @Override
     public void gattDisconnected() {
         mConnected = false;
@@ -262,14 +300,20 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         clearUI();
     }
 
+    /**
+     * Called when a GATT Service is discovered.
+     */
     @Override
     public void gattServicesDiscovered() {
         displayGattServices(getmBluetoothLeService().getSupportedGattServices());
     }
 
+    /**
+     * Called if data is available.
+     * @param intent
+     */
     @Override
-    public void dataAvailable(Intent intent)
-    {
+    public void dataAvailable(Intent intent) {
         displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
     }
 }
