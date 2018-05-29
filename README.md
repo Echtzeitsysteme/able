@@ -28,3 +28,12 @@ You find a detailed installation tutorial [here](https://github.com/Echtzeitsyst
 <td><img alt="ABLE CAPLED" src="https://raw.githubusercontent.com/Echtzeitsysteme/able/puria-dev/android/screenshots/ABLE4.png"   width="200px"/></td>
 </tr>
 </table>
+
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+# Credits
+
+Thanks to [Cypress®](http://www.cypress.com/) for the hardware support and https://360mockups.com/ for the smartphone graphics.
