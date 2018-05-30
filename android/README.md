@@ -11,13 +11,7 @@
 ABLE, Android Bluetooth-Low-Energy, is a framework for prototyping applications consisting of Android devices, Bluetooth LE communication, and embedded hardware. The framework takes care of the scanning and pairing process for you. It shows you a list of available Bluetooth LE devices and provides an interface to connect, display data and display GATT services and characteristics supported by the devices. So you can focus on the main issues you want to evaluate with your device.
 
 # Tutorial
-You find a detailed installation tutorial [here](https://github.com/Echtzeitsysteme/able/wiki/II.-Tutorial). Furthermore the following software is required:
-
-* JDK: [Download](http://www.oracle.com/technetwork/java/javase/overview/index.html)
-* Android Studio: [Download](https://developer.android.com/studio/#downloads) | [Installation tutorial](https://developer.android.com/studio/install)
-* Android SDK 26
-* Android Build Tools v26.0.1
-* ABLE framework: [Download](https://github.com/Echtzeitsysteme/able/tree/master/android)
+You find a detailed installation tutorial [here](https://github.com/Echtzeitsysteme/able/wiki).
 
 # Screenshots of the app
 <table border="0">
