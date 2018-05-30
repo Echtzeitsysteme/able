@@ -12,16 +12,16 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,9 +64,10 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
     private static BluetoothGattDescriptor mCapSenseCccd;
 
     private static boolean CapSenseNotifyState = false;
-    private static ImageView mCapsenseView;
     private static String mCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
     private static Button connectButton;
+    private static ProgressBar capSenseProgressBar;
+    private static TextView capSenseDataView;
 
 
     BLEBroadcastReceiver thisReceiver;
@@ -111,7 +112,18 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         mDataField = findViewById(R.id.data_value);
         led_switch = findViewById(R.id.led_switch);
         cap_switch = findViewById(R.id.capsense_switch);
-        mCapsenseView = findViewById(R.id.capsense_view);
+        capSenseProgressBar = findViewById(R.id.capledProgressBar);
+        capSenseDataView = findViewById(R.id.capSenseValue);
+        /*
+        Drawable progressDrawable = capSenseProgressBar.getProgressDrawable().mutate();
+        progressDrawable.setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+        capSenseProgressBar.setProgressDrawable(progressDrawable);
+        */
+        capSenseProgressBar.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 159, 227)));
+        capSenseProgressBar.setProgressBackgroundTintList(ColorStateList.valueOf(Color.rgb(19, 77, 101)));
+        capSenseProgressBar.setProgress(0);
+
+
 
         getActionBar().setTitle("");
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -136,11 +148,8 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 writeCapSenseNotification(isChecked);
                 CapSenseNotifyState = isChecked;
-                if(isChecked) {
-                    mCapsenseView.setImageResource(R.drawable.capsense05);
-                } else {
-                    mCapsenseView.setImageResource(R.drawable.capsenseoff);
-                }
+                capSenseProgressBar.setProgress(0);
+                capSenseDataView.setText(R.string.no_data);
             }
         });
         connectButton.setBackgroundColor(Color.rgb(42,42,42));
@@ -307,31 +316,21 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
         }
 
         int capSensePosition = Integer.parseInt(mCapSenseValue);
-        if (mCapSenseValue.equals("-1")) {
-            if(!CapSenseNotifyState) {
-                mCapsenseView.setImageResource(R.drawable.capsenseoff);
-            } else {
-                mCapsenseView.setImageResource(R.drawable.capsense05);
-            }
-        } else {
-            setCapSenseView(capSensePosition);
-        }
+
+        setCapSenseView(capSensePosition);
     }
 
     /**
      * Sets the CapSense GUI picture.
      */
     public void setCapSenseView(int capSensePosition){
-        if(capSensePosition>=0 && capSensePosition<20)
-            mCapsenseView.setImageResource(R.drawable.capsense15);
-        else if(capSensePosition>=20 && capSensePosition<40)
-            mCapsenseView.setImageResource(R.drawable.capsense25);
-        else if(capSensePosition>=40 && capSensePosition<60)
-            mCapsenseView.setImageResource(R.drawable.capsense35);
-        else if(capSensePosition>=60 && capSensePosition<80)
-            mCapsenseView.setImageResource(R.drawable.capsense45);
-        else if(capSensePosition>=80)
-            mCapsenseView.setImageResource(R.drawable.capsense55);
+        if (mCapSenseValue.equals("-1")) {
+            capSenseProgressBar.setProgress(0);
+            capSenseDataView.setText(R.string.no_data);
+        } else {
+            capSenseProgressBar.setProgress(capSensePosition);
+            capSenseDataView.setText(mCapSenseValue);
+        }
     }
 
     /**
@@ -340,7 +339,6 @@ public class CapLEDActivity extends Activity implements BLEServiceListener {
     void setScanButton(){
         if(!mConnected) {
             if (mBluetoothLeService == null) {
-                //TODO: CHANGED
                 Toast.makeText(this, "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
             }
             mBluetoothLeService.connect(mDeviceAddress);
