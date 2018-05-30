@@ -18,22 +18,17 @@ package de.tudarmstadt.es.able;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
-import android.bluetooth.le.BluetoothLeScanner;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -54,6 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //class to make permissionhandling more clear
+
 import static android.content.ContentValues.TAG;
 import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
 
@@ -135,7 +131,9 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         mHandler = new Handler();
         setContentView(R.layout.permission_handling);
 
-        serviceRegistry = new ServiceRegistry();
+        this.sendBroadcast(new Intent(ServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING));
+
+        serviceRegistry = ServiceRegistry.getInstance();
 
         scanButton = new Button(this);
         scanButton = findViewById(R.id.scanButton);

@@ -1,5 +1,6 @@
 package de.tudarmstadt.es.able;
 
+import android.app.Activity;
 import android.app.Service;
 import android.bluetooth.BluetoothGattService;
 
@@ -18,17 +19,34 @@ import de.tudarmstadt.es.capled.CapLEDActivity;
  */
 
 public class ServiceRegistry {
-    private Map<UUID, Class<?>> registeredServices;
-    private static ServiceRegistry serviceRegistryINSTANCE;
 
-    public ServiceRegistry(){
-        registeredServices = new HashMap<>();
+    private final Map<UUID, Class<? extends Activity>> registeredServices = new HashMap<>();
+    private static final ServiceRegistry serviceRegistryINSTANCE = new ServiceRegistry();
 
-        // TODO: Insert your (UUID,Acvity) tuple here
-        registeredServices.put(UUID.fromString("00000000-0000-1000-8000-00805f9b34f0"), CapLEDActivity.class);
+    /**
+     * Returns the singleton of this class.
+     * @return the singleton {@link ServiceRegistry}
+     */
+    public static ServiceRegistry getInstance() {
+        return serviceRegistryINSTANCE;
     }
 
-    public Map<UUID, Class<?>> getRegisteredServices () {
+    /**
+     * Private due to singleton pattern
+     */
+    private ServiceRegistry(){
+    }
+
+    /**
+     * Inserts the pair of UUID and activity into this registry
+     * @param serviceUuid the UUID of the service
+     * @param activity the Android activity to launch
+     */
+    public void registerActivity(final UUID serviceUuid, final Class<? extends Activity> activity) {
+        registeredServices.put(serviceUuid, activity);
+    }
+
+    public Map<UUID, Class<? extends Activity>> getRegisteredServices () {
         return registeredServices;
     }
 
