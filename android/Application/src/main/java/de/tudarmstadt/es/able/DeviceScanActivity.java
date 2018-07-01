@@ -120,6 +120,27 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         return mBluetoothLeService;
     }
 
+    public void askForLocationPermission(){
+        ArrayList<String> arrPerm = new ArrayList<>();
+
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            arrPerm.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            arrPerm.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        }
+
+        if (!arrPerm.isEmpty()) {
+            String[] permissions = new String[arrPerm.size()];
+            permissions = arrPerm.toArray(permissions);
+            ActivityCompat.
+                    requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
+        }
+    }
+
     /**
      * Initializes activity and GUI objects.
      * @param savedInstanceState
@@ -250,6 +271,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
+        askForLocationPermission();
     }
 
     /**
