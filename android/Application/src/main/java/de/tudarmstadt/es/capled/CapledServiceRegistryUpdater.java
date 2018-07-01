@@ -10,7 +10,7 @@ import de.tudarmstadt.es.able.ServiceRegistryUpdatingBroadcastReceiver;
 /**
  * This class registers the UUID-to-activity mapping for the Capled device.
  */
-public class CapledServiceRegistryUpdater extends ServiceRegistryUpdatingBroadcastReceiver {
+public class CapLEDServiceRegistryUpdater extends ServiceRegistryUpdatingBroadcastReceiver {
 
     @Override
     protected Class<? extends Activity> getActivityClass() {
