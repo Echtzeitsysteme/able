@@ -183,11 +183,9 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Sensor data";
+                    return "View";
                 case 1:
                     return "Settings";
-                case 2:
-                    return "SECTION 3";
             }
             return null;
         }
