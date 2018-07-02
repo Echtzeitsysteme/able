@@ -22,92 +22,91 @@ android:fontFamily="sans-serif-condensed"
 android:orientation="vertical"
 android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
 android:scrollbars="vertical">
-
-<ImageView
-    android:layout_width="fill_parent"
-    android:layout_height="70dp"
-    android:layout_marginBottom="0dp"
-    android:layout_marginLeft="50dp"
-    android:layout_marginRight="50dp"
-    android:layout_marginTop="30dp"
-    android:src="@drawable/capled" />
-
-<TextView
-    android:id="@+id/textView2"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:layout_marginBottom="15dp"
-    android:fontFamily="sans-serif-condensed"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingTop="15dp"
-    android:text="@string/capledWelcome"
-    android:textSize="18sp" />
-
-<Switch
-    android:id="@+id/led_switch"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="15dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:layout_marginTop="15dp"
-    android:fontFamily="sans-serif-condensed"
-    android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-    android:text="@string/RedLED"
-    android:textOff="OFF"
-    android:textOn="ON"
-    android:textSize="20sp"
-    android:textStyle="bold" />
-
-<TextView
-    android:id="@+id/capsense_status"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:fontFamily="sans-serif-condensed"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:layout_marginBottom="10dp"
-    android:paddingTop="0dp"
-    android:text="@string/capSenseHeader"
-    android:textColor="#000"
-    android:textSize="20sp"
-    android:textStyle="bold" />
-
-<ProgressBar
-    android:id="@+id/capledProgressBar"
-    style="@android:style/Widget.ProgressBar.Horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="46dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:max="100" />
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:layout_marginTop="15dp"
-    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/capled" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/capSenseValue"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/capSenseValue"
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="@string/no_data"
-        android:textAlignment="textEnd"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:text="@string/capledWelcome"
         android:textSize="18sp" />
-</LinearLayout>
+
+    <Switch
+        android:id="@+id/led_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="@string/RedLED"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/capsense_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="0dp"
+        android:text="@string/capSenseHeader"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/capledProgressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:max="100" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/capSenseValue"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/capSenseValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/no_data"
+            android:textAlignment="textEnd"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 </LinearLayout>
