@@ -1,13 +1,13 @@
 #### CAPLED FILES
-android/Application/src/main/java/de/tudarmstadt/es/capled/*
-android/Application/src/main/res/drawable-hdpi/capled.png
+../android/Application/src/main/java/de/tudarmstadt/es/capled/*
+../android/Application/src/main/res/drawable-hdpi/capled.png
 
 *.md
 *.DS_Store
 *.rawproto
-android/screenshots/*
-android/Application/src/main/res/drawable-hdpi/able_github.jpg
-psoc/capsenseled.cywrk.puria
+../android/screenshots/*
+../android/Application/src/main/res/drawable-hdpi/able_github.jpg
+../psoc/capsenseled.cywrk.puria
 ###################
 *.com
 *.class
@@ -47,45 +47,45 @@ Thumbs.db
 
 # Project specific
 #########################
-.idea/
-out/
-target/
+../.idea/
+../out/
+../target/
 
 # Android workspace #
 #####################
 # Built application files
-/android/build/*
-/android/Application/build/*
-/android/local.properties
-/*/build/
+../android/build/*
+../android/Application/build/*
+../android/local.properties
+../*/build/
 android/*/build/
 # Crashlytics configuations
 com_crashlytics_export_strings.xml
 # Local configuration file (sdk path, etc)
 local.properties
 # Gradle generated files
-.gradle/
+../.gradle/
 # Signing files
-.signing/
+../.signing/
 # Built application files
 *.apk
 *.ap_
 
 # User-specific configurations
-.idea/libraries/
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/.name
-.idea/compiler.xml
-.idea/copyright/profiles_settings.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/scopes/scope_settings.xml
-.idea/vcs.xml
+../.idea/libraries/
+../.idea/workspace.xml
+../.idea/tasks.xml
+../.idea/.name
+../.idea/compiler.xml
+../.idea/copyright/profiles_settings.xml
+../.idea/encodings.xml
+../.idea/misc.xml
+../.idea/modules.xml
+../.idea/scopes/scope_settings.xml
+../.idea/vcs.xml
 *.iml
 
 
 # UML specific attributes
 *.suml
-android/vpproject/
+../android/vpproject/
