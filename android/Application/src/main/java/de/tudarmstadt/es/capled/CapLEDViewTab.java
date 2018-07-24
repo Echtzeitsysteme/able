@@ -51,14 +51,12 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
 
     private BluetoothLeService mAbleBLEService;
     private static BluetoothGatt mBluetoothGatt;
-
-    private static Switch led_switch;
-    private static boolean mLedSwitchState = false;
     public static BluetoothGattCharacteristic mLedCharacteristic;
-
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
     private static BluetoothGattDescriptor mCapSenseCccd;
 
+    private static Switch led_switch;
+    private static boolean mLedSwitchState = false;
     private static String mCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
     private static ProgressBar capSenseProgressBar;
     private static TextView capSenseDataView;
