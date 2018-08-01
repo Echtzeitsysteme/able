@@ -53,7 +53,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
     private static BluetoothGatt mBluetoothGatt;
     public static BluetoothGattCharacteristic mLedCharacteristic;
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
-    private static BluetoothGattDescriptor mCapSenseCccd;
+    private static BluetoothGattDescriptor mCapsenseNotification;
 
     private static Switch led_switch;
     private static boolean mLedSwitchState = false;
@@ -186,8 +186,8 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
             byteVal[0] = 0;
         }
         Log.i(TAG, "CapSense Notification " + value);
-        mCapSenseCccd.setValue(byteVal);
-        BluetoothLeService.mBluetoothGatt.writeDescriptor(mCapSenseCccd);
+        mCapsenseNotification.setValue(byteVal);
+        BluetoothLeService.mBluetoothGatt.writeDescriptor(mCapsenseNotification);
     }
 
     /**
@@ -219,7 +219,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
 
         mLedCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_LED_CHARACTERISTIC_UUID);
         mCapsenseCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_CAP_CHARACTERISTIC_UUID);
-        mCapSenseCccd = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CccdUUID);
+        mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CccdUUID);
 
         readLedCharacteristic();
 
