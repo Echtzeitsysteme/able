@@ -175,7 +175,6 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
             return 2;
         }
 
