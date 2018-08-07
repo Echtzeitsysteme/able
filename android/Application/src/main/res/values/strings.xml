@@ -32,7 +32,9 @@
     <string name="NoTouch">"No Touch"</string>
     <string name="deviceScanWelcome">Please activate Bluetooth and location services access to start scanning for Bluetooth devices.</string>
     <string name="capledWelcome">Here you can connect to the CapLED plattform of Cypress and control the peripherie on it. If notify is activated the CapSense will be scanned to register touch activities.</string>
-    <string name="capsenseData">CapSense status</string>
+    <string name="capledWelcomeSettings">In the settings tab you can activate CapSense notifications, reconnect to the CapLED device and analyse the device status.</string>
+    <string name="capSenseHeader">CapSense</string>
+    <string name="capSenseValue">CapSense value: </string>
 
     <string name="unknown_device">Unknown device</string>
     <string name="unknown_characteristic">Unknown characteristic</string>
