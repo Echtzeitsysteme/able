@@ -1,5 +1,5 @@
 -- Project:   C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj
--- Generated: 08/14/2018 12:31:53
+-- Generated: 08/15/2018 11:44:35
 -- PSoC Creator  4.1
 
 ENTITY multicon_ble IS
@@ -33,10 +33,10 @@ ARCHITECTURE __DEFAULT__ OF multicon_ble IS
     SIGNAL ClockBlock_SysClk : bit;
     SIGNAL ClockBlock_WCO : bit;
     SIGNAL LED(0)__PA : bit;
-    SIGNAL Net_338 : bit;
     SIGNAL Net_342 : bit;
     SIGNAL Net_344 : bit;
     SIGNAL Net_345 : bit;
+    SIGNAL Net_359 : bit;
     SIGNAL \BLE:Net_15\ : bit;
     SIGNAL \UART:Net_847_ff1\ : bit;
     ATTRIBUTE global_signal OF \UART:Net_847_ff1\ : SIGNAL IS true;
@@ -70,7 +70,7 @@ ARCHITECTURE __DEFAULT__ OF multicon_ble IS
     ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell3";
     ATTRIBUTE Location OF LED(0) : LABEL IS "P1[4]";
     ATTRIBUTE lib_model OF testPin(0) : LABEL IS "iocell4";
-    ATTRIBUTE Location OF testPin(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF testPin(0) : LABEL IS "P1[6]";
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,0)";
     ATTRIBUTE Location OF \BLE:cy_m0s8_ble\ : LABEL IS "F(BLE,0)";
     ATTRIBUTE Location OF \BLE:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(12)]";
@@ -677,7 +677,7 @@ BEGIN
             cy_registers => "")
         PORT MAP(
             interrupt => \BLE:Net_15\,
-            rfctrl_extpa_en => Net_338);
+            rfctrl_extpa_en => Net_359);
 
     \BLE:bless_isr\:interrupt
         GENERIC MAP(

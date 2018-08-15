@@ -1,5 +1,5 @@
 # multicon_ble
-# 2018-08-14 10:31:52Z
+# 2018-08-15 09:44:34Z
 
 # IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 6
@@ -22,7 +22,7 @@ set_location "ClockBlock" m0s8clockblockcell -1 -1 0
 set_io "\UART:tx(0)\" iocell 0 5
 set_io "\UART:rx(0)\" iocell 0 4
 set_io "LED(0)" iocell 1 4
-set_io "testPin(0)" iocell 1 7
+set_io "testPin(0)" iocell 1 6
 set_location "\UART:SCB\" m0s8scbcell -1 -1 0
 set_location "\BLE:cy_m0s8_ble\" p4blecell -1 -1 0
 set_location "\BLE:bless_isr\" interrupt -1 -1 12

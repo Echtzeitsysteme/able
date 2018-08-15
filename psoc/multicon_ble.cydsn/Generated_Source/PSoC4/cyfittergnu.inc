@@ -552,13 +552,13 @@
 .set testPin__0__DR_INV, CYREG_GPIO_PRT1_DR_INV
 .set testPin__0__DR_SET, CYREG_GPIO_PRT1_DR_SET
 .set testPin__0__HSIOM, CYREG_HSIOM_PORT_SEL1
-.set testPin__0__HSIOM_MASK, 0xF0000000
-.set testPin__0__HSIOM_SHIFT, 28
+.set testPin__0__HSIOM_MASK, 0x0F000000
+.set testPin__0__HSIOM_SHIFT, 24
 .set testPin__0__INTCFG, CYREG_GPIO_PRT1_INTR_CFG
 .set testPin__0__INTR, CYREG_GPIO_PRT1_INTR
 .set testPin__0__INTR_CFG, CYREG_GPIO_PRT1_INTR_CFG
 .set testPin__0__INTSTAT, CYREG_GPIO_PRT1_INTR
-.set testPin__0__MASK, 0x80
+.set testPin__0__MASK, 0x40
 .set testPin__0__PA__CFG0, CYREG_UDB_PA1_CFG0
 .set testPin__0__PA__CFG1, CYREG_UDB_PA1_CFG1
 .set testPin__0__PA__CFG10, CYREG_UDB_PA1_CFG10
@@ -578,7 +578,7 @@
 .set testPin__0__PC2, CYREG_GPIO_PRT1_PC2
 .set testPin__0__PORT, 1
 .set testPin__0__PS, CYREG_GPIO_PRT1_PS
-.set testPin__0__SHIFT, 7
+.set testPin__0__SHIFT, 6
 .set testPin__DR, CYREG_GPIO_PRT1_DR
 .set testPin__DR_CLR, CYREG_GPIO_PRT1_DR_CLR
 .set testPin__DR_INV, CYREG_GPIO_PRT1_DR_INV
@@ -587,7 +587,7 @@
 .set testPin__INTR, CYREG_GPIO_PRT1_INTR
 .set testPin__INTR_CFG, CYREG_GPIO_PRT1_INTR_CFG
 .set testPin__INTSTAT, CYREG_GPIO_PRT1_INTR
-.set testPin__MASK, 0x80
+.set testPin__MASK, 0x40
 .set testPin__PA__CFG0, CYREG_UDB_PA1_CFG0
 .set testPin__PA__CFG1, CYREG_UDB_PA1_CFG1
 .set testPin__PA__CFG10, CYREG_UDB_PA1_CFG10
@@ -607,7 +607,7 @@
 .set testPin__PC2, CYREG_GPIO_PRT1_PC2
 .set testPin__PORT, 1
 .set testPin__PS, CYREG_GPIO_PRT1_PS
-.set testPin__SHIFT, 7
+.set testPin__SHIFT, 6
 
 /* Miscellaneous */
 .set CYDEV_BCLK__HFCLK__HZ, 48000000

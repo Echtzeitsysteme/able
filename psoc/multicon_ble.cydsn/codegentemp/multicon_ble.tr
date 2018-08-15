@@ -25,8 +25,8 @@ Clock: CyLFClk           | N/A  | Target: 0.03 MHz   |
 Clock: CyRouted1         | N/A  | Target: 48.00 MHz  | 
 Clock: CySysClk          | N/A  | Target: 48.00 MHz  | 
 Clock: CyWCO             | N/A  | Target: 0.03 MHz   | 
-Clock: UART_SCBCLK       | N/A  | Target: 1.37 MHz   | 
-Clock: UART_SCBCLK(FFB)  | N/A  | Target: 1.37 MHz   | 
+Clock: UART_SCBCLK       | N/A  | Target: 0.12 MHz   | 
+Clock: UART_SCBCLK(FFB)  | N/A  | Target: 0.12 MHz   | 
 
  =====================================================================
                     End of Clock Frequency Summary

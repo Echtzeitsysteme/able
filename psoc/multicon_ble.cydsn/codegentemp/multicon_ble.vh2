@@ -2,7 +2,7 @@
 --	Conversion of multicon_ble.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Aug 14 12:31:51 2018
+--	Wed Aug 15 11:44:33 2018
 --
 
 USE cypress.cypress.all;
@@ -68,18 +68,15 @@ SIGNAL tmpFB_0__LED_net_0 : bit;
 SIGNAL tmpIO_0__LED_net_0 : bit;
 TERMINAL tmpSIOVREF__LED_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__LED_net_0 : bit;
-TERMINAL Net_218 : bit;
-TERMINAL Net_3701 : bit;
-TERMINAL Net_3702 : bit;
 SIGNAL tmpOE__testPin_net_0 : bit;
 SIGNAL tmpFB_0__testPin_net_0 : bit;
 SIGNAL Net_334 : bit;
 TERMINAL tmpSIOVREF__testPin_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__testPin_net_0 : bit;
 SIGNAL \BLE:Net_15\ : bit;
-SIGNAL Net_338 : bit;
+SIGNAL Net_359 : bit;
 SIGNAL \BLE:Net_53\ : bit;
-SIGNAL Net_337 : bit;
+SIGNAL Net_358 : bit;
 SIGNAL \BLE:Net_55\ : bit;
 BEGIN
 
@@ -92,7 +89,7 @@ one <=  ('1') ;
 		id=>"43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/2dc2d7a8-ce2b-43c7-af4a-821c8cd73ccf",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"723379629.62963",
+		period=>"8680555555.55556",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>\UART:Net_847\,
@@ -343,21 +340,6 @@ LED:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__LED_net_0);
-GND_1:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"Gnd_v1_0",
-		port_names=>"T1",
-		width=>1)
-	PORT MAP(connect=>Net_218);
-C_1:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"Capacitor_v1_0",
-		port_names=>"T1, T2",
-		width=>2)
-	PORT MAP(connect=>(Net_3701, Net_3702));
-L_1:cy_annotation_universal_v1_0
-	GENERIC MAP(comp_name=>"Inductor_v1_0",
-		port_names=>"T1, T2",
-		width=>2)
-	PORT MAP(connect=>(Net_218, Net_3701));
 testPin:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
 		drive_mode=>"100",
@@ -431,14 +413,14 @@ testPin:cy_psoc3_pins_v1_10
 \BLE:cy_m0s8_ble\:cy_m0s8_ble_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(interrupt=>\BLE:Net_15\,
-		rf_ext_pa_en=>Net_338);
+		rf_ext_pa_en=>Net_359);
 \BLE:bless_isr\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>\BLE:Net_15\);
 \BLE:LFCLK\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
-		id=>"79d05c19-fdba-49bd-9407-5689e2cb0cb8/5ae6fa4d-f41a-4a35-8821-7ce70389cb0c",
+		id=>"62c952e3-2591-4f04-8658-eb59ae7d31f0/5ae6fa4d-f41a-4a35-8821-7ce70389cb0c",
 		source_clock_id=>"9A908CA6-5BB3-4db0-B098-959E5D90882B",
 		divisor=>0,
 		period=>"0",

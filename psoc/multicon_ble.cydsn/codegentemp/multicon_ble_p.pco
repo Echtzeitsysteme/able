@@ -18,6 +18,6 @@ set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
 set_io "\UART:tx(0)\" iocell 0 5
 set_location "\BLE:bless_isr\" interrupt -1 -1 12
 set_location "ClockBlock" m0s8clockblockcell -1 -1 0
-set_io "testPin(0)" iocell 1 7
+set_io "testPin(0)" iocell 1 6
 set_io "LED(0)" iocell 1 4
 set_location "\UART:SCB\" m0s8scbcell -1 -1 0

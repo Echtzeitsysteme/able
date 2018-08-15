@@ -52,8 +52,8 @@
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\BLE_StackGattClient.h" value="HEADER;;;;;BLE" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\BLE_Stack.h" value="HEADER;;;;;BLE" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\BLE_eventHandler.h" value="HEADER;;;;;BLE" />
-  <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\BLE_ans.c" value="SOURCE_C;CortexM0;;;;BLE" />
-  <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\BLE_ans.h" value="HEADER;;;;;BLE" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\BLE_custom.h" value="HEADER;;;;;BLE" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\BLE_custom.c" value="SOURCE_C;CortexM0;;;;BLE" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UART_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_SCBCLK" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UART_SCBCLK.h" value="HEADER;;;;;UART_SCBCLK" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UART_tx.c" value="SOURCE_C;CortexM0;;;;UART_tx" />

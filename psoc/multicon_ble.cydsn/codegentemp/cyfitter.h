@@ -552,13 +552,13 @@
 #define testPin__0__DR_INV CYREG_GPIO_PRT1_DR_INV
 #define testPin__0__DR_SET CYREG_GPIO_PRT1_DR_SET
 #define testPin__0__HSIOM CYREG_HSIOM_PORT_SEL1
-#define testPin__0__HSIOM_MASK 0xF0000000u
-#define testPin__0__HSIOM_SHIFT 28u
+#define testPin__0__HSIOM_MASK 0x0F000000u
+#define testPin__0__HSIOM_SHIFT 24u
 #define testPin__0__INTCFG CYREG_GPIO_PRT1_INTR_CFG
 #define testPin__0__INTR CYREG_GPIO_PRT1_INTR
 #define testPin__0__INTR_CFG CYREG_GPIO_PRT1_INTR_CFG
 #define testPin__0__INTSTAT CYREG_GPIO_PRT1_INTR
-#define testPin__0__MASK 0x80u
+#define testPin__0__MASK 0x40u
 #define testPin__0__PA__CFG0 CYREG_UDB_PA1_CFG0
 #define testPin__0__PA__CFG1 CYREG_UDB_PA1_CFG1
 #define testPin__0__PA__CFG10 CYREG_UDB_PA1_CFG10
@@ -578,7 +578,7 @@
 #define testPin__0__PC2 CYREG_GPIO_PRT1_PC2
 #define testPin__0__PORT 1u
 #define testPin__0__PS CYREG_GPIO_PRT1_PS
-#define testPin__0__SHIFT 7u
+#define testPin__0__SHIFT 6u
 #define testPin__DR CYREG_GPIO_PRT1_DR
 #define testPin__DR_CLR CYREG_GPIO_PRT1_DR_CLR
 #define testPin__DR_INV CYREG_GPIO_PRT1_DR_INV
@@ -587,7 +587,7 @@
 #define testPin__INTR CYREG_GPIO_PRT1_INTR
 #define testPin__INTR_CFG CYREG_GPIO_PRT1_INTR_CFG
 #define testPin__INTSTAT CYREG_GPIO_PRT1_INTR
-#define testPin__MASK 0x80u
+#define testPin__MASK 0x40u
 #define testPin__PA__CFG0 CYREG_UDB_PA1_CFG0
 #define testPin__PA__CFG1 CYREG_UDB_PA1_CFG1
 #define testPin__PA__CFG10 CYREG_UDB_PA1_CFG10
@@ -607,7 +607,7 @@
 #define testPin__PC2 CYREG_GPIO_PRT1_PC2
 #define testPin__PORT 1u
 #define testPin__PS CYREG_GPIO_PRT1_PS
-#define testPin__SHIFT 7u
+#define testPin__SHIFT 6u
 
 /* Miscellaneous */
 #define CY_PROJECT_NAME "multicon_ble"

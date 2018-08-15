@@ -116,7 +116,7 @@
 /* Align buffer size value to 4 */
 #define CYBLE_ALIGN_TO_4(x)                         ((((x) & 3u) == 0u) ? (x) : (((x) - ((x) & 3u)) + 4u))
     
-#define CYBLE_GAP_ROLE                              (0x02u)
+#define CYBLE_GAP_ROLE                              (0x01u)
 #define CYBLE_GAP_HCI                               (0x00u)
 #define CYBLE_GAP_PERIPHERAL                        (0x01u)
 #define CYBLE_GAP_CENTRAL                           (0x02u)
@@ -132,27 +132,27 @@
 #if(CYBLE_MODE_PROFILE)
     
 #if(CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_BROADCASTER)
-    #define CYBLE_FAST_ADV_INT_MIN                  ()
-    #define CYBLE_FAST_ADV_INT_MAX                  ()
-    #define CYBLE_FAST_ADV_TIMEOUT                  ()
-    #define CYBLE_SLOW_ADV_ENABLED                  ()
-    #define CYBLE_SLOW_ADV_INT_MIN                  ()
-    #define CYBLE_SLOW_ADV_INT_MAX                  ()
-    #define CYBLE_SLOW_ADV_TIMEOUT                  ()
-    #define CYBLE_GAPP_CONNECTION_INTERVAL_MIN      (0x00u)
-    #define CYBLE_GAPP_CONNECTION_INTERVAL_MAX      (0x00u)
-    #define CYBLE_GAPP_CONNECTION_SLAVE_LATENCY     (0x00u)
-    #define CYBLE_GAPP_CONNECTION_TIME_OUT          (0x00u)
+    #define CYBLE_FAST_ADV_INT_MIN                  (0x0020u)
+    #define CYBLE_FAST_ADV_INT_MAX                  (0x0030u)
+    #define CYBLE_FAST_ADV_TIMEOUT                  (0x001Eu)
+    #define CYBLE_SLOW_ADV_ENABLED                  (0x01u)
+    #define CYBLE_SLOW_ADV_INT_MIN                  (0x0640u)
+    #define CYBLE_SLOW_ADV_INT_MAX                  (0x4000u)
+    #define CYBLE_SLOW_ADV_TIMEOUT                  (0x0096u)
+    #define CYBLE_GAPP_CONNECTION_INTERVAL_MIN      (0x0006u)
+    #define CYBLE_GAPP_CONNECTION_INTERVAL_MAX      (0x0028u)
+    #define CYBLE_GAPP_CONNECTION_SLAVE_LATENCY     (0x0000u)
+    #define CYBLE_GAPP_CONNECTION_TIME_OUT          (0x03E8u)
 #endif /* CYBLE_GAP_ROLE_PERIPHERAL */
 
 #if(CYBLE_GAP_ROLE_CENTRAL || CYBLE_GAP_ROLE_OBSERVER)
-    #define CYBLE_FAST_SCAN_INTERVAL                (0x0030u)
-    #define CYBLE_FAST_SCAN_WINDOW                  (0x0030u)
-    #define CYBLE_FAST_SCAN_TIMEOUT                 (0x001Eu)
-    #define CYBLE_SLOW_SCAN_ENABLED                 (0x01u)
-    #define CYBLE_SLOW_SCAN_INTERVAL                (0x0800u)
-    #define CYBLE_SLOW_SCAN_WINDOW                  (0x0708u)
-    #define CYBLE_SLOW_SCAN_TIMEOUT                 (0x0096u)
+    #define CYBLE_FAST_SCAN_INTERVAL                (0x00u)
+    #define CYBLE_FAST_SCAN_WINDOW                  (0x00u)
+    #define CYBLE_FAST_SCAN_TIMEOUT                 (0x00u)
+    #define CYBLE_SLOW_SCAN_ENABLED                 (0x00u)
+    #define CYBLE_SLOW_SCAN_INTERVAL                (0x00u)
+    #define CYBLE_SLOW_SCAN_WINDOW                  (0x00u)
+    #define CYBLE_SLOW_SCAN_TIMEOUT                 (0x00u)
     #define CYBLE_GAPC_CONNECTION_INTERVAL_MIN      (0x0006u)
     #define CYBLE_GAPC_CONNECTION_INTERVAL_MAX      (0x0028u)
     #define CYBLE_GAPC_CONNECTION_SLAVE_LATENCY     (0x0000u)
@@ -168,13 +168,17 @@
     CYBLE_GAP_IOCAP_NOINPUT_NOOUTPUT
     CYBLE_GAP_IOCAP_KEYBOARD_DISPLAY
 */
-#define CYBLE_IO_CAPABILITY                         (CYBLE_GAP_IOCAP_DISPLAY_ONLY)
+#define CYBLE_IO_CAPABILITY                         (CYBLE_GAP_IOCAP_NOINPUT_NOOUTPUT)
 #define CYBLE_PAIRING_METHOD                        (0x00u)
-#define CYBLE_BONDING_REQUIREMENT                   (0x00u)
+#define CYBLE_BONDING_REQUIREMENT                   (0x01u)
 
 /* Tx Power Level */
 #define CYBLE_TX_POWER_LEVEL_ADV                    (CYBLE_LL_PWR_LVL_0_DBM)
 #define CYBLE_TX_POWER_LEVEL_CONN                   (CYBLE_LL_PWR_LVL_0_DBM)
+
+#define CYBLE_ADV_PKT_INDEX_FLAGS   (0x00u)
+#define CYBLE_ADV_PKT_INDEX_LOCAL_NAME   (0x03u)
+
 
 
 
@@ -208,7 +212,7 @@
 #define CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT   (CYBLE_ALIGN_TO_4(CYBLE_GATT_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
 /* GATT Maximum attribute length */
-#define CYBLE_GATT_MAX_ATTR_LEN             ((0x0008u == 0u) ? (1u) : (0x0008u))
+#define CYBLE_GATT_MAX_ATTR_LEN             ((0x000Du == 0u) ? (1u) : (0x000Du))
 #define CYBLE_GATT_MAX_ATTR_LEN_PLUS_L2CAP_MEM_EXT \
                                     (CYBLE_ALIGN_TO_4(CYBLE_GATT_MAX_ATTR_LEN + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
