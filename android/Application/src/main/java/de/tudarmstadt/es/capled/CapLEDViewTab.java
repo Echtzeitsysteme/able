@@ -36,7 +36,7 @@ import android.view.ViewGroup;
  * If started this activity can be used to controll the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
  *
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
- * @version 1.1
+ * @version 1.2
  */
 
 public class CapLEDViewTab extends Fragment implements BLEServiceListener {
