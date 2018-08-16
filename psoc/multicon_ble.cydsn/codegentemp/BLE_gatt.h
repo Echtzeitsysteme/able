@@ -37,7 +37,7 @@
 
 #define CYBLE_GATT_DB_INDEX_COUNT                    (0x0013u)
 #define CYBLE_GATT_DB_ATT_VAL_COUNT                  (0x0Bu)
-#define CYBLE_GATT_DB_MAX_VALUE_LEN                  (0x000Du)
+#define CYBLE_GATT_DB_MAX_VALUE_LEN                  (0x000Au)
 
 #endif /* CYBLE_GATT_ROLE_SERVER */
 

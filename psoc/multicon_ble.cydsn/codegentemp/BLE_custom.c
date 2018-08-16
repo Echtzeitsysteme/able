@@ -25,18 +25,18 @@
    The array index definitions are located in the CYBLE_custom.h file. */
 const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
 
-    /* Custom Service service */
+    /* Periphery service */
     {
-        0x0010u, /* Handle of the Custom Service service */ 
+        0x0010u, /* Handle of the Periphery service */ 
         {
 
-            /* Custom Characteristic characteristic */
+            /* Joystick 1 characteristic */
             {
-                0x0012u, /* Handle of the Custom Characteristic characteristic */ 
+                0x0012u, /* Handle of the Joystick 1 characteristic */ 
                 
                 /* Array of Descriptors handles */
                 {
-                    0x0013u, /* Handle of the Custom Descriptor descriptor */ 
+                    0x0013u, /* Handle of the Characteristic User Description descriptor */ 
                 }, 
             },
         }, 

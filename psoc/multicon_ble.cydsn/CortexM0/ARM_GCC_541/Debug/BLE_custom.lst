@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
   19:Generated_Source\PSoC4/BLE_custom.c **** #ifdef CYBLE_CUSTOM_SERVER
   20:Generated_Source\PSoC4/BLE_custom.c **** 
   21:Generated_Source\PSoC4/BLE_custom.c **** /* If any custom service with custom characterisctis is defined in the
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 2
 
 
   22:Generated_Source\PSoC4/BLE_custom.c **** * customizer's GUI their handles will be present in this array.
@@ -67,18 +67,18 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
   25:Generated_Source\PSoC4/BLE_custom.c ****    The array index definitions are located in the CYBLE_custom.h file. */
   26:Generated_Source\PSoC4/BLE_custom.c **** const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
   27:Generated_Source\PSoC4/BLE_custom.c **** 
-  28:Generated_Source\PSoC4/BLE_custom.c ****     /* Custom Service service */
+  28:Generated_Source\PSoC4/BLE_custom.c ****     /* Periphery service */
   29:Generated_Source\PSoC4/BLE_custom.c ****     {
-  30:Generated_Source\PSoC4/BLE_custom.c ****         0x0010u, /* Handle of the Custom Service service */ 
+  30:Generated_Source\PSoC4/BLE_custom.c ****         0x0010u, /* Handle of the Periphery service */ 
   31:Generated_Source\PSoC4/BLE_custom.c ****         {
   32:Generated_Source\PSoC4/BLE_custom.c **** 
-  33:Generated_Source\PSoC4/BLE_custom.c ****             /* Custom Characteristic characteristic */
+  33:Generated_Source\PSoC4/BLE_custom.c ****             /* Joystick 1 characteristic */
   34:Generated_Source\PSoC4/BLE_custom.c ****             {
-  35:Generated_Source\PSoC4/BLE_custom.c ****                 0x0012u, /* Handle of the Custom Characteristic characteristic */ 
+  35:Generated_Source\PSoC4/BLE_custom.c ****                 0x0012u, /* Handle of the Joystick 1 characteristic */ 
   36:Generated_Source\PSoC4/BLE_custom.c ****                 
   37:Generated_Source\PSoC4/BLE_custom.c ****                 /* Array of Descriptors handles */
   38:Generated_Source\PSoC4/BLE_custom.c ****                 {
-  39:Generated_Source\PSoC4/BLE_custom.c ****                     0x0013u, /* Handle of the Custom Descriptor descriptor */ 
+  39:Generated_Source\PSoC4/BLE_custom.c ****                     0x0013u, /* Handle of the Characteristic User Description descriptor */ 
   40:Generated_Source\PSoC4/BLE_custom.c ****                 }, 
   41:Generated_Source\PSoC4/BLE_custom.c ****             },
   42:Generated_Source\PSoC4/BLE_custom.c ****         }, 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
   43              		.cfi_offset 7, -8
   44              		.cfi_offset 14, -4
   45 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 3
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 3
 
 
   46              		.cfi_def_cfa_register 7
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
   71 0015 40030000 		.4byte	.LASF96
   72 0019 00000000 		.4byte	.Ldebug_ranges0+0
   73 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 4
 
 
   74 0021 00000000 		.4byte	.Ldebug_line0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  128 0085 02       		.uleb128 0x2
  129 0086 01       		.byte	0x1
  130 0087 08       		.byte	0x8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 5
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 5
 
 
  131 0088 92070000 		.4byte	.LASF11
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  185 00f5 06       		.uleb128 0x6
  186 00f6 9C030000 		.4byte	.LASF27
  187 00fa 26       		.byte	0x26
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 6
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 6
 
 
  188 00fb 06       		.uleb128 0x6
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  242 0167 06       		.uleb128 0x6
  243 0168 49060000 		.4byte	.LASF46
  244 016c 41       		.byte	0x41
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 7
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 7
 
 
  245 016d 06       		.uleb128 0x6
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  299 01d9 06       		.uleb128 0x6
  300 01da 07020000 		.4byte	.LASF65
  301 01de 54       		.byte	0x54
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 8
 
 
  302 01df 06       		.uleb128 0x6
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  356 024b 06       		.uleb128 0x6
  357 024c 2A070000 		.4byte	.LASF84
  358 0250 FD       		.byte	0xfd
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 9
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 9
 
 
  359 0251 06       		.uleb128 0x6
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  413 02bb C1020000 		.4byte	0x2c1
  414 02bf 02       		.byte	0x2
  415 02c0 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 10
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 10
 
 
  416 02c1 09       		.uleb128 0x9
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  470 000c 17       		.uleb128 0x17
  471 000d 11       		.uleb128 0x11
  472 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 11
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 11
 
 
  473 000f 10       		.uleb128 0x10
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  527 0045 06       		.uleb128 0x6
  528 0046 28       		.uleb128 0x28
  529 0047 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 12
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 12
 
 
  530 0048 03       		.uleb128 0x3
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  584 007e 00       		.byte	0
  585 007f 03       		.uleb128 0x3
  586 0080 0E       		.uleb128 0xe
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 13
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 13
 
 
  587 0081 3A       		.uleb128 0x3a
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  641 00b8 00       		.byte	0
  642 00b9 00       		.byte	0
  643              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 14
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 14
 
 
  644 0000 1C000000 		.4byte	0x1c
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  674              	.LASF35:
  675 0093 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
  675      455F4556 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 15
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 15
 
 
  675      545F4741 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  695      455F4556 
  695      545F5354 
  695      41434B5F 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 16
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 16
 
 
  695      4F4E00
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  716 027e 666C6F61 		.ascii	"float\000"
  716      7400
  717              	.LASF54:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 17
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 17
 
 
  718 0284 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  735      505F4445 
  735      56494345 
  736              	.LASF27:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 18
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 18
 
 
  737 039c 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  753      4341505F 
  753      43424643 
  754              	.LASF38:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 19
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 19
 
 
  755 0504 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  775 05f9 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
  775      455F4556 
  775      545F4741 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 20
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 20
 
 
  775      5454435F 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  793      4C4F4E47 
  794              	.LASF33:
  795 0706 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 21
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 21
 
 
  795      455F4556 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  813      45584543 
  814              	.LASF32:
  815 0824 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 22
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 22
 
 
  815      455F4556 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  833      434F4E4E 
  834              	.LASF21:
  835 093e 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 23
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 23
 
 
  835      455F4556 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 1
  853      545F4741 
  853      5454435F 
  853      53544F50 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc2wKiZx.s 			page 24
+ARM GAS  C:\Users\puria\AppData\Local\Temp\cctO8vN1.s 			page 24
 
 
  854              	.LASF61:

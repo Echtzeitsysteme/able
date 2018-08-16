@@ -10,22 +10,11 @@
  * ========================================
 */
 #include <project.h>
-#include "BLEControl.h"
 #include "LEDControl.h"
-#include "UARTControl.h"
+#ifndef __UART_CONTROL_H__
+#define __UART_CONTROL_H__
+void LEDRainbow();
+void testListen();
+#endif
 
-
-int main (void)
-{
-    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */
-    UART_Start();
-    CyBle_Start(BleCallBack);
-    testUpdateCharacteristic();
-    while(1u){
-      //LEDRainbow();
-      CyBle_ProcessEvents();
-    }
-    
-    
-}
 /* [] END OF FILE */

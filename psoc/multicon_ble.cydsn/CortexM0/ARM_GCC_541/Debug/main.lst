@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUQF3BJ.s 			page 1
 
 
    1              		.syntax unified
@@ -19,13 +19,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.delay,"ax",%progbits
+  19              		.section	.text.main,"ax",%progbits
   20              		.align	2
-  21              		.global	delay
+  21              		.global	main
   22              		.code	16
   23              		.thumb_func
-  24              		.type	delay, %function
-  25              	delay:
+  24              		.type	main, %function
+  25              	main:
   26              	.LFB35:
   27              		.file 1 "main.c"
    1:main.c        **** /* ========================================
@@ -40,1670 +40,349 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 1
   10:main.c        ****  * ========================================
   11:main.c        **** */
   12:main.c        **** #include <project.h>
-  13:main.c        **** 
-  14:main.c        **** 
-  15:main.c        **** void delay(){
-  28              		.loc 1 15 0
+  13:main.c        **** #include "BLEControl.h"
+  14:main.c        **** #include "LEDControl.h"
+  15:main.c        **** #include "UARTControl.h"
+  16:main.c        **** 
+  17:main.c        **** 
+  18:main.c        **** int main (void)
+  19:main.c        **** {
+  28              		.loc 1 19 0
   29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 8
+  30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 1, uses_anonymous_args = 0
   32 0000 80B5     		push	{r7, lr}
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 7, -8
   35              		.cfi_offset 14, -4
-  36 0002 82B0     		sub	sp, sp, #8
-  37              		.cfi_def_cfa_offset 16
-  38 0004 00AF     		add	r7, sp, #0
-  39              		.cfi_def_cfa_register 7
-  40              	.LBB2:
-  16:main.c        ****  for(int i=0; i<1000000;i++){}  
-  41              		.loc 1 16 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 2
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  20:main.c        ****     CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUQF3BJ.s 			page 2
 
 
-  42 0006 0023     		movs	r3, #0
-  43 0008 7B60     		str	r3, [r7, #4]
-  44 000a 02E0     		b	.L2
-  45              	.L3:
-  46              		.loc 1 16 0 is_stmt 0 discriminator 3
-  47 000c 7B68     		ldr	r3, [r7, #4]
-  48 000e 0133     		adds	r3, r3, #1
-  49 0010 7B60     		str	r3, [r7, #4]
-  50              	.L2:
-  51              		.loc 1 16 0 discriminator 1
-  52 0012 7B68     		ldr	r3, [r7, #4]
-  53 0014 034A     		ldr	r2, .L4
-  54 0016 9342     		cmp	r3, r2
-  55 0018 F8DD     		ble	.L3
-  56              	.LBE2:
-  17:main.c        **** }
-  57              		.loc 1 17 0 is_stmt 1
-  58 001a C046     		nop
-  59 001c BD46     		mov	sp, r7
-  60 001e 02B0     		add	sp, sp, #8
-  61              		@ sp needed
-  62 0020 80BD     		pop	{r7, pc}
-  63              	.L5:
-  64 0022 C046     		.align	2
-  65              	.L4:
-  66 0024 3F420F00 		.word	999999
-  67              		.cfi_endproc
-  68              	.LFE35:
-  69              		.size	delay, .-delay
-  70              		.section	.text.LED_ON,"ax",%progbits
-  71              		.align	2
-  72              		.global	LED_ON
-  73              		.code	16
-  74              		.thumb_func
-  75              		.type	LED_ON, %function
-  76              	LED_ON:
-  77              	.LFB36:
-  18:main.c        **** 
-  19:main.c        **** void LED_ON(){
-  78              		.loc 1 19 0
-  79              		.cfi_startproc
-  80              		@ args = 0, pretend = 0, frame = 0
-  81              		@ frame_needed = 1, uses_anonymous_args = 0
-  82 0000 80B5     		push	{r7, lr}
-  83              		.cfi_def_cfa_offset 8
-  84              		.cfi_offset 7, -8
-  85              		.cfi_offset 14, -4
-  86 0002 00AF     		add	r7, sp, #0
-  87              		.cfi_def_cfa_register 7
-  20:main.c        ****     LED_Write(0u);
-  88              		.loc 1 20 0
-  89 0004 0020     		movs	r0, #0
-  90 0006 FFF7FEFF 		bl	LED_Write
-  21:main.c        **** }
-  91              		.loc 1 21 0
-  92 000a C046     		nop
-  93 000c BD46     		mov	sp, r7
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 3
+  38              		.loc 1 20 0
+  39              		.syntax divided
+  40              	@ 20 "main.c" 1
+  41 0004 62B6     		CPSIE   i
+  42              	@ 0 "" 2
+  21:main.c        ****     UART_Start();
+  43              		.loc 1 21 0
+  44              		.thumb
+  45              		.syntax unified
+  46 0006 FFF7FEFF 		bl	UART_Start
+  22:main.c        ****     CyBle_Start(BleCallBack);
+  47              		.loc 1 22 0
+  48 000a 044B     		ldr	r3, .L3
+  49 000c 1800     		movs	r0, r3
+  50 000e FFF7FEFF 		bl	CyBle_Start
+  23:main.c        ****     testUpdateCharacteristic();
+  51              		.loc 1 23 0
+  52 0012 FFF7FEFF 		bl	testUpdateCharacteristic
+  53              	.L2:
+  24:main.c        ****     while(1u){
+  25:main.c        ****       //LEDRainbow();
+  26:main.c        ****       CyBle_ProcessEvents();
+  54              		.loc 1 26 0 discriminator 1
+  55 0016 FFF7FEFF 		bl	CyBle_ProcessEvents
+  27:main.c        ****     }
+  56              		.loc 1 27 0 discriminator 1
+  57 001a FCE7     		b	.L2
+  58              	.L4:
+  59              		.align	2
+  60              	.L3:
+  61 001c 00000000 		.word	BleCallBack
+  62              		.cfi_endproc
+  63              	.LFE35:
+  64              		.size	main, .-main
+  65              		.text
+  66              	.Letext0:
+  67              		.section	.debug_info,"",%progbits
+  68              	.Ldebug_info0:
+  69 0000 A0000000 		.4byte	0xa0
+  70 0004 0400     		.2byte	0x4
+  71 0006 00000000 		.4byte	.Ldebug_abbrev0
+  72 000a 04       		.byte	0x4
+  73 000b 01       		.uleb128 0x1
+  74 000c EB000000 		.4byte	.LASF14
+  75 0010 0C       		.byte	0xc
+  76 0011 1B000000 		.4byte	.LASF15
+  77 0015 22000000 		.4byte	.LASF16
+  78 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  79 001d 00000000 		.4byte	0
+  80 0021 00000000 		.4byte	.Ldebug_line0
+  81 0025 02       		.uleb128 0x2
+  82 0026 01       		.byte	0x1
+  83 0027 06       		.byte	0x6
+  84 0028 C3000000 		.4byte	.LASF0
+  85 002c 02       		.uleb128 0x2
+  86 002d 01       		.byte	0x1
+  87 002e 08       		.byte	0x8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUQF3BJ.s 			page 3
 
 
-  94              		@ sp needed
-  95 000e 80BD     		pop	{r7, pc}
-  96              		.cfi_endproc
-  97              	.LFE36:
-  98              		.size	LED_ON, .-LED_ON
-  99              		.section	.text.LED_OFF,"ax",%progbits
- 100              		.align	2
- 101              		.global	LED_OFF
- 102              		.code	16
- 103              		.thumb_func
- 104              		.type	LED_OFF, %function
- 105              	LED_OFF:
- 106              	.LFB37:
-  22:main.c        **** 
-  23:main.c        **** void LED_OFF(){
- 107              		.loc 1 23 0
- 108              		.cfi_startproc
- 109              		@ args = 0, pretend = 0, frame = 0
- 110              		@ frame_needed = 1, uses_anonymous_args = 0
- 111 0000 80B5     		push	{r7, lr}
- 112              		.cfi_def_cfa_offset 8
- 113              		.cfi_offset 7, -8
- 114              		.cfi_offset 14, -4
- 115 0002 00AF     		add	r7, sp, #0
- 116              		.cfi_def_cfa_register 7
-  24:main.c        ****     LED_Write(1u);
- 117              		.loc 1 24 0
- 118 0004 0120     		movs	r0, #1
- 119 0006 FFF7FEFF 		bl	LED_Write
-  25:main.c        **** }
- 120              		.loc 1 25 0
- 121 000a C046     		nop
- 122 000c BD46     		mov	sp, r7
- 123              		@ sp needed
- 124 000e 80BD     		pop	{r7, pc}
- 125              		.cfi_endproc
- 126              	.LFE37:
- 127              		.size	LED_OFF, .-LED_OFF
- 128              		.section	.text.sendStringViaUART,"ax",%progbits
- 129              		.align	2
- 130              		.global	sendStringViaUART
- 131              		.code	16
- 132              		.thumb_func
- 133              		.type	sendStringViaUART, %function
- 134              	sendStringViaUART:
- 135              	.LFB38:
-  26:main.c        **** void sendStringViaUART(char* text){
- 136              		.loc 1 26 0
- 137              		.cfi_startproc
- 138              		@ args = 0, pretend = 0, frame = 8
- 139              		@ frame_needed = 1, uses_anonymous_args = 0
- 140 0000 80B5     		push	{r7, lr}
- 141              		.cfi_def_cfa_offset 8
- 142              		.cfi_offset 7, -8
- 143              		.cfi_offset 14, -4
- 144 0002 82B0     		sub	sp, sp, #8
- 145              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 4
+  88 002f 8D000000 		.4byte	.LASF1
+  89 0033 02       		.uleb128 0x2
+  90 0034 02       		.byte	0x2
+  91 0035 05       		.byte	0x5
+  92 0036 E1000000 		.4byte	.LASF2
+  93 003a 02       		.uleb128 0x2
+  94 003b 02       		.byte	0x2
+  95 003c 07       		.byte	0x7
+  96 003d B0000000 		.4byte	.LASF3
+  97 0041 02       		.uleb128 0x2
+  98 0042 04       		.byte	0x4
+  99 0043 05       		.byte	0x5
+ 100 0044 A0000000 		.4byte	.LASF4
+ 101 0048 02       		.uleb128 0x2
+ 102 0049 04       		.byte	0x4
+ 103 004a 07       		.byte	0x7
+ 104 004b 5F000000 		.4byte	.LASF5
+ 105 004f 02       		.uleb128 0x2
+ 106 0050 08       		.byte	0x8
+ 107 0051 05       		.byte	0x5
+ 108 0052 00000000 		.4byte	.LASF6
+ 109 0056 02       		.uleb128 0x2
+ 110 0057 08       		.byte	0x8
+ 111 0058 07       		.byte	0x7
+ 112 0059 71000000 		.4byte	.LASF7
+ 113 005d 03       		.uleb128 0x3
+ 114 005e 04       		.byte	0x4
+ 115 005f 05       		.byte	0x5
+ 116 0060 696E7400 		.ascii	"int\000"
+ 117 0064 02       		.uleb128 0x2
+ 118 0065 04       		.byte	0x4
+ 119 0066 07       		.byte	0x7
+ 120 0067 0E000000 		.4byte	.LASF8
+ 121 006b 02       		.uleb128 0x2
+ 122 006c 04       		.byte	0x4
+ 123 006d 04       		.byte	0x4
+ 124 006e DB000000 		.4byte	.LASF9
+ 125 0072 02       		.uleb128 0x2
+ 126 0073 08       		.byte	0x8
+ 127 0074 04       		.byte	0x4
+ 128 0075 A9000000 		.4byte	.LASF10
+ 129 0079 02       		.uleb128 0x2
+ 130 007a 01       		.byte	0x1
+ 131 007b 08       		.byte	0x8
+ 132 007c 88000000 		.4byte	.LASF11
+ 133 0080 02       		.uleb128 0x2
+ 134 0081 08       		.byte	0x8
+ 135 0082 04       		.byte	0x4
+ 136 0083 CF000000 		.4byte	.LASF12
+ 137 0087 02       		.uleb128 0x2
+ 138 0088 04       		.byte	0x4
+ 139 0089 07       		.byte	0x7
+ 140 008a 79010000 		.4byte	.LASF13
+ 141 008e 04       		.uleb128 0x4
+ 142 008f 9B000000 		.4byte	.LASF17
+ 143 0093 01       		.byte	0x1
+ 144 0094 12       		.byte	0x12
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUQF3BJ.s 			page 4
 
 
- 146 0004 00AF     		add	r7, sp, #0
- 147              		.cfi_def_cfa_register 7
- 148 0006 7860     		str	r0, [r7, #4]
-  27:main.c        ****   while (*text != '\0')
- 149              		.loc 1 27 0
- 150 0008 06E0     		b	.L9
- 151              	.L10:
-  28:main.c        ****   { 
-  29:main.c        ****     UART_UartPutChar((char) *text++);
- 152              		.loc 1 29 0
- 153 000a 7B68     		ldr	r3, [r7, #4]
- 154 000c 5A1C     		adds	r2, r3, #1
- 155 000e 7A60     		str	r2, [r7, #4]
- 156 0010 1B78     		ldrb	r3, [r3]
- 157 0012 1800     		movs	r0, r3
- 158 0014 FFF7FEFF 		bl	UART_SpiUartWriteTxData
- 159              	.L9:
-  27:main.c        ****   while (*text != '\0')
- 160              		.loc 1 27 0
- 161 0018 7B68     		ldr	r3, [r7, #4]
- 162 001a 1B78     		ldrb	r3, [r3]
- 163 001c 002B     		cmp	r3, #0
- 164 001e F4D1     		bne	.L10
-  30:main.c        ****   }
-  31:main.c        **** }
- 165              		.loc 1 31 0
- 166 0020 C046     		nop
- 167 0022 BD46     		mov	sp, r7
- 168 0024 02B0     		add	sp, sp, #8
- 169              		@ sp needed
- 170 0026 80BD     		pop	{r7, pc}
- 171              		.cfi_endproc
- 172              	.LFE38:
- 173              		.size	sendStringViaUART, .-sendStringViaUART
- 174              		.section	.rodata
- 175              		.align	2
- 176              	.LC0:
- 177 0000 68656C6C 		.ascii	"hello world\000"
- 177      6F20776F 
- 177      726C6400 
- 178              		.section	.text.flashLED,"ax",%progbits
- 179              		.align	2
- 180              		.global	flashLED
- 181              		.code	16
- 182              		.thumb_func
- 183              		.type	flashLED, %function
- 184              	flashLED:
- 185              	.LFB39:
-  32:main.c        **** void flashLED(){
- 186              		.loc 1 32 0
- 187              		.cfi_startproc
- 188              		@ args = 0, pretend = 0, frame = 0
- 189              		@ frame_needed = 1, uses_anonymous_args = 0
- 190 0000 80B5     		push	{r7, lr}
- 191              		.cfi_def_cfa_offset 8
- 192              		.cfi_offset 7, -8
- 193              		.cfi_offset 14, -4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 5
+ 145 0095 5D000000 		.4byte	0x5d
+ 146 0099 00000000 		.4byte	.LFB35
+ 147 009d 20000000 		.4byte	.LFE35-.LFB35
+ 148 00a1 01       		.uleb128 0x1
+ 149 00a2 9C       		.byte	0x9c
+ 150 00a3 00       		.byte	0
+ 151              		.section	.debug_abbrev,"",%progbits
+ 152              	.Ldebug_abbrev0:
+ 153 0000 01       		.uleb128 0x1
+ 154 0001 11       		.uleb128 0x11
+ 155 0002 01       		.byte	0x1
+ 156 0003 25       		.uleb128 0x25
+ 157 0004 0E       		.uleb128 0xe
+ 158 0005 13       		.uleb128 0x13
+ 159 0006 0B       		.uleb128 0xb
+ 160 0007 03       		.uleb128 0x3
+ 161 0008 0E       		.uleb128 0xe
+ 162 0009 1B       		.uleb128 0x1b
+ 163 000a 0E       		.uleb128 0xe
+ 164 000b 55       		.uleb128 0x55
+ 165 000c 17       		.uleb128 0x17
+ 166 000d 11       		.uleb128 0x11
+ 167 000e 01       		.uleb128 0x1
+ 168 000f 10       		.uleb128 0x10
+ 169 0010 17       		.uleb128 0x17
+ 170 0011 00       		.byte	0
+ 171 0012 00       		.byte	0
+ 172 0013 02       		.uleb128 0x2
+ 173 0014 24       		.uleb128 0x24
+ 174 0015 00       		.byte	0
+ 175 0016 0B       		.uleb128 0xb
+ 176 0017 0B       		.uleb128 0xb
+ 177 0018 3E       		.uleb128 0x3e
+ 178 0019 0B       		.uleb128 0xb
+ 179 001a 03       		.uleb128 0x3
+ 180 001b 0E       		.uleb128 0xe
+ 181 001c 00       		.byte	0
+ 182 001d 00       		.byte	0
+ 183 001e 03       		.uleb128 0x3
+ 184 001f 24       		.uleb128 0x24
+ 185 0020 00       		.byte	0
+ 186 0021 0B       		.uleb128 0xb
+ 187 0022 0B       		.uleb128 0xb
+ 188 0023 3E       		.uleb128 0x3e
+ 189 0024 0B       		.uleb128 0xb
+ 190 0025 03       		.uleb128 0x3
+ 191 0026 08       		.uleb128 0x8
+ 192 0027 00       		.byte	0
+ 193 0028 00       		.byte	0
+ 194 0029 04       		.uleb128 0x4
+ 195 002a 2E       		.uleb128 0x2e
+ 196 002b 00       		.byte	0
+ 197 002c 3F       		.uleb128 0x3f
+ 198 002d 19       		.uleb128 0x19
+ 199 002e 03       		.uleb128 0x3
+ 200 002f 0E       		.uleb128 0xe
+ 201 0030 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUQF3BJ.s 			page 5
 
 
- 194 0002 00AF     		add	r7, sp, #0
- 195              		.cfi_def_cfa_register 7
- 196              	.L12:
-  33:main.c        ****     while(1u){
-  34:main.c        ****         LED_ON();
- 197              		.loc 1 34 0 discriminator 1
- 198 0004 FFF7FEFF 		bl	LED_ON
-  35:main.c        ****         sendStringViaUART("hello world");
- 199              		.loc 1 35 0 discriminator 1
- 200 0008 054B     		ldr	r3, .L13
- 201 000a 1800     		movs	r0, r3
- 202 000c FFF7FEFF 		bl	sendStringViaUART
-  36:main.c        ****         //UART_UartPutString("hello world");
-  37:main.c        ****         //testPin_Write(0u);
-  38:main.c        ****         delay();
- 203              		.loc 1 38 0 discriminator 1
- 204 0010 FFF7FEFF 		bl	delay
-  39:main.c        ****         LED_OFF();
- 205              		.loc 1 39 0 discriminator 1
- 206 0014 FFF7FEFF 		bl	LED_OFF
-  40:main.c        ****         //UART_UartPutString("world");
-  41:main.c        ****         //testPin_Write(1u);
-  42:main.c        ****         delay();
- 207              		.loc 1 42 0 discriminator 1
- 208 0018 FFF7FEFF 		bl	delay
-  43:main.c        ****     }
- 209              		.loc 1 43 0 discriminator 1
- 210 001c F2E7     		b	.L12
- 211              	.L14:
- 212 001e C046     		.align	2
- 213              	.L13:
- 214 0020 00000000 		.word	.LC0
- 215              		.cfi_endproc
- 216              	.LFE39:
- 217              		.size	flashLED, .-flashLED
- 218              		.section	.text.BleCallBack,"ax",%progbits
- 219              		.align	2
- 220              		.global	BleCallBack
- 221              		.code	16
- 222              		.thumb_func
- 223              		.type	BleCallBack, %function
- 224              	BleCallBack:
- 225              	.LFB40:
-  44:main.c        **** }
-  45:main.c        **** 
-  46:main.c        **** void BleCallBack(uint32 event, void* eventParam){
- 226              		.loc 1 46 0
- 227              		.cfi_startproc
- 228              		@ args = 0, pretend = 0, frame = 8
- 229              		@ frame_needed = 1, uses_anonymous_args = 0
- 230 0000 80B5     		push	{r7, lr}
- 231              		.cfi_def_cfa_offset 8
- 232              		.cfi_offset 7, -8
- 233              		.cfi_offset 14, -4
- 234 0002 82B0     		sub	sp, sp, #8
- 235              		.cfi_def_cfa_offset 16
- 236 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 6
+ 202 0031 0B       		.uleb128 0xb
+ 203 0032 3B       		.uleb128 0x3b
+ 204 0033 0B       		.uleb128 0xb
+ 205 0034 27       		.uleb128 0x27
+ 206 0035 19       		.uleb128 0x19
+ 207 0036 49       		.uleb128 0x49
+ 208 0037 13       		.uleb128 0x13
+ 209 0038 11       		.uleb128 0x11
+ 210 0039 01       		.uleb128 0x1
+ 211 003a 12       		.uleb128 0x12
+ 212 003b 06       		.uleb128 0x6
+ 213 003c 40       		.uleb128 0x40
+ 214 003d 18       		.uleb128 0x18
+ 215 003e 9642     		.uleb128 0x2116
+ 216 0040 19       		.uleb128 0x19
+ 217 0041 00       		.byte	0
+ 218 0042 00       		.byte	0
+ 219 0043 00       		.byte	0
+ 220              		.section	.debug_aranges,"",%progbits
+ 221 0000 1C000000 		.4byte	0x1c
+ 222 0004 0200     		.2byte	0x2
+ 223 0006 00000000 		.4byte	.Ldebug_info0
+ 224 000a 04       		.byte	0x4
+ 225 000b 00       		.byte	0
+ 226 000c 0000     		.2byte	0
+ 227 000e 0000     		.2byte	0
+ 228 0010 00000000 		.4byte	.LFB35
+ 229 0014 20000000 		.4byte	.LFE35-.LFB35
+ 230 0018 00000000 		.4byte	0
+ 231 001c 00000000 		.4byte	0
+ 232              		.section	.debug_ranges,"",%progbits
+ 233              	.Ldebug_ranges0:
+ 234 0000 00000000 		.4byte	.LFB35
+ 235 0004 20000000 		.4byte	.LFE35
+ 236 0008 00000000 		.4byte	0
+ 237 000c 00000000 		.4byte	0
+ 238              		.section	.debug_line,"",%progbits
+ 239              	.Ldebug_line0:
+ 240 0000 40000000 		.section	.debug_str,"MS",%progbits,1
+ 240      02001D00 
+ 240      00000201 
+ 240      FB0E0D00 
+ 240      01010101 
+ 241              	.LASF6:
+ 242 0000 6C6F6E67 		.ascii	"long long int\000"
+ 242      206C6F6E 
+ 242      6720696E 
+ 242      7400
+ 243              	.LASF8:
+ 244 000e 756E7369 		.ascii	"unsigned int\000"
+ 244      676E6564 
+ 244      20696E74 
+ 244      00
+ 245              	.LASF15:
+ 246 001b 6D61696E 		.ascii	"main.c\000"
+ 246      2E6300
+ 247              	.LASF16:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUQF3BJ.s 			page 6
 
 
- 237              		.cfi_def_cfa_register 7
- 238 0006 7860     		str	r0, [r7, #4]
- 239 0008 3960     		str	r1, [r7]
-  47:main.c        ****     switch(event){
- 240              		.loc 1 47 0
- 241 000a 7B68     		ldr	r3, [r7, #4]
- 242 000c 012B     		cmp	r3, #1
- 243 000e 02D0     		beq	.L17
- 244 0010 282B     		cmp	r3, #40
- 245 0012 00D0     		beq	.L17
-  48:main.c        ****         /* if there is a disconnect or the stack just turned on from a reset then start the adverti
-  49:main.c        ****         case CYBLE_EVT_STACK_ON:
-  50:main.c        ****         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://both cases get same handling
-  51:main.c        ****             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//start advertising the database a
-  52:main.c        ****         break;
-  53:main.c        ****     }
-  54:main.c        **** }
- 246              		.loc 1 54 0
- 247 0014 03E0     		b	.L18
- 248              	.L17:
-  51:main.c        ****         break;
- 249              		.loc 1 51 0
- 250 0016 0020     		movs	r0, #0
- 251 0018 FFF7FEFF 		bl	CyBle_GappStartAdvertisement
-  52:main.c        ****     }
- 252              		.loc 1 52 0
- 253 001c C046     		nop
- 254              	.L18:
- 255              		.loc 1 54 0
- 256 001e C046     		nop
- 257 0020 BD46     		mov	sp, r7
- 258 0022 02B0     		add	sp, sp, #8
- 259              		@ sp needed
- 260 0024 80BD     		pop	{r7, pc}
- 261              		.cfi_endproc
- 262              	.LFE40:
- 263              		.size	BleCallBack, .-BleCallBack
- 264 0026 C046     		.section	.text.main,"ax",%progbits
- 265              		.align	2
- 266              		.global	main
- 267              		.code	16
- 268              		.thumb_func
- 269              		.type	main, %function
- 270              	main:
- 271              	.LFB41:
-  55:main.c        **** 
-  56:main.c        **** int main (void)
-  57:main.c        **** {
- 272              		.loc 1 57 0
- 273              		.cfi_startproc
- 274              		@ args = 0, pretend = 0, frame = 0
- 275              		@ frame_needed = 1, uses_anonymous_args = 0
- 276 0000 80B5     		push	{r7, lr}
- 277              		.cfi_def_cfa_offset 8
- 278              		.cfi_offset 7, -8
- 279              		.cfi_offset 14, -4
- 280 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 7
+ 248 0022 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\mu"
+ 248      73657273 
+ 248      5C707572 
+ 248      69615C44 
+ 248      6F63756D 
+ 249 004e 6C746963 		.ascii	"lticon_ble.cydsn\000"
+ 249      6F6E5F62 
+ 249      6C652E63 
+ 249      7964736E 
+ 249      00
+ 250              	.LASF5:
+ 251 005f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 251      20756E73 
+ 251      69676E65 
+ 251      6420696E 
+ 251      7400
+ 252              	.LASF7:
+ 253 0071 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 253      206C6F6E 
+ 253      6720756E 
+ 253      7369676E 
+ 253      65642069 
+ 254              	.LASF11:
+ 255 0088 63686172 		.ascii	"char\000"
+ 255      00
+ 256              	.LASF1:
+ 257 008d 756E7369 		.ascii	"unsigned char\000"
+ 257      676E6564 
+ 257      20636861 
+ 257      7200
+ 258              	.LASF17:
+ 259 009b 6D61696E 		.ascii	"main\000"
+ 259      00
+ 260              	.LASF4:
+ 261 00a0 6C6F6E67 		.ascii	"long int\000"
+ 261      20696E74 
+ 261      00
+ 262              	.LASF10:
+ 263 00a9 646F7562 		.ascii	"double\000"
+ 263      6C6500
+ 264              	.LASF3:
+ 265 00b0 73686F72 		.ascii	"short unsigned int\000"
+ 265      7420756E 
+ 265      7369676E 
+ 265      65642069 
+ 265      6E7400
+ 266              	.LASF0:
+ 267 00c3 7369676E 		.ascii	"signed char\000"
+ 267      65642063 
+ 267      68617200 
+ 268              	.LASF12:
+ 269 00cf 6C6F6E67 		.ascii	"long double\000"
+ 269      20646F75 
+ 269      626C6500 
+ 270              	.LASF9:
+ 271 00db 666C6F61 		.ascii	"float\000"
+ 271      7400
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUQF3BJ.s 			page 7
 
 
- 281              		.cfi_def_cfa_register 7
-  58:main.c        ****     /* CyGlobalIntEnable; */ /* Uncomment this line to enable global interrupts. */
-  59:main.c        ****     UART_Start();
- 282              		.loc 1 59 0
- 283 0004 FFF7FEFF 		bl	UART_Start
-  60:main.c        ****     //flashLED();
-  61:main.c        ****     CyBle_Start(BleCallBack);
- 284              		.loc 1 61 0
- 285 0008 034B     		ldr	r3, .L21
- 286 000a 1800     		movs	r0, r3
- 287 000c FFF7FEFF 		bl	CyBle_Start
- 288              	.L20:
-  62:main.c        ****     while(1u){
-  63:main.c        ****       CyBle_ProcessEvents();
- 289              		.loc 1 63 0 discriminator 1
- 290 0010 FFF7FEFF 		bl	CyBle_ProcessEvents
-  64:main.c        ****     }
- 291              		.loc 1 64 0 discriminator 1
- 292 0014 FCE7     		b	.L20
- 293              	.L22:
- 294 0016 C046     		.align	2
- 295              	.L21:
- 296 0018 00000000 		.word	BleCallBack
- 297              		.cfi_endproc
- 298              	.LFE41:
- 299              		.size	main, .-main
- 300              		.text
- 301              	.Letext0:
- 302              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
- 303              		.file 3 "Generated_Source\\PSoC4/BLE_Stack.h"
- 304              		.section	.debug_info,"",%progbits
- 305              	.Ldebug_info0:
- 306 0000 27030000 		.4byte	0x327
- 307 0004 0400     		.2byte	0x4
- 308 0006 00000000 		.4byte	.Ldebug_abbrev0
- 309 000a 04       		.byte	0x4
- 310 000b 01       		.uleb128 0x1
- 311 000c 1C040000 		.4byte	.LASF94
- 312 0010 0C       		.byte	0xc
- 313 0011 E6070000 		.4byte	.LASF95
- 314 0015 35030000 		.4byte	.LASF96
- 315 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 316 001d 00000000 		.4byte	0
- 317 0021 00000000 		.4byte	.Ldebug_line0
- 318 0025 02       		.uleb128 0x2
- 319 0026 01       		.byte	0x1
- 320 0027 06       		.byte	0x6
- 321 0028 B2050000 		.4byte	.LASF0
- 322 002c 02       		.uleb128 0x2
- 323 002d 01       		.byte	0x1
- 324 002e 08       		.byte	0x8
- 325 002f 48050000 		.4byte	.LASF1
- 326 0033 02       		.uleb128 0x2
- 327 0034 02       		.byte	0x2
- 328 0035 05       		.byte	0x5
- 329 0036 9A000000 		.4byte	.LASF2
- 330 003a 02       		.uleb128 0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 8
-
-
- 331 003b 02       		.byte	0x2
- 332 003c 07       		.byte	0x7
- 333 003d 06070000 		.4byte	.LASF3
- 334 0041 02       		.uleb128 0x2
- 335 0042 04       		.byte	0x4
- 336 0043 05       		.byte	0x5
- 337 0044 2C030000 		.4byte	.LASF4
- 338 0048 02       		.uleb128 0x2
- 339 0049 04       		.byte	0x4
- 340 004a 07       		.byte	0x7
- 341 004b 52060000 		.4byte	.LASF5
- 342 004f 02       		.uleb128 0x2
- 343 0050 08       		.byte	0x8
- 344 0051 05       		.byte	0x5
- 345 0052 63080000 		.4byte	.LASF6
- 346 0056 02       		.uleb128 0x2
- 347 0057 08       		.byte	0x8
- 348 0058 07       		.byte	0x7
- 349 0059 F4020000 		.4byte	.LASF7
- 350 005d 03       		.uleb128 0x3
- 351 005e 04       		.byte	0x4
- 352 005f 05       		.byte	0x5
- 353 0060 696E7400 		.ascii	"int\000"
- 354 0064 02       		.uleb128 0x2
- 355 0065 04       		.byte	0x4
- 356 0066 07       		.byte	0x7
- 357 0067 22060000 		.4byte	.LASF8
- 358 006b 04       		.uleb128 0x4
- 359 006c DF070000 		.4byte	.LASF97
- 360 0070 02       		.byte	0x2
- 361 0071 D401     		.2byte	0x1d4
- 362 0073 48000000 		.4byte	0x48
- 363 0077 02       		.uleb128 0x2
- 364 0078 04       		.byte	0x4
- 365 0079 04       		.byte	0x4
- 366 007a 8B020000 		.4byte	.LASF9
- 367 007e 02       		.uleb128 0x2
- 368 007f 08       		.byte	0x8
- 369 0080 04       		.byte	0x4
- 370 0081 10080000 		.4byte	.LASF10
- 371 0085 02       		.uleb128 0x2
- 372 0086 01       		.byte	0x1
- 373 0087 08       		.byte	0x8
- 374 0088 81070000 		.4byte	.LASF11
- 375 008c 02       		.uleb128 0x2
- 376 008d 08       		.byte	0x8
- 377 008e 04       		.byte	0x4
- 378 008f 16050000 		.4byte	.LASF12
- 379 0093 02       		.uleb128 0x2
- 380 0094 04       		.byte	0x4
- 381 0095 07       		.byte	0x7
- 382 0096 DC000000 		.4byte	.LASF13
- 383 009a 05       		.uleb128 0x5
- 384 009b 04       		.byte	0x4
- 385 009c 06       		.uleb128 0x6
- 386 009d 04       		.byte	0x4
- 387 009e 85000000 		.4byte	0x85
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 9
-
-
- 388 00a2 07       		.uleb128 0x7
- 389 00a3 01       		.byte	0x1
- 390 00a4 2C000000 		.4byte	0x2c
- 391 00a8 03       		.byte	0x3
- 392 00a9 4D01     		.2byte	0x14d
- 393 00ab 60020000 		.4byte	0x260
- 394 00af 08       		.uleb128 0x8
- 395 00b0 35020000 		.4byte	.LASF14
- 396 00b4 00       		.byte	0
- 397 00b5 08       		.uleb128 0x8
- 398 00b6 6B010000 		.4byte	.LASF15
- 399 00ba 01       		.byte	0x1
- 400 00bb 08       		.uleb128 0x8
- 401 00bc 56090000 		.4byte	.LASF16
- 402 00c0 02       		.byte	0x2
- 403 00c1 08       		.uleb128 0x8
- 404 00c2 71080000 		.4byte	.LASF17
- 405 00c6 03       		.byte	0x3
- 406 00c7 08       		.uleb128 0x8
- 407 00c8 17010000 		.4byte	.LASF18
- 408 00cc 04       		.byte	0x4
- 409 00cd 08       		.uleb128 0x8
- 410 00ce DA030000 		.4byte	.LASF19
- 411 00d2 05       		.byte	0x5
- 412 00d3 08       		.uleb128 0x8
- 413 00d4 43000000 		.4byte	.LASF20
- 414 00d8 06       		.byte	0x6
- 415 00d9 08       		.uleb128 0x8
- 416 00da CF080000 		.4byte	.LASF21
- 417 00de 20       		.byte	0x20
- 418 00df 08       		.uleb128 0x8
- 419 00e0 64060000 		.4byte	.LASF22
- 420 00e4 21       		.byte	0x21
- 421 00e5 08       		.uleb128 0x8
- 422 00e6 00000000 		.4byte	.LASF23
- 423 00ea 22       		.byte	0x22
- 424 00eb 08       		.uleb128 0x8
- 425 00ec F6030000 		.4byte	.LASF24
- 426 00f0 23       		.byte	0x23
- 427 00f1 08       		.uleb128 0x8
- 428 00f2 06060000 		.4byte	.LASF25
- 429 00f6 24       		.byte	0x24
- 430 00f7 08       		.uleb128 0x8
- 431 00f8 A4000000 		.4byte	.LASF26
- 432 00fc 25       		.byte	0x25
- 433 00fd 08       		.uleb128 0x8
- 434 00fe 91030000 		.4byte	.LASF27
- 435 0102 26       		.byte	0x26
- 436 0103 08       		.uleb128 0x8
- 437 0104 72030000 		.4byte	.LASF28
- 438 0108 27       		.byte	0x27
- 439 0109 08       		.uleb128 0x8
- 440 010a 230A0000 		.4byte	.LASF29
- 441 010e 28       		.byte	0x28
- 442 010f 08       		.uleb128 0x8
- 443 0110 AE060000 		.4byte	.LASF30
- 444 0114 29       		.byte	0x29
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 10
-
-
- 445 0115 08       		.uleb128 0x8
- 446 0116 31070000 		.4byte	.LASF31
- 447 011a 2A       		.byte	0x2a
- 448 011b 08       		.uleb128 0x8
- 449 011c 8C090000 		.4byte	.LASF32
- 450 0120 2B       		.byte	0x2b
- 451 0121 08       		.uleb128 0x8
- 452 0122 D1010000 		.4byte	.LASF33
- 453 0126 2C       		.byte	0x2c
- 454 0127 08       		.uleb128 0x8
- 455 0128 AA020000 		.4byte	.LASF34
- 456 012c 2D       		.byte	0x2d
- 457 012d 08       		.uleb128 0x8
- 458 012e 76000000 		.4byte	.LASF35
- 459 0132 2E       		.byte	0x2e
- 460 0133 08       		.uleb128 0x8
- 461 0134 860A0000 		.4byte	.LASF36
- 462 0138 2F       		.byte	0x2f
- 463 0139 08       		.uleb128 0x8
- 464 013a E5000000 		.4byte	.LASF37
- 465 013e 30       		.byte	0x30
- 466 013f 08       		.uleb128 0x8
- 467 0140 F2040000 		.4byte	.LASF38
- 468 0144 31       		.byte	0x31
- 469 0145 08       		.uleb128 0x8
- 470 0146 D3020000 		.4byte	.LASF39
- 471 014a 32       		.byte	0x32
- 472 014b 08       		.uleb128 0x8
- 473 014c 5A070000 		.4byte	.LASF40
- 474 0150 33       		.byte	0x33
- 475 0151 08       		.uleb128 0x8
- 476 0152 CB060000 		.4byte	.LASF41
- 477 0156 34       		.byte	0x34
- 478 0157 08       		.uleb128 0x8
- 479 0158 46080000 		.4byte	.LASF42
- 480 015c 35       		.byte	0x35
- 481 015d 08       		.uleb128 0x8
- 482 015e 0B030000 		.4byte	.LASF43
- 483 0162 36       		.byte	0x36
- 484 0163 08       		.uleb128 0x8
- 485 0164 7E010000 		.4byte	.LASF44
- 486 0168 37       		.byte	0x37
- 487 0169 08       		.uleb128 0x8
- 488 016a 5C000000 		.4byte	.LASF45
- 489 016e 40       		.byte	0x40
- 490 016f 08       		.uleb128 0x8
- 491 0170 37060000 		.4byte	.LASF46
- 492 0174 41       		.byte	0x41
- 493 0175 08       		.uleb128 0x8
- 494 0176 BE000000 		.4byte	.LASF47
- 495 017a 42       		.byte	0x42
- 496 017b 08       		.uleb128 0x8
- 497 017c B3010000 		.4byte	.LASF48
- 498 0180 43       		.byte	0x43
- 499 0181 08       		.uleb128 0x8
- 500 0182 38090000 		.4byte	.LASF49
- 501 0186 44       		.byte	0x44
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 11
-
-
- 502 0187 08       		.uleb128 0x8
- 503 0188 F3080000 		.4byte	.LASF50
- 504 018c 45       		.byte	0x45
- 505 018d 08       		.uleb128 0x8
- 506 018e 2C010000 		.4byte	.LASF51
- 507 0192 46       		.byte	0x46
- 508 0193 08       		.uleb128 0x8
- 509 0194 94050000 		.4byte	.LASF52
- 510 0198 47       		.byte	0x47
- 511 0199 08       		.uleb128 0x8
- 512 019a DF050000 		.4byte	.LASF53
- 513 019e 48       		.byte	0x48
- 514 019f 08       		.uleb128 0x8
- 515 01a0 91020000 		.4byte	.LASF54
- 516 01a4 49       		.byte	0x49
- 517 01a5 08       		.uleb128 0x8
- 518 01a6 A2070000 		.4byte	.LASF55
- 519 01aa 4A       		.byte	0x4a
- 520 01ab 08       		.uleb128 0x8
- 521 01ac F5010000 		.4byte	.LASF56
- 522 01b0 4B       		.byte	0x4b
- 523 01b1 08       		.uleb128 0x8
- 524 01b2 BE050000 		.4byte	.LASF57
- 525 01b6 4C       		.byte	0x4c
- 526 01b7 08       		.uleb128 0x8
- 527 01b8 24000000 		.4byte	.LASF58
- 528 01bc 4D       		.byte	0x4d
- 529 01bd 08       		.uleb128 0x8
- 530 01be 1A090000 		.4byte	.LASF59
- 531 01c2 4E       		.byte	0x4e
- 532 01c3 08       		.uleb128 0x8
- 533 01c4 56050000 		.4byte	.LASF60
- 534 01c8 4F       		.byte	0x4f
- 535 01c9 08       		.uleb128 0x8
- 536 01ca 040A0000 		.4byte	.LASF61
- 537 01ce 50       		.byte	0x50
- 538 01cf 08       		.uleb128 0x8
- 539 01d0 C0070000 		.4byte	.LASF62
- 540 01d4 51       		.byte	0x51
- 541 01d5 08       		.uleb128 0x8
- 542 01d6 B9030000 		.4byte	.LASF63
- 543 01da 52       		.byte	0x52
- 544 01db 08       		.uleb128 0x8
- 545 01dc AA040000 		.4byte	.LASF64
- 546 01e0 53       		.byte	0x53
- 547 01e1 08       		.uleb128 0x8
- 548 01e2 14020000 		.4byte	.LASF65
- 549 01e6 54       		.byte	0x54
- 550 01e7 08       		.uleb128 0x8
- 551 01e8 500A0000 		.4byte	.LASF66
- 552 01ec 55       		.byte	0x55
- 553 01ed 08       		.uleb128 0x8
- 554 01ee E2090000 		.4byte	.LASF67
- 555 01f2 56       		.byte	0x56
- 556 01f3 08       		.uleb128 0x8
- 557 01f4 B9090000 		.4byte	.LASF68
- 558 01f8 57       		.byte	0x57
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 12
-
-
- 559 01f9 08       		.uleb128 0x8
- 560 01fa E3060000 		.4byte	.LASF69
- 561 01fe 58       		.byte	0x58
- 562 01ff 08       		.uleb128 0x8
- 563 0200 22050000 		.4byte	.LASF70
- 564 0204 70       		.byte	0x70
- 565 0205 08       		.uleb128 0x8
- 566 0206 A9080000 		.4byte	.LASF71
- 567 020a 71       		.byte	0x71
- 568 020b 08       		.uleb128 0x8
- 569 020c 86070000 		.4byte	.LASF72
- 570 0210 72       		.byte	0x72
- 571 0211 08       		.uleb128 0x8
- 572 0212 4C020000 		.4byte	.LASF73
- 573 0216 73       		.byte	0x73
- 574 0217 08       		.uleb128 0x8
- 575 0218 D4040000 		.4byte	.LASF74
- 576 021c 74       		.byte	0x74
- 577 021d 08       		.uleb128 0x8
- 578 021e 8D060000 		.4byte	.LASF75
- 579 0222 75       		.byte	0x75
- 580 0223 08       		.uleb128 0x8
- 581 0224 6A020000 		.4byte	.LASF76
- 582 0228 76       		.byte	0x76
- 583 0229 08       		.uleb128 0x8
- 584 022a 8A080000 		.4byte	.LASF77
- 585 022e 77       		.byte	0x77
- 586 022f 08       		.uleb128 0x8
- 587 0230 ED070000 		.4byte	.LASF78
- 588 0234 78       		.byte	0x78
- 589 0235 08       		.uleb128 0x8
- 590 0236 17080000 		.4byte	.LASF79
- 591 023a 79       		.byte	0x79
- 592 023b 08       		.uleb128 0x8
- 593 023c 68090000 		.4byte	.LASF80
- 594 0240 7A       		.byte	0x7a
- 595 0241 08       		.uleb128 0x8
- 596 0242 4D010000 		.4byte	.LASF81
- 597 0246 FA       		.byte	0xfa
- 598 0247 08       		.uleb128 0x8
- 599 0248 75050000 		.4byte	.LASF82
- 600 024c FB       		.byte	0xfb
- 601 024d 08       		.uleb128 0x8
- 602 024e 740A0000 		.4byte	.LASF83
- 603 0252 FC       		.byte	0xfc
- 604 0253 08       		.uleb128 0x8
- 605 0254 19070000 		.4byte	.LASF84
- 606 0258 FD       		.byte	0xfd
- 607 0259 08       		.uleb128 0x8
- 608 025a AB090000 		.4byte	.LASF85
- 609 025e FF       		.byte	0xff
- 610 025f 00       		.byte	0
- 611 0260 09       		.uleb128 0x9
- 612 0261 0B010000 		.4byte	.LASF98
- 613 0265 01       		.byte	0x1
- 614 0266 0F       		.byte	0xf
- 615 0267 00000000 		.4byte	.LFB35
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 13
-
-
- 616 026b 28000000 		.4byte	.LFE35-.LFB35
- 617 026f 01       		.uleb128 0x1
- 618 0270 9C       		.byte	0x9c
- 619 0271 8C020000 		.4byte	0x28c
- 620 0275 0A       		.uleb128 0xa
- 621 0276 06000000 		.4byte	.LBB2
- 622 027a 14000000 		.4byte	.LBE2-.LBB2
- 623 027e 0B       		.uleb128 0xb
- 624 027f 6900     		.ascii	"i\000"
- 625 0281 01       		.byte	0x1
- 626 0282 10       		.byte	0x10
- 627 0283 5D000000 		.4byte	0x5d
- 628 0287 02       		.uleb128 0x2
- 629 0288 91       		.byte	0x91
- 630 0289 74       		.sleb128 -12
- 631 028a 00       		.byte	0
- 632 028b 00       		.byte	0
- 633 028c 0C       		.uleb128 0xc
- 634 028d D8050000 		.4byte	.LASF86
- 635 0291 01       		.byte	0x1
- 636 0292 13       		.byte	0x13
- 637 0293 00000000 		.4byte	.LFB36
- 638 0297 10000000 		.4byte	.LFE36-.LFB36
- 639 029b 01       		.uleb128 0x1
- 640 029c 9C       		.byte	0x9c
- 641 029d 0C       		.uleb128 0xc
- 642 029e 2F060000 		.4byte	.LASF87
- 643 02a2 01       		.byte	0x1
- 644 02a3 17       		.byte	0x17
- 645 02a4 00000000 		.4byte	.LFB37
- 646 02a8 10000000 		.4byte	.LFE37-.LFB37
- 647 02ac 01       		.uleb128 0x1
- 648 02ad 9C       		.byte	0x9c
- 649 02ae 0D       		.uleb128 0xd
- 650 02af 7B060000 		.4byte	.LASF89
- 651 02b3 01       		.byte	0x1
- 652 02b4 1A       		.byte	0x1a
- 653 02b5 00000000 		.4byte	.LFB38
- 654 02b9 28000000 		.4byte	.LFE38-.LFB38
- 655 02bd 01       		.uleb128 0x1
- 656 02be 9C       		.byte	0x9c
- 657 02bf D2020000 		.4byte	0x2d2
- 658 02c3 0E       		.uleb128 0xe
- 659 02c4 3E000000 		.4byte	.LASF91
- 660 02c8 01       		.byte	0x1
- 661 02c9 1A       		.byte	0x1a
- 662 02ca 9C000000 		.4byte	0x9c
- 663 02ce 02       		.uleb128 0x2
- 664 02cf 91       		.byte	0x91
- 665 02d0 74       		.sleb128 -12
- 666 02d1 00       		.byte	0
- 667 02d2 0C       		.uleb128 0xc
- 668 02d3 CB040000 		.4byte	.LASF88
- 669 02d7 01       		.byte	0x1
- 670 02d8 20       		.byte	0x20
- 671 02d9 00000000 		.4byte	.LFB39
- 672 02dd 24000000 		.4byte	.LFE39-.LFB39
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 14
-
-
- 673 02e1 01       		.uleb128 0x1
- 674 02e2 9C       		.byte	0x9c
- 675 02e3 0D       		.uleb128 0xd
- 676 02e4 3A080000 		.4byte	.LASF90
- 677 02e8 01       		.byte	0x1
- 678 02e9 2E       		.byte	0x2e
- 679 02ea 00000000 		.4byte	.LFB40
- 680 02ee 26000000 		.4byte	.LFE40-.LFB40
- 681 02f2 01       		.uleb128 0x1
- 682 02f3 9C       		.byte	0x9c
- 683 02f4 15030000 		.4byte	0x315
- 684 02f8 0E       		.uleb128 0xe
- 685 02f9 11010000 		.4byte	.LASF92
- 686 02fd 01       		.byte	0x1
- 687 02fe 2E       		.byte	0x2e
- 688 02ff 6B000000 		.4byte	0x6b
- 689 0303 02       		.uleb128 0x2
- 690 0304 91       		.byte	0x91
- 691 0305 74       		.sleb128 -12
- 692 0306 0E       		.uleb128 0xe
- 693 0307 450A0000 		.4byte	.LASF93
- 694 030b 01       		.byte	0x1
- 695 030c 2E       		.byte	0x2e
- 696 030d 9A000000 		.4byte	0x9a
- 697 0311 02       		.uleb128 0x2
- 698 0312 91       		.byte	0x91
- 699 0313 70       		.sleb128 -16
- 700 0314 00       		.byte	0
- 701 0315 0F       		.uleb128 0xf
- 702 0316 06010000 		.4byte	.LASF99
- 703 031a 01       		.byte	0x1
- 704 031b 38       		.byte	0x38
- 705 031c 5D000000 		.4byte	0x5d
- 706 0320 00000000 		.4byte	.LFB41
- 707 0324 1C000000 		.4byte	.LFE41-.LFB41
- 708 0328 01       		.uleb128 0x1
- 709 0329 9C       		.byte	0x9c
- 710 032a 00       		.byte	0
- 711              		.section	.debug_abbrev,"",%progbits
- 712              	.Ldebug_abbrev0:
- 713 0000 01       		.uleb128 0x1
- 714 0001 11       		.uleb128 0x11
- 715 0002 01       		.byte	0x1
- 716 0003 25       		.uleb128 0x25
- 717 0004 0E       		.uleb128 0xe
- 718 0005 13       		.uleb128 0x13
- 719 0006 0B       		.uleb128 0xb
- 720 0007 03       		.uleb128 0x3
- 721 0008 0E       		.uleb128 0xe
- 722 0009 1B       		.uleb128 0x1b
- 723 000a 0E       		.uleb128 0xe
- 724 000b 55       		.uleb128 0x55
- 725 000c 17       		.uleb128 0x17
- 726 000d 11       		.uleb128 0x11
- 727 000e 01       		.uleb128 0x1
- 728 000f 10       		.uleb128 0x10
- 729 0010 17       		.uleb128 0x17
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 15
-
-
- 730 0011 00       		.byte	0
- 731 0012 00       		.byte	0
- 732 0013 02       		.uleb128 0x2
- 733 0014 24       		.uleb128 0x24
- 734 0015 00       		.byte	0
- 735 0016 0B       		.uleb128 0xb
- 736 0017 0B       		.uleb128 0xb
- 737 0018 3E       		.uleb128 0x3e
- 738 0019 0B       		.uleb128 0xb
- 739 001a 03       		.uleb128 0x3
- 740 001b 0E       		.uleb128 0xe
- 741 001c 00       		.byte	0
- 742 001d 00       		.byte	0
- 743 001e 03       		.uleb128 0x3
- 744 001f 24       		.uleb128 0x24
- 745 0020 00       		.byte	0
- 746 0021 0B       		.uleb128 0xb
- 747 0022 0B       		.uleb128 0xb
- 748 0023 3E       		.uleb128 0x3e
- 749 0024 0B       		.uleb128 0xb
- 750 0025 03       		.uleb128 0x3
- 751 0026 08       		.uleb128 0x8
- 752 0027 00       		.byte	0
- 753 0028 00       		.byte	0
- 754 0029 04       		.uleb128 0x4
- 755 002a 16       		.uleb128 0x16
- 756 002b 00       		.byte	0
- 757 002c 03       		.uleb128 0x3
- 758 002d 0E       		.uleb128 0xe
- 759 002e 3A       		.uleb128 0x3a
- 760 002f 0B       		.uleb128 0xb
- 761 0030 3B       		.uleb128 0x3b
- 762 0031 05       		.uleb128 0x5
- 763 0032 49       		.uleb128 0x49
- 764 0033 13       		.uleb128 0x13
- 765 0034 00       		.byte	0
- 766 0035 00       		.byte	0
- 767 0036 05       		.uleb128 0x5
- 768 0037 0F       		.uleb128 0xf
- 769 0038 00       		.byte	0
- 770 0039 0B       		.uleb128 0xb
- 771 003a 0B       		.uleb128 0xb
- 772 003b 00       		.byte	0
- 773 003c 00       		.byte	0
- 774 003d 06       		.uleb128 0x6
- 775 003e 0F       		.uleb128 0xf
- 776 003f 00       		.byte	0
- 777 0040 0B       		.uleb128 0xb
- 778 0041 0B       		.uleb128 0xb
- 779 0042 49       		.uleb128 0x49
- 780 0043 13       		.uleb128 0x13
- 781 0044 00       		.byte	0
- 782 0045 00       		.byte	0
- 783 0046 07       		.uleb128 0x7
- 784 0047 04       		.uleb128 0x4
- 785 0048 01       		.byte	0x1
- 786 0049 0B       		.uleb128 0xb
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 16
-
-
- 787 004a 0B       		.uleb128 0xb
- 788 004b 49       		.uleb128 0x49
- 789 004c 13       		.uleb128 0x13
- 790 004d 3A       		.uleb128 0x3a
- 791 004e 0B       		.uleb128 0xb
- 792 004f 3B       		.uleb128 0x3b
- 793 0050 05       		.uleb128 0x5
- 794 0051 01       		.uleb128 0x1
- 795 0052 13       		.uleb128 0x13
- 796 0053 00       		.byte	0
- 797 0054 00       		.byte	0
- 798 0055 08       		.uleb128 0x8
- 799 0056 28       		.uleb128 0x28
- 800 0057 00       		.byte	0
- 801 0058 03       		.uleb128 0x3
- 802 0059 0E       		.uleb128 0xe
- 803 005a 1C       		.uleb128 0x1c
- 804 005b 0B       		.uleb128 0xb
- 805 005c 00       		.byte	0
- 806 005d 00       		.byte	0
- 807 005e 09       		.uleb128 0x9
- 808 005f 2E       		.uleb128 0x2e
- 809 0060 01       		.byte	0x1
- 810 0061 3F       		.uleb128 0x3f
- 811 0062 19       		.uleb128 0x19
- 812 0063 03       		.uleb128 0x3
- 813 0064 0E       		.uleb128 0xe
- 814 0065 3A       		.uleb128 0x3a
- 815 0066 0B       		.uleb128 0xb
- 816 0067 3B       		.uleb128 0x3b
- 817 0068 0B       		.uleb128 0xb
- 818 0069 11       		.uleb128 0x11
- 819 006a 01       		.uleb128 0x1
- 820 006b 12       		.uleb128 0x12
- 821 006c 06       		.uleb128 0x6
- 822 006d 40       		.uleb128 0x40
- 823 006e 18       		.uleb128 0x18
- 824 006f 9742     		.uleb128 0x2117
- 825 0071 19       		.uleb128 0x19
- 826 0072 01       		.uleb128 0x1
- 827 0073 13       		.uleb128 0x13
- 828 0074 00       		.byte	0
- 829 0075 00       		.byte	0
- 830 0076 0A       		.uleb128 0xa
- 831 0077 0B       		.uleb128 0xb
- 832 0078 01       		.byte	0x1
- 833 0079 11       		.uleb128 0x11
- 834 007a 01       		.uleb128 0x1
- 835 007b 12       		.uleb128 0x12
- 836 007c 06       		.uleb128 0x6
- 837 007d 00       		.byte	0
- 838 007e 00       		.byte	0
- 839 007f 0B       		.uleb128 0xb
- 840 0080 34       		.uleb128 0x34
- 841 0081 00       		.byte	0
- 842 0082 03       		.uleb128 0x3
- 843 0083 08       		.uleb128 0x8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 17
-
-
- 844 0084 3A       		.uleb128 0x3a
- 845 0085 0B       		.uleb128 0xb
- 846 0086 3B       		.uleb128 0x3b
- 847 0087 0B       		.uleb128 0xb
- 848 0088 49       		.uleb128 0x49
- 849 0089 13       		.uleb128 0x13
- 850 008a 02       		.uleb128 0x2
- 851 008b 18       		.uleb128 0x18
- 852 008c 00       		.byte	0
- 853 008d 00       		.byte	0
- 854 008e 0C       		.uleb128 0xc
- 855 008f 2E       		.uleb128 0x2e
- 856 0090 00       		.byte	0
- 857 0091 3F       		.uleb128 0x3f
- 858 0092 19       		.uleb128 0x19
- 859 0093 03       		.uleb128 0x3
- 860 0094 0E       		.uleb128 0xe
- 861 0095 3A       		.uleb128 0x3a
- 862 0096 0B       		.uleb128 0xb
- 863 0097 3B       		.uleb128 0x3b
- 864 0098 0B       		.uleb128 0xb
- 865 0099 11       		.uleb128 0x11
- 866 009a 01       		.uleb128 0x1
- 867 009b 12       		.uleb128 0x12
- 868 009c 06       		.uleb128 0x6
- 869 009d 40       		.uleb128 0x40
- 870 009e 18       		.uleb128 0x18
- 871 009f 9642     		.uleb128 0x2116
- 872 00a1 19       		.uleb128 0x19
- 873 00a2 00       		.byte	0
- 874 00a3 00       		.byte	0
- 875 00a4 0D       		.uleb128 0xd
- 876 00a5 2E       		.uleb128 0x2e
- 877 00a6 01       		.byte	0x1
- 878 00a7 3F       		.uleb128 0x3f
- 879 00a8 19       		.uleb128 0x19
- 880 00a9 03       		.uleb128 0x3
- 881 00aa 0E       		.uleb128 0xe
- 882 00ab 3A       		.uleb128 0x3a
- 883 00ac 0B       		.uleb128 0xb
- 884 00ad 3B       		.uleb128 0x3b
- 885 00ae 0B       		.uleb128 0xb
- 886 00af 27       		.uleb128 0x27
- 887 00b0 19       		.uleb128 0x19
- 888 00b1 11       		.uleb128 0x11
- 889 00b2 01       		.uleb128 0x1
- 890 00b3 12       		.uleb128 0x12
- 891 00b4 06       		.uleb128 0x6
- 892 00b5 40       		.uleb128 0x40
- 893 00b6 18       		.uleb128 0x18
- 894 00b7 9642     		.uleb128 0x2116
- 895 00b9 19       		.uleb128 0x19
- 896 00ba 01       		.uleb128 0x1
- 897 00bb 13       		.uleb128 0x13
- 898 00bc 00       		.byte	0
- 899 00bd 00       		.byte	0
- 900 00be 0E       		.uleb128 0xe
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 18
-
-
- 901 00bf 05       		.uleb128 0x5
- 902 00c0 00       		.byte	0
- 903 00c1 03       		.uleb128 0x3
- 904 00c2 0E       		.uleb128 0xe
- 905 00c3 3A       		.uleb128 0x3a
- 906 00c4 0B       		.uleb128 0xb
- 907 00c5 3B       		.uleb128 0x3b
- 908 00c6 0B       		.uleb128 0xb
- 909 00c7 49       		.uleb128 0x49
- 910 00c8 13       		.uleb128 0x13
- 911 00c9 02       		.uleb128 0x2
- 912 00ca 18       		.uleb128 0x18
- 913 00cb 00       		.byte	0
- 914 00cc 00       		.byte	0
- 915 00cd 0F       		.uleb128 0xf
- 916 00ce 2E       		.uleb128 0x2e
- 917 00cf 00       		.byte	0
- 918 00d0 3F       		.uleb128 0x3f
- 919 00d1 19       		.uleb128 0x19
- 920 00d2 03       		.uleb128 0x3
- 921 00d3 0E       		.uleb128 0xe
- 922 00d4 3A       		.uleb128 0x3a
- 923 00d5 0B       		.uleb128 0xb
- 924 00d6 3B       		.uleb128 0x3b
- 925 00d7 0B       		.uleb128 0xb
- 926 00d8 27       		.uleb128 0x27
- 927 00d9 19       		.uleb128 0x19
- 928 00da 49       		.uleb128 0x49
- 929 00db 13       		.uleb128 0x13
- 930 00dc 11       		.uleb128 0x11
- 931 00dd 01       		.uleb128 0x1
- 932 00de 12       		.uleb128 0x12
- 933 00df 06       		.uleb128 0x6
- 934 00e0 40       		.uleb128 0x40
- 935 00e1 18       		.uleb128 0x18
- 936 00e2 9642     		.uleb128 0x2116
- 937 00e4 19       		.uleb128 0x19
- 938 00e5 00       		.byte	0
- 939 00e6 00       		.byte	0
- 940 00e7 00       		.byte	0
- 941              		.section	.debug_aranges,"",%progbits
- 942 0000 4C000000 		.4byte	0x4c
- 943 0004 0200     		.2byte	0x2
- 944 0006 00000000 		.4byte	.Ldebug_info0
- 945 000a 04       		.byte	0x4
- 946 000b 00       		.byte	0
- 947 000c 0000     		.2byte	0
- 948 000e 0000     		.2byte	0
- 949 0010 00000000 		.4byte	.LFB35
- 950 0014 28000000 		.4byte	.LFE35-.LFB35
- 951 0018 00000000 		.4byte	.LFB36
- 952 001c 10000000 		.4byte	.LFE36-.LFB36
- 953 0020 00000000 		.4byte	.LFB37
- 954 0024 10000000 		.4byte	.LFE37-.LFB37
- 955 0028 00000000 		.4byte	.LFB38
- 956 002c 28000000 		.4byte	.LFE38-.LFB38
- 957 0030 00000000 		.4byte	.LFB39
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 19
-
-
- 958 0034 24000000 		.4byte	.LFE39-.LFB39
- 959 0038 00000000 		.4byte	.LFB40
- 960 003c 26000000 		.4byte	.LFE40-.LFB40
- 961 0040 00000000 		.4byte	.LFB41
- 962 0044 1C000000 		.4byte	.LFE41-.LFB41
- 963 0048 00000000 		.4byte	0
- 964 004c 00000000 		.4byte	0
- 965              		.section	.debug_ranges,"",%progbits
- 966              	.Ldebug_ranges0:
- 967 0000 00000000 		.4byte	.LFB35
- 968 0004 28000000 		.4byte	.LFE35
- 969 0008 00000000 		.4byte	.LFB36
- 970 000c 10000000 		.4byte	.LFE36
- 971 0010 00000000 		.4byte	.LFB37
- 972 0014 10000000 		.4byte	.LFE37
- 973 0018 00000000 		.4byte	.LFB38
- 974 001c 28000000 		.4byte	.LFE38
- 975 0020 00000000 		.4byte	.LFB39
- 976 0024 24000000 		.4byte	.LFE39
- 977 0028 00000000 		.4byte	.LFB40
- 978 002c 26000000 		.4byte	.LFE40
- 979 0030 00000000 		.4byte	.LFB41
- 980 0034 1C000000 		.4byte	.LFE41
- 981 0038 00000000 		.4byte	0
- 982 003c 00000000 		.4byte	0
- 983              		.section	.debug_line,"",%progbits
- 984              	.Ldebug_line0:
- 985 0000 04010000 		.section	.debug_str,"MS",%progbits,1
- 985      02005000 
- 985      00000201 
- 985      FB0E0D00 
- 985      01010101 
- 986              	.LASF23:
- 987 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
- 987      455F4556 
- 987      545F4741 
- 987      505F5041 
- 987      53534B45 
- 988              	.LASF58:
- 989 0024 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
- 989      455F4556 
- 989      545F4741 
- 989      5454435F 
- 989      57524954 
- 990              	.LASF91:
- 991 003e 74657874 		.ascii	"text\000"
- 991      00
- 992              	.LASF20:
- 993 0043 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
- 993      455F4556 
- 993      545F4D45 
- 993      4D4F5259 
- 993      5F524551 
- 994              	.LASF45:
- 995 005c 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
- 995      455F4556 
- 995      545F4741 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 20
-
-
- 995      5454435F 
- 995      4552524F 
- 996              	.LASF35:
- 997 0076 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
- 997      455F4556 
- 997      545F4741 
- 997      505F4B45 
- 997      59505245 
- 998              	.LASF2:
- 999 009a 73686F72 		.ascii	"short int\000"
- 999      7420696E 
- 999      7400
- 1000              	.LASF26:
- 1001 00a4 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
- 1001      455F4556 
- 1001      545F4741 
- 1001      505F4155 
- 1001      54485F46 
- 1002              	.LASF47:
- 1003 00be 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
- 1003      455F4556 
- 1003      545F4741 
- 1003      54545F44 
- 1003      4953434F 
- 1004              	.LASF13:
- 1005 00dc 73697A65 		.ascii	"sizetype\000"
- 1005      74797065 
- 1005      00
- 1006              	.LASF37:
- 1007 00e5 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
- 1007      455F4556 
- 1007      545F4741 
- 1007      505F4441 
- 1007      54415F4C 
- 1008              	.LASF99:
- 1009 0106 6D61696E 		.ascii	"main\000"
- 1009      00
- 1010              	.LASF98:
- 1011 010b 64656C61 		.ascii	"delay\000"
- 1011      7900
- 1012              	.LASF92:
- 1013 0111 6576656E 		.ascii	"event\000"
- 1013      7400
- 1014              	.LASF18:
- 1015 0117 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
- 1015      455F4556 
- 1015      545F4843 
- 1015      495F5354 
- 1015      41545553 
- 1016              	.LASF51:
- 1017 012c 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
- 1017      455F4556 
- 1017      545F4741 
- 1017      5454435F 
- 1017      52454144 
- 1018              	.LASF81:
- 1019 014d 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 21
-
-
- 1019      455F4556 
- 1019      545F5045 
- 1019      4E44494E 
- 1019      475F464C 
- 1020              	.LASF15:
- 1021 016b 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
- 1021      455F4556 
- 1021      545F5354 
- 1021      41434B5F 
- 1021      4F4E00
- 1022              	.LASF44:
- 1023 017e 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
- 1023      455F4556 
- 1023      545F4741 
- 1023      505F534D 
- 1023      505F4C4F 
- 1024 01b1 4500     		.ascii	"E\000"
- 1025              	.LASF48:
- 1026 01b3 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
- 1026      455F4556 
- 1026      545F4741 
- 1026      5454535F 
- 1026      58434E48 
- 1027              	.LASF33:
- 1028 01d1 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
- 1028      455F4556 
- 1028      545F4741 
- 1028      505F4B45 
- 1028      59494E46 
- 1029              	.LASF56:
- 1030 01f5 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
- 1030      455F4556 
- 1030      545F4741 
- 1030      5454435F 
- 1030      52454144 
- 1031              	.LASF65:
- 1032 0214 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
- 1032      455F4556 
- 1032      545F4741 
- 1032      5454535F 
- 1032      48414E44 
- 1033              	.LASF14:
- 1034 0235 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
- 1034      455F4556 
- 1034      545F484F 
- 1034      53545F49 
- 1034      4E56414C 
- 1035              	.LASF73:
- 1036 024c 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
- 1036      455F4556 
- 1036      545F4C32 
- 1036      4341505F 
- 1036      43424643 
- 1037              	.LASF76:
- 1038 026a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
- 1038      455F4556 
- 1038      545F4C32 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 22
-
-
- 1038      4341505F 
- 1038      43424643 
- 1039              	.LASF9:
- 1040 028b 666C6F61 		.ascii	"float\000"
- 1040      7400
- 1041              	.LASF54:
- 1042 0291 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
- 1042      455F4556 
- 1042      545F4741 
- 1042      5454435F 
- 1042      52454144 
- 1043              	.LASF34:
- 1044 02aa 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
- 1044      455F4556 
- 1044      545F4741 
- 1044      505F4E55 
- 1044      4D455249 
- 1045              	.LASF39:
- 1046 02d3 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
- 1046      455F4556 
- 1046      545F4741 
- 1046      50435F44 
- 1046      49524543 
- 1047              	.LASF7:
- 1048 02f4 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1048      206C6F6E 
- 1048      6720756E 
- 1048      7369676E 
- 1048      65642069 
- 1049              	.LASF43:
- 1050 030b 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
- 1050      455F4556 
- 1050      545F4741 
- 1050      505F4155 
- 1050      54485F52 
- 1051              	.LASF4:
- 1052 032c 6C6F6E67 		.ascii	"long int\000"
- 1052      20696E74 
- 1052      00
- 1053              	.LASF96:
- 1054 0335 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\mu"
- 1054      73657273 
- 1054      5C707572 
- 1054      69615C44 
- 1054      6F63756D 
- 1055 0361 6C746963 		.ascii	"lticon_ble.cydsn\000"
- 1055      6F6E5F62 
- 1055      6C652E63 
- 1055      7964736E 
- 1055      00
- 1056              	.LASF28:
- 1057 0372 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
- 1057      455F4556 
- 1057      545F4741 
- 1057      505F4445 
- 1057      56494345 
- 1058              	.LASF27:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 23
-
-
- 1059 0391 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
- 1059      455F4556 
- 1059      545F4741 
- 1059      50505F41 
- 1059      44564552 
- 1060              	.LASF63:
- 1061 03b9 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
- 1061      455F4556 
- 1061      545F4741 
- 1061      5454435F 
- 1061      48414E44 
- 1062              	.LASF19:
- 1063 03da 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
- 1063      455F4556 
- 1063      545F5354 
- 1063      41434B5F 
- 1063      42555359 
- 1064              	.LASF24:
- 1065 03f6 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
- 1065      455F4556 
- 1065      545F4741 
- 1065      505F5041 
- 1065      53534B45 
- 1066              	.LASF94:
- 1067 041c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1067      43313120 
- 1067      352E342E 
- 1067      31203230 
- 1067      31363036 
- 1068 044f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 1068      20726576 
- 1068      6973696F 
- 1068      6E203233 
- 1068      37373135 
- 1069 0482 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1069      66756E63 
- 1069      74696F6E 
- 1069      2D736563 
- 1069      74696F6E 
- 1070              	.LASF64:
- 1071 04aa 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
- 1071      455F4556 
- 1071      545F4741 
- 1071      5454435F 
- 1071      48414E44 
- 1072              	.LASF88:
- 1073 04cb 666C6173 		.ascii	"flashLED\000"
- 1073      684C4544 
- 1073      00
- 1074              	.LASF74:
- 1075 04d4 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
- 1075      455F4556 
- 1075      545F4C32 
- 1075      4341505F 
- 1075      43424643 
- 1076              	.LASF38:
- 1077 04f2 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 24
-
-
- 1077      455F4556 
- 1077      545F4741 
- 1077      505F454E 
- 1077      48414E43 
- 1078              	.LASF12:
- 1079 0516 6C6F6E67 		.ascii	"long double\000"
- 1079      20646F75 
- 1079      626C6500 
- 1080              	.LASF70:
- 1081 0522 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
- 1081      455F4556 
- 1081      545F4C32 
- 1081      4341505F 
- 1081      434F4E4E 
- 1082              	.LASF1:
- 1083 0548 756E7369 		.ascii	"unsigned char\000"
- 1083      676E6564 
- 1083      20636861 
- 1083      7200
- 1084              	.LASF60:
- 1085 0556 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
- 1085      455F4556 
- 1085      545F4741 
- 1085      5454535F 
- 1085      50524550 
- 1086              	.LASF82:
- 1087 0575 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
- 1087      455F4556 
- 1087      545F4C45 
- 1087      5F50494E 
- 1087      475F4155 
- 1088              	.LASF52:
- 1089 0594 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
- 1089      455F4556 
- 1089      545F4741 
- 1089      5454435F 
- 1089      46494E44 
- 1090              	.LASF0:
- 1091 05b2 7369676E 		.ascii	"signed char\000"
- 1091      65642063 
- 1091      68617200 
- 1092              	.LASF57:
- 1093 05be 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
- 1093      455F4556 
- 1093      545F4741 
- 1093      5454535F 
- 1093      57524954 
- 1094              	.LASF86:
- 1095 05d8 4C45445F 		.ascii	"LED_ON\000"
- 1095      4F4E00
- 1096              	.LASF53:
- 1097 05df 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
- 1097      455F4556 
- 1097      545F4741 
- 1097      5454435F 
- 1097      46494E44 
- 1098              	.LASF25:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 25
-
-
- 1099 0606 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
- 1099      455F4556 
- 1099      545F4741 
- 1099      505F4155 
- 1099      54485F43 
- 1100              	.LASF8:
- 1101 0622 756E7369 		.ascii	"unsigned int\000"
- 1101      676E6564 
- 1101      20696E74 
- 1101      00
- 1102              	.LASF87:
- 1103 062f 4C45445F 		.ascii	"LED_OFF\000"
- 1103      4F464600 
- 1104              	.LASF46:
- 1105 0637 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
- 1105      455F4556 
- 1105      545F4741 
- 1105      54545F43 
- 1105      4F4E4E45 
- 1106              	.LASF5:
- 1107 0652 6C6F6E67 		.ascii	"long unsigned int\000"
- 1107      20756E73 
- 1107      69676E65 
- 1107      6420696E 
- 1107      7400
- 1108              	.LASF22:
- 1109 0664 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
- 1109      455F4556 
- 1109      545F4741 
- 1109      505F4155 
- 1109      54485F52 
- 1110              	.LASF89:
- 1111 067b 73656E64 		.ascii	"sendStringViaUART\000"
- 1111      53747269 
- 1111      6E675669 
- 1111      61554152 
- 1111      5400
- 1112              	.LASF75:
- 1113 068d 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
- 1113      455F4556 
- 1113      545F4C32 
- 1113      4341505F 
- 1113      43424643 
- 1114              	.LASF30:
- 1115 06ae 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
- 1115      455F4556 
- 1115      545F4741 
- 1115      505F454E 
- 1115      43525950 
- 1116              	.LASF41:
- 1117 06cb 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
- 1117      455F4556 
- 1117      545F4741 
- 1117      505F434F 
- 1117      4E4E5F45 
- 1118              	.LASF69:
- 1119 06e3 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 26
-
-
- 1119      455F4556 
- 1119      545F4741 
- 1119      5454435F 
- 1119      4C4F4E47 
- 1120              	.LASF3:
- 1121 0706 73686F72 		.ascii	"short unsigned int\000"
- 1121      7420756E 
- 1121      7369676E 
- 1121      65642069 
- 1121      6E7400
- 1122              	.LASF84:
- 1123 0719 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
- 1123      455F4556 
- 1123      545F464C 
- 1123      4153485F 
- 1123      434F5252 
- 1124              	.LASF31:
- 1125 0731 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
- 1125      455F4556 
- 1125      545F4741 
- 1125      505F434F 
- 1125      4E4E4543 
- 1126              	.LASF40:
- 1127 075a 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
- 1127      455F4556 
- 1127      545F4741 
- 1127      505F534D 
- 1127      505F4E45 
- 1128              	.LASF11:
- 1129 0781 63686172 		.ascii	"char\000"
- 1129      00
- 1130              	.LASF72:
- 1131 0786 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
- 1131      455F4556 
- 1131      545F4C32 
- 1131      4341505F 
- 1131      434F4D4D 
- 1132              	.LASF55:
- 1133 07a2 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
- 1133      455F4556 
- 1133      545F4741 
- 1133      5454435F 
- 1133      52454144 
- 1134              	.LASF62:
- 1135 07c0 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
- 1135      455F4556 
- 1135      545F4741 
- 1135      5454435F 
- 1135      45584543 
- 1136              	.LASF97:
- 1137 07df 75696E74 		.ascii	"uint32\000"
- 1137      333200
- 1138              	.LASF95:
- 1139 07e6 6D61696E 		.ascii	"main.c\000"
- 1139      2E6300
- 1140              	.LASF78:
- 1141 07ed 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 27
-
-
- 1141      455F4556 
- 1141      545F4C32 
- 1141      4341505F 
- 1141      43424643 
- 1142              	.LASF10:
- 1143 0810 646F7562 		.ascii	"double\000"
- 1143      6C6500
- 1144              	.LASF79:
- 1145 0817 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
- 1145      455F4556 
- 1145      545F4C32 
- 1145      4341505F 
- 1145      43424643 
- 1146              	.LASF90:
- 1147 083a 426C6543 		.ascii	"BleCallBack\000"
- 1147      616C6C42 
- 1147      61636B00 
- 1148              	.LASF42:
- 1149 0846 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
- 1149      455F4556 
- 1149      545F4741 
- 1149      505F5343 
- 1149      414E5F52 
- 1150              	.LASF6:
- 1151 0863 6C6F6E67 		.ascii	"long long int\000"
- 1151      206C6F6E 
- 1151      6720696E 
- 1151      7400
- 1152              	.LASF17:
- 1153 0871 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
- 1153      455F4556 
- 1153      545F4841 
- 1153      52445741 
- 1153      52455F45 
- 1154              	.LASF77:
- 1155 088a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
- 1155      455F4556 
- 1155      545F4C32 
- 1155      4341505F 
- 1155      43424643 
- 1156              	.LASF71:
- 1157 08a9 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
- 1157      455F4556 
- 1157      545F4C32 
- 1157      4341505F 
- 1157      434F4E4E 
- 1158              	.LASF21:
- 1159 08cf 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
- 1159      455F4556 
- 1159      545F4741 
- 1159      50435F53 
- 1159      43414E5F 
- 1160              	.LASF50:
- 1161 08f3 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
- 1161      455F4556 
- 1161      545F4741 
- 1161      5454435F 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 28
-
-
- 1161      52454144 
- 1162              	.LASF59:
- 1163 091a 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
- 1163      455F4556 
- 1163      545F4741 
- 1163      5454535F 
- 1163      57524954 
- 1164              	.LASF49:
- 1165 0938 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
- 1165      455F4556 
- 1165      545F4741 
- 1165      5454435F 
- 1165      5843484E 
- 1166              	.LASF16:
- 1167 0956 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
- 1167      455F4556 
- 1167      545F5449 
- 1167      4D454F55 
- 1167      5400
- 1168              	.LASF80:
- 1169 0968 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
- 1169      455F4556 
- 1169      545F4C32 
- 1169      4341505F 
- 1169      43424643 
- 1170              	.LASF32:
- 1171 098c 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
- 1171      455F4556 
- 1171      545F4741 
- 1171      50435F53 
- 1171      43414E5F 
- 1172              	.LASF85:
- 1173 09ab 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
- 1173      455F4556 
- 1173      545F4D41 
- 1173      5800
- 1174              	.LASF68:
- 1175 09b9 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
- 1175      455F4556 
- 1175      545F4741 
- 1175      5454535F 
- 1175      52454144 
- 1176              	.LASF67:
- 1177 09e2 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
- 1177      455F4556 
- 1177      545F4741 
- 1177      5454435F 
- 1177      53544F50 
- 1178              	.LASF61:
- 1179 0a04 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
- 1179      455F4556 
- 1179      545F4741 
- 1179      5454535F 
- 1179      45584543 
- 1180              	.LASF29:
- 1181 0a23 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
- 1181      455F4556 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccTihJYx.s 			page 29
-
-
- 1181      545F4741 
- 1181      505F4445 
- 1181      56494345 
- 1182              	.LASF93:
- 1183 0a45 6576656E 		.ascii	"eventParam\000"
- 1183      74506172 
- 1183      616D00
- 1184              	.LASF66:
- 1185 0a50 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
- 1185      455F4556 
- 1185      545F4741 
- 1185      5454535F 
- 1185      44415441 
- 1186              	.LASF83:
- 1187 0a74 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
- 1187      455F4556 
- 1187      545F4843 
- 1187      495F504B 
- 1187      5400
- 1188              	.LASF36:
- 1189 0a86 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
- 1189      455F4556 
- 1189      545F4741 
- 1189      505F4F4F 
- 1189      425F4745 
- 1190              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 272              	.LASF2:
+ 273 00e1 73686F72 		.ascii	"short int\000"
+ 273      7420696E 
+ 273      7400
+ 274              	.LASF14:
+ 275 00eb 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 275      43313120 
+ 275      352E342E 
+ 275      31203230 
+ 275      31363036 
+ 276 011e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 276      20726576 
+ 276      6973696F 
+ 276      6E203233 
+ 276      37373135 
+ 277 0151 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 277      66756E63 
+ 277      74696F6E 
+ 277      2D736563 
+ 277      74696F6E 
+ 278              	.LASF13:
+ 279 0179 73697A65 		.ascii	"sizetype\000"
+ 279      74797065 
+ 279      00
+ 280              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

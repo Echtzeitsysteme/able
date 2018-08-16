@@ -178,6 +178,7 @@
 
 #define CYBLE_ADV_PKT_INDEX_FLAGS   (0x00u)
 #define CYBLE_ADV_PKT_INDEX_LOCAL_NAME   (0x03u)
+#define CYBLE_ADV_PKT_INDEX_SERVICE_UUID_128   (0x0Cu)
 
 
 
@@ -212,7 +213,7 @@
 #define CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT   (CYBLE_ALIGN_TO_4(CYBLE_GATT_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
 /* GATT Maximum attribute length */
-#define CYBLE_GATT_MAX_ATTR_LEN             ((0x000Du == 0u) ? (1u) : (0x000Du))
+#define CYBLE_GATT_MAX_ATTR_LEN             ((0x000Au == 0u) ? (1u) : (0x000Au))
 #define CYBLE_GATT_MAX_ATTR_LEN_PLUS_L2CAP_MEM_EXT \
                                     (CYBLE_ALIGN_TO_4(CYBLE_GATT_MAX_ATTR_LEN + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
