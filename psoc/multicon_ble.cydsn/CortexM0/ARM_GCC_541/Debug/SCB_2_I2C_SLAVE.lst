@@ -1,0 +1,2016 @@
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"SCB_2_I2C_SLAVE.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	SCB_2_slStatus,1,1
+  20              		.comm	SCB_2_slWrBufPtr,4,4
+  21              		.comm	SCB_2_slWrBufSize,4,4
+  22              		.comm	SCB_2_slWrBufIndex,4,4
+  23              		.comm	SCB_2_slRdBufPtr,4,4
+  24              		.comm	SCB_2_slRdBufSize,4,4
+  25              		.comm	SCB_2_slRdBufIndex,4,4
+  26              		.comm	SCB_2_slRdBufIndexTmp,4,4
+  27              		.comm	SCB_2_slOverFlowCount,1,1
+  28              		.section	.text.SCB_2_I2CSlaveStatus,"ax",%progbits
+  29              		.align	2
+  30              		.global	SCB_2_I2CSlaveStatus
+  31              		.code	16
+  32              		.thumb_func
+  33              		.type	SCB_2_I2CSlaveStatus, %function
+  34              	SCB_2_I2CSlaveStatus:
+  35              	.LFB2:
+  36              		.file 1 "Generated_Source\\PSoC4\\SCB_2_I2C_SLAVE.c"
+   1:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \file SCB_2_I2C_SLAVE.c
+   3:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \version 3.20
+   4:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+   5:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \brief
+   6:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  This file provides the source code to the API for the SCB Component in
+   7:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  I2C Slave mode.
+   8:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+   9:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Note:
+  10:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+  11:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************
+  12:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \copyright
+  13:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  19:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** #include "SCB_2_I2C_PVT.h"
+  20:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  21:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** #if(SCB_2_I2C_SLAVE_CONST)
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 2
+
+
+  22:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  23:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /***************************************
+  24:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *      I2C Slave Private Vars
+  25:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ***************************************/
+  26:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  27:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint8 SCB_2_slStatus;          /* Slave Status */
+  28:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  29:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /* Receive buffer variables */
+  30:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint8 * SCB_2_slWrBufPtr;      /* Pointer to Receive buffer  */
+  31:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint32  SCB_2_slWrBufSize;     /* Slave Receive buffer size  */
+  32:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint32  SCB_2_slWrBufIndex;    /* Slave Receive buffer Index */
+  33:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  34:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /* Transmit buffer variables */
+  35:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint8 * SCB_2_slRdBufPtr;      /* Pointer to Transmit buffer  */
+  36:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint32  SCB_2_slRdBufSize;     /* Slave Transmit buffer size  */
+  37:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint32  SCB_2_slRdBufIndex;    /* Slave Transmit buffer Index */
+  38:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint32  SCB_2_slRdBufIndexTmp; /* Slave Transmit buffer Index Tmp */
+  39:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** volatile uint8   SCB_2_slOverFlowCount; /* Slave Transmit Overflow counter */
+  40:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  41:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** #if (SCB_2_I2C_CUSTOM_ADDRESS_HANDLER_CONST)
+  42:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  43:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     uint32 (*SCB_2_customAddressHandler)(void) = NULL;
+  44:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  45:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     /*******************************************************************************
+  46:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     * Function Name: SCB_2_SetI2cAddressCustomInterruptHandler
+  47:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     ****************************************************************************//**
+  48:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *
+  49:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  Registers a function to be called by the I2C slave interrupt handler during
+  50:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  the I2C interrupt address processing. This function should be used when
+  51:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  multiple I2C addresses need to be decoded or general call address supported.
+  52:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  The registered function must return decision whether to ACK or NACK address.
+  53:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  Only one I2C address handler is supported, which is the function provided
+  54:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  by the most recent call.
+  55:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  At initialization time no I2C address handler is registered.
+  56:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *
+  57:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *  \param func: Pointer to the function to register.
+  58:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *   The value NULL indicates to remove the current custom interrupt
+  59:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *   handler.
+  60:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *   The registered function must return decision whether to ACK or NACK 
+  61:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *   accepted address: 0 – ACK, other values – NACK. The registered 
+  62:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *   callback function does not perform the ACK/NACK, this operation is 
+  63:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *   performed in the I2C ISR.
+  64:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *
+  65:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     *******************************************************************************/
+  66:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     void SCB_2_SetI2cAddressCustomInterruptHandler(uint32 (*func) (void))
+  67:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     {
+  68:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         /* Register custom address handler */
+  69:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_customAddressHandler = func;
+  70:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     }
+  71:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** #endif /* (SCB_2_I2C_CUSTOM_ADDRESS_HANDLER_CONST) */
+  72:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  73:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+  74:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+  75:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveStatus
+  76:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+  77:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+  78:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Returns the I2C slave's communication status.
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 3
+
+
+  79:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+  80:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \return
+  81:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Current status of I2C slave.
+  82:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  This status incorporates read and write status constants. 
+  83:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Each constant is a bit field value. The value returned may have multiple 
+  84:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  bits set to indicate the status of the read or write transfer.
+  85:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_RD_CMPLT - Slave read transfer complete. 
+  86:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     Set when master indicates it is done reading by sending a NAK.
+  87:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     The read error condition status bit must be checked to ensure that 
+  88:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     the read transfer was completed successfully.
+  89:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_RD_BUSY - Slave read transfer is in progress. 
+  90:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     Set when master addresses slave with a read, cleared when 
+  91:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *    SCB_2_I2C_SSTAT_RD_CMPLT is set.
+  92:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_RD_OVFL - Master attempted to read more bytes
+  93:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     than are in buffer. Slave continually returns 0xFF byte in this case.
+  94:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_RD_ERR - Slave captured error on the bus during 
+  95:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     a read transfer. The sources of error are: misplaced Start or Stop 
+  96:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     condition or lost arbitration while slave drives SDA.
+  97:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_WR_CMPLT - Slave write transfer complete. 
+  98:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     Set at reception of a Stop or ReStart condition. The write error condition
+  99:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     status bit must be checked to ensure that write transfer was completed
+ 100:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     successfully.
+ 101:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_WR_BUSY - Slave write transfer is in progress. 
+ 102:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     Set when the master addresses the slave with a write, cleared when 
+ 103:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *    SCB_2_I2C_SSTAT_WR_CMPLT is set.
+ 104:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_WR_OVFL - Master attempted to write past end of 
+ 105:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     buffer. Further bytes are ignored.
+ 106:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   - SCB_2_I2C_SSTAT_WR_ERR - Slave captured error on the bus during
+ 107:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     write transfer. The sources of error are: misplaced Start or Stop condition
+ 108:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     or lost arbitration while slave drives SDA.
+ 109:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     The write buffer may contain invalid bytes or part of the data transfer when 
+ 110:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     SCB_2_I2C_SSTAT_WR_ERR is set. It is recommended to discard write 
+ 111:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *     buffer content in this case.
+ 112:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 113:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 114:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slStatus  - used to store current status of I2C slave.
+ 115:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 116:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 117:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** uint32 SCB_2_I2CSlaveStatus(void)
+ 118:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+  37              		.loc 1 118 0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41 0000 80B5     		push	{r7, lr}
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 7, -8
+  44              		.cfi_offset 14, -4
+  45 0002 00AF     		add	r7, sp, #0
+  46              		.cfi_def_cfa_register 7
+ 119:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     return((uint32) SCB_2_slStatus);
+  47              		.loc 1 119 0
+  48 0004 024B     		ldr	r3, .L3
+  49 0006 1B78     		ldrb	r3, [r3]
+  50 0008 DBB2     		uxtb	r3, r3
+ 120:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+  51              		.loc 1 120 0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 4
+
+
+  52 000a 1800     		movs	r0, r3
+  53 000c BD46     		mov	sp, r7
+  54              		@ sp needed
+  55 000e 80BD     		pop	{r7, pc}
+  56              	.L4:
+  57              		.align	2
+  58              	.L3:
+  59 0010 00000000 		.word	SCB_2_slStatus
+  60              		.cfi_endproc
+  61              	.LFE2:
+  62              		.size	SCB_2_I2CSlaveStatus, .-SCB_2_I2CSlaveStatus
+  63              		.section	.text.SCB_2_I2CSlaveClearReadStatus,"ax",%progbits
+  64              		.align	2
+  65              		.global	SCB_2_I2CSlaveClearReadStatus
+  66              		.code	16
+  67              		.thumb_func
+  68              		.type	SCB_2_I2CSlaveClearReadStatus, %function
+  69              	SCB_2_I2CSlaveClearReadStatus:
+  70              	.LFB3:
+ 121:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 122:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 123:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 124:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveClearReadStatus
+ 125:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 126:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 127:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Clears the read status flags and returns their values. No other status flags
+ 128:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  are affected.
+ 129:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 130:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \return
+ 131:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Current read status of slave. See the SCB_I2CSlaveStatus() function for 
+ 132:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  constants.
+ 133:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 134:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \sideeffect
+ 135:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  This function does not clear SCB_2_I2C_SSTAT_RD_BUSY.
+ 136:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 137:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 138:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slStatus  - used to store current status of I2C slave.
+ 139:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 140:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 141:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** uint32 SCB_2_I2CSlaveClearReadStatus(void)
+ 142:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+  71              		.loc 1 142 0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 8
+  74              		@ frame_needed = 1, uses_anonymous_args = 0
+  75 0000 80B5     		push	{r7, lr}
+  76              		.cfi_def_cfa_offset 8
+  77              		.cfi_offset 7, -8
+  78              		.cfi_offset 14, -4
+  79 0002 82B0     		sub	sp, sp, #8
+  80              		.cfi_def_cfa_offset 16
+  81 0004 00AF     		add	r7, sp, #0
+  82              		.cfi_def_cfa_register 7
+ 143:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     uint32 status;
+ 144:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 145:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_DisableInt();  /* Lock from interruption */
+  83              		.loc 1 145 0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 5
+
+
+  84 0006 0920     		movs	r0, #9
+  85 0008 FFF7FEFF 		bl	CyIntDisable
+ 146:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 147:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     /* Mask of transfer complete flag and error status */
+ 148:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     status = ((uint32) SCB_2_slStatus & SCB_2_I2C_SSTAT_RD_MASK);
+  86              		.loc 1 148 0
+  87 000c 0B4B     		ldr	r3, .L7
+  88 000e 1B78     		ldrb	r3, [r3]
+  89 0010 DBB2     		uxtb	r3, r3
+  90 0012 1A00     		movs	r2, r3
+  91 0014 0F23     		movs	r3, #15
+  92 0016 1340     		ands	r3, r2
+  93 0018 7B60     		str	r3, [r7, #4]
+ 149:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_slStatus &= (uint8) ~SCB_2_I2C_SSTAT_RD_CLEAR;
+  94              		.loc 1 149 0
+  95 001a 084B     		ldr	r3, .L7
+  96 001c 1B78     		ldrb	r3, [r3]
+  97 001e DBB2     		uxtb	r3, r3
+  98 0020 0D22     		movs	r2, #13
+  99 0022 9343     		bics	r3, r2
+ 100 0024 DAB2     		uxtb	r2, r3
+ 101 0026 054B     		ldr	r3, .L7
+ 102 0028 1A70     		strb	r2, [r3]
+ 150:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 151:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_EnableInt();   /* Release lock */
+ 103              		.loc 1 151 0
+ 104 002a 0920     		movs	r0, #9
+ 105 002c FFF7FEFF 		bl	CyIntEnable
+ 152:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 153:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     return(status);
+ 106              		.loc 1 153 0
+ 107 0030 7B68     		ldr	r3, [r7, #4]
+ 154:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 108              		.loc 1 154 0
+ 109 0032 1800     		movs	r0, r3
+ 110 0034 BD46     		mov	sp, r7
+ 111 0036 02B0     		add	sp, sp, #8
+ 112              		@ sp needed
+ 113 0038 80BD     		pop	{r7, pc}
+ 114              	.L8:
+ 115 003a C046     		.align	2
+ 116              	.L7:
+ 117 003c 00000000 		.word	SCB_2_slStatus
+ 118              		.cfi_endproc
+ 119              	.LFE3:
+ 120              		.size	SCB_2_I2CSlaveClearReadStatus, .-SCB_2_I2CSlaveClearReadStatus
+ 121              		.section	.text.SCB_2_I2CSlaveClearWriteStatus,"ax",%progbits
+ 122              		.align	2
+ 123              		.global	SCB_2_I2CSlaveClearWriteStatus
+ 124              		.code	16
+ 125              		.thumb_func
+ 126              		.type	SCB_2_I2CSlaveClearWriteStatus, %function
+ 127              	SCB_2_I2CSlaveClearWriteStatus:
+ 128              	.LFB4:
+ 155:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 156:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 157:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 6
+
+
+ 158:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveClearWriteStatus
+ 159:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 160:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 161:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Clears the write status flags and returns their values. No other status flags
+ 162:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  are affected.
+ 163:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 164:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \return
+ 165:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Current write status of slave. See the SCB_I2CSlaveStatus() function 
+ 166:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  for constants.
+ 167:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 168:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \sideeffect
+ 169:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  This function does not clear SCB_2_I2C_SSTAT_WR_BUSY.*
+ 170:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 171:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 172:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slStatus  - used to store current status of I2C slave.
+ 173:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 174:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 175:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** uint32 SCB_2_I2CSlaveClearWriteStatus(void)
+ 176:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 129              		.loc 1 176 0
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 8
+ 132              		@ frame_needed = 1, uses_anonymous_args = 0
+ 133 0000 80B5     		push	{r7, lr}
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 7, -8
+ 136              		.cfi_offset 14, -4
+ 137 0002 82B0     		sub	sp, sp, #8
+ 138              		.cfi_def_cfa_offset 16
+ 139 0004 00AF     		add	r7, sp, #0
+ 140              		.cfi_def_cfa_register 7
+ 177:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     uint32 status;
+ 178:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 179:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_DisableInt();  /* Lock from interruption */
+ 141              		.loc 1 179 0
+ 142 0006 0920     		movs	r0, #9
+ 143 0008 FFF7FEFF 		bl	CyIntDisable
+ 180:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 181:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     /* Mask of transfer complete flag and Error status */
+ 182:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     status = ((uint32) SCB_2_slStatus & SCB_2_I2C_SSTAT_WR_MASK);
+ 144              		.loc 1 182 0
+ 145 000c 0B4B     		ldr	r3, .L11
+ 146 000e 1B78     		ldrb	r3, [r3]
+ 147 0010 DBB2     		uxtb	r3, r3
+ 148 0012 1A00     		movs	r2, r3
+ 149 0014 F023     		movs	r3, #240
+ 150 0016 1340     		ands	r3, r2
+ 151 0018 7B60     		str	r3, [r7, #4]
+ 183:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_slStatus &= (uint8) ~SCB_2_I2C_SSTAT_WR_CLEAR;
+ 152              		.loc 1 183 0
+ 153 001a 084B     		ldr	r3, .L11
+ 154 001c 1B78     		ldrb	r3, [r3]
+ 155 001e DBB2     		uxtb	r3, r3
+ 156 0020 2F22     		movs	r2, #47
+ 157 0022 1340     		ands	r3, r2
+ 158 0024 DAB2     		uxtb	r2, r3
+ 159 0026 054B     		ldr	r3, .L11
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 7
+
+
+ 160 0028 1A70     		strb	r2, [r3]
+ 184:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 185:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_EnableInt();   /* Release lock */
+ 161              		.loc 1 185 0
+ 162 002a 0920     		movs	r0, #9
+ 163 002c FFF7FEFF 		bl	CyIntEnable
+ 186:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 187:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     return(status);
+ 164              		.loc 1 187 0
+ 165 0030 7B68     		ldr	r3, [r7, #4]
+ 188:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 166              		.loc 1 188 0
+ 167 0032 1800     		movs	r0, r3
+ 168 0034 BD46     		mov	sp, r7
+ 169 0036 02B0     		add	sp, sp, #8
+ 170              		@ sp needed
+ 171 0038 80BD     		pop	{r7, pc}
+ 172              	.L12:
+ 173 003a C046     		.align	2
+ 174              	.L11:
+ 175 003c 00000000 		.word	SCB_2_slStatus
+ 176              		.cfi_endproc
+ 177              	.LFE4:
+ 178              		.size	SCB_2_I2CSlaveClearWriteStatus, .-SCB_2_I2CSlaveClearWriteStatus
+ 179              		.section	.text.SCB_2_I2CSlaveSetAddress,"ax",%progbits
+ 180              		.align	2
+ 181              		.global	SCB_2_I2CSlaveSetAddress
+ 182              		.code	16
+ 183              		.thumb_func
+ 184              		.type	SCB_2_I2CSlaveSetAddress, %function
+ 185              	SCB_2_I2CSlaveSetAddress:
+ 186              	.LFB5:
+ 189:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 190:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 191:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 192:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveSetAddress
+ 193:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 194:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 195:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Sets the I2C slave address.
+ 196:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 197:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \param address: I2C slave address for the primary device.
+ 198:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  This address is the 7-bit right-justified slave address and does not 
+ 199:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  include the R/W bit.
+ 200:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The address value is not checked to see if it violates the I2C spec. 
+ 201:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The preferred addresses are between 8 and 120 (0x08 to 0x78).
+ 202:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 203:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 204:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** void SCB_2_I2CSlaveSetAddress(uint32 address)
+ 205:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 187              		.loc 1 205 0
+ 188              		.cfi_startproc
+ 189              		@ args = 0, pretend = 0, frame = 16
+ 190              		@ frame_needed = 1, uses_anonymous_args = 0
+ 191 0000 80B5     		push	{r7, lr}
+ 192              		.cfi_def_cfa_offset 8
+ 193              		.cfi_offset 7, -8
+ 194              		.cfi_offset 14, -4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 8
+
+
+ 195 0002 84B0     		sub	sp, sp, #16
+ 196              		.cfi_def_cfa_offset 24
+ 197 0004 00AF     		add	r7, sp, #0
+ 198              		.cfi_def_cfa_register 7
+ 199 0006 7860     		str	r0, [r7, #4]
+ 206:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     uint32 matchReg;
+ 207:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 208:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     matchReg = SCB_2_RX_MATCH_REG;
+ 200              		.loc 1 208 0
+ 201 0008 0A4B     		ldr	r3, .L14
+ 202 000a 1B68     		ldr	r3, [r3]
+ 203 000c FB60     		str	r3, [r7, #12]
+ 209:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 210:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     matchReg &= ((uint32) ~SCB_2_RX_MATCH_ADDR_MASK); /* Clear address bits */
+ 204              		.loc 1 210 0
+ 205 000e FB68     		ldr	r3, [r7, #12]
+ 206 0010 FF22     		movs	r2, #255
+ 207 0012 9343     		bics	r3, r2
+ 208 0014 FB60     		str	r3, [r7, #12]
+ 211:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     matchReg |= ((uint32)  SCB_2_GET_I2C_8BIT_ADDRESS(address));
+ 209              		.loc 1 211 0
+ 210 0016 7B68     		ldr	r3, [r7, #4]
+ 211 0018 5B00     		lsls	r3, r3, #1
+ 212 001a FF22     		movs	r2, #255
+ 213 001c 1340     		ands	r3, r2
+ 214 001e FA68     		ldr	r2, [r7, #12]
+ 215 0020 1343     		orrs	r3, r2
+ 216 0022 FB60     		str	r3, [r7, #12]
+ 212:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 213:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_RX_MATCH_REG = matchReg;
+ 217              		.loc 1 213 0
+ 218 0024 034B     		ldr	r3, .L14
+ 219 0026 FA68     		ldr	r2, [r7, #12]
+ 220 0028 1A60     		str	r2, [r3]
+ 214:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 221              		.loc 1 214 0
+ 222 002a C046     		nop
+ 223 002c BD46     		mov	sp, r7
+ 224 002e 04B0     		add	sp, sp, #16
+ 225              		@ sp needed
+ 226 0030 80BD     		pop	{r7, pc}
+ 227              	.L15:
+ 228 0032 C046     		.align	2
+ 229              	.L14:
+ 230 0034 10032440 		.word	1076101904
+ 231              		.cfi_endproc
+ 232              	.LFE5:
+ 233              		.size	SCB_2_I2CSlaveSetAddress, .-SCB_2_I2CSlaveSetAddress
+ 234              		.section	.text.SCB_2_I2CSlaveSetAddressMask,"ax",%progbits
+ 235              		.align	2
+ 236              		.global	SCB_2_I2CSlaveSetAddressMask
+ 237              		.code	16
+ 238              		.thumb_func
+ 239              		.type	SCB_2_I2CSlaveSetAddressMask, %function
+ 240              	SCB_2_I2CSlaveSetAddressMask:
+ 241              	.LFB6:
+ 215:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 9
+
+
+ 216:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 217:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 218:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveSetAddressMask
+ 219:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 220:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 221:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Sets the I2C slave address mask.
+ 222:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 223:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \param addressMask: I2C slave address mask.
+ 224:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  - Bit value 0 – excludes bit from address comparison.
+ 225:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  - Bit value 1 – the bit needs to match with the corresponding bit of the 
+ 226:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  I2C slave address.
+ 227:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 228:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The range of valid values is between 0 and 254 (0x00 to 0xFE). 
+ 229:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The LSB of the address mask must be 0 because it corresponds to R/W bit 
+ 230:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  within I2C slave address byte.
+ 231:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 232:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 233:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** void SCB_2_I2CSlaveSetAddressMask(uint32 addressMask)
+ 234:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 242              		.loc 1 234 0
+ 243              		.cfi_startproc
+ 244              		@ args = 0, pretend = 0, frame = 16
+ 245              		@ frame_needed = 1, uses_anonymous_args = 0
+ 246 0000 80B5     		push	{r7, lr}
+ 247              		.cfi_def_cfa_offset 8
+ 248              		.cfi_offset 7, -8
+ 249              		.cfi_offset 14, -4
+ 250 0002 84B0     		sub	sp, sp, #16
+ 251              		.cfi_def_cfa_offset 24
+ 252 0004 00AF     		add	r7, sp, #0
+ 253              		.cfi_def_cfa_register 7
+ 254 0006 7860     		str	r0, [r7, #4]
+ 235:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     uint32 matchReg;
+ 236:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 237:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     matchReg = SCB_2_RX_MATCH_REG;
+ 255              		.loc 1 237 0
+ 256 0008 094B     		ldr	r3, .L17
+ 257 000a 1B68     		ldr	r3, [r3]
+ 258 000c FB60     		str	r3, [r7, #12]
+ 238:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 239:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     matchReg &= ((uint32) ~SCB_2_RX_MATCH_MASK_MASK);
+ 259              		.loc 1 239 0
+ 260 000e FB68     		ldr	r3, [r7, #12]
+ 261 0010 084A     		ldr	r2, .L17+4
+ 262 0012 1340     		ands	r3, r2
+ 263 0014 FB60     		str	r3, [r7, #12]
+ 240:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     matchReg |= ((uint32) (addressMask << SCB_2_RX_MATCH_MASK_POS));
+ 264              		.loc 1 240 0
+ 265 0016 7B68     		ldr	r3, [r7, #4]
+ 266 0018 1B04     		lsls	r3, r3, #16
+ 267 001a FA68     		ldr	r2, [r7, #12]
+ 268 001c 1343     		orrs	r3, r2
+ 269 001e FB60     		str	r3, [r7, #12]
+ 241:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 242:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_RX_MATCH_REG = matchReg;
+ 270              		.loc 1 242 0
+ 271 0020 034B     		ldr	r3, .L17
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 10
+
+
+ 272 0022 FA68     		ldr	r2, [r7, #12]
+ 273 0024 1A60     		str	r2, [r3]
+ 243:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 274              		.loc 1 243 0
+ 275 0026 C046     		nop
+ 276 0028 BD46     		mov	sp, r7
+ 277 002a 04B0     		add	sp, sp, #16
+ 278              		@ sp needed
+ 279 002c 80BD     		pop	{r7, pc}
+ 280              	.L18:
+ 281 002e C046     		.align	2
+ 282              	.L17:
+ 283 0030 10032440 		.word	1076101904
+ 284 0034 FFFF00FF 		.word	-16711681
+ 285              		.cfi_endproc
+ 286              	.LFE6:
+ 287              		.size	SCB_2_I2CSlaveSetAddressMask, .-SCB_2_I2CSlaveSetAddressMask
+ 288              		.section	.text.SCB_2_I2CSlaveInitReadBuf,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	SCB_2_I2CSlaveInitReadBuf
+ 291              		.code	16
+ 292              		.thumb_func
+ 293              		.type	SCB_2_I2CSlaveInitReadBuf, %function
+ 294              	SCB_2_I2CSlaveInitReadBuf:
+ 295              	.LFB7:
+ 244:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 245:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 246:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 247:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveInitReadBuf
+ 248:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 249:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 250:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Sets the buffer pointer and size of the read buffer. This function also
+ 251:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  resets the transfer count returned with the 
+ 252:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_SlaveGetReadBufSize() function.
+ 253:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 254:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \param readBuf: Pointer to the data buffer to be read by the master.
+ 255:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \param bufSize: Size of the read buffer exposed to the I2C master.
+ 256:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 257:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \sideeffect
+ 258:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  If this function is called during a bus transaction, data from the previous
+ 259:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  buffer location and the beginning of current buffer may be transmitted.
+ 260:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 261:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 262:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slRdBufPtr   - used to store pointer to slave read buffer.
+ 263:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slRdBufSize  - used to store salve read buffer size.
+ 264:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slRdBufIndex - used to store current index within slave
+ 265:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  read buffer.
+ 266:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 267:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 268:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** void SCB_2_I2CSlaveInitReadBuf(uint8 * rdBuf, uint32 bufSize)
+ 269:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 296              		.loc 1 269 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 8
+ 299              		@ frame_needed = 1, uses_anonymous_args = 0
+ 300 0000 80B5     		push	{r7, lr}
+ 301              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 11
+
+
+ 302              		.cfi_offset 7, -8
+ 303              		.cfi_offset 14, -4
+ 304 0002 82B0     		sub	sp, sp, #8
+ 305              		.cfi_def_cfa_offset 16
+ 306 0004 00AF     		add	r7, sp, #0
+ 307              		.cfi_def_cfa_register 7
+ 308 0006 7860     		str	r0, [r7, #4]
+ 309 0008 3960     		str	r1, [r7]
+ 270:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     /* Check for proper buffer */
+ 271:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     if(NULL != rdBuf)
+ 310              		.loc 1 271 0
+ 311 000a 7B68     		ldr	r3, [r7, #4]
+ 312 000c 002B     		cmp	r3, #0
+ 313 000e 11D0     		beq	.L21
+ 272:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     {
+ 273:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_DisableInt();  /* Lock from interruption */
+ 314              		.loc 1 273 0
+ 315 0010 0920     		movs	r0, #9
+ 316 0012 FFF7FEFF 		bl	CyIntDisable
+ 274:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 275:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_slRdBufPtr      = (volatile uint8 *) rdBuf; /* Set buffer pointer  */
+ 317              		.loc 1 275 0
+ 318 0016 094B     		ldr	r3, .L22
+ 319 0018 7A68     		ldr	r2, [r7, #4]
+ 320 001a 1A60     		str	r2, [r3]
+ 276:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_slRdBufSize     = bufSize;                  /* Set buffer size     */
+ 321              		.loc 1 276 0
+ 322 001c 084B     		ldr	r3, .L22+4
+ 323 001e 3A68     		ldr	r2, [r7]
+ 324 0020 1A60     		str	r2, [r3]
+ 277:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_slRdBufIndex    = 0u;                       /* Clear buffer index  */
+ 325              		.loc 1 277 0
+ 326 0022 084B     		ldr	r3, .L22+8
+ 327 0024 0022     		movs	r2, #0
+ 328 0026 1A60     		str	r2, [r3]
+ 278:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_slRdBufIndexTmp = 0u;                       /* Clear buffer index  */
+ 329              		.loc 1 278 0
+ 330 0028 074B     		ldr	r3, .L22+12
+ 331 002a 0022     		movs	r2, #0
+ 332 002c 1A60     		str	r2, [r3]
+ 279:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 280:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_EnableInt();   /* Release lock */
+ 333              		.loc 1 280 0
+ 334 002e 0920     		movs	r0, #9
+ 335 0030 FFF7FEFF 		bl	CyIntEnable
+ 336              	.L21:
+ 281:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     }
+ 282:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 337              		.loc 1 282 0
+ 338 0034 C046     		nop
+ 339 0036 BD46     		mov	sp, r7
+ 340 0038 02B0     		add	sp, sp, #8
+ 341              		@ sp needed
+ 342 003a 80BD     		pop	{r7, pc}
+ 343              	.L23:
+ 344              		.align	2
+ 345              	.L22:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 12
+
+
+ 346 003c 00000000 		.word	SCB_2_slRdBufPtr
+ 347 0040 00000000 		.word	SCB_2_slRdBufSize
+ 348 0044 00000000 		.word	SCB_2_slRdBufIndex
+ 349 0048 00000000 		.word	SCB_2_slRdBufIndexTmp
+ 350              		.cfi_endproc
+ 351              	.LFE7:
+ 352              		.size	SCB_2_I2CSlaveInitReadBuf, .-SCB_2_I2CSlaveInitReadBuf
+ 353              		.section	.text.SCB_2_I2CSlaveInitWriteBuf,"ax",%progbits
+ 354              		.align	2
+ 355              		.global	SCB_2_I2CSlaveInitWriteBuf
+ 356              		.code	16
+ 357              		.thumb_func
+ 358              		.type	SCB_2_I2CSlaveInitWriteBuf, %function
+ 359              	SCB_2_I2CSlaveInitWriteBuf:
+ 360              	.LFB8:
+ 283:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 284:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 285:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 286:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveInitWriteBuf
+ 287:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 288:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 289:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Sets the buffer pointer and size of the write buffer. This function also 
+ 290:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  resets the transfer count returned with the 
+ 291:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_I2CSlaveGetWriteBufSize() function.
+ 292:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 293:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \param writeBuf: Pointer to the data buffer to be written by the master.
+ 294:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \param bufSize:  Size of the write buffer exposed to the I2C master.
+ 295:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 296:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \sideeffect
+ 297:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  If this function is called during a bus transaction, data may be received in 
+ 298:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  the previous buffer and the current buffer location.
+ 299:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 300:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 301:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slWrBufPtr   - used to store pointer to slave write buffer.
+ 302:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slWrBufSize  - used to store salve write buffer size.
+ 303:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slWrBufIndex - used to store current index within slave
+ 304:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   write buffer.
+ 305:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 306:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 307:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** void SCB_2_I2CSlaveInitWriteBuf(uint8 * wrBuf, uint32 bufSize)
+ 308:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 361              		.loc 1 308 0
+ 362              		.cfi_startproc
+ 363              		@ args = 0, pretend = 0, frame = 8
+ 364              		@ frame_needed = 1, uses_anonymous_args = 0
+ 365 0000 80B5     		push	{r7, lr}
+ 366              		.cfi_def_cfa_offset 8
+ 367              		.cfi_offset 7, -8
+ 368              		.cfi_offset 14, -4
+ 369 0002 82B0     		sub	sp, sp, #8
+ 370              		.cfi_def_cfa_offset 16
+ 371 0004 00AF     		add	r7, sp, #0
+ 372              		.cfi_def_cfa_register 7
+ 373 0006 7860     		str	r0, [r7, #4]
+ 374 0008 3960     		str	r1, [r7]
+ 309:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     /* Check buffer pointer */
+ 310:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     if(NULL != wrBuf)
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 13
+
+
+ 375              		.loc 1 310 0
+ 376 000a 7B68     		ldr	r3, [r7, #4]
+ 377 000c 002B     		cmp	r3, #0
+ 378 000e 0ED0     		beq	.L26
+ 311:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     {
+ 312:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_DisableInt();  /* Lock from interruption */
+ 379              		.loc 1 312 0
+ 380 0010 0920     		movs	r0, #9
+ 381 0012 FFF7FEFF 		bl	CyIntDisable
+ 313:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 314:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_slWrBufPtr   = (volatile uint8 *) wrBuf; /* Set buffer pointer  */
+ 382              		.loc 1 314 0
+ 383 0016 084B     		ldr	r3, .L27
+ 384 0018 7A68     		ldr	r2, [r7, #4]
+ 385 001a 1A60     		str	r2, [r3]
+ 315:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_slWrBufSize  = bufSize;                  /* Set buffer size     */
+ 386              		.loc 1 315 0
+ 387 001c 074B     		ldr	r3, .L27+4
+ 388 001e 3A68     		ldr	r2, [r7]
+ 389 0020 1A60     		str	r2, [r3]
+ 316:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_slWrBufIndex = 0u;                       /* Clear buffer index  */
+ 390              		.loc 1 316 0
+ 391 0022 074B     		ldr	r3, .L27+8
+ 392 0024 0022     		movs	r2, #0
+ 393 0026 1A60     		str	r2, [r3]
+ 317:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 318:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****         SCB_2_EnableInt();   /* Release lock */
+ 394              		.loc 1 318 0
+ 395 0028 0920     		movs	r0, #9
+ 396 002a FFF7FEFF 		bl	CyIntEnable
+ 397              	.L26:
+ 319:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     }
+ 320:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 398              		.loc 1 320 0
+ 399 002e C046     		nop
+ 400 0030 BD46     		mov	sp, r7
+ 401 0032 02B0     		add	sp, sp, #8
+ 402              		@ sp needed
+ 403 0034 80BD     		pop	{r7, pc}
+ 404              	.L28:
+ 405 0036 C046     		.align	2
+ 406              	.L27:
+ 407 0038 00000000 		.word	SCB_2_slWrBufPtr
+ 408 003c 00000000 		.word	SCB_2_slWrBufSize
+ 409 0040 00000000 		.word	SCB_2_slWrBufIndex
+ 410              		.cfi_endproc
+ 411              	.LFE8:
+ 412              		.size	SCB_2_I2CSlaveInitWriteBuf, .-SCB_2_I2CSlaveInitWriteBuf
+ 413              		.section	.text.SCB_2_I2CSlaveGetReadBufSize,"ax",%progbits
+ 414              		.align	2
+ 415              		.global	SCB_2_I2CSlaveGetReadBufSize
+ 416              		.code	16
+ 417              		.thumb_func
+ 418              		.type	SCB_2_I2CSlaveGetReadBufSize, %function
+ 419              	SCB_2_I2CSlaveGetReadBufSize:
+ 420              	.LFB9:
+ 321:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 14
+
+
+ 322:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 323:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 324:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveGetReadBufSize
+ 325:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 326:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 327:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Returns the number of bytes read by the I2C master since an
+ 328:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_I2CSlaveInitReadBuf() or 
+ 329:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_I2CSlaveClearReadBuf() function was executed.
+ 330:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The maximum return value is the size of the read buffer.
+ 331:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 332:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \return
+ 333:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Bytes read by master. If the transfer is not yet complete, it returns 
+ 334:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  zero until transfer completion.
+ 335:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 336:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \sideeffect
+ 337:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The returned value is not valid if SCB_2_I2C_SSTAT_RD_ERR was 
+ 338:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  captured by the slave.
+ 339:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 340:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 341:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slRdBufIndex - used to store current index within slave
+ 342:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  read buffer.
+ 343:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 344:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 345:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** uint32 SCB_2_I2CSlaveGetReadBufSize(void)
+ 346:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 421              		.loc 1 346 0
+ 422              		.cfi_startproc
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 1, uses_anonymous_args = 0
+ 425 0000 80B5     		push	{r7, lr}
+ 426              		.cfi_def_cfa_offset 8
+ 427              		.cfi_offset 7, -8
+ 428              		.cfi_offset 14, -4
+ 429 0002 00AF     		add	r7, sp, #0
+ 430              		.cfi_def_cfa_register 7
+ 347:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     return(SCB_2_slRdBufIndex);
+ 431              		.loc 1 347 0
+ 432 0004 024B     		ldr	r3, .L31
+ 433 0006 1B68     		ldr	r3, [r3]
+ 348:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 434              		.loc 1 348 0
+ 435 0008 1800     		movs	r0, r3
+ 436 000a BD46     		mov	sp, r7
+ 437              		@ sp needed
+ 438 000c 80BD     		pop	{r7, pc}
+ 439              	.L32:
+ 440 000e C046     		.align	2
+ 441              	.L31:
+ 442 0010 00000000 		.word	SCB_2_slRdBufIndex
+ 443              		.cfi_endproc
+ 444              	.LFE9:
+ 445              		.size	SCB_2_I2CSlaveGetReadBufSize, .-SCB_2_I2CSlaveGetReadBufSize
+ 446              		.section	.text.SCB_2_I2CSlaveGetWriteBufSize,"ax",%progbits
+ 447              		.align	2
+ 448              		.global	SCB_2_I2CSlaveGetWriteBufSize
+ 449              		.code	16
+ 450              		.thumb_func
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 15
+
+
+ 451              		.type	SCB_2_I2CSlaveGetWriteBufSize, %function
+ 452              	SCB_2_I2CSlaveGetWriteBufSize:
+ 453              	.LFB10:
+ 349:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 350:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 351:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 352:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveGetWriteBufSize
+ 353:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 354:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 355:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Returns the number of bytes written by the I2C master since an
+ 356:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_I2CSlaveInitWriteBuf() or 
+ 357:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_I2CSlaveClearWriteBuf() function was executed.
+ 358:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The maximum return value is the size of the write buffer.
+ 359:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 360:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \return
+ 361:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Bytes written by master.
+ 362:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 363:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \sideeffect
+ 364:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  The returned value is not valid if SCB_2_I2C_SSTAT_WR_ERR was 
+ 365:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  captured by the slave.
+ 366:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 367:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 368:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slWrBufIndex - used to store current index within slave
+ 369:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *   write buffer.
+ 370:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 371:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 372:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** uint32 SCB_2_I2CSlaveGetWriteBufSize(void)
+ 373:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 454              		.loc 1 373 0
+ 455              		.cfi_startproc
+ 456              		@ args = 0, pretend = 0, frame = 0
+ 457              		@ frame_needed = 1, uses_anonymous_args = 0
+ 458 0000 80B5     		push	{r7, lr}
+ 459              		.cfi_def_cfa_offset 8
+ 460              		.cfi_offset 7, -8
+ 461              		.cfi_offset 14, -4
+ 462 0002 00AF     		add	r7, sp, #0
+ 463              		.cfi_def_cfa_register 7
+ 374:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     return(SCB_2_slWrBufIndex);
+ 464              		.loc 1 374 0
+ 465 0004 024B     		ldr	r3, .L35
+ 466 0006 1B68     		ldr	r3, [r3]
+ 375:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 467              		.loc 1 375 0
+ 468 0008 1800     		movs	r0, r3
+ 469 000a BD46     		mov	sp, r7
+ 470              		@ sp needed
+ 471 000c 80BD     		pop	{r7, pc}
+ 472              	.L36:
+ 473 000e C046     		.align	2
+ 474              	.L35:
+ 475 0010 00000000 		.word	SCB_2_slWrBufIndex
+ 476              		.cfi_endproc
+ 477              	.LFE10:
+ 478              		.size	SCB_2_I2CSlaveGetWriteBufSize, .-SCB_2_I2CSlaveGetWriteBufSize
+ 479              		.section	.text.SCB_2_I2CSlaveClearReadBuf,"ax",%progbits
+ 480              		.align	2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 16
+
+
+ 481              		.global	SCB_2_I2CSlaveClearReadBuf
+ 482              		.code	16
+ 483              		.thumb_func
+ 484              		.type	SCB_2_I2CSlaveClearReadBuf, %function
+ 485              	SCB_2_I2CSlaveClearReadBuf:
+ 486              	.LFB11:
+ 376:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 377:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 378:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 379:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveClearReadBuf
+ 380:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 381:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 382:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Resets the read pointer to the first byte in the read buffer. The next byte
+ 383:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  read by the master will be the first byte in the read buffer.
+ 384:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 385:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 386:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slRdBufIndex - used to store current index within slave
+ 387:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  read buffer.
+ 388:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 389:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** void SCB_2_I2CSlaveClearReadBuf(void)
+ 391:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 487              		.loc 1 391 0
+ 488              		.cfi_startproc
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 1, uses_anonymous_args = 0
+ 491 0000 80B5     		push	{r7, lr}
+ 492              		.cfi_def_cfa_offset 8
+ 493              		.cfi_offset 7, -8
+ 494              		.cfi_offset 14, -4
+ 495 0002 00AF     		add	r7, sp, #0
+ 496              		.cfi_def_cfa_register 7
+ 392:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_slRdBufIndex = 0u;
+ 497              		.loc 1 392 0
+ 498 0004 024B     		ldr	r3, .L38
+ 499 0006 0022     		movs	r2, #0
+ 500 0008 1A60     		str	r2, [r3]
+ 393:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 501              		.loc 1 393 0
+ 502 000a C046     		nop
+ 503 000c BD46     		mov	sp, r7
+ 504              		@ sp needed
+ 505 000e 80BD     		pop	{r7, pc}
+ 506              	.L39:
+ 507              		.align	2
+ 508              	.L38:
+ 509 0010 00000000 		.word	SCB_2_slRdBufIndex
+ 510              		.cfi_endproc
+ 511              	.LFE11:
+ 512              		.size	SCB_2_I2CSlaveClearReadBuf, .-SCB_2_I2CSlaveClearReadBuf
+ 513              		.section	.text.SCB_2_I2CSlaveClearWriteBuf,"ax",%progbits
+ 514              		.align	2
+ 515              		.global	SCB_2_I2CSlaveClearWriteBuf
+ 516              		.code	16
+ 517              		.thumb_func
+ 518              		.type	SCB_2_I2CSlaveClearWriteBuf, %function
+ 519              	SCB_2_I2CSlaveClearWriteBuf:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 17
+
+
+ 520              	.LFB12:
+ 394:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 395:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** 
+ 396:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** /*******************************************************************************
+ 397:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * Function Name: SCB_2_I2CSlaveClearWriteBuf
+ 398:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** ****************************************************************************//**
+ 399:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 400:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  Resets the write pointer to the first byte in the write buffer. The next byte
+ 401:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  written by the master will be the first byte in the write buffer.
+ 402:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 403:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** * \globalvars
+ 404:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  SCB_2_slWrBufIndex - used to store current index within slave
+ 405:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *  write buffer.
+ 406:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *
+ 407:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** *******************************************************************************/
+ 408:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** void SCB_2_I2CSlaveClearWriteBuf(void)
+ 409:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** {
+ 521              		.loc 1 409 0
+ 522              		.cfi_startproc
+ 523              		@ args = 0, pretend = 0, frame = 0
+ 524              		@ frame_needed = 1, uses_anonymous_args = 0
+ 525 0000 80B5     		push	{r7, lr}
+ 526              		.cfi_def_cfa_offset 8
+ 527              		.cfi_offset 7, -8
+ 528              		.cfi_offset 14, -4
+ 529 0002 00AF     		add	r7, sp, #0
+ 530              		.cfi_def_cfa_register 7
+ 410:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c ****     SCB_2_slWrBufIndex = 0u;
+ 531              		.loc 1 410 0
+ 532 0004 024B     		ldr	r3, .L41
+ 533 0006 0022     		movs	r2, #0
+ 534 0008 1A60     		str	r2, [r3]
+ 411:Generated_Source\PSoC4/SCB_2_I2C_SLAVE.c **** }
+ 535              		.loc 1 411 0
+ 536 000a C046     		nop
+ 537 000c BD46     		mov	sp, r7
+ 538              		@ sp needed
+ 539 000e 80BD     		pop	{r7, pc}
+ 540              	.L42:
+ 541              		.align	2
+ 542              	.L41:
+ 543 0010 00000000 		.word	SCB_2_slWrBufIndex
+ 544              		.cfi_endproc
+ 545              	.LFE12:
+ 546              		.size	SCB_2_I2CSlaveClearWriteBuf, .-SCB_2_I2CSlaveClearWriteBuf
+ 547              		.text
+ 548              	.Letext0:
+ 549              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 550              		.section	.debug_info,"",%progbits
+ 551              	.Ldebug_info0:
+ 552 0000 E1020000 		.4byte	0x2e1
+ 553 0004 0400     		.2byte	0x4
+ 554 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 555 000a 04       		.byte	0x4
+ 556 000b 01       		.uleb128 0x1
+ 557 000c 1D010000 		.4byte	.LASF44
+ 558 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 18
+
+
+ 559 0011 6C020000 		.4byte	.LASF45
+ 560 0015 D6010000 		.4byte	.LASF46
+ 561 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 562 001d 00000000 		.4byte	0
+ 563 0021 00000000 		.4byte	.Ldebug_line0
+ 564 0025 02       		.uleb128 0x2
+ 565 0026 01       		.byte	0x1
+ 566 0027 06       		.byte	0x6
+ 567 0028 5D030000 		.4byte	.LASF0
+ 568 002c 02       		.uleb128 0x2
+ 569 002d 01       		.byte	0x1
+ 570 002e 08       		.byte	0x8
+ 571 002f C0000000 		.4byte	.LASF1
+ 572 0033 02       		.uleb128 0x2
+ 573 0034 02       		.byte	0x2
+ 574 0035 05       		.byte	0x5
+ 575 0036 FB020000 		.4byte	.LASF2
+ 576 003a 02       		.uleb128 0x2
+ 577 003b 02       		.byte	0x2
+ 578 003c 07       		.byte	0x7
+ 579 003d 3E000000 		.4byte	.LASF3
+ 580 0041 02       		.uleb128 0x2
+ 581 0042 04       		.byte	0x4
+ 582 0043 05       		.byte	0x5
+ 583 0044 38030000 		.4byte	.LASF4
+ 584 0048 02       		.uleb128 0x2
+ 585 0049 04       		.byte	0x4
+ 586 004a 07       		.byte	0x7
+ 587 004b 05010000 		.4byte	.LASF5
+ 588 004f 02       		.uleb128 0x2
+ 589 0050 08       		.byte	0x8
+ 590 0051 05       		.byte	0x5
+ 591 0052 E8020000 		.4byte	.LASF6
+ 592 0056 02       		.uleb128 0x2
+ 593 0057 08       		.byte	0x8
+ 594 0058 07       		.byte	0x7
+ 595 0059 9D020000 		.4byte	.LASF7
+ 596 005d 03       		.uleb128 0x3
+ 597 005e 04       		.byte	0x4
+ 598 005f 05       		.byte	0x5
+ 599 0060 696E7400 		.ascii	"int\000"
+ 600 0064 02       		.uleb128 0x2
+ 601 0065 04       		.byte	0x4
+ 602 0066 07       		.byte	0x7
+ 603 0067 51000000 		.4byte	.LASF8
+ 604 006b 04       		.uleb128 0x4
+ 605 006c 17010000 		.4byte	.LASF9
+ 606 0070 02       		.byte	0x2
+ 607 0071 D201     		.2byte	0x1d2
+ 608 0073 2C000000 		.4byte	0x2c
+ 609 0077 04       		.uleb128 0x4
+ 610 0078 4F020000 		.4byte	.LASF10
+ 611 007c 02       		.byte	0x2
+ 612 007d D401     		.2byte	0x1d4
+ 613 007f 48000000 		.4byte	0x48
+ 614 0083 02       		.uleb128 0x2
+ 615 0084 04       		.byte	0x4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 19
+
+
+ 616 0085 04       		.byte	0x4
+ 617 0086 9F000000 		.4byte	.LASF11
+ 618 008a 02       		.uleb128 0x2
+ 619 008b 08       		.byte	0x8
+ 620 008c 04       		.byte	0x4
+ 621 008d 13020000 		.4byte	.LASF12
+ 622 0091 02       		.uleb128 0x2
+ 623 0092 01       		.byte	0x1
+ 624 0093 08       		.byte	0x8
+ 625 0094 F6020000 		.4byte	.LASF13
+ 626 0098 05       		.uleb128 0x5
+ 627 0099 6B000000 		.4byte	0x6b
+ 628 009d 04       		.uleb128 0x4
+ 629 009e 00000000 		.4byte	.LASF14
+ 630 00a2 02       		.byte	0x2
+ 631 00a3 7E02     		.2byte	0x27e
+ 632 00a5 A9000000 		.4byte	0xa9
+ 633 00a9 05       		.uleb128 0x5
+ 634 00aa 77000000 		.4byte	0x77
+ 635 00ae 02       		.uleb128 0x2
+ 636 00af 08       		.byte	0x8
+ 637 00b0 04       		.byte	0x4
+ 638 00b1 C0020000 		.4byte	.LASF15
+ 639 00b5 02       		.uleb128 0x2
+ 640 00b6 04       		.byte	0x4
+ 641 00b7 07       		.byte	0x7
+ 642 00b8 DF020000 		.4byte	.LASF16
+ 643 00bc 06       		.uleb128 0x6
+ 644 00bd 84000000 		.4byte	.LASF30
+ 645 00c1 01       		.byte	0x1
+ 646 00c2 75       		.byte	0x75
+ 647 00c3 77000000 		.4byte	0x77
+ 648 00c7 00000000 		.4byte	.LFB2
+ 649 00cb 14000000 		.4byte	.LFE2-.LFB2
+ 650 00cf 01       		.uleb128 0x1
+ 651 00d0 9C       		.byte	0x9c
+ 652 00d1 07       		.uleb128 0x7
+ 653 00d2 85030000 		.4byte	.LASF17
+ 654 00d6 01       		.byte	0x1
+ 655 00d7 8D       		.byte	0x8d
+ 656 00d8 77000000 		.4byte	0x77
+ 657 00dc 00000000 		.4byte	.LFB3
+ 658 00e0 40000000 		.4byte	.LFE3-.LFB3
+ 659 00e4 01       		.uleb128 0x1
+ 660 00e5 9C       		.byte	0x9c
+ 661 00e6 F9000000 		.4byte	0xf9
+ 662 00ea 08       		.uleb128 0x8
+ 663 00eb 7D000000 		.4byte	.LASF19
+ 664 00ef 01       		.byte	0x1
+ 665 00f0 8F       		.byte	0x8f
+ 666 00f1 77000000 		.4byte	0x77
+ 667 00f5 02       		.uleb128 0x2
+ 668 00f6 91       		.byte	0x91
+ 669 00f7 74       		.sleb128 -12
+ 670 00f8 00       		.byte	0
+ 671 00f9 07       		.uleb128 0x7
+ 672 00fa 5E000000 		.4byte	.LASF18
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 20
+
+
+ 673 00fe 01       		.byte	0x1
+ 674 00ff AF       		.byte	0xaf
+ 675 0100 77000000 		.4byte	0x77
+ 676 0104 00000000 		.4byte	.LFB4
+ 677 0108 40000000 		.4byte	.LFE4-.LFB4
+ 678 010c 01       		.uleb128 0x1
+ 679 010d 9C       		.byte	0x9c
+ 680 010e 21010000 		.4byte	0x121
+ 681 0112 08       		.uleb128 0x8
+ 682 0113 7D000000 		.4byte	.LASF19
+ 683 0117 01       		.byte	0x1
+ 684 0118 B1       		.byte	0xb1
+ 685 0119 77000000 		.4byte	0x77
+ 686 011d 02       		.uleb128 0x2
+ 687 011e 91       		.byte	0x91
+ 688 011f 74       		.sleb128 -12
+ 689 0120 00       		.byte	0
+ 690 0121 09       		.uleb128 0x9
+ 691 0122 EC000000 		.4byte	.LASF21
+ 692 0126 01       		.byte	0x1
+ 693 0127 CC       		.byte	0xcc
+ 694 0128 00000000 		.4byte	.LFB5
+ 695 012c 38000000 		.4byte	.LFE5-.LFB5
+ 696 0130 01       		.uleb128 0x1
+ 697 0131 9C       		.byte	0x9c
+ 698 0132 53010000 		.4byte	0x153
+ 699 0136 0A       		.uleb128 0xa
+ 700 0137 95020000 		.4byte	.LASF23
+ 701 013b 01       		.byte	0x1
+ 702 013c CC       		.byte	0xcc
+ 703 013d 77000000 		.4byte	0x77
+ 704 0141 02       		.uleb128 0x2
+ 705 0142 91       		.byte	0x91
+ 706 0143 6C       		.sleb128 -20
+ 707 0144 08       		.uleb128 0x8
+ 708 0145 41030000 		.4byte	.LASF20
+ 709 0149 01       		.byte	0x1
+ 710 014a CE       		.byte	0xce
+ 711 014b 77000000 		.4byte	0x77
+ 712 014f 02       		.uleb128 0x2
+ 713 0150 91       		.byte	0x91
+ 714 0151 74       		.sleb128 -12
+ 715 0152 00       		.byte	0
+ 716 0153 09       		.uleb128 0x9
+ 717 0154 A3030000 		.4byte	.LASF22
+ 718 0158 01       		.byte	0x1
+ 719 0159 E9       		.byte	0xe9
+ 720 015a 00000000 		.4byte	.LFB6
+ 721 015e 38000000 		.4byte	.LFE6-.LFB6
+ 722 0162 01       		.uleb128 0x1
+ 723 0163 9C       		.byte	0x9c
+ 724 0164 85010000 		.4byte	0x185
+ 725 0168 0A       		.uleb128 0xa
+ 726 0169 B4020000 		.4byte	.LASF24
+ 727 016d 01       		.byte	0x1
+ 728 016e E9       		.byte	0xe9
+ 729 016f 77000000 		.4byte	0x77
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 21
+
+
+ 730 0173 02       		.uleb128 0x2
+ 731 0174 91       		.byte	0x91
+ 732 0175 6C       		.sleb128 -20
+ 733 0176 08       		.uleb128 0x8
+ 734 0177 41030000 		.4byte	.LASF20
+ 735 017b 01       		.byte	0x1
+ 736 017c EB       		.byte	0xeb
+ 737 017d 77000000 		.4byte	0x77
+ 738 0181 02       		.uleb128 0x2
+ 739 0182 91       		.byte	0x91
+ 740 0183 74       		.sleb128 -12
+ 741 0184 00       		.byte	0
+ 742 0185 0B       		.uleb128 0xb
+ 743 0186 0D030000 		.4byte	.LASF25
+ 744 018a 01       		.byte	0x1
+ 745 018b 0C01     		.2byte	0x10c
+ 746 018d 00000000 		.4byte	.LFB7
+ 747 0191 4C000000 		.4byte	.LFE7-.LFB7
+ 748 0195 01       		.uleb128 0x1
+ 749 0196 9C       		.byte	0x9c
+ 750 0197 BA010000 		.4byte	0x1ba
+ 751 019b 0C       		.uleb128 0xc
+ 752 019c 99000000 		.4byte	.LASF26
+ 753 01a0 01       		.byte	0x1
+ 754 01a1 0C01     		.2byte	0x10c
+ 755 01a3 BA010000 		.4byte	0x1ba
+ 756 01a7 02       		.uleb128 0x2
+ 757 01a8 91       		.byte	0x91
+ 758 01a9 74       		.sleb128 -12
+ 759 01aa 0C       		.uleb128 0xc
+ 760 01ab 05030000 		.4byte	.LASF27
+ 761 01af 01       		.byte	0x1
+ 762 01b0 0C01     		.2byte	0x10c
+ 763 01b2 77000000 		.4byte	0x77
+ 764 01b6 02       		.uleb128 0x2
+ 765 01b7 91       		.byte	0x91
+ 766 01b8 70       		.sleb128 -16
+ 767 01b9 00       		.byte	0
+ 768 01ba 0D       		.uleb128 0xd
+ 769 01bb 04       		.byte	0x4
+ 770 01bc 6B000000 		.4byte	0x6b
+ 771 01c0 0B       		.uleb128 0xb
+ 772 01c1 06000000 		.4byte	.LASF28
+ 773 01c5 01       		.byte	0x1
+ 774 01c6 3301     		.2byte	0x133
+ 775 01c8 00000000 		.4byte	.LFB8
+ 776 01cc 44000000 		.4byte	.LFE8-.LFB8
+ 777 01d0 01       		.uleb128 0x1
+ 778 01d1 9C       		.byte	0x9c
+ 779 01d2 F5010000 		.4byte	0x1f5
+ 780 01d6 0C       		.uleb128 0xc
+ 781 01d7 AB010000 		.4byte	.LASF29
+ 782 01db 01       		.byte	0x1
+ 783 01dc 3301     		.2byte	0x133
+ 784 01de BA010000 		.4byte	0x1ba
+ 785 01e2 02       		.uleb128 0x2
+ 786 01e3 91       		.byte	0x91
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 22
+
+
+ 787 01e4 74       		.sleb128 -12
+ 788 01e5 0C       		.uleb128 0xc
+ 789 01e6 05030000 		.4byte	.LASF27
+ 790 01ea 01       		.byte	0x1
+ 791 01eb 3301     		.2byte	0x133
+ 792 01ed 77000000 		.4byte	0x77
+ 793 01f1 02       		.uleb128 0x2
+ 794 01f2 91       		.byte	0x91
+ 795 01f3 70       		.sleb128 -16
+ 796 01f4 00       		.byte	0
+ 797 01f5 0E       		.uleb128 0xe
+ 798 01f6 21000000 		.4byte	.LASF31
+ 799 01fa 01       		.byte	0x1
+ 800 01fb 5901     		.2byte	0x159
+ 801 01fd 77000000 		.4byte	0x77
+ 802 0201 00000000 		.4byte	.LFB9
+ 803 0205 14000000 		.4byte	.LFE9-.LFB9
+ 804 0209 01       		.uleb128 0x1
+ 805 020a 9C       		.byte	0x9c
+ 806 020b 0E       		.uleb128 0xe
+ 807 020c CE000000 		.4byte	.LASF32
+ 808 0210 01       		.byte	0x1
+ 809 0211 7401     		.2byte	0x174
+ 810 0213 77000000 		.4byte	0x77
+ 811 0217 00000000 		.4byte	.LFB10
+ 812 021b 14000000 		.4byte	.LFE10-.LFB10
+ 813 021f 01       		.uleb128 0x1
+ 814 0220 9C       		.byte	0x9c
+ 815 0221 0F       		.uleb128 0xf
+ 816 0222 A5000000 		.4byte	.LASF33
+ 817 0226 01       		.byte	0x1
+ 818 0227 8601     		.2byte	0x186
+ 819 0229 00000000 		.4byte	.LFB11
+ 820 022d 14000000 		.4byte	.LFE11-.LFB11
+ 821 0231 01       		.uleb128 0x1
+ 822 0232 9C       		.byte	0x9c
+ 823 0233 0F       		.uleb128 0xf
+ 824 0234 69030000 		.4byte	.LASF34
+ 825 0238 01       		.byte	0x1
+ 826 0239 9801     		.2byte	0x198
+ 827 023b 00000000 		.4byte	.LFB12
+ 828 023f 14000000 		.4byte	.LFE12-.LFB12
+ 829 0243 01       		.uleb128 0x1
+ 830 0244 9C       		.byte	0x9c
+ 831 0245 10       		.uleb128 0x10
+ 832 0246 C7010000 		.4byte	.LASF35
+ 833 024a 01       		.byte	0x1
+ 834 024b 1B       		.byte	0x1b
+ 835 024c 98000000 		.4byte	0x98
+ 836 0250 05       		.uleb128 0x5
+ 837 0251 03       		.byte	0x3
+ 838 0252 00000000 		.4byte	SCB_2_slStatus
+ 839 0256 10       		.uleb128 0x10
+ 840 0257 27030000 		.4byte	.LASF36
+ 841 025b 01       		.byte	0x1
+ 842 025c 1E       		.byte	0x1e
+ 843 025d 67020000 		.4byte	0x267
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 23
+
+
+ 844 0261 05       		.uleb128 0x5
+ 845 0262 03       		.byte	0x3
+ 846 0263 00000000 		.4byte	SCB_2_slWrBufPtr
+ 847 0267 0D       		.uleb128 0xd
+ 848 0268 04       		.byte	0x4
+ 849 0269 98000000 		.4byte	0x98
+ 850 026d 10       		.uleb128 0x10
+ 851 026e 3D020000 		.4byte	.LASF37
+ 852 0272 01       		.byte	0x1
+ 853 0273 1F       		.byte	0x1f
+ 854 0274 A9000000 		.4byte	0xa9
+ 855 0278 05       		.uleb128 0x5
+ 856 0279 03       		.byte	0x3
+ 857 027a 00000000 		.4byte	SCB_2_slWrBufSize
+ 858 027e 10       		.uleb128 0x10
+ 859 027f CC020000 		.4byte	.LASF38
+ 860 0283 01       		.byte	0x1
+ 861 0284 20       		.byte	0x20
+ 862 0285 A9000000 		.4byte	0xa9
+ 863 0289 05       		.uleb128 0x5
+ 864 028a 03       		.byte	0x3
+ 865 028b 00000000 		.4byte	SCB_2_slWrBufIndex
+ 866 028f 10       		.uleb128 0x10
+ 867 0290 2C020000 		.4byte	.LASF39
+ 868 0294 01       		.byte	0x1
+ 869 0295 23       		.byte	0x23
+ 870 0296 67020000 		.4byte	0x267
+ 871 029a 05       		.uleb128 0x5
+ 872 029b 03       		.byte	0x3
+ 873 029c 00000000 		.4byte	SCB_2_slRdBufPtr
+ 874 02a0 10       		.uleb128 0x10
+ 875 02a1 1A020000 		.4byte	.LASF40
+ 876 02a5 01       		.byte	0x1
+ 877 02a6 24       		.byte	0x24
+ 878 02a7 A9000000 		.4byte	0xa9
+ 879 02ab 05       		.uleb128 0x5
+ 880 02ac 03       		.byte	0x3
+ 881 02ad 00000000 		.4byte	SCB_2_slRdBufSize
+ 882 02b1 10       		.uleb128 0x10
+ 883 02b2 4A030000 		.4byte	.LASF41
+ 884 02b6 01       		.byte	0x1
+ 885 02b7 25       		.byte	0x25
+ 886 02b8 A9000000 		.4byte	0xa9
+ 887 02bc 05       		.uleb128 0x5
+ 888 02bd 03       		.byte	0x3
+ 889 02be 00000000 		.4byte	SCB_2_slRdBufIndex
+ 890 02c2 10       		.uleb128 0x10
+ 891 02c3 56020000 		.4byte	.LASF42
+ 892 02c7 01       		.byte	0x1
+ 893 02c8 26       		.byte	0x26
+ 894 02c9 A9000000 		.4byte	0xa9
+ 895 02cd 05       		.uleb128 0x5
+ 896 02ce 03       		.byte	0x3
+ 897 02cf 00000000 		.4byte	SCB_2_slRdBufIndexTmp
+ 898 02d3 10       		.uleb128 0x10
+ 899 02d4 B1010000 		.4byte	.LASF43
+ 900 02d8 01       		.byte	0x1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 24
+
+
+ 901 02d9 27       		.byte	0x27
+ 902 02da 98000000 		.4byte	0x98
+ 903 02de 05       		.uleb128 0x5
+ 904 02df 03       		.byte	0x3
+ 905 02e0 00000000 		.4byte	SCB_2_slOverFlowCount
+ 906 02e4 00       		.byte	0
+ 907              		.section	.debug_abbrev,"",%progbits
+ 908              	.Ldebug_abbrev0:
+ 909 0000 01       		.uleb128 0x1
+ 910 0001 11       		.uleb128 0x11
+ 911 0002 01       		.byte	0x1
+ 912 0003 25       		.uleb128 0x25
+ 913 0004 0E       		.uleb128 0xe
+ 914 0005 13       		.uleb128 0x13
+ 915 0006 0B       		.uleb128 0xb
+ 916 0007 03       		.uleb128 0x3
+ 917 0008 0E       		.uleb128 0xe
+ 918 0009 1B       		.uleb128 0x1b
+ 919 000a 0E       		.uleb128 0xe
+ 920 000b 55       		.uleb128 0x55
+ 921 000c 17       		.uleb128 0x17
+ 922 000d 11       		.uleb128 0x11
+ 923 000e 01       		.uleb128 0x1
+ 924 000f 10       		.uleb128 0x10
+ 925 0010 17       		.uleb128 0x17
+ 926 0011 00       		.byte	0
+ 927 0012 00       		.byte	0
+ 928 0013 02       		.uleb128 0x2
+ 929 0014 24       		.uleb128 0x24
+ 930 0015 00       		.byte	0
+ 931 0016 0B       		.uleb128 0xb
+ 932 0017 0B       		.uleb128 0xb
+ 933 0018 3E       		.uleb128 0x3e
+ 934 0019 0B       		.uleb128 0xb
+ 935 001a 03       		.uleb128 0x3
+ 936 001b 0E       		.uleb128 0xe
+ 937 001c 00       		.byte	0
+ 938 001d 00       		.byte	0
+ 939 001e 03       		.uleb128 0x3
+ 940 001f 24       		.uleb128 0x24
+ 941 0020 00       		.byte	0
+ 942 0021 0B       		.uleb128 0xb
+ 943 0022 0B       		.uleb128 0xb
+ 944 0023 3E       		.uleb128 0x3e
+ 945 0024 0B       		.uleb128 0xb
+ 946 0025 03       		.uleb128 0x3
+ 947 0026 08       		.uleb128 0x8
+ 948 0027 00       		.byte	0
+ 949 0028 00       		.byte	0
+ 950 0029 04       		.uleb128 0x4
+ 951 002a 16       		.uleb128 0x16
+ 952 002b 00       		.byte	0
+ 953 002c 03       		.uleb128 0x3
+ 954 002d 0E       		.uleb128 0xe
+ 955 002e 3A       		.uleb128 0x3a
+ 956 002f 0B       		.uleb128 0xb
+ 957 0030 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 25
+
+
+ 958 0031 05       		.uleb128 0x5
+ 959 0032 49       		.uleb128 0x49
+ 960 0033 13       		.uleb128 0x13
+ 961 0034 00       		.byte	0
+ 962 0035 00       		.byte	0
+ 963 0036 05       		.uleb128 0x5
+ 964 0037 35       		.uleb128 0x35
+ 965 0038 00       		.byte	0
+ 966 0039 49       		.uleb128 0x49
+ 967 003a 13       		.uleb128 0x13
+ 968 003b 00       		.byte	0
+ 969 003c 00       		.byte	0
+ 970 003d 06       		.uleb128 0x6
+ 971 003e 2E       		.uleb128 0x2e
+ 972 003f 00       		.byte	0
+ 973 0040 3F       		.uleb128 0x3f
+ 974 0041 19       		.uleb128 0x19
+ 975 0042 03       		.uleb128 0x3
+ 976 0043 0E       		.uleb128 0xe
+ 977 0044 3A       		.uleb128 0x3a
+ 978 0045 0B       		.uleb128 0xb
+ 979 0046 3B       		.uleb128 0x3b
+ 980 0047 0B       		.uleb128 0xb
+ 981 0048 27       		.uleb128 0x27
+ 982 0049 19       		.uleb128 0x19
+ 983 004a 49       		.uleb128 0x49
+ 984 004b 13       		.uleb128 0x13
+ 985 004c 11       		.uleb128 0x11
+ 986 004d 01       		.uleb128 0x1
+ 987 004e 12       		.uleb128 0x12
+ 988 004f 06       		.uleb128 0x6
+ 989 0050 40       		.uleb128 0x40
+ 990 0051 18       		.uleb128 0x18
+ 991 0052 9742     		.uleb128 0x2117
+ 992 0054 19       		.uleb128 0x19
+ 993 0055 00       		.byte	0
+ 994 0056 00       		.byte	0
+ 995 0057 07       		.uleb128 0x7
+ 996 0058 2E       		.uleb128 0x2e
+ 997 0059 01       		.byte	0x1
+ 998 005a 3F       		.uleb128 0x3f
+ 999 005b 19       		.uleb128 0x19
+ 1000 005c 03       		.uleb128 0x3
+ 1001 005d 0E       		.uleb128 0xe
+ 1002 005e 3A       		.uleb128 0x3a
+ 1003 005f 0B       		.uleb128 0xb
+ 1004 0060 3B       		.uleb128 0x3b
+ 1005 0061 0B       		.uleb128 0xb
+ 1006 0062 27       		.uleb128 0x27
+ 1007 0063 19       		.uleb128 0x19
+ 1008 0064 49       		.uleb128 0x49
+ 1009 0065 13       		.uleb128 0x13
+ 1010 0066 11       		.uleb128 0x11
+ 1011 0067 01       		.uleb128 0x1
+ 1012 0068 12       		.uleb128 0x12
+ 1013 0069 06       		.uleb128 0x6
+ 1014 006a 40       		.uleb128 0x40
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 26
+
+
+ 1015 006b 18       		.uleb128 0x18
+ 1016 006c 9642     		.uleb128 0x2116
+ 1017 006e 19       		.uleb128 0x19
+ 1018 006f 01       		.uleb128 0x1
+ 1019 0070 13       		.uleb128 0x13
+ 1020 0071 00       		.byte	0
+ 1021 0072 00       		.byte	0
+ 1022 0073 08       		.uleb128 0x8
+ 1023 0074 34       		.uleb128 0x34
+ 1024 0075 00       		.byte	0
+ 1025 0076 03       		.uleb128 0x3
+ 1026 0077 0E       		.uleb128 0xe
+ 1027 0078 3A       		.uleb128 0x3a
+ 1028 0079 0B       		.uleb128 0xb
+ 1029 007a 3B       		.uleb128 0x3b
+ 1030 007b 0B       		.uleb128 0xb
+ 1031 007c 49       		.uleb128 0x49
+ 1032 007d 13       		.uleb128 0x13
+ 1033 007e 02       		.uleb128 0x2
+ 1034 007f 18       		.uleb128 0x18
+ 1035 0080 00       		.byte	0
+ 1036 0081 00       		.byte	0
+ 1037 0082 09       		.uleb128 0x9
+ 1038 0083 2E       		.uleb128 0x2e
+ 1039 0084 01       		.byte	0x1
+ 1040 0085 3F       		.uleb128 0x3f
+ 1041 0086 19       		.uleb128 0x19
+ 1042 0087 03       		.uleb128 0x3
+ 1043 0088 0E       		.uleb128 0xe
+ 1044 0089 3A       		.uleb128 0x3a
+ 1045 008a 0B       		.uleb128 0xb
+ 1046 008b 3B       		.uleb128 0x3b
+ 1047 008c 0B       		.uleb128 0xb
+ 1048 008d 27       		.uleb128 0x27
+ 1049 008e 19       		.uleb128 0x19
+ 1050 008f 11       		.uleb128 0x11
+ 1051 0090 01       		.uleb128 0x1
+ 1052 0091 12       		.uleb128 0x12
+ 1053 0092 06       		.uleb128 0x6
+ 1054 0093 40       		.uleb128 0x40
+ 1055 0094 18       		.uleb128 0x18
+ 1056 0095 9742     		.uleb128 0x2117
+ 1057 0097 19       		.uleb128 0x19
+ 1058 0098 01       		.uleb128 0x1
+ 1059 0099 13       		.uleb128 0x13
+ 1060 009a 00       		.byte	0
+ 1061 009b 00       		.byte	0
+ 1062 009c 0A       		.uleb128 0xa
+ 1063 009d 05       		.uleb128 0x5
+ 1064 009e 00       		.byte	0
+ 1065 009f 03       		.uleb128 0x3
+ 1066 00a0 0E       		.uleb128 0xe
+ 1067 00a1 3A       		.uleb128 0x3a
+ 1068 00a2 0B       		.uleb128 0xb
+ 1069 00a3 3B       		.uleb128 0x3b
+ 1070 00a4 0B       		.uleb128 0xb
+ 1071 00a5 49       		.uleb128 0x49
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 27
+
+
+ 1072 00a6 13       		.uleb128 0x13
+ 1073 00a7 02       		.uleb128 0x2
+ 1074 00a8 18       		.uleb128 0x18
+ 1075 00a9 00       		.byte	0
+ 1076 00aa 00       		.byte	0
+ 1077 00ab 0B       		.uleb128 0xb
+ 1078 00ac 2E       		.uleb128 0x2e
+ 1079 00ad 01       		.byte	0x1
+ 1080 00ae 3F       		.uleb128 0x3f
+ 1081 00af 19       		.uleb128 0x19
+ 1082 00b0 03       		.uleb128 0x3
+ 1083 00b1 0E       		.uleb128 0xe
+ 1084 00b2 3A       		.uleb128 0x3a
+ 1085 00b3 0B       		.uleb128 0xb
+ 1086 00b4 3B       		.uleb128 0x3b
+ 1087 00b5 05       		.uleb128 0x5
+ 1088 00b6 27       		.uleb128 0x27
+ 1089 00b7 19       		.uleb128 0x19
+ 1090 00b8 11       		.uleb128 0x11
+ 1091 00b9 01       		.uleb128 0x1
+ 1092 00ba 12       		.uleb128 0x12
+ 1093 00bb 06       		.uleb128 0x6
+ 1094 00bc 40       		.uleb128 0x40
+ 1095 00bd 18       		.uleb128 0x18
+ 1096 00be 9642     		.uleb128 0x2116
+ 1097 00c0 19       		.uleb128 0x19
+ 1098 00c1 01       		.uleb128 0x1
+ 1099 00c2 13       		.uleb128 0x13
+ 1100 00c3 00       		.byte	0
+ 1101 00c4 00       		.byte	0
+ 1102 00c5 0C       		.uleb128 0xc
+ 1103 00c6 05       		.uleb128 0x5
+ 1104 00c7 00       		.byte	0
+ 1105 00c8 03       		.uleb128 0x3
+ 1106 00c9 0E       		.uleb128 0xe
+ 1107 00ca 3A       		.uleb128 0x3a
+ 1108 00cb 0B       		.uleb128 0xb
+ 1109 00cc 3B       		.uleb128 0x3b
+ 1110 00cd 05       		.uleb128 0x5
+ 1111 00ce 49       		.uleb128 0x49
+ 1112 00cf 13       		.uleb128 0x13
+ 1113 00d0 02       		.uleb128 0x2
+ 1114 00d1 18       		.uleb128 0x18
+ 1115 00d2 00       		.byte	0
+ 1116 00d3 00       		.byte	0
+ 1117 00d4 0D       		.uleb128 0xd
+ 1118 00d5 0F       		.uleb128 0xf
+ 1119 00d6 00       		.byte	0
+ 1120 00d7 0B       		.uleb128 0xb
+ 1121 00d8 0B       		.uleb128 0xb
+ 1122 00d9 49       		.uleb128 0x49
+ 1123 00da 13       		.uleb128 0x13
+ 1124 00db 00       		.byte	0
+ 1125 00dc 00       		.byte	0
+ 1126 00dd 0E       		.uleb128 0xe
+ 1127 00de 2E       		.uleb128 0x2e
+ 1128 00df 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 28
+
+
+ 1129 00e0 3F       		.uleb128 0x3f
+ 1130 00e1 19       		.uleb128 0x19
+ 1131 00e2 03       		.uleb128 0x3
+ 1132 00e3 0E       		.uleb128 0xe
+ 1133 00e4 3A       		.uleb128 0x3a
+ 1134 00e5 0B       		.uleb128 0xb
+ 1135 00e6 3B       		.uleb128 0x3b
+ 1136 00e7 05       		.uleb128 0x5
+ 1137 00e8 27       		.uleb128 0x27
+ 1138 00e9 19       		.uleb128 0x19
+ 1139 00ea 49       		.uleb128 0x49
+ 1140 00eb 13       		.uleb128 0x13
+ 1141 00ec 11       		.uleb128 0x11
+ 1142 00ed 01       		.uleb128 0x1
+ 1143 00ee 12       		.uleb128 0x12
+ 1144 00ef 06       		.uleb128 0x6
+ 1145 00f0 40       		.uleb128 0x40
+ 1146 00f1 18       		.uleb128 0x18
+ 1147 00f2 9742     		.uleb128 0x2117
+ 1148 00f4 19       		.uleb128 0x19
+ 1149 00f5 00       		.byte	0
+ 1150 00f6 00       		.byte	0
+ 1151 00f7 0F       		.uleb128 0xf
+ 1152 00f8 2E       		.uleb128 0x2e
+ 1153 00f9 00       		.byte	0
+ 1154 00fa 3F       		.uleb128 0x3f
+ 1155 00fb 19       		.uleb128 0x19
+ 1156 00fc 03       		.uleb128 0x3
+ 1157 00fd 0E       		.uleb128 0xe
+ 1158 00fe 3A       		.uleb128 0x3a
+ 1159 00ff 0B       		.uleb128 0xb
+ 1160 0100 3B       		.uleb128 0x3b
+ 1161 0101 05       		.uleb128 0x5
+ 1162 0102 27       		.uleb128 0x27
+ 1163 0103 19       		.uleb128 0x19
+ 1164 0104 11       		.uleb128 0x11
+ 1165 0105 01       		.uleb128 0x1
+ 1166 0106 12       		.uleb128 0x12
+ 1167 0107 06       		.uleb128 0x6
+ 1168 0108 40       		.uleb128 0x40
+ 1169 0109 18       		.uleb128 0x18
+ 1170 010a 9742     		.uleb128 0x2117
+ 1171 010c 19       		.uleb128 0x19
+ 1172 010d 00       		.byte	0
+ 1173 010e 00       		.byte	0
+ 1174 010f 10       		.uleb128 0x10
+ 1175 0110 34       		.uleb128 0x34
+ 1176 0111 00       		.byte	0
+ 1177 0112 03       		.uleb128 0x3
+ 1178 0113 0E       		.uleb128 0xe
+ 1179 0114 3A       		.uleb128 0x3a
+ 1180 0115 0B       		.uleb128 0xb
+ 1181 0116 3B       		.uleb128 0x3b
+ 1182 0117 0B       		.uleb128 0xb
+ 1183 0118 49       		.uleb128 0x49
+ 1184 0119 13       		.uleb128 0x13
+ 1185 011a 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 29
+
+
+ 1186 011b 19       		.uleb128 0x19
+ 1187 011c 02       		.uleb128 0x2
+ 1188 011d 18       		.uleb128 0x18
+ 1189 011e 00       		.byte	0
+ 1190 011f 00       		.byte	0
+ 1191 0120 00       		.byte	0
+ 1192              		.section	.debug_aranges,"",%progbits
+ 1193 0000 6C000000 		.4byte	0x6c
+ 1194 0004 0200     		.2byte	0x2
+ 1195 0006 00000000 		.4byte	.Ldebug_info0
+ 1196 000a 04       		.byte	0x4
+ 1197 000b 00       		.byte	0
+ 1198 000c 0000     		.2byte	0
+ 1199 000e 0000     		.2byte	0
+ 1200 0010 00000000 		.4byte	.LFB2
+ 1201 0014 14000000 		.4byte	.LFE2-.LFB2
+ 1202 0018 00000000 		.4byte	.LFB3
+ 1203 001c 40000000 		.4byte	.LFE3-.LFB3
+ 1204 0020 00000000 		.4byte	.LFB4
+ 1205 0024 40000000 		.4byte	.LFE4-.LFB4
+ 1206 0028 00000000 		.4byte	.LFB5
+ 1207 002c 38000000 		.4byte	.LFE5-.LFB5
+ 1208 0030 00000000 		.4byte	.LFB6
+ 1209 0034 38000000 		.4byte	.LFE6-.LFB6
+ 1210 0038 00000000 		.4byte	.LFB7
+ 1211 003c 4C000000 		.4byte	.LFE7-.LFB7
+ 1212 0040 00000000 		.4byte	.LFB8
+ 1213 0044 44000000 		.4byte	.LFE8-.LFB8
+ 1214 0048 00000000 		.4byte	.LFB9
+ 1215 004c 14000000 		.4byte	.LFE9-.LFB9
+ 1216 0050 00000000 		.4byte	.LFB10
+ 1217 0054 14000000 		.4byte	.LFE10-.LFB10
+ 1218 0058 00000000 		.4byte	.LFB11
+ 1219 005c 14000000 		.4byte	.LFE11-.LFB11
+ 1220 0060 00000000 		.4byte	.LFB12
+ 1221 0064 14000000 		.4byte	.LFE12-.LFB12
+ 1222 0068 00000000 		.4byte	0
+ 1223 006c 00000000 		.4byte	0
+ 1224              		.section	.debug_ranges,"",%progbits
+ 1225              	.Ldebug_ranges0:
+ 1226 0000 00000000 		.4byte	.LFB2
+ 1227 0004 14000000 		.4byte	.LFE2
+ 1228 0008 00000000 		.4byte	.LFB3
+ 1229 000c 40000000 		.4byte	.LFE3
+ 1230 0010 00000000 		.4byte	.LFB4
+ 1231 0014 40000000 		.4byte	.LFE4
+ 1232 0018 00000000 		.4byte	.LFB5
+ 1233 001c 38000000 		.4byte	.LFE5
+ 1234 0020 00000000 		.4byte	.LFB6
+ 1235 0024 38000000 		.4byte	.LFE6
+ 1236 0028 00000000 		.4byte	.LFB7
+ 1237 002c 4C000000 		.4byte	.LFE7
+ 1238 0030 00000000 		.4byte	.LFB8
+ 1239 0034 44000000 		.4byte	.LFE8
+ 1240 0038 00000000 		.4byte	.LFB9
+ 1241 003c 14000000 		.4byte	.LFE9
+ 1242 0040 00000000 		.4byte	.LFB10
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 30
+
+
+ 1243 0044 14000000 		.4byte	.LFE10
+ 1244 0048 00000000 		.4byte	.LFB11
+ 1245 004c 14000000 		.4byte	.LFE11
+ 1246 0050 00000000 		.4byte	.LFB12
+ 1247 0054 14000000 		.4byte	.LFE12
+ 1248 0058 00000000 		.4byte	0
+ 1249 005c 00000000 		.4byte	0
+ 1250              		.section	.debug_line,"",%progbits
+ 1251              	.Ldebug_line0:
+ 1252 0000 31010000 		.section	.debug_str,"MS",%progbits,1
+ 1252      02004C00 
+ 1252      00000201 
+ 1252      FB0E0D00 
+ 1252      01010101 
+ 1253              	.LASF14:
+ 1254 0000 72656733 		.ascii	"reg32\000"
+ 1254      3200
+ 1255              	.LASF28:
+ 1256 0006 5343425F 		.ascii	"SCB_2_I2CSlaveInitWriteBuf\000"
+ 1256      325F4932 
+ 1256      43536C61 
+ 1256      7665496E 
+ 1256      69745772 
+ 1257              	.LASF31:
+ 1258 0021 5343425F 		.ascii	"SCB_2_I2CSlaveGetReadBufSize\000"
+ 1258      325F4932 
+ 1258      43536C61 
+ 1258      76654765 
+ 1258      74526561 
+ 1259              	.LASF3:
+ 1260 003e 73686F72 		.ascii	"short unsigned int\000"
+ 1260      7420756E 
+ 1260      7369676E 
+ 1260      65642069 
+ 1260      6E7400
+ 1261              	.LASF8:
+ 1262 0051 756E7369 		.ascii	"unsigned int\000"
+ 1262      676E6564 
+ 1262      20696E74 
+ 1262      00
+ 1263              	.LASF18:
+ 1264 005e 5343425F 		.ascii	"SCB_2_I2CSlaveClearWriteStatus\000"
+ 1264      325F4932 
+ 1264      43536C61 
+ 1264      7665436C 
+ 1264      65617257 
+ 1265              	.LASF19:
+ 1266 007d 73746174 		.ascii	"status\000"
+ 1266      757300
+ 1267              	.LASF30:
+ 1268 0084 5343425F 		.ascii	"SCB_2_I2CSlaveStatus\000"
+ 1268      325F4932 
+ 1268      43536C61 
+ 1268      76655374 
+ 1268      61747573 
+ 1269              	.LASF26:
+ 1270 0099 72644275 		.ascii	"rdBuf\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 31
+
+
+ 1270      6600
+ 1271              	.LASF11:
+ 1272 009f 666C6F61 		.ascii	"float\000"
+ 1272      7400
+ 1273              	.LASF33:
+ 1274 00a5 5343425F 		.ascii	"SCB_2_I2CSlaveClearReadBuf\000"
+ 1274      325F4932 
+ 1274      43536C61 
+ 1274      7665436C 
+ 1274      65617252 
+ 1275              	.LASF1:
+ 1276 00c0 756E7369 		.ascii	"unsigned char\000"
+ 1276      676E6564 
+ 1276      20636861 
+ 1276      7200
+ 1277              	.LASF32:
+ 1278 00ce 5343425F 		.ascii	"SCB_2_I2CSlaveGetWriteBufSize\000"
+ 1278      325F4932 
+ 1278      43536C61 
+ 1278      76654765 
+ 1278      74577269 
+ 1279              	.LASF21:
+ 1280 00ec 5343425F 		.ascii	"SCB_2_I2CSlaveSetAddress\000"
+ 1280      325F4932 
+ 1280      43536C61 
+ 1280      76655365 
+ 1280      74416464 
+ 1281              	.LASF5:
+ 1282 0105 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1282      20756E73 
+ 1282      69676E65 
+ 1282      6420696E 
+ 1282      7400
+ 1283              	.LASF9:
+ 1284 0117 75696E74 		.ascii	"uint8\000"
+ 1284      3800
+ 1285              	.LASF44:
+ 1286 011d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1286      43313120 
+ 1286      352E342E 
+ 1286      31203230 
+ 1286      31363036 
+ 1287 0150 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1287      20726576 
+ 1287      6973696F 
+ 1287      6E203233 
+ 1287      37373135 
+ 1288 0183 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1288      66756E63 
+ 1288      74696F6E 
+ 1288      2D736563 
+ 1288      74696F6E 
+ 1289              	.LASF29:
+ 1290 01ab 77724275 		.ascii	"wrBuf\000"
+ 1290      6600
+ 1291              	.LASF43:
+ 1292 01b1 5343425F 		.ascii	"SCB_2_slOverFlowCount\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 32
+
+
+ 1292      325F736C 
+ 1292      4F766572 
+ 1292      466C6F77 
+ 1292      436F756E 
+ 1293              	.LASF35:
+ 1294 01c7 5343425F 		.ascii	"SCB_2_slStatus\000"
+ 1294      325F736C 
+ 1294      53746174 
+ 1294      757300
+ 1295              	.LASF46:
+ 1296 01d6 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\mu"
+ 1296      73657273 
+ 1296      5C707572 
+ 1296      69615C44 
+ 1296      6F63756D 
+ 1297 0202 6C746963 		.ascii	"lticon_ble.cydsn\000"
+ 1297      6F6E5F62 
+ 1297      6C652E63 
+ 1297      7964736E 
+ 1297      00
+ 1298              	.LASF12:
+ 1299 0213 646F7562 		.ascii	"double\000"
+ 1299      6C6500
+ 1300              	.LASF40:
+ 1301 021a 5343425F 		.ascii	"SCB_2_slRdBufSize\000"
+ 1301      325F736C 
+ 1301      52644275 
+ 1301      6653697A 
+ 1301      6500
+ 1302              	.LASF39:
+ 1303 022c 5343425F 		.ascii	"SCB_2_slRdBufPtr\000"
+ 1303      325F736C 
+ 1303      52644275 
+ 1303      66507472 
+ 1303      00
+ 1304              	.LASF37:
+ 1305 023d 5343425F 		.ascii	"SCB_2_slWrBufSize\000"
+ 1305      325F736C 
+ 1305      57724275 
+ 1305      6653697A 
+ 1305      6500
+ 1306              	.LASF10:
+ 1307 024f 75696E74 		.ascii	"uint32\000"
+ 1307      333200
+ 1308              	.LASF42:
+ 1309 0256 5343425F 		.ascii	"SCB_2_slRdBufIndexTmp\000"
+ 1309      325F736C 
+ 1309      52644275 
+ 1309      66496E64 
+ 1309      6578546D 
+ 1310              	.LASF45:
+ 1311 026c 47656E65 		.ascii	"Generated_Source\\PSoC4\\SCB_2_I2C_SLAVE.c\000"
+ 1311      72617465 
+ 1311      645F536F 
+ 1311      75726365 
+ 1311      5C50536F 
+ 1312              	.LASF23:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 33
+
+
+ 1313 0295 61646472 		.ascii	"address\000"
+ 1313      65737300 
+ 1314              	.LASF7:
+ 1315 029d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1315      206C6F6E 
+ 1315      6720756E 
+ 1315      7369676E 
+ 1315      65642069 
+ 1316              	.LASF24:
+ 1317 02b4 61646472 		.ascii	"addressMask\000"
+ 1317      6573734D 
+ 1317      61736B00 
+ 1318              	.LASF15:
+ 1319 02c0 6C6F6E67 		.ascii	"long double\000"
+ 1319      20646F75 
+ 1319      626C6500 
+ 1320              	.LASF38:
+ 1321 02cc 5343425F 		.ascii	"SCB_2_slWrBufIndex\000"
+ 1321      325F736C 
+ 1321      57724275 
+ 1321      66496E64 
+ 1321      657800
+ 1322              	.LASF16:
+ 1323 02df 73697A65 		.ascii	"sizetype\000"
+ 1323      74797065 
+ 1323      00
+ 1324              	.LASF6:
+ 1325 02e8 6C6F6E67 		.ascii	"long long int\000"
+ 1325      206C6F6E 
+ 1325      6720696E 
+ 1325      7400
+ 1326              	.LASF13:
+ 1327 02f6 63686172 		.ascii	"char\000"
+ 1327      00
+ 1328              	.LASF2:
+ 1329 02fb 73686F72 		.ascii	"short int\000"
+ 1329      7420696E 
+ 1329      7400
+ 1330              	.LASF27:
+ 1331 0305 62756653 		.ascii	"bufSize\000"
+ 1331      697A6500 
+ 1332              	.LASF25:
+ 1333 030d 5343425F 		.ascii	"SCB_2_I2CSlaveInitReadBuf\000"
+ 1333      325F4932 
+ 1333      43536C61 
+ 1333      7665496E 
+ 1333      69745265 
+ 1334              	.LASF36:
+ 1335 0327 5343425F 		.ascii	"SCB_2_slWrBufPtr\000"
+ 1335      325F736C 
+ 1335      57724275 
+ 1335      66507472 
+ 1335      00
+ 1336              	.LASF4:
+ 1337 0338 6C6F6E67 		.ascii	"long int\000"
+ 1337      20696E74 
+ 1337      00
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjEpCeA.s 			page 34
+
+
+ 1338              	.LASF20:
+ 1339 0341 6D617463 		.ascii	"matchReg\000"
+ 1339      68526567 
+ 1339      00
+ 1340              	.LASF41:
+ 1341 034a 5343425F 		.ascii	"SCB_2_slRdBufIndex\000"
+ 1341      325F736C 
+ 1341      52644275 
+ 1341      66496E64 
+ 1341      657800
+ 1342              	.LASF0:
+ 1343 035d 7369676E 		.ascii	"signed char\000"
+ 1343      65642063 
+ 1343      68617200 
+ 1344              	.LASF34:
+ 1345 0369 5343425F 		.ascii	"SCB_2_I2CSlaveClearWriteBuf\000"
+ 1345      325F4932 
+ 1345      43536C61 
+ 1345      7665436C 
+ 1345      65617257 
+ 1346              	.LASF17:
+ 1347 0385 5343425F 		.ascii	"SCB_2_I2CSlaveClearReadStatus\000"
+ 1347      325F4932 
+ 1347      43536C61 
+ 1347      7665436C 
+ 1347      65617252 
+ 1348              	.LASF22:
+ 1349 03a3 5343425F 		.ascii	"SCB_2_I2CSlaveSetAddressMask\000"
+ 1349      325F4932 
+ 1349      43536C61 
+ 1349      76655365 
+ 1349      74416464 
+ 1350              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
