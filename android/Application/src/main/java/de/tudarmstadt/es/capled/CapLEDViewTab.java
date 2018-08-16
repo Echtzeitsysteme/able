@@ -52,11 +52,16 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
     private BluetoothLeService mAbleBLEService;
     private static BluetoothGatt mBluetoothGatt;
     public static BluetoothGattCharacteristic mLedCharacteristic;
+    public static BluetoothGattCharacteristic mGreenLedCharacteristic;
+
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
     private static BluetoothGattDescriptor mCapsenseNotification;
 
     private static Switch led_switch;
+    private static Switch green_led_switch;
     private static boolean mLedSwitchState = false;
+    private static boolean mGreenLedSwitchState = false;
+
     private static String mCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
     private static ProgressBar capSenseProgressBar;
     private static TextView capSenseDataView;
@@ -87,6 +92,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
         mDeviceAddress = getArguments().getString("mDeviceAddress");
 
         led_switch = rootView.findViewById(R.id.led_switch);
+        green_led_switch = rootView.findViewById(R.id.green_led_switch);
         capSenseProgressBar = rootView.findViewById(R.id.capledProgressBar);
         capSenseDataView = rootView.findViewById(R.id.capSenseValue);
         capSenseProgressBar.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 159, 227)));
@@ -100,6 +106,12 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
         led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 writeLedCharacteristic(isChecked);
+            }
+        });
+
+        green_led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                writeGreenLedCharacteristic(isChecked);
             }
         });
         return rootView;
@@ -160,6 +172,19 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
         BluetoothLeService.genericWriteCharacteristic(mLedCharacteristic);
     }
 
+    public void writeGreenLedCharacteristic(boolean value) {
+        byte[] byteVal = new byte[1];
+        if (value) {
+            byteVal[0] = (byte) (1);
+        } else {
+            byteVal[0] = (byte) (0);
+        }
+        Log.i(TAG, "LED " + value);
+        mGreenLedSwitchState = value;
+        mGreenLedCharacteristic.setValue(byteVal);
+        BluetoothLeService.genericWriteCharacteristic(mGreenLedCharacteristic);
+    }
+
     /**
      * Reads if the LED is on or off.
      */
@@ -218,8 +243,9 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
         BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(CapLEDConstants.CAPLED_SERVICE_UUID);
 
         mLedCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_LED_CHARACTERISTIC_UUID);
+        mGreenLedCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_GREEN_LED_CHARACTERISTIC_UUID);
         mCapsenseCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_CAP_CHARACTERISTIC_UUID);
-        mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CccdUUID);
+        mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CAPLED_CAP_NOTIFICATION);
 
         readLedCharacteristic();
 
@@ -239,6 +265,10 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
         } else {
             led_switch.setChecked(false);
         }
+        if(mGreenLedSwitchState)
+            green_led_switch.setChecked(true);
+        else
+            green_led_switch.setChecked(false);
 
         String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
         if (uuid.equals(CapLEDConstants.CAPLED_CAP_CHARACTERISTIC_UUID.toString())) {

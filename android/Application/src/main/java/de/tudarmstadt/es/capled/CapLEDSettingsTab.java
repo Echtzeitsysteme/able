@@ -258,7 +258,7 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
 
         mLedCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_LED_CHARACTERISTIC_UUID);
         mCapsenseCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_CAP_CHARACTERISTIC_UUID);
-        mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CccdUUID);
+        mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CAPLED_CAP_NOTIFICATION);
 
         readLedCharacteristic();
         cap_switch.setEnabled(true);

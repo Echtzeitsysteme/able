@@ -26,6 +26,7 @@
     <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
     <string name="Bluetooth_switch">Bluetooth</string>
     <string name="RedLED">Red LED</string>
+    <string name="GreenLED">Green LED</string>
     <string name="Capsense">CapSense Value =</string>
     <string name="NotifyOff">"Notify Off"</string>
     <string name="Notify">Notify CapSense</string>
