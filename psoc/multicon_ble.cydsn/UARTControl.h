@@ -15,6 +15,7 @@
 #define __UART_CONTROL_H__
 void LEDRainbow();
 void testListen();
+uint8_t uartRead();
 #endif
 
 /* [] END OF FILE */

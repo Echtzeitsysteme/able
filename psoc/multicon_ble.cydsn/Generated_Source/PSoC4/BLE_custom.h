@@ -27,18 +27,20 @@
 #define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x01u)
 #define CYBLE_CUSTOMC_SERVICE_COUNT                  (0x00u)
 #define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x01u)
-#define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x01u)
+#define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x02u)
 
 /* Below are the indexes and handles of the defined Custom Services and their characteristics */
 #define CYBLE_PERIPHERY_SERVICE_INDEX   (0x00u) /* Index of Periphery service in the cyBle_customs array */
 #define CYBLE_PERIPHERY_JOYSTICK_1_CHAR_INDEX   (0x00u) /* Index of Joystick 1 characteristic */
 #define CYBLE_PERIPHERY_JOYSTICK_1_CHARACTERISTIC_USER_DESCRIPTION_DESC_INDEX   (0x00u) /* Index of Characteristic User Description descriptor */
+#define CYBLE_PERIPHERY_JOYSTICK_1_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_INDEX   (0x01u) /* Index of Client Characteristic Configuration descriptor */
 
 
 #define CYBLE_PERIPHERY_SERVICE_HANDLE   (0x0010u) /* Handle of Periphery service */
 #define CYBLE_PERIPHERY_JOYSTICK_1_DECL_HANDLE   (0x0011u) /* Handle of Joystick 1 characteristic declaration */
 #define CYBLE_PERIPHERY_JOYSTICK_1_CHAR_HANDLE   (0x0012u) /* Handle of Joystick 1 characteristic */
 #define CYBLE_PERIPHERY_JOYSTICK_1_CHARACTERISTIC_USER_DESCRIPTION_DESC_HANDLE   (0x0013u) /* Handle of Characteristic User Description descriptor */
+#define CYBLE_PERIPHERY_JOYSTICK_1_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0014u) /* Handle of Client Characteristic Configuration descriptor */
 
 
 

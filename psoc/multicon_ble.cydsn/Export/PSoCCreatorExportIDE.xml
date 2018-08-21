@@ -142,6 +142,11 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_rx_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_bless_isr.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_bless_isr.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ledPWM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ledPWM.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ledPWM_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ledClock.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\ledClock.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\Export\ARM_GCC_Generic\BLE_v3_30">

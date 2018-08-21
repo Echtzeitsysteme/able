@@ -79,20 +79,25 @@ CYBLE_STATE_T cyBle_state;
         0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u }, 
         {{
             0x00u, 0x00u,
-        },
-        {
             0x00u, 0x00u,
         },
         {
             0x00u, 0x00u,
-        },
-        {
             0x00u, 0x00u,
         },
         {
+            0x00u, 0x00u,
+            0x00u, 0x00u,
+        },
+        {
+            0x00u, 0x00u,
+            0x00u, 0x00u,
+        },
+        {
+            0x00u, 0x00u,
             0x00u, 0x00u,
         }}, 
-        0x02u, /* CYBLE_GATT_DB_CCCD_COUNT */ 
+        0x04u, /* CYBLE_GATT_DB_CCCD_COUNT */ 
         0x05u, /* CYBLE_GAP_MAX_BONDED_DEVICE */ 
     };
 #endif /* (CYBLE_MODE_PROFILE) */
@@ -158,9 +163,10 @@ CYBLE_GATTS_ATT_GEN_VAL_LEN_T cyBle_attValuesLen[CYBLE_GATT_DB_ATT_VAL_COUNT] = 
     { 0x0010u, (void *)&cyBle_attUuid128[1] }, /* Joystick 1 UUID */
     { 0x0001u, (void *)&cyBle_attValues[23] }, /* Joystick 1 */
     { 0x000Au, (void *)&cyBle_attValues[24] }, /* Characteristic User Description */
+    { 0x0002u, (void *)&cyBle_attValuesCCCD[2] }, /* Client Characteristic Configuration */
 };
 
-const CYBLE_GATTS_DB_T cyBle_gattDB[0x13u] = {
+const CYBLE_GATTS_DB_T cyBle_gattDB[0x14u] = {
     { 0x0001u, 0x2800u /* Primary service                     */, 0x00000001u /*       */, 0x000Bu, {{0x1800u, NULL}}                           },
     { 0x0002u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd    */, 0x0003u, {{0x2A00u, NULL}}                           },
     { 0x0003u, 0x2A00u /* Device Name                         */, 0x01020001u /* rd    */, 0x0003u, {{0x0007u, (void *)&cyBle_attValuesLen[0]}} },
@@ -176,10 +182,11 @@ const CYBLE_GATTS_DB_T cyBle_gattDB[0x13u] = {
     { 0x000Du, 0x2803u /* Characteristic                      */, 0x00200001u /* ind   */, 0x000Fu, {{0x2A05u, NULL}}                           },
     { 0x000Eu, 0x2A05u /* Service Changed                     */, 0x01200000u /* ind   */, 0x000Fu, {{0x0004u, (void *)&cyBle_attValuesLen[5]}} },
     { 0x000Fu, 0x2902u /* Client Characteristic Configuration */, 0x010A0101u /* rd,wr */, 0x000Fu, {{0x0002u, (void *)&cyBle_attValuesLen[6]}} },
-    { 0x0010u, 0x2800u /* Primary service                     */, 0x08000001u /*       */, 0x0013u, {{0x0010u, (void *)&cyBle_attValuesLen[7]}} },
-    { 0x0011u, 0x2803u /* Characteristic                      */, 0x000A0001u /* rd,wr */, 0x0013u, {{0x0010u, (void *)&cyBle_attValuesLen[8]}} },
-    { 0x0012u, 0xE872u /* Joystick 1                          */, 0x090A0101u /* rd,wr */, 0x0013u, {{0x0001u, (void *)&cyBle_attValuesLen[9]}} },
+    { 0x0010u, 0x2800u /* Primary service                     */, 0x08000001u /*       */, 0x0014u, {{0x0010u, (void *)&cyBle_attValuesLen[7]}} },
+    { 0x0011u, 0x2803u /* Characteristic                      */, 0x000A0001u /* rd,wr */, 0x0014u, {{0x0010u, (void *)&cyBle_attValuesLen[8]}} },
+    { 0x0012u, 0xE872u /* Joystick 1                          */, 0x090A0101u /* rd,wr */, 0x0014u, {{0x0001u, (void *)&cyBle_attValuesLen[9]}} },
     { 0x0013u, 0x2901u /* Characteristic User Description     */, 0x01020001u /* rd    */, 0x0013u, {{0x000Au, (void *)&cyBle_attValuesLen[10]}} },
+    { 0x0014u, 0x2902u /* Client Characteristic Configuration */, 0x010A0101u /* rd,wr */, 0x0014u, {{0x0002u, (void *)&cyBle_attValuesLen[11]}} },
 };
 
 
