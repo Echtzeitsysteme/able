@@ -1,5 +1,5 @@
 # multicon_ble
-# 2018-08-16 11:21:55Z
+# 2018-08-19 17:43:03Z
 
 # IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 6
@@ -23,6 +23,14 @@ set_io "\UART:tx(0)\" iocell 0 5
 set_io "\UART:rx(0)\" iocell 0 4
 set_io "LED(0)" iocell 1 4
 set_io "testPin(0)" iocell 1 6
+set_location "\ledPWM:PWMUDB:status_2\" 1 0 1 0
 set_location "\UART:SCB\" m0s8scbcell -1 -1 0
 set_location "\BLE:cy_m0s8_ble\" p4blecell -1 -1 0
 set_location "\BLE:bless_isr\" interrupt -1 -1 12
+set_location "\ledPWM:PWMUDB:genblk1:ctrlreg\" 1 0 6
+set_location "\ledPWM:PWMUDB:genblk8:stsreg\" 1 0 4
+set_location "\ledPWM:PWMUDB:sP8:pwmdp:u0\" 1 0 2
+set_location "\ledPWM:PWMUDB:runmode_enable\" 1 0 0 3
+set_location "\ledPWM:PWMUDB:prevCompare1\" 1 0 0 1
+set_location "\ledPWM:PWMUDB:status_0\" 1 0 0 2
+set_location "Net_575" 1 0 0 0

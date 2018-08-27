@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.093ms
+Loading plugins phase: Elapsed time ==> 0s.109ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj -d CYBLE-022001-00 -s C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.484ms
+Elaboration phase: Elapsed time ==> 1s.765ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.046ms
+HDL generation phase: Elapsed time ==> 0s.062ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Thu Aug 16 13:21:54 2018
+Sun Aug 19 19:43:02 2018
 
 
 ======================================================================
@@ -51,12 +51,15 @@ Options  :    -yv2 -q10 multicon_ble.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Thu Aug 16 13:21:54 2018
+Sun Aug 19 19:43:02 2018
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
 
 vpp:  No errors.
 
@@ -73,6 +76,10 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\c
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'multicon_ble.ctl'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 947, col 46):  Note: Substituting module 'sub_vi_vv' for '-'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 977, col 46):  Note: Substituting module 'add_vi_vv' for '+'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
 
 vlogfe:  No errors.
 
@@ -84,7 +91,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Thu Aug 16 13:21:54 2018
+Sun Aug 19 19:43:02 2018
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -101,6 +108,12 @@ Linking 'C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentem
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
 
 tovif:  No errors.
 
@@ -112,7 +125,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Thu Aug 16 13:21:54 2018
+Sun Aug 19 19:43:02 2018
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -129,6 +142,12 @@ Linking 'C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentem
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
@@ -150,10 +169,173 @@ Detecting unused logic.
 	Net_356
 	Net_358
 	\BLE:Net_55\
+	\ledPWM:PWMUDB:km_run\
+	\ledPWM:PWMUDB:ctrl_cmpmode2_2\
+	\ledPWM:PWMUDB:ctrl_cmpmode2_1\
+	\ledPWM:PWMUDB:ctrl_cmpmode2_0\
+	\ledPWM:PWMUDB:ctrl_cmpmode1_2\
+	\ledPWM:PWMUDB:ctrl_cmpmode1_1\
+	\ledPWM:PWMUDB:ctrl_cmpmode1_0\
+	\ledPWM:PWMUDB:capt_rising\
+	\ledPWM:PWMUDB:capt_falling\
+	\ledPWM:PWMUDB:trig_rise\
+	\ledPWM:PWMUDB:trig_fall\
+	\ledPWM:PWMUDB:sc_kill\
+	\ledPWM:PWMUDB:min_kill\
+	\ledPWM:PWMUDB:db_tc\
+	\ledPWM:PWMUDB:dith_sel\
+	\ledPWM:PWMUDB:compare2\
+	Net_566
+	Net_567
+	Net_568
+	\ledPWM:PWMUDB:MODULE_1:b_31\
+	\ledPWM:PWMUDB:MODULE_1:b_30\
+	\ledPWM:PWMUDB:MODULE_1:b_29\
+	\ledPWM:PWMUDB:MODULE_1:b_28\
+	\ledPWM:PWMUDB:MODULE_1:b_27\
+	\ledPWM:PWMUDB:MODULE_1:b_26\
+	\ledPWM:PWMUDB:MODULE_1:b_25\
+	\ledPWM:PWMUDB:MODULE_1:b_24\
+	\ledPWM:PWMUDB:MODULE_1:b_23\
+	\ledPWM:PWMUDB:MODULE_1:b_22\
+	\ledPWM:PWMUDB:MODULE_1:b_21\
+	\ledPWM:PWMUDB:MODULE_1:b_20\
+	\ledPWM:PWMUDB:MODULE_1:b_19\
+	\ledPWM:PWMUDB:MODULE_1:b_18\
+	\ledPWM:PWMUDB:MODULE_1:b_17\
+	\ledPWM:PWMUDB:MODULE_1:b_16\
+	\ledPWM:PWMUDB:MODULE_1:b_15\
+	\ledPWM:PWMUDB:MODULE_1:b_14\
+	\ledPWM:PWMUDB:MODULE_1:b_13\
+	\ledPWM:PWMUDB:MODULE_1:b_12\
+	\ledPWM:PWMUDB:MODULE_1:b_11\
+	\ledPWM:PWMUDB:MODULE_1:b_10\
+	\ledPWM:PWMUDB:MODULE_1:b_9\
+	\ledPWM:PWMUDB:MODULE_1:b_8\
+	\ledPWM:PWMUDB:MODULE_1:b_7\
+	\ledPWM:PWMUDB:MODULE_1:b_6\
+	\ledPWM:PWMUDB:MODULE_1:b_5\
+	\ledPWM:PWMUDB:MODULE_1:b_4\
+	\ledPWM:PWMUDB:MODULE_1:b_3\
+	\ledPWM:PWMUDB:MODULE_1:b_2\
+	\ledPWM:PWMUDB:MODULE_1:b_1\
+	\ledPWM:PWMUDB:MODULE_1:b_0\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_31\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_30\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_29\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_28\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_27\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_26\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_25\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:a_24\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_31\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_30\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_29\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_28\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_27\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_26\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_25\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_24\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_23\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_22\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_21\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_20\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_19\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_18\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_17\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_16\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_15\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_14\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_13\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_12\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_11\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_10\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_9\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_8\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_7\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_6\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_5\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_4\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_3\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_2\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_1\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:b_0\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_31\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_30\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_29\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_28\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_27\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_26\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_25\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_24\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_23\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_22\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_21\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_20\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_19\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_18\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_17\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_16\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_15\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_14\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_13\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_12\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_11\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_10\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_9\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_8\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_7\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_6\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_5\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_4\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_3\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:s_2\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_31\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_30\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_29\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_28\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_27\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_26\
+	\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_25\
+	\ledPWM:Net_139\
+	\ledPWM:Net_138\
+	\ledPWM:Net_183\
+	\ledPWM:Net_181\
 
+    Synthesized names
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_31\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_30\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_29\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_28\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_27\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_26\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_25\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_24\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_23\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_22\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_21\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_20\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_19\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_18\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_17\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_16\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_15\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_14\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_13\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_12\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_11\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_10\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_9\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_8\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_7\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_6\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_5\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_4\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_3\
+	\ledPWM:PWMUDB:add_vi_vv_MODGEN_1_2\
 
-Deleted 15 User equations/components.
-Deleted 0 Synthesized equations/components.
+Deleted 147 User equations/components.
+Deleted 30 Synthesized equations/components.
 
 ------------------------------------------------------
 Alias Detection
@@ -167,6 +349,60 @@ Aliasing \UART:tmpOE__rx_net_0\ to \UART:tmpOE__tx_net_0\
 Aliasing \UART:cts_wire\ to \UART:select_s_wire\
 Aliasing tmpOE__LED_net_0 to \UART:tmpOE__tx_net_0\
 Aliasing tmpOE__testPin_net_0 to \UART:tmpOE__tx_net_0\
+Aliasing \ledPWM:Net_180\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:hwCapture\ to \UART:select_s_wire\
+Aliasing \ledPWM:Net_178\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:trig_out\ to \UART:tmpOE__tx_net_0\
+Aliasing \ledPWM:PWMUDB:runmode_enable\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:Net_179\ to \UART:tmpOE__tx_net_0\
+Aliasing \ledPWM:PWMUDB:ltch_kill_reg\\R\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:ltch_kill_reg\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:km_tc\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:min_kill_reg\\R\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:min_kill_reg\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:final_kill\ to \UART:tmpOE__tx_net_0\
+Aliasing \ledPWM:PWMUDB:dith_count_1\\R\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:dith_count_1\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:dith_count_0\\R\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:dith_count_0\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:status_6\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:status_4\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:cmp2\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:cmp1_status_reg\\R\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:cmp1_status_reg\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:cmp2_status_reg\\R\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:cmp2_status_reg\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:final_kill_reg\\R\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:final_kill_reg\\S\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:cs_addr_0\ to \ledPWM:PWMUDB:runmode_enable\\R\
+Aliasing \ledPWM:PWMUDB:pwm1_i\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:pwm2_i\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_23\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_22\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_21\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_20\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_19\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_18\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_17\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_16\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_15\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_14\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_13\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_12\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_11\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_10\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_9\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_8\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_7\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_6\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_5\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_4\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_3\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:a_2\ to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ to \UART:tmpOE__tx_net_0\
+Aliasing Net_529 to \UART:select_s_wire\
+Aliasing \ledPWM:PWMUDB:prevCompare1\\D\ to \ledPWM:PWMUDB:pwm_temp\
+Aliasing \ledPWM:PWMUDB:tc_i_reg\\D\ to \ledPWM:PWMUDB:status_2\
 Removing Rhs of wire \UART:rx_wire\[3] = \UART:Net_1268\[4]
 Removing Lhs of wire \UART:Net_1170\[7] = \UART:Net_847\[1]
 Removing Lhs of wire \UART:sclk_s_wire\[8] = \UART:select_s_wire\[2]
@@ -177,15 +413,243 @@ Removing Rhs of wire one[18] = \UART:tmpOE__tx_net_0\[12]
 Removing Lhs of wire \UART:tmpOE__rx_net_0\[23] = one[18]
 Removing Lhs of wire \UART:cts_wire\[27] = zero[17]
 Removing Lhs of wire tmpOE__LED_net_0[59] = one[18]
-Removing Lhs of wire tmpOE__testPin_net_0[65] = one[18]
+Removing Rhs of wire Net_575[60] = \ledPWM:PWMUDB:pwm_i_reg\[199]
+Removing Lhs of wire tmpOE__testPin_net_0[66] = one[18]
+Removing Lhs of wire \ledPWM:Net_68\[82] = Net_489[409]
+Removing Lhs of wire \ledPWM:PWMUDB:ctrl_enable\[93] = \ledPWM:PWMUDB:control_7\[85]
+Removing Lhs of wire \ledPWM:Net_180\[101] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:hwCapture\[104] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:hwEnable\[105] = \ledPWM:PWMUDB:control_7\[85]
+Removing Lhs of wire \ledPWM:Net_178\[107] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:trig_out\[110] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:runmode_enable\\R\[112] = \ledPWM:Net_186\[113]
+Removing Lhs of wire \ledPWM:Net_186\[113] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:runmode_enable\\S\[114] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:final_enable\[115] = \ledPWM:PWMUDB:runmode_enable\[111]
+Removing Lhs of wire \ledPWM:Net_179\[118] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:ltch_kill_reg\\R\[120] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:ltch_kill_reg\\S\[121] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:km_tc\[122] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:min_kill_reg\\R\[123] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:min_kill_reg\\S\[124] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:final_kill\[127] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:add_vi_vv_MODGEN_1_1\[130] = \ledPWM:PWMUDB:MODULE_1:g2:a0:s_1\[368]
+Removing Lhs of wire \ledPWM:PWMUDB:add_vi_vv_MODGEN_1_0\[132] = \ledPWM:PWMUDB:MODULE_1:g2:a0:s_0\[369]
+Removing Lhs of wire \ledPWM:PWMUDB:dith_count_1\\R\[133] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:dith_count_1\\S\[134] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:dith_count_0\\R\[135] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:dith_count_0\\S\[136] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:status_6\[139] = zero[17]
+Removing Rhs of wire \ledPWM:PWMUDB:status_5\[140] = \ledPWM:PWMUDB:final_kill_reg\[154]
+Removing Lhs of wire \ledPWM:PWMUDB:status_4\[141] = zero[17]
+Removing Rhs of wire \ledPWM:PWMUDB:status_3\[142] = \ledPWM:PWMUDB:fifo_full\[161]
+Removing Rhs of wire \ledPWM:PWMUDB:status_1\[144] = \ledPWM:PWMUDB:cmp2_status_reg\[153]
+Removing Rhs of wire \ledPWM:PWMUDB:status_0\[145] = \ledPWM:PWMUDB:cmp1_status_reg\[152]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp2_status\[150] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp2\[151] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp1_status_reg\\R\[155] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp1_status_reg\\S\[156] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp2_status_reg\\R\[157] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp2_status_reg\\S\[158] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:final_kill_reg\\R\[159] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:final_kill_reg\\S\[160] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:cs_addr_2\[162] = \ledPWM:PWMUDB:tc_i\[117]
+Removing Lhs of wire \ledPWM:PWMUDB:cs_addr_1\[163] = \ledPWM:PWMUDB:runmode_enable\[111]
+Removing Lhs of wire \ledPWM:PWMUDB:cs_addr_0\[164] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:compare1\[197] = \ledPWM:PWMUDB:cmp1_less\[168]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm1_i\[202] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm2_i\[204] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm_temp\[209] = \ledPWM:PWMUDB:cmp1\[148]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_23\[250] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_22\[251] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_21\[252] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_20\[253] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_19\[254] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_18\[255] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_17\[256] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_16\[257] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_15\[258] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_14\[259] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_13\[260] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_12\[261] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_11\[262] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_10\[263] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_9\[264] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_8\[265] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_7\[266] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_6\[267] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_5\[268] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_4\[269] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_3\[270] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_2\[271] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_1\[272] = \ledPWM:PWMUDB:MODIN1_1\[273]
+Removing Lhs of wire \ledPWM:PWMUDB:MODIN1_1\[273] = \ledPWM:PWMUDB:dith_count_1\[129]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:a_0\[274] = \ledPWM:PWMUDB:MODIN1_0\[275]
+Removing Lhs of wire \ledPWM:PWMUDB:MODIN1_0\[275] = \ledPWM:PWMUDB:dith_count_0\[131]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[407] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[408] = one[18]
+Removing Lhs of wire Net_529[415] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:prevCapture\\D\[418] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:trig_last\\D\[419] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:prevCompare1\\D\[425] = \ledPWM:PWMUDB:cmp1\[148]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp1_status_reg\\D\[426] = \ledPWM:PWMUDB:cmp1_status\[149]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp2_status_reg\\D\[427] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm_i_reg\\D\[429] = \ledPWM:PWMUDB:pwm_i\[200]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm1_i_reg\\D\[430] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm2_i_reg\\D\[431] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:tc_i_reg\\D\[432] = \ledPWM:PWMUDB:status_2\[143]
 
 ------------------------------------------------------
-Aliased 0 equations, 11 wires.
+Aliased 0 equations, 95 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
 Circuit simplification
 ----------------------------------------------------------
+
+Substituting virtuals - pass 1:
+
+Note:  Expanding virtual equation for 'one' (cost = 0):
+one <=  ('1') ;
+
+Note:  Expanding virtual equation for 'zero' (cost = 0):
+zero <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:cmp1\' (cost = 0):
+\ledPWM:PWMUDB:cmp1\ <= (\ledPWM:PWMUDB:cmp1_less\);
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ <= (\ledPWM:PWMUDB:dith_count_0\);
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:s_0\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:s_0\ <= (not \ledPWM:PWMUDB:dith_count_0\);
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_17\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_17\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_9\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_9\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\ <= ((\ledPWM:PWMUDB:dith_count_1\ and \ledPWM:PWMUDB:dith_count_0\));
+
+
+Substituting virtuals - pass 2:
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:s_1\' (cost = 2):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:s_1\ <= ((not \ledPWM:PWMUDB:dith_count_0\ and \ledPWM:PWMUDB:dith_count_1\)
+	OR (not \ledPWM:PWMUDB:dith_count_1\ and \ledPWM:PWMUDB:dith_count_0\));
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_18\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_18\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_10\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_10\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_3\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_3\ <=  ('0') ;
+
+
+Substituting virtuals - pass 3:
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_19\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_19\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_11\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_11\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_4\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_4\ <=  ('0') ;
+
+
+Substituting virtuals - pass 4:
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_20\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_20\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_12\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_12\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_5\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_5\ <=  ('0') ;
+
+
+Substituting virtuals - pass 5:
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_21\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_21\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_13\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_13\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_6\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_6\ <=  ('0') ;
+
+
+Substituting virtuals - pass 6:
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_22\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_22\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_14\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_14\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_7\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_7\ <=  ('0') ;
+
+
+Substituting virtuals - pass 7:
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_23\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_23\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_15\' (cost = 0):
+\ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_15\ <=  ('0') ;
+
+
+Substituting virtuals - pass 8:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 26 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \ledPWM:PWMUDB:final_capture\ to zero
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\ to zero
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\ to zero
+Aliasing \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\ to zero
+Aliasing \ledPWM:PWMUDB:min_kill_reg\\D\ to one
+Aliasing \ledPWM:PWMUDB:ltch_kill_reg\\D\ to one
+Aliasing \ledPWM:PWMUDB:final_kill_reg\\D\ to zero
+Removing Lhs of wire \ledPWM:PWMUDB:final_capture\[166] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\[378] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\[388] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\[398] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:min_kill_reg\\D\[417] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:runmode_enable\\D\[420] = \ledPWM:PWMUDB:control_7\[85]
+Removing Lhs of wire \ledPWM:PWMUDB:ltch_kill_reg\\D\[422] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:final_kill_reg\\D\[428] = zero[17]
+
+------------------------------------------------------
+Aliased 0 equations, 8 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Eliminating unused logic - pass 1:
+
+
+Eliminating unused logic - pass 2:
+
 
 Substituting virtuals - pass 1:
 
@@ -204,10 +668,10 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj -dcpsoc3 multicon_ble.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.359ms
+Warp synthesis phase: Elapsed time ==> 0s.843ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.1.0.2686, Family: PSoC3, Started at: Thursday, 16 August 2018 13:21:55
+cyp3fit: V4.1.0.2686, Family: PSoC3, Started at: Sunday, 19 August 2018 19:43:02
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj -d CYBLE-022001-00 multicon_ble.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
@@ -215,14 +679,32 @@ Design parsing phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
+    Removed wire end \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_24\ kept zero
+    Removed wire end \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_16\ kept zero
+    Removed wire end \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\ kept zero
+    Converted constant MacroCell: \ledPWM:PWMUDB:prevCapture\ from registered to combinatorial
+    Converted constant MacroCell: \ledPWM:PWMUDB:trig_last\ from registered to combinatorial
+    Converted constant MacroCell: \ledPWM:PWMUDB:status_1\ from registered to combinatorial
+    Converted constant MacroCell: \ledPWM:PWMUDB:status_5\ from registered to combinatorial
+    Converted constant MacroCell: \ledPWM:PWMUDB:pwm1_i_reg\ from registered to combinatorial
+    Converted constant MacroCell: \ledPWM:PWMUDB:pwm2_i_reg\ from registered to combinatorial
 Assigning clock BLE_LFCLK to clock LFClk because it is a pass-through
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Fixed Function Clock 1: Automatic-assigning  clock 'UART_SCBCLK'. Signal=\UART:Net_847_ff1\
+    Digital Clock 0: Automatic-assigning  clock 'ledClock'. Fanout=1, Signal=Net_489_digital
 <CYPRESSTAG name="UDB Clock/Enable Remapping Results">
+    UDB Clk/Enable \ledPWM:PWMUDB:clock_enable_block\: with output requested to be synchronous
+        ClockIn: ClockGenBlock:m0s8clockgenblockcell.gen_clk_out_0 was determined to be a global clock that is synchronous to HFClk
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: ClockGenBlock:m0s8clockgenblockcell.gen_clk_out_0, EnableOut: Constant 1
 </CYPRESSTAG>
 </CYPRESSTAG>
-ADD: pft.M0040: information: The following 1 pin(s) will be assigned a location by the fitter: LED(0)
 
+Removing unused cells resulting from optimization
+Done removing unused cells.
 
 Removing unused cells resulting from optimization
 Done removing unused cells.
@@ -230,6 +712,9 @@ Done removing unused cells.
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Duplicate Macrocell detection">
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
 </CYPRESSTAG>
 <CYPRESSTAG name="Design Equations" icon="FILE_RPT_EQUATION">
 
@@ -329,7 +814,7 @@ Design Equations
             Out Sync Option: NOSYNC
             Interrupt generated: False
             Interrupt mode: NONE
-            Drive mode: OPEN_DRAIN_LO
+            Drive mode: CMOS_OUT
             VTrip: EITHER
             Slew: FAST
             Input Sync needed: False
@@ -351,13 +836,17 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilities: DIGITAL
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => LED(0)__PA ,
+            pin_input => Net_575 ,
             annotation => Net_216 ,
             pad => LED(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = testPin(0)
         Attributes:
@@ -399,16 +888,162 @@ Design Equations
         }
     </CYPRESSTAG>
     <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
+
+    ------------------------------------------------------------
+    Macrocell listing
+    ------------------------------------------------------------
+
+    MacroCell: Name=\ledPWM:PWMUDB:status_2\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:runmode_enable\ * \ledPWM:PWMUDB:tc_i\
+        );
+        Output = \ledPWM:PWMUDB:status_2\ (fanout=1)
+
+    MacroCell: Name=\ledPWM:PWMUDB:runmode_enable\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:control_7\
+        );
+        Output = \ledPWM:PWMUDB:runmode_enable\ (fanout=3)
+
+    MacroCell: Name=\ledPWM:PWMUDB:prevCompare1\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:cmp1_less\
+        );
+        Output = \ledPWM:PWMUDB:prevCompare1\ (fanout=1)
+
+    MacroCell: Name=\ledPWM:PWMUDB:status_0\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\ledPWM:PWMUDB:prevCompare1\ * \ledPWM:PWMUDB:cmp1_less\
+        );
+        Output = \ledPWM:PWMUDB:status_0\ (fanout=1)
+
+    MacroCell: Name=Net_575, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:runmode_enable\ * \ledPWM:PWMUDB:cmp1_less\
+        );
+        Output = Net_575 (fanout=1)
     </CYPRESSTAG>
     <CYPRESSTAG name="Datapath listing">
+
+    ------------------------------------------------------------
+    Datapath listing
+    ------------------------------------------------------------
+
+    datapathcell: Name =\ledPWM:PWMUDB:sP8:pwmdp:u0\
+        PORT MAP (
+            clock => Net_489_digital ,
+            cs_addr_2 => \ledPWM:PWMUDB:tc_i\ ,
+            cs_addr_1 => \ledPWM:PWMUDB:runmode_enable\ ,
+            cl0_comb => \ledPWM:PWMUDB:cmp1_less\ ,
+            z0_comb => \ledPWM:PWMUDB:tc_i\ ,
+            f1_blk_stat_comb => \ledPWM:PWMUDB:status_3\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
     </CYPRESSTAG>
     <CYPRESSTAG name="Status register listing">
     </CYPRESSTAG>
     <CYPRESSTAG name="StatusI register listing">
+
+    ------------------------------------------------------------
+    StatusI register listing
+    ------------------------------------------------------------
+
+    statusicell: Name =\ledPWM:PWMUDB:genblk8:stsreg\
+        PORT MAP (
+            clock => Net_489_digital ,
+            status_3 => \ledPWM:PWMUDB:status_3\ ,
+            status_2 => \ledPWM:PWMUDB:status_2\ ,
+            status_0 => \ledPWM:PWMUDB:status_0\ );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0100111"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
     </CYPRESSTAG>
     <CYPRESSTAG name="Sync listing">
     </CYPRESSTAG>
     <CYPRESSTAG name="Control register listing">
+
+    ------------------------------------------------------------
+    Control register listing
+    ------------------------------------------------------------
+
+    controlcell: Name =\ledPWM:PWMUDB:genblk1:ctrlreg\
+        PORT MAP (
+            clock => Net_489_digital ,
+            control_7 => \ledPWM:PWMUDB:control_7\ ,
+            control_6 => \ledPWM:PWMUDB:control_6\ ,
+            control_5 => \ledPWM:PWMUDB:control_5\ ,
+            control_4 => \ledPWM:PWMUDB:control_4\ ,
+            control_3 => \ledPWM:PWMUDB:control_3\ ,
+            control_2 => \ledPWM:PWMUDB:control_2\ ,
+            control_1 => \ledPWM:PWMUDB:control_1\ ,
+            control_0 => \ledPWM:PWMUDB:control_0\ );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "11111111"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000000"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
     </CYPRESSTAG>
     <CYPRESSTAG name="Count7 listing">
     </CYPRESSTAG>
@@ -438,7 +1073,7 @@ Technology mapping summary
 
 Resource Type                 : Used : Free :  Max :  % Used
 ============================================================
-Digital Clocks                :    0 :    4 :    4 :  0.00 %
+Digital Clocks                :    1 :    3 :    4 : 25.00 %
 Interrupts                    :    1 :   31 :   32 :  3.13 %
 IO                            :    6 :   11 :   17 : 35.29 %
 Segment LCD                   :    0 :    1 :    1 :  0.00 %
@@ -447,14 +1082,14 @@ Die Temp                      :    0 :    1 :    1 :  0.00 %
 Serial Communication (SCB)    :    1 :    1 :    2 : 50.00 %
 BLE                           :    1 :    0 :    1 : 100.00 %
 Timer/Counter/PWM             :    0 :    4 :    4 :  0.00 %
-Pre-configured Blocks         :    0 :    4 :    4 :  0.00 %
+Pre-configured Blocks         :    1 :    3 :    4 : 25.00 %
 SAR ADC                       :    0 :    1 :    1 :  0.00 %
 DAC                           :      :      :      :        
   7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
   8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.015ms
-Tech Mapping phase: Elapsed time ==> 0s.031ms
+Technology Mapping: Elapsed time ==> 0s.078ms
+Tech Mapping phase: Elapsed time ==> 0s.093ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -464,22 +1099,22 @@ Cell                                : Block
 =========================================================================
 \UART:tx(0)\                        : [IOP=(0)][IoId=(5)]                
 \UART:rx(0)\                        : [IOP=(0)][IoId=(4)]                
+LED(0)                              : [IOP=(1)][IoId=(4)]                
 testPin(0)                          : [IOP=(1)][IoId=(6)]                
 ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
 \UART:SCB\                          : SCB_[FFB(SCB,0)]                   
 \BLE:cy_m0s8_ble\                   : BLE_[FFB(BLE,0)]                   
-LED(0)                              : [IOP=(1)][IoId=(4)]                
 
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.0524155s
+Elapsed time ==> 0.0708009s
 </CYPRESSTAG>
 Analog Placement phase: Elapsed time ==> 0s.171ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0006400 secs
+Route success=True, Iterations=1 Elapsed=0.0010617 secs
 </CYPRESSTAG>
 Analog Routing phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
@@ -496,13 +1131,29 @@ Analog Code Generation phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
 I2076: Total run-time: 0.2 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
-<CYPRESSTAG name="PLD Packing Summary">
-No PLDs were packed.
+<CYPRESSTAG name="PLD Packing Summary" expanded>
+
+------------------------------------------------------------
+PLD Packing Summary
+------------------------------------------------------------
+            Resource Type : Used : Free :  Max :  % Used
+    ====================================================
+                     PLDs :    2 :    6 :    8 :  25.00%
+
+<CYPRESSTAG name="PLD Statistics">
+
+        PLD Resource Type :     Average/LAB
+    =======================================
+                   Inputs :            3.00
+                   Pterms :            2.50
+               Macrocells :            2.50
+</CYPRESSTAG>
+<CYPRESSTAG name="Packed PLD Contents">
+Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
 PLD Packing: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
@@ -511,7 +1162,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.000ms
+Partitioning: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -521,7 +1172,7 @@ Final Placement Summary
 
        Resource Type :      Count : Avg Inputs : Avg Outputs
     ========================================================
-                 UDB :          0 :       0.00 :       0.00
+                 UDB :          1 :       5.00 :       5.00
 <CYPRESSTAG name="Final Placement Details">
 <CYPRESSTAG name="Component Details">
 
@@ -530,7 +1181,162 @@ Component Placement Details
 ------------------------------------------------------------
 UDB [UDB=(0,0)] is empty.
 UDB [UDB=(0,1)] is empty.
-UDB [UDB=(1,0)] is empty.
+UDB [UDB=(1,0)] contents:
+LAB@[UDB=(1,0)][LB=0] #macrocells=4, #inputs=4, #pterms=4
+{
+    [McSlotId=0]:     MacroCell: Name=Net_575, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:runmode_enable\ * \ledPWM:PWMUDB:cmp1_less\
+        );
+        Output = Net_575 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\ledPWM:PWMUDB:prevCompare1\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:cmp1_less\
+        );
+        Output = \ledPWM:PWMUDB:prevCompare1\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\ledPWM:PWMUDB:status_0\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\ledPWM:PWMUDB:prevCompare1\ * \ledPWM:PWMUDB:cmp1_less\
+        );
+        Output = \ledPWM:PWMUDB:status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\ledPWM:PWMUDB:runmode_enable\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_489_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:control_7\
+        );
+        Output = \ledPWM:PWMUDB:runmode_enable\ (fanout=3)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(1,0)][LB=1] #macrocells=1, #inputs=2, #pterms=1
+{
+    [McSlotId=0]:     MacroCell: Name=\ledPWM:PWMUDB:status_2\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ledPWM:PWMUDB:runmode_enable\ * \ledPWM:PWMUDB:tc_i\
+        );
+        Output = \ledPWM:PWMUDB:status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\ledPWM:PWMUDB:sP8:pwmdp:u0\
+    PORT MAP (
+        clock => Net_489_digital ,
+        cs_addr_2 => \ledPWM:PWMUDB:tc_i\ ,
+        cs_addr_1 => \ledPWM:PWMUDB:runmode_enable\ ,
+        cl0_comb => \ledPWM:PWMUDB:cmp1_less\ ,
+        z0_comb => \ledPWM:PWMUDB:tc_i\ ,
+        f1_blk_stat_comb => \ledPWM:PWMUDB:status_3\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\ledPWM:PWMUDB:genblk8:stsreg\
+    PORT MAP (
+        clock => Net_489_digital ,
+        status_3 => \ledPWM:PWMUDB:status_3\ ,
+        status_2 => \ledPWM:PWMUDB:status_2\ ,
+        status_0 => \ledPWM:PWMUDB:status_0\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0100111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+controlcell: Name =\ledPWM:PWMUDB:genblk1:ctrlreg\
+    PORT MAP (
+        clock => Net_489_digital ,
+        control_7 => \ledPWM:PWMUDB:control_7\ ,
+        control_6 => \ledPWM:PWMUDB:control_6\ ,
+        control_5 => \ledPWM:PWMUDB:control_5\ ,
+        control_4 => \ledPWM:PWMUDB:control_4\ ,
+        control_3 => \ledPWM:PWMUDB:control_3\ ,
+        control_2 => \ledPWM:PWMUDB:control_2\ ,
+        control_1 => \ledPWM:PWMUDB:control_1\ ,
+        control_0 => \ledPWM:PWMUDB:control_0\ );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "11111111"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
 UDB [UDB=(1,1)] is empty.
 Intr container @ [IntrContainer=(0)]: 
   Intr@ [IntrContainer=(0)][IntrId=(12)] 
@@ -634,7 +1440,7 @@ Pin : Name = LED(0)
         Out Sync Option: NOSYNC
         Interrupt generated: False
         Interrupt mode: NONE
-        Drive mode: OPEN_DRAIN_LO
+        Drive mode: CMOS_OUT
         VTrip: EITHER
         Slew: FAST
         Input Sync needed: False
@@ -656,11 +1462,12 @@ Pin : Name = LED(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => LED(0)__PA ,
+        pin_input => Net_575 ,
         annotation => Net_216 ,
         pad => LED(0)_PAD );
     Properties:
@@ -724,7 +1531,8 @@ Clock group 0:
             lfclk => ClockBlock_LFClk ,
             wco => ClockBlock_WCO ,
             dsi_in_0 => ClockBlock_Routed1 ,
-            ff_div_1 => \UART:Net_847_ff1\ );
+            ff_div_1 => \UART:Net_847_ff1\ ,
+            udb_div_0 => dclk_to_genclk );
         Properties:
         {
         }
@@ -763,7 +1571,8 @@ CLK_GEN group 0:
     M0S8 Clock Gen Block @ F(CLK_GEN,0): 
     m0s8clockgenblockcell: Name =ClockGenBlock
         PORT MAP (
-             );
+            gen_clk_out_0 => Net_489_digital ,
+            gen_clk_in_0 => dclk_to_genclk );
         Properties:
         {
         }
@@ -795,39 +1604,39 @@ Port | Pin | Fixed |      Type |       Drive Mode |         Name | Connections
    0 |   4 |     * |      NONE |     HI_Z_DIGITAL | \UART:rx(0)\ | FB(\UART:rx_wire\)
      |   5 |     * |      NONE |         CMOS_OUT | \UART:tx(0)\ | In(\UART:tx_wire\)
 -----+-----+-------+-----------+------------------+--------------+-------------------
-   1 |   4 |       |      NONE |    OPEN_DRAIN_LO |       LED(0) | 
+   1 |   4 |     * |      NONE |         CMOS_OUT |       LED(0) | In(Net_575)
      |   6 |     * |      NONE |    OPEN_DRAIN_LO |   testPin(0) | 
 -------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
 Digital component placer commit/Report: Elapsed time ==> 0s.015ms
-Digital Placement phase: Elapsed time ==> 0s.390ms
+Digital Placement phase: Elapsed time ==> 0s.437ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\dev\psoc4/3/128k/route_arch-rrg.cydata" --vh2-path "multicon_ble_r.vh2" --pcf-path "multicon_ble.pco" --des-name "multicon_ble" --dsf-path "multicon_ble.dsf" --sdc-path "multicon_ble.sdc" --lib-path "multicon_ble_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.437ms
+Digital Routing phase: Elapsed time ==> 0s.484ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.203ms
+Bitstream Generation phase: Elapsed time ==> 0s.218ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
 Bitstream Verification phase: Elapsed time ==> 0s.031ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in multicon_ble_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.156ms
+Static timing analysis phase: Elapsed time ==> 0s.187ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.140ms
+Design database save phase: Elapsed time ==> 0s.203ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 1s.625ms
+cydsfit: Elapsed time ==> 1s.890ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 1s.625ms
-API generation phase: Elapsed time ==> 1s.406ms
-Dependency generation phase: Elapsed time ==> 0s.031ms
+Fitter phase: Elapsed time ==> 1s.890ms
+API generation phase: Elapsed time ==> 1s.652ms
+Dependency generation phase: Elapsed time ==> 0s.015ms
 Cleanup phase: Elapsed time ==> 0s.000ms

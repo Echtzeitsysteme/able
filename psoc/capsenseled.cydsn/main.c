@@ -14,8 +14,9 @@ void updateLed()
    
     uint8 red_State = !red_Read();//led is active low, 0 means on, to not confuse its inverted so 1 is on
     //CyBLE_getState() checks if the ble is conntected, if connected it is reasonable to update the database, not otherwise
+  
     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
-        return;
+        return; 
     
     tempHandle.attrHandle = CYBLE_LEDCAPSENSE_LED_CHAR_HANDLE;
   	tempHandle.value.val = (uint8 *) &red_State;

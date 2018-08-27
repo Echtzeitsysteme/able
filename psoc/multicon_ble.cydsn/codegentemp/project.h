@@ -42,6 +42,8 @@
 #include "BLE_Stack.h"
 #include "BLE_eventHandler.h"
 #include "BLE_custom.h"
+#include "ledPWM.h"
+#include "ledClock.h"
 #include "UART_SCBCLK.h"
 #include "UART_tx.h"
 #include "UART_tx_aliases.h"

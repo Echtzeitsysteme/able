@@ -35,5 +35,9 @@ void testListen(){
     
 }
 
+uint8_t uartRead(){
+    uint8_t data = UART_UartGetChar();
+    return data;
+}
 
 /* [] END OF FILE */
