@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- Copyright (C) 2013 The Android Open Source Project
+
+         Licensed under the Apache License, Version 2.0 (the "License");
+         you may not use this file except in compliance with the License.
+         You may obtain a copy of the License at
+
+              http://www.apache.org/licenses/LICENSE-2.0
+
+         Unless required by applicable law or agreed to in writing, software
+         distributed under the License is distributed on an "AS IS" BASIS,
+         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+         See the License for the specific language governing permissions and
+         limitations under the License.
+    -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:fontFamily="sans-serif-condensed"
+android:orientation="vertical"
+android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+android:scrollbars="vertical">
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/cpppWelcome"
+        android:src="@drawable/cppp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:text="@string/cpppWelcome"
+        android:textSize="18sp" />
+
+    <Switch
+        android:id="@+id/cpppNotifySwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="@string/NotifySensorData"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sensorDataValue"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/CPPP_JOYSTICK_1_X_VALUE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/no_data"
+            android:textAlignment="textEnd"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

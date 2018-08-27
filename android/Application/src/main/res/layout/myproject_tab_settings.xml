@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:fontFamily="sans-serif-condensed"
+android:orientation="vertical"
+android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+android:scrollbars="vertical">
+
+<TextView
+    android:id="@+id/myProjectTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+    android:fontFamily="sans-serif-condensed"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:text="@string/capledWelcomeSettings"
+    android:textSize="18sp" />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="@string/label_device_address"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/myProject_device_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="@string/label_state"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/myProject_connection_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/disconnected"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_data"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/myProject_data_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_data"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"/>
+</LinearLayout>
+
+    <Switch
+    android:id="@+id/myProject_capsense_switch"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="15dp"
+    android:fontFamily="sans-serif-condensed"
+    android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+    android:text="@string/Notify"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textOff="OFF"
+    android:textOn="ON"/>
+
+    <Button
+        android:id="@+id/myProject_capled_connect"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/menu_connect"
+        android:textStyle="bold" />
+</LinearLayout>

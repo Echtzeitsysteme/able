@@ -59,8 +59,20 @@
             android:enabled="true" />
 
         <!-- Register Capled-specific activity -->
-        <activity android:name="de.tudarmstadt.es.capled.CapLEDActivity" />
+        <activity android:name="de.tudarmstadt.es.cppp.CPPPActivity" />
+        <activity android:name="de.tudarmstadt.es.myProject.myProjectActivity" />
+        <!--
+        <receiver
+            android:name="de.tudarmstadt.es.myProject.myProjectServiceRegistryUpdater"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="de.tudarmstadt.es.able.action.RegisterUuidToActivityMapping" />
+            </intent-filter>
+        </receiver>
+        -->
+
         <!-- Enable broadcast receiver for registering UUID-to-activity mapping for Capled -->
+
         <receiver
             android:name="de.tudarmstadt.es.capled.CapLEDServiceRegistryUpdater"
             android:enabled="true">
@@ -69,6 +81,14 @@
             </intent-filter>
         </receiver>
 
+
+        <receiver
+            android:name="de.tudarmstadt.es.cppp.CPPPServiceRegistryUpdater"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="de.tudarmstadt.es.able.action.RegisterUuidToActivityMapping" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

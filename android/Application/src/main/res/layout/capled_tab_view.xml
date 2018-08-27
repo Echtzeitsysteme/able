@@ -60,6 +60,22 @@ android:scrollbars="vertical">
         android:textSize="20sp"
         android:textStyle="bold" />
 
+    <Switch
+        android:id="@+id/green_led_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="@string/GreenLED"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/capsense_status"
         android:layout_width="match_parent"

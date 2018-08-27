@@ -1,0 +1,7 @@
+C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\capsenseled.cyprj|df043010-fa3d-4353-994f-186dd78ab0ee
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f1e0da5b-1472-4382-ada4-97b4544cb4a1
+C:\Users\puria\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|e87c2e31-f14c-49a0-a02a-8be3cb499ea9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|90ee28f5-25a6-4213-9c89-3a8ba4c17030
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|bd101cc5-c45a-4702-8fcc-e73b3f09ce6b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|03bd9340-53c6-4e08-8cba-1fb7649df050
+C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj|e453590d-6163-4698-bcef-b643e1834052

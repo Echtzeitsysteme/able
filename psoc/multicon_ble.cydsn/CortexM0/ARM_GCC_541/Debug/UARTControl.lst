@@ -1,0 +1,682 @@
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"UARTControl.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LEDRainbow,"ax",%progbits
+  20              		.align	2
+  21              		.global	LEDRainbow
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	LEDRainbow, %function
+  25              	LEDRainbow:
+  26              	.LFB35:
+  27              		.file 1 "UARTControl.c"
+   1:UARTControl.c **** /* ========================================
+   2:UARTControl.c ****  *
+   3:UARTControl.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:UARTControl.c ****  * All Rights Reserved
+   5:UARTControl.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:UARTControl.c ****  *
+   7:UARTControl.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:UARTControl.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:UARTControl.c ****  *
+  10:UARTControl.c ****  * ========================================
+  11:UARTControl.c **** */
+  12:UARTControl.c **** #include "UARTControl.h"
+  13:UARTControl.c **** 
+  14:UARTControl.c **** void LEDRainbow(){
+  28              		.loc 1 14 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  15:UARTControl.c ****     UART_UartPutChar(0u);
+  38              		.loc 1 15 0
+  39 0004 0020     		movs	r0, #0
+  40 0006 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  16:UARTControl.c ****     LED_ON();
+  41              		.loc 1 16 0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 2
+
+
+  42 000a FFF7FEFF 		bl	LED_ON
+  17:UARTControl.c ****     delay();
+  43              		.loc 1 17 0
+  44 000e FFF7FEFF 		bl	delay
+  18:UARTControl.c ****     UART_UartPutChar(1u);
+  45              		.loc 1 18 0
+  46 0012 0120     		movs	r0, #1
+  47 0014 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  19:UARTControl.c ****     LED_OFF();
+  48              		.loc 1 19 0
+  49 0018 FFF7FEFF 		bl	LED_OFF
+  20:UARTControl.c ****     delay();
+  50              		.loc 1 20 0
+  51 001c FFF7FEFF 		bl	delay
+  21:UARTControl.c ****     UART_UartPutChar(2u);
+  52              		.loc 1 21 0
+  53 0020 0220     		movs	r0, #2
+  54 0022 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  22:UARTControl.c ****     LED_OFF();
+  55              		.loc 1 22 0
+  56 0026 FFF7FEFF 		bl	LED_OFF
+  23:UARTControl.c ****     delay();
+  57              		.loc 1 23 0
+  58 002a FFF7FEFF 		bl	delay
+  24:UARTControl.c ****     UART_UartPutChar(3u);
+  59              		.loc 1 24 0
+  60 002e 0320     		movs	r0, #3
+  61 0030 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  25:UARTControl.c ****     LED_OFF();
+  62              		.loc 1 25 0
+  63 0034 FFF7FEFF 		bl	LED_OFF
+  26:UARTControl.c ****     delay();
+  64              		.loc 1 26 0
+  65 0038 FFF7FEFF 		bl	delay
+  27:UARTControl.c **** }
+  66              		.loc 1 27 0
+  67 003c C046     		nop
+  68 003e BD46     		mov	sp, r7
+  69              		@ sp needed
+  70 0040 80BD     		pop	{r7, pc}
+  71              		.cfi_endproc
+  72              	.LFE35:
+  73              		.size	LEDRainbow, .-LEDRainbow
+  74 0042 C046     		.section	.text.testListen,"ax",%progbits
+  75              		.align	2
+  76              		.global	testListen
+  77              		.code	16
+  78              		.thumb_func
+  79              		.type	testListen, %function
+  80              	testListen:
+  81              	.LFB36:
+  28:UARTControl.c **** 
+  29:UARTControl.c **** void testListen(){
+  82              		.loc 1 29 0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 8
+  85              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 3
+
+
+  86 0000 80B5     		push	{r7, lr}
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 7, -8
+  89              		.cfi_offset 14, -4
+  90 0002 82B0     		sub	sp, sp, #8
+  91              		.cfi_def_cfa_offset 16
+  92 0004 00AF     		add	r7, sp, #0
+  93              		.cfi_def_cfa_register 7
+  30:UARTControl.c ****     uint8_t data = UART_UartGetChar();
+  94              		.loc 1 30 0
+  95 0006 FFF7FEFF 		bl	UART_UartGetChar
+  96 000a 0200     		movs	r2, r0
+  97 000c FB1D     		adds	r3, r7, #7
+  98 000e 1A70     		strb	r2, [r3]
+  31:UARTControl.c ****     while(data != 'a'){
+  99              		.loc 1 31 0
+ 100 0010 04E0     		b	.L3
+ 101              	.L4:
+  32:UARTControl.c ****         data = UART_UartGetChar();
+ 102              		.loc 1 32 0
+ 103 0012 FFF7FEFF 		bl	UART_UartGetChar
+ 104 0016 0200     		movs	r2, r0
+ 105 0018 FB1D     		adds	r3, r7, #7
+ 106 001a 1A70     		strb	r2, [r3]
+ 107              	.L3:
+  31:UARTControl.c ****     while(data != 'a'){
+ 108              		.loc 1 31 0
+ 109 001c FB1D     		adds	r3, r7, #7
+ 110 001e 1B78     		ldrb	r3, [r3]
+ 111 0020 612B     		cmp	r3, #97
+ 112 0022 F6D1     		bne	.L4
+  33:UARTControl.c ****     }
+  34:UARTControl.c ****     flashLED();
+ 113              		.loc 1 34 0
+ 114 0024 FFF7FEFF 		bl	flashLED
+  35:UARTControl.c ****     
+  36:UARTControl.c **** }
+ 115              		.loc 1 36 0
+ 116 0028 C046     		nop
+ 117 002a BD46     		mov	sp, r7
+ 118 002c 02B0     		add	sp, sp, #8
+ 119              		@ sp needed
+ 120 002e 80BD     		pop	{r7, pc}
+ 121              		.cfi_endproc
+ 122              	.LFE36:
+ 123              		.size	testListen, .-testListen
+ 124              		.section	.text.uartRead,"ax",%progbits
+ 125              		.align	2
+ 126              		.global	uartRead
+ 127              		.code	16
+ 128              		.thumb_func
+ 129              		.type	uartRead, %function
+ 130              	uartRead:
+ 131              	.LFB37:
+  37:UARTControl.c **** 
+  38:UARTControl.c **** uint8_t uartRead(){
+ 132              		.loc 1 38 0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 4
+
+
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 8
+ 135              		@ frame_needed = 1, uses_anonymous_args = 0
+ 136 0000 80B5     		push	{r7, lr}
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 7, -8
+ 139              		.cfi_offset 14, -4
+ 140 0002 82B0     		sub	sp, sp, #8
+ 141              		.cfi_def_cfa_offset 16
+ 142 0004 00AF     		add	r7, sp, #0
+ 143              		.cfi_def_cfa_register 7
+  39:UARTControl.c ****     uint8_t data = UART_UartGetChar();
+ 144              		.loc 1 39 0
+ 145 0006 FFF7FEFF 		bl	UART_UartGetChar
+ 146 000a 0200     		movs	r2, r0
+ 147 000c FB1D     		adds	r3, r7, #7
+ 148 000e 1A70     		strb	r2, [r3]
+  40:UARTControl.c ****     return data;
+ 149              		.loc 1 40 0
+ 150 0010 FB1D     		adds	r3, r7, #7
+ 151 0012 1B78     		ldrb	r3, [r3]
+  41:UARTControl.c **** }
+ 152              		.loc 1 41 0
+ 153 0014 1800     		movs	r0, r3
+ 154 0016 BD46     		mov	sp, r7
+ 155 0018 02B0     		add	sp, sp, #8
+ 156              		@ sp needed
+ 157 001a 80BD     		pop	{r7, pc}
+ 158              		.cfi_endproc
+ 159              	.LFE37:
+ 160              		.size	uartRead, .-uartRead
+ 161              		.text
+ 162              	.Letext0:
+ 163              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 164              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 165              		.file 4 "Generated_Source\\PSoC4/cytypes.h"
+ 166              		.section	.debug_info,"",%progbits
+ 167              	.Ldebug_info0:
+ 168 0000 06010000 		.4byte	0x106
+ 169 0004 0400     		.2byte	0x4
+ 170 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 171 000a 04       		.byte	0x4
+ 172 000b 01       		.uleb128 0x1
+ 173 000c 2A010000 		.4byte	.LASF20
+ 174 0010 0C       		.byte	0xc
+ 175 0011 27000000 		.4byte	.LASF21
+ 176 0015 35000000 		.4byte	.LASF22
+ 177 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 178 001d 00000000 		.4byte	0
+ 179 0021 00000000 		.4byte	.Ldebug_line0
+ 180 0025 02       		.uleb128 0x2
+ 181 0026 01       		.byte	0x1
+ 182 0027 06       		.byte	0x6
+ 183 0028 02010000 		.4byte	.LASF0
+ 184 002c 03       		.uleb128 0x3
+ 185 002d 9B000000 		.4byte	.LASF9
+ 186 0031 02       		.byte	0x2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 5
+
+
+ 187 0032 1D       		.byte	0x1d
+ 188 0033 37000000 		.4byte	0x37
+ 189 0037 02       		.uleb128 0x2
+ 190 0038 01       		.byte	0x1
+ 191 0039 08       		.byte	0x8
+ 192 003a CC000000 		.4byte	.LASF1
+ 193 003e 02       		.uleb128 0x2
+ 194 003f 02       		.byte	0x2
+ 195 0040 05       		.byte	0x5
+ 196 0041 20010000 		.4byte	.LASF2
+ 197 0045 02       		.uleb128 0x2
+ 198 0046 02       		.byte	0x2
+ 199 0047 07       		.byte	0x7
+ 200 0048 EF000000 		.4byte	.LASF3
+ 201 004c 02       		.uleb128 0x2
+ 202 004d 04       		.byte	0x4
+ 203 004e 05       		.byte	0x5
+ 204 004f DF000000 		.4byte	.LASF4
+ 205 0053 02       		.uleb128 0x2
+ 206 0054 04       		.byte	0x4
+ 207 0055 07       		.byte	0x7
+ 208 0056 72000000 		.4byte	.LASF5
+ 209 005a 02       		.uleb128 0x2
+ 210 005b 08       		.byte	0x8
+ 211 005c 05       		.byte	0x5
+ 212 005d 00000000 		.4byte	.LASF6
+ 213 0061 02       		.uleb128 0x2
+ 214 0062 08       		.byte	0x8
+ 215 0063 07       		.byte	0x7
+ 216 0064 84000000 		.4byte	.LASF7
+ 217 0068 04       		.uleb128 0x4
+ 218 0069 04       		.byte	0x4
+ 219 006a 05       		.byte	0x5
+ 220 006b 696E7400 		.ascii	"int\000"
+ 221 006f 02       		.uleb128 0x2
+ 222 0070 04       		.byte	0x4
+ 223 0071 07       		.byte	0x7
+ 224 0072 15000000 		.4byte	.LASF8
+ 225 0076 03       		.uleb128 0x3
+ 226 0077 C4000000 		.4byte	.LASF10
+ 227 007b 03       		.byte	0x3
+ 228 007c 18       		.byte	0x18
+ 229 007d 2C000000 		.4byte	0x2c
+ 230 0081 05       		.uleb128 0x5
+ 231 0082 0E000000 		.4byte	.LASF11
+ 232 0086 04       		.byte	0x4
+ 233 0087 D401     		.2byte	0x1d4
+ 234 0089 53000000 		.4byte	0x53
+ 235 008d 02       		.uleb128 0x2
+ 236 008e 04       		.byte	0x4
+ 237 008f 04       		.byte	0x4
+ 238 0090 1A010000 		.4byte	.LASF12
+ 239 0094 02       		.uleb128 0x2
+ 240 0095 08       		.byte	0x8
+ 241 0096 04       		.byte	0x4
+ 242 0097 E8000000 		.4byte	.LASF13
+ 243 009b 02       		.uleb128 0x2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 6
+
+
+ 244 009c 01       		.byte	0x1
+ 245 009d 08       		.byte	0x8
+ 246 009e DA000000 		.4byte	.LASF14
+ 247 00a2 02       		.uleb128 0x2
+ 248 00a3 08       		.byte	0x8
+ 249 00a4 04       		.byte	0x4
+ 250 00a5 0E010000 		.4byte	.LASF15
+ 251 00a9 02       		.uleb128 0x2
+ 252 00aa 04       		.byte	0x4
+ 253 00ab 07       		.byte	0x7
+ 254 00ac B8010000 		.4byte	.LASF16
+ 255 00b0 06       		.uleb128 0x6
+ 256 00b1 A5000000 		.4byte	.LASF23
+ 257 00b5 01       		.byte	0x1
+ 258 00b6 0E       		.byte	0xe
+ 259 00b7 00000000 		.4byte	.LFB35
+ 260 00bb 42000000 		.4byte	.LFE35-.LFB35
+ 261 00bf 01       		.uleb128 0x1
+ 262 00c0 9C       		.byte	0x9c
+ 263 00c1 07       		.uleb128 0x7
+ 264 00c2 B9000000 		.4byte	.LASF17
+ 265 00c6 01       		.byte	0x1
+ 266 00c7 1D       		.byte	0x1d
+ 267 00c8 00000000 		.4byte	.LFB36
+ 268 00cc 30000000 		.4byte	.LFE36-.LFB36
+ 269 00d0 01       		.uleb128 0x1
+ 270 00d1 9C       		.byte	0x9c
+ 271 00d2 E5000000 		.4byte	0xe5
+ 272 00d6 08       		.uleb128 0x8
+ 273 00d7 22000000 		.4byte	.LASF19
+ 274 00db 01       		.byte	0x1
+ 275 00dc 1E       		.byte	0x1e
+ 276 00dd 76000000 		.4byte	0x76
+ 277 00e1 02       		.uleb128 0x2
+ 278 00e2 91       		.byte	0x91
+ 279 00e3 77       		.sleb128 -9
+ 280 00e4 00       		.byte	0
+ 281 00e5 09       		.uleb128 0x9
+ 282 00e6 B0000000 		.4byte	.LASF18
+ 283 00ea 01       		.byte	0x1
+ 284 00eb 26       		.byte	0x26
+ 285 00ec 76000000 		.4byte	0x76
+ 286 00f0 00000000 		.4byte	.LFB37
+ 287 00f4 1C000000 		.4byte	.LFE37-.LFB37
+ 288 00f8 01       		.uleb128 0x1
+ 289 00f9 9C       		.byte	0x9c
+ 290 00fa 08       		.uleb128 0x8
+ 291 00fb 22000000 		.4byte	.LASF19
+ 292 00ff 01       		.byte	0x1
+ 293 0100 27       		.byte	0x27
+ 294 0101 76000000 		.4byte	0x76
+ 295 0105 02       		.uleb128 0x2
+ 296 0106 91       		.byte	0x91
+ 297 0107 77       		.sleb128 -9
+ 298 0108 00       		.byte	0
+ 299 0109 00       		.byte	0
+ 300              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 7
+
+
+ 301              	.Ldebug_abbrev0:
+ 302 0000 01       		.uleb128 0x1
+ 303 0001 11       		.uleb128 0x11
+ 304 0002 01       		.byte	0x1
+ 305 0003 25       		.uleb128 0x25
+ 306 0004 0E       		.uleb128 0xe
+ 307 0005 13       		.uleb128 0x13
+ 308 0006 0B       		.uleb128 0xb
+ 309 0007 03       		.uleb128 0x3
+ 310 0008 0E       		.uleb128 0xe
+ 311 0009 1B       		.uleb128 0x1b
+ 312 000a 0E       		.uleb128 0xe
+ 313 000b 55       		.uleb128 0x55
+ 314 000c 17       		.uleb128 0x17
+ 315 000d 11       		.uleb128 0x11
+ 316 000e 01       		.uleb128 0x1
+ 317 000f 10       		.uleb128 0x10
+ 318 0010 17       		.uleb128 0x17
+ 319 0011 00       		.byte	0
+ 320 0012 00       		.byte	0
+ 321 0013 02       		.uleb128 0x2
+ 322 0014 24       		.uleb128 0x24
+ 323 0015 00       		.byte	0
+ 324 0016 0B       		.uleb128 0xb
+ 325 0017 0B       		.uleb128 0xb
+ 326 0018 3E       		.uleb128 0x3e
+ 327 0019 0B       		.uleb128 0xb
+ 328 001a 03       		.uleb128 0x3
+ 329 001b 0E       		.uleb128 0xe
+ 330 001c 00       		.byte	0
+ 331 001d 00       		.byte	0
+ 332 001e 03       		.uleb128 0x3
+ 333 001f 16       		.uleb128 0x16
+ 334 0020 00       		.byte	0
+ 335 0021 03       		.uleb128 0x3
+ 336 0022 0E       		.uleb128 0xe
+ 337 0023 3A       		.uleb128 0x3a
+ 338 0024 0B       		.uleb128 0xb
+ 339 0025 3B       		.uleb128 0x3b
+ 340 0026 0B       		.uleb128 0xb
+ 341 0027 49       		.uleb128 0x49
+ 342 0028 13       		.uleb128 0x13
+ 343 0029 00       		.byte	0
+ 344 002a 00       		.byte	0
+ 345 002b 04       		.uleb128 0x4
+ 346 002c 24       		.uleb128 0x24
+ 347 002d 00       		.byte	0
+ 348 002e 0B       		.uleb128 0xb
+ 349 002f 0B       		.uleb128 0xb
+ 350 0030 3E       		.uleb128 0x3e
+ 351 0031 0B       		.uleb128 0xb
+ 352 0032 03       		.uleb128 0x3
+ 353 0033 08       		.uleb128 0x8
+ 354 0034 00       		.byte	0
+ 355 0035 00       		.byte	0
+ 356 0036 05       		.uleb128 0x5
+ 357 0037 16       		.uleb128 0x16
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 8
+
+
+ 358 0038 00       		.byte	0
+ 359 0039 03       		.uleb128 0x3
+ 360 003a 0E       		.uleb128 0xe
+ 361 003b 3A       		.uleb128 0x3a
+ 362 003c 0B       		.uleb128 0xb
+ 363 003d 3B       		.uleb128 0x3b
+ 364 003e 05       		.uleb128 0x5
+ 365 003f 49       		.uleb128 0x49
+ 366 0040 13       		.uleb128 0x13
+ 367 0041 00       		.byte	0
+ 368 0042 00       		.byte	0
+ 369 0043 06       		.uleb128 0x6
+ 370 0044 2E       		.uleb128 0x2e
+ 371 0045 00       		.byte	0
+ 372 0046 3F       		.uleb128 0x3f
+ 373 0047 19       		.uleb128 0x19
+ 374 0048 03       		.uleb128 0x3
+ 375 0049 0E       		.uleb128 0xe
+ 376 004a 3A       		.uleb128 0x3a
+ 377 004b 0B       		.uleb128 0xb
+ 378 004c 3B       		.uleb128 0x3b
+ 379 004d 0B       		.uleb128 0xb
+ 380 004e 11       		.uleb128 0x11
+ 381 004f 01       		.uleb128 0x1
+ 382 0050 12       		.uleb128 0x12
+ 383 0051 06       		.uleb128 0x6
+ 384 0052 40       		.uleb128 0x40
+ 385 0053 18       		.uleb128 0x18
+ 386 0054 9642     		.uleb128 0x2116
+ 387 0056 19       		.uleb128 0x19
+ 388 0057 00       		.byte	0
+ 389 0058 00       		.byte	0
+ 390 0059 07       		.uleb128 0x7
+ 391 005a 2E       		.uleb128 0x2e
+ 392 005b 01       		.byte	0x1
+ 393 005c 3F       		.uleb128 0x3f
+ 394 005d 19       		.uleb128 0x19
+ 395 005e 03       		.uleb128 0x3
+ 396 005f 0E       		.uleb128 0xe
+ 397 0060 3A       		.uleb128 0x3a
+ 398 0061 0B       		.uleb128 0xb
+ 399 0062 3B       		.uleb128 0x3b
+ 400 0063 0B       		.uleb128 0xb
+ 401 0064 11       		.uleb128 0x11
+ 402 0065 01       		.uleb128 0x1
+ 403 0066 12       		.uleb128 0x12
+ 404 0067 06       		.uleb128 0x6
+ 405 0068 40       		.uleb128 0x40
+ 406 0069 18       		.uleb128 0x18
+ 407 006a 9642     		.uleb128 0x2116
+ 408 006c 19       		.uleb128 0x19
+ 409 006d 01       		.uleb128 0x1
+ 410 006e 13       		.uleb128 0x13
+ 411 006f 00       		.byte	0
+ 412 0070 00       		.byte	0
+ 413 0071 08       		.uleb128 0x8
+ 414 0072 34       		.uleb128 0x34
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 9
+
+
+ 415 0073 00       		.byte	0
+ 416 0074 03       		.uleb128 0x3
+ 417 0075 0E       		.uleb128 0xe
+ 418 0076 3A       		.uleb128 0x3a
+ 419 0077 0B       		.uleb128 0xb
+ 420 0078 3B       		.uleb128 0x3b
+ 421 0079 0B       		.uleb128 0xb
+ 422 007a 49       		.uleb128 0x49
+ 423 007b 13       		.uleb128 0x13
+ 424 007c 02       		.uleb128 0x2
+ 425 007d 18       		.uleb128 0x18
+ 426 007e 00       		.byte	0
+ 427 007f 00       		.byte	0
+ 428 0080 09       		.uleb128 0x9
+ 429 0081 2E       		.uleb128 0x2e
+ 430 0082 01       		.byte	0x1
+ 431 0083 3F       		.uleb128 0x3f
+ 432 0084 19       		.uleb128 0x19
+ 433 0085 03       		.uleb128 0x3
+ 434 0086 0E       		.uleb128 0xe
+ 435 0087 3A       		.uleb128 0x3a
+ 436 0088 0B       		.uleb128 0xb
+ 437 0089 3B       		.uleb128 0x3b
+ 438 008a 0B       		.uleb128 0xb
+ 439 008b 49       		.uleb128 0x49
+ 440 008c 13       		.uleb128 0x13
+ 441 008d 11       		.uleb128 0x11
+ 442 008e 01       		.uleb128 0x1
+ 443 008f 12       		.uleb128 0x12
+ 444 0090 06       		.uleb128 0x6
+ 445 0091 40       		.uleb128 0x40
+ 446 0092 18       		.uleb128 0x18
+ 447 0093 9642     		.uleb128 0x2116
+ 448 0095 19       		.uleb128 0x19
+ 449 0096 00       		.byte	0
+ 450 0097 00       		.byte	0
+ 451 0098 00       		.byte	0
+ 452              		.section	.debug_aranges,"",%progbits
+ 453 0000 2C000000 		.4byte	0x2c
+ 454 0004 0200     		.2byte	0x2
+ 455 0006 00000000 		.4byte	.Ldebug_info0
+ 456 000a 04       		.byte	0x4
+ 457 000b 00       		.byte	0
+ 458 000c 0000     		.2byte	0
+ 459 000e 0000     		.2byte	0
+ 460 0010 00000000 		.4byte	.LFB35
+ 461 0014 42000000 		.4byte	.LFE35-.LFB35
+ 462 0018 00000000 		.4byte	.LFB36
+ 463 001c 30000000 		.4byte	.LFE36-.LFB36
+ 464 0020 00000000 		.4byte	.LFB37
+ 465 0024 1C000000 		.4byte	.LFE37-.LFB37
+ 466 0028 00000000 		.4byte	0
+ 467 002c 00000000 		.4byte	0
+ 468              		.section	.debug_ranges,"",%progbits
+ 469              	.Ldebug_ranges0:
+ 470 0000 00000000 		.4byte	.LFB35
+ 471 0004 42000000 		.4byte	.LFE35
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 10
+
+
+ 472 0008 00000000 		.4byte	.LFB36
+ 473 000c 30000000 		.4byte	.LFE36
+ 474 0010 00000000 		.4byte	.LFB37
+ 475 0014 1C000000 		.4byte	.LFE37
+ 476 0018 00000000 		.4byte	0
+ 477 001c 00000000 		.4byte	0
+ 478              		.section	.debug_line,"",%progbits
+ 479              	.Ldebug_line0:
+ 480 0000 8E010000 		.section	.debug_str,"MS",%progbits,1
+ 480      02004501 
+ 480      00000201 
+ 480      FB0E0D00 
+ 480      01010101 
+ 481              	.LASF6:
+ 482 0000 6C6F6E67 		.ascii	"long long int\000"
+ 482      206C6F6E 
+ 482      6720696E 
+ 482      7400
+ 483              	.LASF11:
+ 484 000e 75696E74 		.ascii	"uint32\000"
+ 484      333200
+ 485              	.LASF8:
+ 486 0015 756E7369 		.ascii	"unsigned int\000"
+ 486      676E6564 
+ 486      20696E74 
+ 486      00
+ 487              	.LASF19:
+ 488 0022 64617461 		.ascii	"data\000"
+ 488      00
+ 489              	.LASF21:
+ 490 0027 55415254 		.ascii	"UARTControl.c\000"
+ 490      436F6E74 
+ 490      726F6C2E 
+ 490      6300
+ 491              	.LASF22:
+ 492 0035 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\mu"
+ 492      73657273 
+ 492      5C707572 
+ 492      69615C44 
+ 492      6F63756D 
+ 493 0061 6C746963 		.ascii	"lticon_ble.cydsn\000"
+ 493      6F6E5F62 
+ 493      6C652E63 
+ 493      7964736E 
+ 493      00
+ 494              	.LASF5:
+ 495 0072 6C6F6E67 		.ascii	"long unsigned int\000"
+ 495      20756E73 
+ 495      69676E65 
+ 495      6420696E 
+ 495      7400
+ 496              	.LASF7:
+ 497 0084 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 497      206C6F6E 
+ 497      6720756E 
+ 497      7369676E 
+ 497      65642069 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 11
+
+
+ 498              	.LASF9:
+ 499 009b 5F5F7569 		.ascii	"__uint8_t\000"
+ 499      6E74385F 
+ 499      7400
+ 500              	.LASF23:
+ 501 00a5 4C454452 		.ascii	"LEDRainbow\000"
+ 501      61696E62 
+ 501      6F7700
+ 502              	.LASF18:
+ 503 00b0 75617274 		.ascii	"uartRead\000"
+ 503      52656164 
+ 503      00
+ 504              	.LASF17:
+ 505 00b9 74657374 		.ascii	"testListen\000"
+ 505      4C697374 
+ 505      656E00
+ 506              	.LASF10:
+ 507 00c4 75696E74 		.ascii	"uint8_t\000"
+ 507      385F7400 
+ 508              	.LASF1:
+ 509 00cc 756E7369 		.ascii	"unsigned char\000"
+ 509      676E6564 
+ 509      20636861 
+ 509      7200
+ 510              	.LASF14:
+ 511 00da 63686172 		.ascii	"char\000"
+ 511      00
+ 512              	.LASF4:
+ 513 00df 6C6F6E67 		.ascii	"long int\000"
+ 513      20696E74 
+ 513      00
+ 514              	.LASF13:
+ 515 00e8 646F7562 		.ascii	"double\000"
+ 515      6C6500
+ 516              	.LASF3:
+ 517 00ef 73686F72 		.ascii	"short unsigned int\000"
+ 517      7420756E 
+ 517      7369676E 
+ 517      65642069 
+ 517      6E7400
+ 518              	.LASF0:
+ 519 0102 7369676E 		.ascii	"signed char\000"
+ 519      65642063 
+ 519      68617200 
+ 520              	.LASF15:
+ 521 010e 6C6F6E67 		.ascii	"long double\000"
+ 521      20646F75 
+ 521      626C6500 
+ 522              	.LASF12:
+ 523 011a 666C6F61 		.ascii	"float\000"
+ 523      7400
+ 524              	.LASF2:
+ 525 0120 73686F72 		.ascii	"short int\000"
+ 525      7420696E 
+ 525      7400
+ 526              	.LASF20:
+ 527 012a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccF7WpNn.s 			page 12
+
+
+ 527      43313120 
+ 527      352E342E 
+ 527      31203230 
+ 527      31363036 
+ 528 015d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 528      20726576 
+ 528      6973696F 
+ 528      6E203233 
+ 528      37373135 
+ 529 0190 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 529      66756E63 
+ 529      74696F6E 
+ 529      2D736563 
+ 529      74696F6E 
+ 530              	.LASF16:
+ 531 01b8 73697A65 		.ascii	"sizetype\000"
+ 531      74797065 
+ 531      00
+ 532              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

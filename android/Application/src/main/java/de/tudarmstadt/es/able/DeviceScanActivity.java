@@ -71,7 +71,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
     private static final int REQUEST_ENABLE_BT = 1;
     private static final int MY_PERMISSIONS_REQUEST= 1;
-    private static final long SCAN_PERIOD = 10000; // Stops scanning after 10 seconds.
+    //TODO: SCANNING TIME CHANGED!!
+    private static final long SCAN_PERIOD = 5000; // Stops scanning after 2 seconds.
 
     private static BluetoothLeService mBluetoothLeService;
     private BLEBroadcastReceiver deviceScanActivityReiceiver;
