@@ -20,6 +20,8 @@ public class myProjectServiceRegistryUpdater extends ServiceRegistryUpdatingBroa
 
     @Override
     protected UUID getUuid() {
-        return myProjectConstants.MYPROJECT_SERVICE_UUID;
+        // TODO: return your Service UUID here ...
+        // EXAMPLE: return myProjectConstants.MYPROJECT_SERVICE_UUID;
+        return null;
     }
 }

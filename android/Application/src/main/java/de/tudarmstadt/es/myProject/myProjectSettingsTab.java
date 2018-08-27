@@ -51,13 +51,16 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
 
     private BluetoothLeService mAbleBLEService;
 
-    private static BluetoothGatt mBluetoothGatt;
     public static BluetoothGattCharacteristic mLedCharacteristic;
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
     private static BluetoothGattDescriptor mCapsenseNotification;
 
+    // TODO: Declare your GUI elements here ...
+    /*
     private static Switch cap_switch;
     private static boolean CapSenseNotifyState = false;
+    */
+
     private static Button connectButton;
 
 
@@ -110,21 +113,23 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
 
         mConnectionState = rootView.findViewById(R.id.myProject_connection_state);
         mDataField = rootView.findViewById(R.id.myProject_data_value);
-        cap_switch = rootView.findViewById(R.id.myProject_capsense_switch);
+
         connectButton = new Button(act);
         connectButton = rootView.findViewById(R.id.myProject_capled_connect);
         connectButton.setOnClickListener(buttonListener);
+        connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
 
-        /**
-         * This will be called when the CapSense Notify On/Off switch is touched
-         */
+        // TODO: Insert your Setting switches here ...
+        /*
+        cap_switch = rootView.findViewById(R.id.myProject_capsense_switch);
         cap_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 writeCapSenseNotification(isChecked);
                 CapSenseNotifyState = isChecked;
             }
         });
-        connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+        */
+
         return rootView;
     }
 
@@ -167,40 +172,13 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
 
 
     /**
-     * Sets the LED characteristic to the boolean value.
-     *
-     * @param value if 1 then LED is on and if 0 LED is off.
-     */
-    public void writeLedCharacteristic(boolean value) {
-        byte[] byteVal = new byte[1];
-        if (value) {
-            byteVal[0] = (byte) (1);
-        } else {
-            byteVal[0] = (byte) (0);
-        }
-        Log.i(TAG, "LED " + value);
-        mLedCharacteristic.setValue(byteVal);
-        BluetoothLeService.genericWriteCharacteristic(mLedCharacteristic);
-    }
-
-    /**
-     * Reads if the LED is on or off.
-     */
-    public void readLedCharacteristic() {
-        if (BluetoothLeService.existBluetoothAdapter() == false ||
-                BluetoothLeService.existBluetoothGatt() == false) {
-            Log.w(TAG, "BluetoothAdapter not initialized");
-            return;
-        }
-        BluetoothLeService.genericReadCharacteristic(mLedCharacteristic);
-    }
-
-    /**
      * This method enables or disables notifications for the CapSense slider
      *
      * @param value Turns notifications on (1) or off (0)
      */
     public void writeCapSenseNotification(boolean value) {
+        //TODO: Activate/Deactivate Capsense notification here ...
+        /*
         BluetoothLeService.mBluetoothGatt.setCharacteristicNotification(mCapsenseCharacteristic, value);
         byte[] byteVal = new byte[1];
         if (value) {
@@ -211,6 +189,7 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
         Log.i(TAG, "CapSense Notification " + value);
         mCapsenseNotification.setValue(byteVal);
         BluetoothLeService.mBluetoothGatt.writeDescriptor(mCapsenseNotification);
+        */
     }
 
     /**
@@ -246,8 +225,11 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
         updateConnectionState(R.string.disconnected);
         mDataField.setText(R.string.no_data);
         getActivity().invalidateOptionsMenu();
+        //TODO: you can activate this part optionally
+        /*
         cap_switch.setChecked(false);
         cap_switch.setEnabled(false);
+        */
     }
 
     /**
@@ -255,6 +237,8 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
      */
     @Override
     public void gattServicesDiscovered() {
+        //TODO: Initialize your UUIDs here ...
+        /*
         BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(myProjectConstants.MYPROJECT_SERVICE_UUID);
 
         mLedCharacteristic = mService.getCharacteristic(myProjectConstants.MYPROJECT_LED_CHARACTERISTIC_UUID);
@@ -263,6 +247,7 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
 
         readLedCharacteristic();
         cap_switch.setEnabled(true);
+        */
     }
 
     /**
@@ -273,7 +258,6 @@ public class myProjectSettingsTab extends Fragment implements BLEServiceListener
      */
     @Override
     public void dataAvailable(Intent intent) {
-        String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
     }
 
 

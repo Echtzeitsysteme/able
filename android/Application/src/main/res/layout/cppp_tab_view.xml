@@ -58,7 +58,7 @@ android:scrollbars="vertical">
         android:layout_weight="1"
         android:fontFamily="sans-serif-condensed"
         android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        android:text="@string/NotifyJoystick"
+        android:text="@string/NotifySensorData"
         android:textOff="OFF"
         android:textOn="ON"
         android:textSize="20sp"
@@ -75,7 +75,7 @@ android:scrollbars="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/joystick1Xvalue"
+            android:text="@string/sensorDataValue"
             android:textSize="18sp" />
 
         <TextView

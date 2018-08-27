@@ -149,6 +149,7 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
             switch(position) {
                 case 0: return myProjectViewTab.newInstance(mDeviceName, mDeviceAddress);
                 case 1: return myProjectSettingsTab.newInstance(mDeviceName, mDeviceAddress);
+                // TODO: Add a case, if a tab is added ...
 
             }
             return null;
@@ -157,6 +158,7 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
         @Override
         public int getCount() {
             return 2;
+            // TODO: Increment return if a tab is added
         }
 
         @Override
@@ -166,6 +168,7 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
                     return "View";
                 case 1:
                     return "Settings";
+                    // TODO: You can insert your own tab here ...
             }
             return null;
         }
@@ -173,11 +176,6 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
         @Override
         public int getItemPosition(Object object) {
             if (object instanceof myProjectViewTab) {
-                /*
-                ((CapLEDViewTab) object).updateData(mConnected, mLedSwitchEnabled, mLedSwitchState,
-                mCapSwitchState, mCapSwitchEnabled, mCapSensePosition,
-                mCapSenseValue);
-                */
             }
             return super.getItemPosition(object);
         }
