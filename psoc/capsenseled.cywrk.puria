@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="capsenseled\multicon_ble\Header Files\UARTControl.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="capsenseled\multicon_ble\TopDesign">
 <ExpandedNodeIds>
 <v>capsenseled</v>
 <v>capsenseled\capsenseled</v>
@@ -51,8 +51,7 @@
 <v>capsenseled\multicon_ble\Source Files\LEDControl.c</v>
 <v>capsenseled\multicon_ble\Source Files\main.c</v>
 <v>capsenseled\multicon_ble\Source Files\UARTControl.c</v>
-<v>capsenseled\multicon_ble\Generated_Source\PSoC4</v>
-<v>capsenseled\multicon_ble\Generated_Source\PSoC4\BLE</v>
+<v>capsenseled\multicon_ble\Generated_Source</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>capsenseled</v>
@@ -204,36 +203,6 @@
 <VisibleNodeIds>
 <v>capsenseled</v>
 <v>capsenseled\capsenseled</v>
-<v>capsenseled\capsenseled\CortexM0</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\ble.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\ble_bless_isr.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\ble_custom.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\ble_eventHandler.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\ble_gatt.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\ble_HAL_INT.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\ble_HAL_PVT.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\blue.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\blue_PM.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense_CSHL.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense_INT.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense_PM.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense_SampleClk.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense_SenseClk.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense_SMS.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\capsense_TunerHelper.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>capsenseled\capsenseled\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -332,6 +301,8 @@
 <name v=".\multicon_ble.cydsn\LEDControl.c" />
 <name v=".\multicon_ble.cydsn\UARTControl.c" />
 <name v=".\multicon_ble.cydsn\UARTControl.h" />
+<name v=".\multicon_ble.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\multicon_ble.cydsn\BLEControl.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -339,7 +310,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1035, 431" SelectedTabbedMdiWindow="372ae297-9804-43bf-9bf5-556198c975f9"><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\main.c" Guid="372ae297-9804-43bf-9bf5-556198c975f9" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\LEDControl.c" Guid="306fe1fd-32fc-4c94-be1e-c9a428798ad1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.c" Guid="f08695a8-4cad-424b-bf2f-88b1f7f2bede" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.h" Guid="76bac7a0-9050-4efb-91b0-4ac80ee7c1ff" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9e93f9f9-b628-4740-afaf-591d7440e6c3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="846, 431" SelectedTabbedMdiWindow="deabf768-889a-4e31-a8f4-037dd938b593"><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\main.c" Guid="372ae297-9804-43bf-9bf5-556198c975f9" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\LEDControl.c" Guid="306fe1fd-32fc-4c94-be1e-c9a428798ad1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.c" Guid="f08695a8-4cad-424b-bf2f-88b1f7f2bede" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.h" Guid="76bac7a0-9050-4efb-91b0-4ac80ee7c1ff" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9e93f9f9-b628-4740-afaf-591d7440e6c3" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\TopDesign\TopDesign.cysch" Guid="deabf768-889a-4e31-a8f4-037dd938b593" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\BLEControl.c" Guid="f611ae39-d4f7-482d-b7cc-e04781dd67dc" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -115,7 +115,7 @@ CYBLE_STATE_T cyBle_state;
     
     static uint8 cyBle_attValues[0x22u] = {
     /* Device Name */
-    (uint8)'C', (uint8)'P', (uint8)'P', (uint8)'P', (uint8)' ', (uint8)'#', (uint8)'4',
+    (uint8)'C', (uint8)'P', (uint8)'P', (uint8)'P', (uint8)' ', (uint8)'#', (uint8)'3',
 
     /* Appearance */
     0x00u, 0x00u,
