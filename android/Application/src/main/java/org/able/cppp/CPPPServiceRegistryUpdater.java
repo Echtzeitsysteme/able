@@ -1,10 +1,10 @@
-package de.tudarmstadt.es.cppp;
+package org.able.cppp;
 
 import android.app.Activity;
 
 import java.util.UUID;
 
-import de.tudarmstadt.es.able.ServiceRegistryUpdatingBroadcastReceiver;
+import org.able.core.ServiceRegistryUpdatingBroadcastReceiver;
 
 
 /**

@@ -1,7 +1,7 @@
 /*
         CapLEDAcitivity Class for the example application of an Bluetooth IoT device with a capacitive sensor and a LED.
  */
-package de.tudarmstadt.es.capled;
+package org.able.capled;
 
 /*
         IMPORTS
@@ -13,21 +13,21 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import de.tudarmstadt.es.able.BluetoothLeService;
-import de.tudarmstadt.es.able.BLEBroadcastReceiver;
-import de.tudarmstadt.es.able.DeviceScanActivity;
-import de.tudarmstadt.es.able.R;
-import de.tudarmstadt.es.able.BLEServiceListener;
+import org.able.core.BluetoothLeService;
+import org.able.core.BLEBroadcastReceiver;
+import org.able.core.DeviceScanActivity;
+import org.able.core.R;
+import org.able.core.BLEServiceListener;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -36,57 +36,44 @@ import android.view.ViewGroup;
  * If started this activity can be used to controll the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
  *
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
- * @version 1.1
+ * @version 1.2
  */
 
-public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
-    private final static String TAG = CapLEDSettingsTab.class.getSimpleName();
+public class CapLEDViewTab extends Fragment implements BLEServiceListener {
+    private final static String TAG = CapLEDViewTab.class.getSimpleName();
 
-    private TextView mConnectionState;
-    private TextView mDataField;
-    private String mDeviceName;
-    private String mDeviceAddress;
+    public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
+    public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
+
+
     private boolean mConnected = false;
+    private String mDeviceAddress;
 
     private BluetoothLeService mAbleBLEService;
-
     private static BluetoothGatt mBluetoothGatt;
     public static BluetoothGattCharacteristic mLedCharacteristic;
+    public static BluetoothGattCharacteristic mGreenLedCharacteristic;
+
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
     private static BluetoothGattDescriptor mCapsenseNotification;
 
-    private static Switch cap_switch;
-    private static boolean CapSenseNotifyState = false;
-    private static Button connectButton;
+    private static Switch led_switch;
+    private static Switch green_led_switch;
+    private static boolean mLedSwitchState = false;
+    private static boolean mGreenLedSwitchState = false;
+
+    private static String mCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
+    private static ProgressBar capSenseProgressBar;
+    private static TextView capSenseDataView;
 
 
     BLEBroadcastReceiver thisReceiver;
 
-    /**
-     * This a the GUI button listener.
-     */
-    private View.OnClickListener buttonListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.capledConnect:
-                    setScanButton();
-                    break;
-                case android.R.id.home:
-                    mAbleBLEService.disconnect();
-                    getActivity().onBackPressed();
-                    break;
-            }
-
-        }
-    };
-    private int capled_tab_view;
-
-    public static CapLEDSettingsTab newInstance(String mDeviceName, String mDeviceAddress) {
+    public static CapLEDViewTab newInstance(String mDeviceName, String mDeviceAddress) {
         Bundle args = new Bundle();
         args.putString("mDeviceName", mDeviceName);
         args.putString("mDeviceAddress", mDeviceAddress);
-        CapLEDSettingsTab fragment = new CapLEDSettingsTab();
+        CapLEDViewTab fragment = new CapLEDViewTab();
         fragment.setArguments(args);
         return fragment;
     }
@@ -100,30 +87,33 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.capled_tab_settings, container, false);
+        View rootView = inflater.inflate(R.layout.capled_tab_view, container, false);
         Activity act = getActivity();
-        mDeviceName = getArguments().getString("mDeviceName");
         mDeviceAddress = getArguments().getString("mDeviceAddress");
 
-        ((TextView) rootView.findViewById(R.id.device_address)).setText(mDeviceAddress);
+        led_switch = rootView.findViewById(R.id.led_switch);
+        green_led_switch = rootView.findViewById(R.id.green_led_switch);
+        capSenseProgressBar = rootView.findViewById(R.id.capledProgressBar);
+        capSenseDataView = rootView.findViewById(R.id.capSenseValue);
+        capSenseProgressBar.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 159, 227)));
+        capSenseProgressBar.setProgressBackgroundTintList(ColorStateList.valueOf(Color.rgb(19, 77, 101)));
+        capSenseProgressBar.setProgress(0);
 
-        mConnectionState = rootView.findViewById(R.id.connection_state);
-        mDataField = rootView.findViewById(R.id.data_value);
-        cap_switch = rootView.findViewById(R.id.capsense_switch);
-        connectButton = new Button(act);
-        connectButton = rootView.findViewById(R.id.capledConnect);
-        connectButton.setOnClickListener(buttonListener);
 
         /**
-         * This will be called when the CapSense Notify On/Off switch is touched
+         *  This will be called when the LED On/Off switch is touched
          */
-        cap_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                writeCapSenseNotification(isChecked);
-                CapSenseNotifyState = isChecked;
+                writeLedCharacteristic(isChecked);
             }
         });
-        connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+
+        green_led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                writeGreenLedCharacteristic(isChecked);
+            }
+        });
         return rootView;
     }
 
@@ -143,7 +133,6 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
         if (mAbleBLEService != null) {
             final boolean result = mAbleBLEService.connect(mDeviceAddress);
         }
-        setScanButton();
     }
 
     /**
@@ -178,8 +167,22 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
             byteVal[0] = (byte) (0);
         }
         Log.i(TAG, "LED " + value);
+        mLedSwitchState = value;
         mLedCharacteristic.setValue(byteVal);
         BluetoothLeService.genericWriteCharacteristic(mLedCharacteristic);
+    }
+
+    public void writeGreenLedCharacteristic(boolean value) {
+        byte[] byteVal = new byte[1];
+        if (value) {
+            byteVal[0] = (byte) (1);
+        } else {
+            byteVal[0] = (byte) (0);
+        }
+        Log.i(TAG, "LED " + value);
+        mGreenLedSwitchState = value;
+        mGreenLedCharacteristic.setValue(byteVal);
+        BluetoothLeService.genericWriteCharacteristic(mGreenLedCharacteristic);
     }
 
     /**
@@ -213,26 +216,11 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
     }
 
     /**
-     * Updates a GUI TextView object for the connection state.
-     *
-     * @param resourceId
-     */
-    void updateConnectionState(final int resourceId) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mConnectionState.setText(resourceId);
-            }
-        });
-    }
-
-    /**
      * Called when GATT connection starts.
      */
     @Override
     public void gattConnected() {
         mConnected = true;
-        updateConnectionState(R.string.connected);
         getActivity().invalidateOptionsMenu();
     }
 
@@ -242,11 +230,9 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
     @Override
     public void gattDisconnected() {
         mConnected = false;
-        updateConnectionState(R.string.disconnected);
-        mDataField.setText(R.string.no_data);
         getActivity().invalidateOptionsMenu();
-        cap_switch.setChecked(false);
-        cap_switch.setEnabled(false);
+        led_switch.setChecked(false);
+        led_switch.setEnabled(false);
     }
 
     /**
@@ -257,11 +243,13 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
         BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(CapLEDConstants.CAPLED_SERVICE_UUID);
 
         mLedCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_LED_CHARACTERISTIC_UUID);
+        mGreenLedCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_GREEN_LED_CHARACTERISTIC_UUID);
         mCapsenseCharacteristic = mService.getCharacteristic(CapLEDConstants.CAPLED_CAP_CHARACTERISTIC_UUID);
         mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(CapLEDConstants.CAPLED_CAP_NOTIFICATION);
 
         readLedCharacteristic();
-        cap_switch.setEnabled(true);
+
+        led_switch.setEnabled(true);
     }
 
     /**
@@ -272,28 +260,36 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
      */
     @Override
     public void dataAvailable(Intent intent) {
-        String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
-    }
+        if (mLedSwitchState) {
+            led_switch.setChecked(true);
+        } else {
+            led_switch.setChecked(false);
+        }
+        if(mGreenLedSwitchState)
+            green_led_switch.setChecked(true);
+        else
+            green_led_switch.setChecked(false);
 
+        String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
+        if (uuid.equals(CapLEDConstants.CAPLED_CAP_CHARACTERISTIC_UUID.toString())) {
+            mCapSenseValue = BluetoothLeService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16, 0).toString();
+        }
+
+        int capSensePosition = Integer.parseInt(mCapSenseValue);
+
+        setCapSenseView(capSensePosition);
+    }
 
     /**
-     * Sets the GUI ScanButton.
+     * Sets the CapSense GUI picture.
      */
-    void setScanButton() {
-        if (!mConnected) {
-            if (mAbleBLEService == null) {
-                Toast.makeText(getActivity(), "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
-            }
-            mAbleBLEService.connect(mDeviceAddress);
-            connectButton.setText(R.string.menu_disconnect);
-            connectButton.setBackgroundColor(Color.rgb(237, 34, 34));
-        } else if (mConnected) {
-            mAbleBLEService.disconnect();
-            connectButton.setText(R.string.menu_connect);
-            connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+    public void setCapSenseView(int capSensePosition) {
+        if (mCapSenseValue.equals("-1")) {
+            capSenseProgressBar.setProgress(0);
+            capSenseDataView.setText(R.string.no_data);
+        } else {
+            capSenseProgressBar.setProgress(capSensePosition);
+            capSenseDataView.setText(mCapSenseValue);
         }
     }
-
-
-
 }

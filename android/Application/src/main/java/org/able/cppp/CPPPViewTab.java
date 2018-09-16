@@ -1,32 +1,26 @@
-package de.tudarmstadt.es.cppp;
+package org.able.cppp;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import de.tudarmstadt.es.able.BluetoothLeService;
-import de.tudarmstadt.es.able.BLEBroadcastReceiver;
-import de.tudarmstadt.es.able.DeviceScanActivity;
-import de.tudarmstadt.es.able.R;
-import de.tudarmstadt.es.able.BLEServiceListener;
-import de.tudarmstadt.es.capled.CapLEDConstants;
+import org.able.core.BluetoothLeService;
+import org.able.core.BLEBroadcastReceiver;
+import org.able.core.DeviceScanActivity;
+import org.able.core.R;
+import org.able.core.BLEServiceListener;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 
 public class CPPPViewTab extends Fragment implements BLEServiceListener  {

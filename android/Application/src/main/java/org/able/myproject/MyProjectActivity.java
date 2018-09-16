@@ -1,11 +1,4 @@
-/*
-        CapLEDAcitivity Class for the example application of an Bluetooth IoT device with a capacitive sensor and a LED.
- */
-package de.tudarmstadt.es.cppp;
-
-/*
-        IMPORTS
- */
+package org.able.myproject;
 
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -17,21 +10,11 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-import de.tudarmstadt.es.able.BLEServiceListener;
-import de.tudarmstadt.es.able.R;
-import de.tudarmstadt.es.capled.CapLEDSettingsTab;
-import de.tudarmstadt.es.capled.CapLEDViewTab;
+import org.able.core.BLEServiceListener;
+import org.able.core.R;
 
-/**
- * This activity is started, if its registered in the ServiceRegistry with a matching UUID.
- * If started this activity can be used to controll the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
- *
- * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
- * @version 1.1
- */
-
-public class CPPPActivity extends FragmentActivity implements BLEServiceListener, ActionBar.TabListener {
-    private final static String TAG = CPPPActivity.class.getSimpleName();
+public class MyProjectActivity extends FragmentActivity implements BLEServiceListener, ActionBar.TabListener {
+    private final static String TAG = MyProjectActivity.class.getSimpleName();
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -50,13 +33,13 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cppp_activity);
+        setContentView(R.layout.myproject_activity);
 
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Tab settings
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.cppp_activity);
+        mViewPager = (ViewPager) findViewById(R.id.myProjectActivity);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -164,8 +147,9 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position) {
-                case 0: return CPPPViewTab.newInstance(mDeviceName, mDeviceAddress);
-                case 1: return CPPPSettingsTab.newInstance(mDeviceName, mDeviceAddress);
+                case 0: return MyProjectViewTab.newInstance(mDeviceName, mDeviceAddress);
+                case 1: return MyProjectSettingsTab.newInstance(mDeviceName, mDeviceAddress);
+                // TODO CUSTOM ABLE PROJECT: Add a case, if a tab is added ...
 
             }
             return null;
@@ -174,6 +158,7 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
         @Override
         public int getCount() {
             return 2;
+            // TODO CUSTOM ABLE PROJECT: Increment return if a tab is added
         }
 
         @Override
@@ -183,13 +168,14 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
                     return "View";
                 case 1:
                     return "Settings";
+                    // TODO CUSTOM ABLE PROJECT: You can insert your own tab here ...
             }
             return null;
         }
 
         @Override
         public int getItemPosition(Object object) {
-            if (object instanceof CapLEDViewTab) {
+            if (object instanceof MyProjectViewTab) {
             }
             return super.getItemPosition(object);
         }

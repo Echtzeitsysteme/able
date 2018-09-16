@@ -1,4 +1,4 @@
-package de.tudarmstadt.es.cppp;
+package org.able.cppp;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,20 +6,19 @@ import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import de.tudarmstadt.es.able.BLEBroadcastReceiver;
-import de.tudarmstadt.es.able.BLEServiceListener;
-import de.tudarmstadt.es.able.BluetoothLeService;
-import de.tudarmstadt.es.able.DeviceScanActivity;
-import de.tudarmstadt.es.able.R;
+import org.able.core.BLEBroadcastReceiver;
+import org.able.core.BLEServiceListener;
+import org.able.core.BluetoothLeService;
+import org.able.core.DeviceScanActivity;
+import org.able.core.R;
 
 public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     private final static String TAG = CPPPSettingsTab.class.getSimpleName();
@@ -104,6 +103,7 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
             final boolean result = mAbleBLEService.connect(mDeviceAddress);
         }
         setScanButton();
+
     }
 
     /**

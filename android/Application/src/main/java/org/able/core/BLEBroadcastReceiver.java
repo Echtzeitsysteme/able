@@ -1,15 +1,9 @@
-package de.tudarmstadt.es.able;
+package org.able.core;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.util.Log;
-import android.widget.SimpleExpandableListAdapter;
-
-import static android.support.v4.app.ActivityCompat.invalidateOptionsMenu;
-import static de.tudarmstadt.es.able.DeviceControlActivity.*;
 
 /**
  * This class sets up the filter and the BroadcastReceiver which uses the filter.

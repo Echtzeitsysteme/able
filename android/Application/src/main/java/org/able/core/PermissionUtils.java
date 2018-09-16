@@ -1,16 +1,11 @@
-package de.tudarmstadt.es.able;
+package org.able.core;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
 
 /**
  * This class is needed for the location data access controls.

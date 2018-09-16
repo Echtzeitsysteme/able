@@ -1,11 +1,10 @@
-package de.tudarmstadt.es.capled;
+package org.able.capled;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 
 import java.util.UUID;
 
-import de.tudarmstadt.es.able.ServiceRegistryUpdatingBroadcastReceiver;
+import org.able.core.ServiceRegistryUpdatingBroadcastReceiver;
 
 /**
  * This class registers the UUID-to-activity mapping for the Capled device.

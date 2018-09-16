@@ -1,4 +1,4 @@
-package de.tudarmstadt.es.able;
+package org.able.core;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -19,7 +19,7 @@ public abstract class ServiceRegistryUpdatingBroadcastReceiver extends Broadcast
     /**
      * The action that this {@link BroadcastReceiver} listens to.
      */
-    public static final String INTENT_ACTION_UPDATE_UUID_MAPPING = "de.tudarmstadt.es.able.action.RegisterUuidToActivityMapping";
+    public static final String INTENT_ACTION_UPDATE_UUID_MAPPING = "org.able.core.action.RegisterUuidToActivityMapping";
 
     /**
      * The {@link UUID} of the service to be registered

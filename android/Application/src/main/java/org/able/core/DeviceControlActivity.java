@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package de.tudarmstadt.es.able;
+package org.able.core;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,7 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static de.tudarmstadt.es.able.CharacteristicSorterClass.settingUpServices;
+import static org.able.core.CharacteristicSorterClass.settingUpServices;
 
 
 /**
@@ -153,9 +152,11 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
                 thisReceiver.makeGattUpdateIntentFilter());
         mBluetoothLeService = DeviceScanActivity.getmBluetoothLeService();
 
+        /*
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
         }
+        */
     }
 
     /**
@@ -218,6 +219,12 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed(){
+        DeviceScanActivity.getmBluetoothLeService().disconnect();
+        super.onBackPressed();
     }
 
     /**

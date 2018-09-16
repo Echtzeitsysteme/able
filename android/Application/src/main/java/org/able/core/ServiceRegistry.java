@@ -1,14 +1,10 @@
-package de.tudarmstadt.es.able;
+package org.able.core;
 
 import android.app.Activity;
-import android.app.Service;
-import android.bluetooth.BluetoothGattService;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import de.tudarmstadt.es.capled.CapLEDActivity;
 
 /**
  * Service Registry saves the UUID and Activity Class Tuples which are later used by DeviceScanActivity in checkForKnownServices().

@@ -1,4 +1,4 @@
-package de.tudarmstadt.es.able;
+package org.able.core;
 
 import android.content.Intent;
 

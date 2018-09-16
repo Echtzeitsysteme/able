@@ -1,4 +1,4 @@
-package de.tudarmstadt.es.able;
+package org.able.core;
 
 import android.bluetooth.BluetoothDevice;
 import android.view.LayoutInflater;
@@ -114,5 +114,9 @@ class LeDeviceListAdapter extends BaseAdapter {
         viewHolder.deviceAddress.setText(device.getAddress());
 
         return view;
+    }
+
+    public List<BluetoothDevice> getListOfDevices(){
+        return mLeDevices;
     }
 }

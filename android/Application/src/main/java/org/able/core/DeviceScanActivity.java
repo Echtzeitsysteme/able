@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.tudarmstadt.es.able;
+package org.able.core;
 
 import android.Manifest;
 import android.app.Activity;
@@ -51,7 +51,7 @@ import java.util.List;
 //class to make permissionhandling more clear
 
 import static android.content.ContentValues.TAG;
-import static de.tudarmstadt.es.able.PermissionUtils.isLocationEnabled;
+import static org.able.core.PermissionUtils.isLocationEnabled;
 
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
@@ -72,13 +72,14 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private static final int REQUEST_ENABLE_BT = 1;
     private static final int MY_PERMISSIONS_REQUEST= 1;
     //TODO: SCANNING TIME CHANGED!!
-    private static final long SCAN_PERIOD = 5000; // Stops scanning after 2 seconds.
+    private static final long SCAN_PERIOD = 1000; // Stops scanning after 2 seconds.
 
     private static BluetoothLeService mBluetoothLeService;
     private BLEBroadcastReceiver deviceScanActivityReiceiver;
     private String mDeviceName;
     private String mDeviceAddress;
     BluetoothDevice device = null;
+    //ListView ableBleScanList;
 
     private Switch bluetoothSwitch;
     private Switch locationSwitch;
@@ -156,6 +157,8 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         this.sendBroadcast(new Intent(ServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING));
 
         serviceRegistry = ServiceRegistry.getInstance();
+
+        //ableBleScanList = (ListView) findViewById(R.id.bleScanList);
 
         scanButton = new Button(this);
         scanButton = findViewById(R.id.scanButton);
@@ -425,6 +428,15 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                 if(result)
                 {
                     Toast.makeText(this, "Connection in progress please wait.", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, checkForKnownServices());
+
+                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+                    if (mScanning) {
+                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                        mScanning = false;
+                    }
+                    startActivity(intent);
                 }
             }
 
@@ -446,6 +458,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             }, SCAN_PERIOD);
 
             mScanning = true;
+
             mBluetoothAdapter.startLeScan(mLeScanCallback);
 
         } else {
@@ -456,7 +469,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     }
 
     /**
-     * Callback function for the bluetooth adapter BLE scan.
+     * Callback function for the bluetooth devices list while doing the BLE scan.
      */
     private BluetoothAdapter.LeScanCallback mLeScanCallback =
             new BluetoothAdapter.LeScanCallback() {
@@ -467,6 +480,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                 @Override
                 public void run() {
                     mLeDeviceListAdapter.addDevice(device);
+
                     mLeDeviceListAdapter.notifyDataSetChanged();
                 }
             });
@@ -484,12 +498,11 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         for(BluetoothGattService tmpGattService : tmpList)
         {
                 if(serviceRegistry.getRegisteredServices().containsKey(tmpGattService.getUuid())) {
-                    mBluetoothLeService.disconnect();
+                    //mBluetoothLeService.disconnect();
                     choosenActivity = serviceRegistry.getServiceClass(tmpGattService.getUuid());
                     break;
                 }
         }
-        mBluetoothLeService.disconnect();
         return choosenActivity;
     }
 
@@ -552,17 +565,19 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
      */
     @Override
     public void gattServicesDiscovered() {
+        /*
         Intent intent = new Intent(this, checkForKnownServices());
 
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-
             if (mScanning) {
                 mBluetoothAdapter.stopLeScan(mLeScanCallback);
                 mScanning = false;
             }
-            mBluetoothLeService.disconnect();
+            //TODO: Is this the fix?
+            //mBluetoothLeService.disconnect();
         startActivity(intent);
+        */
     }
 
     /**

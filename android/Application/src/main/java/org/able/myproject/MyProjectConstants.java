@@ -1,6 +1,4 @@
-package de.tudarmstadt.es.myProject;
-
-import java.util.UUID;
+package org.able.myproject;
 
 /**
  * This interfaces contains all the relevant UUIDs for the CapLED example.
@@ -9,8 +7,8 @@ import java.util.UUID;
  * @version 1.1
  */
 
-public interface myProjectConstants {
-    // TODO: Insert your UUIDs here ...
+public interface MyProjectConstants {
+    // TODO CUSTOM ABLE PROJECT: Insert your UUIDs here ...
     // EXAMPLE : UUID MYPROJECT_SERVICE_UUID = UUID.fromString("00000000-0000-1000-8000-00805f9b34f0");
 
     /*

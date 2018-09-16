@@ -1,5 +1,11 @@
-package de.tudarmstadt.es.myProject;
+/*
+        CapLEDAcitivity Class for the example application of an Bluetooth IoT device with a capacitive sensor and a LED.
+ */
+package org.able.capled;
 
+/*
+        IMPORTS
+ */
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -10,11 +16,21 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-import de.tudarmstadt.es.able.BLEServiceListener;
-import de.tudarmstadt.es.able.R;
+import org.able.core.BluetoothLeService;
+import org.able.core.DeviceScanActivity;
+import org.able.core.R;
+import org.able.core.BLEServiceListener;
 
-public class myProjectActivity extends FragmentActivity implements BLEServiceListener, ActionBar.TabListener {
-    private final static String TAG = myProjectActivity.class.getSimpleName();
+/**
+ * This activity is started, if its registered in the ServiceRegistry with a matching UUID.
+ * If started this activity can be used to controll the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
+ *
+ * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
+ * @version 1.1
+ */
+
+public class CapLEDActivity extends FragmentActivity implements BLEServiceListener, ActionBar.TabListener {
+    private final static String TAG = CapLEDActivity.class.getSimpleName();
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -33,13 +49,13 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.myproject_activity);
+        setContentView(R.layout.capled_activity);
 
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Tab settings
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.myProjectActivity);
+        mViewPager = (ViewPager) findViewById(R.id.CapLEDTab);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -86,6 +102,13 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
         super.onDestroy();
     }
 
+
+
+    @Override
+    public void onBackPressed(){
+        DeviceScanActivity.getmBluetoothLeService().disconnect();
+        super.onBackPressed();
+    }
 
 
     /**
@@ -147,9 +170,8 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position) {
-                case 0: return myProjectViewTab.newInstance(mDeviceName, mDeviceAddress);
-                case 1: return myProjectSettingsTab.newInstance(mDeviceName, mDeviceAddress);
-                // TODO: Add a case, if a tab is added ...
+                case 0: return CapLEDViewTab.newInstance(mDeviceName, mDeviceAddress);
+                case 1: return CapLEDSettingsTab.newInstance(mDeviceName, mDeviceAddress);
 
             }
             return null;
@@ -158,7 +180,6 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
         @Override
         public int getCount() {
             return 2;
-            // TODO: Increment return if a tab is added
         }
 
         @Override
@@ -168,14 +189,18 @@ public class myProjectActivity extends FragmentActivity implements BLEServiceLis
                     return "View";
                 case 1:
                     return "Settings";
-                    // TODO: You can insert your own tab here ...
             }
             return null;
         }
 
         @Override
         public int getItemPosition(Object object) {
-            if (object instanceof myProjectViewTab) {
+            if (object instanceof CapLEDViewTab) {
+                /*
+                ((CapLEDViewTab) object).updateData(mConnected, mLedSwitchEnabled, mLedSwitchState,
+                mCapSwitchState, mCapSwitchEnabled, mCapSensePosition,
+                mCapSenseValue);
+                */
             }
             return super.getItemPosition(object);
         }

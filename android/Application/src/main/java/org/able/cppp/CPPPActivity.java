@@ -1,28 +1,27 @@
 /*
         CapLEDAcitivity Class for the example application of an Bluetooth IoT device with a capacitive sensor and a LED.
  */
-package de.tudarmstadt.es.capled;
+package org.able.cppp;
 
 /*
         IMPORTS
  */
+
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.bluetooth.BluetoothGatt;
-import android.bluetooth.BluetoothGattCharacteristic;
-import android.bluetooth.BluetoothGattDescriptor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-import de.tudarmstadt.es.able.BluetoothLeService;
-import de.tudarmstadt.es.able.BLEBroadcastReceiver;
-import de.tudarmstadt.es.able.R;
-import de.tudarmstadt.es.able.BLEServiceListener;
+import org.able.core.BLEServiceListener;
+import org.able.core.BluetoothLeService;
+import org.able.core.DeviceScanActivity;
+import org.able.core.R;
+import org.able.capled.CapLEDViewTab;
 
 /**
  * This activity is started, if its registered in the ServiceRegistry with a matching UUID.
@@ -32,8 +31,8 @@ import de.tudarmstadt.es.able.BLEServiceListener;
  * @version 1.1
  */
 
-public class CapLEDActivity extends FragmentActivity implements BLEServiceListener, ActionBar.TabListener {
-    private final static String TAG = CapLEDActivity.class.getSimpleName();
+public class CPPPActivity extends FragmentActivity implements BLEServiceListener, ActionBar.TabListener {
+    private final static String TAG = CPPPActivity.class.getSimpleName();
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -44,6 +43,14 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
 
+    @Override
+    public void onBackPressed(){
+        BluetoothLeService mAbleBLEService = DeviceScanActivity.getmBluetoothLeService();
+        mAbleBLEService.disconnect();
+        super.onBackPressed();
+    }
+
+
     /**
      * Initializes activity and GUI objects.
      * @param savedInstanceState
@@ -52,13 +59,13 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.capled_activity);
+        setContentView(R.layout.cppp_activity);
 
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Tab settings
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.CapLEDTab);
+        mViewPager = (ViewPager) findViewById(R.id.cppp_activity);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -94,6 +101,7 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
     @Override
     protected void onPause() {
         super.onPause();
+
     }
 
     /**
@@ -103,9 +111,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
     protected void onDestroy()
     {
         super.onDestroy();
+
     }
-
-
 
     /**
      * Called when GATT connection starts.
@@ -166,8 +173,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position) {
-                case 0: return CapLEDViewTab.newInstance(mDeviceName, mDeviceAddress);
-                case 1: return CapLEDSettingsTab.newInstance(mDeviceName, mDeviceAddress);
+                case 0: return CPPPViewTab.newInstance(mDeviceName, mDeviceAddress);
+                case 1: return CPPPSettingsTab.newInstance(mDeviceName, mDeviceAddress);
 
             }
             return null;
@@ -192,11 +199,6 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
         @Override
         public int getItemPosition(Object object) {
             if (object instanceof CapLEDViewTab) {
-                /*
-                ((CapLEDViewTab) object).updateData(mConnected, mLedSwitchEnabled, mLedSwitchState,
-                mCapSwitchState, mCapSwitchEnabled, mCapSensePosition,
-                mCapSenseValue);
-                */
             }
             return super.getItemPosition(object);
         }
