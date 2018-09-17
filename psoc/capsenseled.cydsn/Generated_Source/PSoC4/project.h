@@ -44,6 +44,8 @@
 #include "ble_custom.h"
 #include "pwm.h"
 #include "Clock_1.h"
+#include "green.h"
+#include "green_aliases.h"
 #include "capsense_SampleClk.h"
 #include "capsense_Sns_aliases.h"
 #include "capsense_SenseClk.h"

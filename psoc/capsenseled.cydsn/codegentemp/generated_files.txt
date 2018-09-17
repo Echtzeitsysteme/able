@@ -58,6 +58,10 @@
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\pwm_PM.c" value="SOURCE_C;CortexM0;;;;pwm" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM0;;;;Clock_1" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\green.c" value="SOURCE_C;CortexM0;;;;green" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\green.h" value="HEADER;;;;;green" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\green_aliases.h" value="HEADER;;;;;green" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\green_PM.c" value="SOURCE_C;CortexM0;;;;green" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\capsense_SampleClk.c" value="SOURCE_C;CortexM0;;;;capsense_SampleClk" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\capsense_SampleClk.h" value="HEADER;;;;;capsense_SampleClk" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\codegentemp\capsense_Sns_aliases.h" value="HEADER;;;;;capsense_Sns" />

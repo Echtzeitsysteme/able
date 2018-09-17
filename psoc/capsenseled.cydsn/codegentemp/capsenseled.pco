@@ -1,5 +1,5 @@
 # capsenseled
-# 2018-09-17 15:10:43Z
+# 2018-09-17 19:41:17Z
 
 # IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 6
@@ -19,6 +19,7 @@ set_io "\capsense:Sns(1)\" iocell 2 2
 set_io "\capsense:Sns(2)\" iocell 2 3
 set_io "\capsense:Sns(3)\" iocell 2 4
 set_io "\capsense:Sns(4)\" iocell 2 5
+set_io "green(0)" iocell 3 6
 set_location "\pwm:PWMUDB:status_2\" 1 0 1 1
 set_location "Net_135" 1 0 0 3
 set_location "\capsense:CSD_FFB\" p4csdcell -1 -1 0

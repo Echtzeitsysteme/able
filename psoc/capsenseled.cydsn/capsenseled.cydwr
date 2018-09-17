@@ -12,6 +12,7 @@
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
       <Data key="94b2f552-a799-4a09-b1f3-f852891fc82b" value="blue" />
+      <Data key="603d6991-0c86-40ab-b596-6d0f404841fa" value="green" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="red" />
       <Data key="ed734a18-4e3d-4333-81bd-62f33dd6f1bb/73b612cd-240c-4d8e-8340-ea28aabf4b11" value="capsense_Sns" />
       <Data key="ed734a18-4e3d-4333-81bd-62f33dd6f1bb/899719c0-e797-4403-a44f-07a66de2cbeb" value="capsense_Cmod" />
@@ -3554,6 +3555,11 @@
     <Group key="94b2f552-a799-4a09-b1f3-f852891fc82b">
       <Group key="0">
         <Data key="Port Format" value="3,7" />
+      </Group>
+    </Group>
+    <Group key="603d6991-0c86-40ab-b596-6d0f404841fa">
+      <Group key="0">
+        <Data key="Port Format" value="3,6" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">

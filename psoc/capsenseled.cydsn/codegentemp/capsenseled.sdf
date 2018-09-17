@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2018-09-17T15:10:44Z")
+ (DATE "2018-09-17T19:41:17Z")
  (DESIGN "capsenseled")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -49,6 +49,7 @@
     (INTERCONNECT blue\(0\).pad_out blue\(0\)_PAD (0.000:0.000:0.000))
     (INTERCONNECT blue\(0\)_PAD blue\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT red\(0\)_PAD red\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT green\(0\)_PAD green\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

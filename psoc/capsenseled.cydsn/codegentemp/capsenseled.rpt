@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.221ms
+Loading plugins phase: Elapsed time ==> 0s.109ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\capsenseled.cyprj -d CY8C4247LQI-BL483 -s C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 3s.755ms
+Elaboration phase: Elapsed time ==> 1s.687ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.066ms
+HDL generation phase: Elapsed time ==> 0s.062ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Mon Sep 17 17:10:41 2018
+Mon Sep 17 21:41:15 2018
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 capsenseled.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Mon Sep 17 17:10:41 2018
+Mon Sep 17 21:41:15 2018
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -93,7 +93,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Mon Sep 17 17:10:41 2018
+Mon Sep 17 21:41:15 2018
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -129,7 +129,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Mon Sep 17 17:10:41 2018
+Mon Sep 17 21:41:15 2018
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -399,6 +399,7 @@ Aliasing \pwm:PWMUDB:MODULE_1:g2:a0:a_3\ to zero
 Aliasing \pwm:PWMUDB:MODULE_1:g2:a0:a_2\ to zero
 Aliasing \pwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ to tmpOE__blue_net_0
 Aliasing Net_217 to zero
+Aliasing tmpOE__green_net_0 to tmpOE__blue_net_0
 Aliasing \pwm:PWMUDB:prevCompare1\\D\ to \pwm:PWMUDB:pwm_temp\
 Aliasing \pwm:PWMUDB:tc_i_reg\\D\ to \pwm:PWMUDB:status_2\
 Removing Lhs of wire one[8] = tmpOE__blue_net_0[1]
@@ -488,18 +489,19 @@ Removing Lhs of wire \pwm:PWMUDB:MODIN1_0\[272] = \pwm:PWMUDB:dith_count_0\[127]
 Removing Lhs of wire \pwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[404] = tmpOE__blue_net_0[1]
 Removing Lhs of wire \pwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[405] = tmpOE__blue_net_0[1]
 Removing Lhs of wire Net_217[412] = zero[7]
-Removing Lhs of wire \pwm:PWMUDB:prevCapture\\D\[425] = zero[7]
-Removing Lhs of wire \pwm:PWMUDB:trig_last\\D\[426] = zero[7]
-Removing Lhs of wire \pwm:PWMUDB:prevCompare1\\D\[432] = \pwm:PWMUDB:cmp1\[144]
-Removing Lhs of wire \pwm:PWMUDB:cmp1_status_reg\\D\[433] = \pwm:PWMUDB:cmp1_status\[145]
-Removing Lhs of wire \pwm:PWMUDB:cmp2_status_reg\\D\[434] = zero[7]
-Removing Lhs of wire \pwm:PWMUDB:pwm_i_reg\\D\[436] = \pwm:PWMUDB:pwm_i\[196]
-Removing Lhs of wire \pwm:PWMUDB:pwm1_i_reg\\D\[437] = zero[7]
-Removing Lhs of wire \pwm:PWMUDB:pwm2_i_reg\\D\[438] = zero[7]
-Removing Lhs of wire \pwm:PWMUDB:tc_i_reg\\D\[439] = \pwm:PWMUDB:status_2\[139]
+Removing Lhs of wire tmpOE__green_net_0[425] = tmpOE__blue_net_0[1]
+Removing Lhs of wire \pwm:PWMUDB:prevCapture\\D\[437] = zero[7]
+Removing Lhs of wire \pwm:PWMUDB:trig_last\\D\[438] = zero[7]
+Removing Lhs of wire \pwm:PWMUDB:prevCompare1\\D\[444] = \pwm:PWMUDB:cmp1\[144]
+Removing Lhs of wire \pwm:PWMUDB:cmp1_status_reg\\D\[445] = \pwm:PWMUDB:cmp1_status\[145]
+Removing Lhs of wire \pwm:PWMUDB:cmp2_status_reg\\D\[446] = zero[7]
+Removing Lhs of wire \pwm:PWMUDB:pwm_i_reg\\D\[448] = \pwm:PWMUDB:pwm_i\[196]
+Removing Lhs of wire \pwm:PWMUDB:pwm1_i_reg\\D\[449] = zero[7]
+Removing Lhs of wire \pwm:PWMUDB:pwm2_i_reg\\D\[450] = zero[7]
+Removing Lhs of wire \pwm:PWMUDB:tc_i_reg\\D\[451] = \pwm:PWMUDB:status_2\[139]
 
 ------------------------------------------------------
-Aliased 0 equations, 96 wires.
+Aliased 0 equations, 97 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -631,10 +633,10 @@ Removing Lhs of wire \pwm:PWMUDB:final_capture\[162] = zero[7]
 Removing Lhs of wire \pwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\[375] = zero[7]
 Removing Lhs of wire \pwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\[385] = zero[7]
 Removing Lhs of wire \pwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\[395] = zero[7]
-Removing Lhs of wire \pwm:PWMUDB:min_kill_reg\\D\[424] = tmpOE__blue_net_0[1]
-Removing Lhs of wire \pwm:PWMUDB:runmode_enable\\D\[427] = \pwm:PWMUDB:control_7\[81]
-Removing Lhs of wire \pwm:PWMUDB:ltch_kill_reg\\D\[429] = tmpOE__blue_net_0[1]
-Removing Lhs of wire \pwm:PWMUDB:final_kill_reg\\D\[435] = zero[7]
+Removing Lhs of wire \pwm:PWMUDB:min_kill_reg\\D\[436] = tmpOE__blue_net_0[1]
+Removing Lhs of wire \pwm:PWMUDB:runmode_enable\\D\[439] = \pwm:PWMUDB:control_7\[81]
+Removing Lhs of wire \pwm:PWMUDB:ltch_kill_reg\\D\[441] = tmpOE__blue_net_0[1]
+Removing Lhs of wire \pwm:PWMUDB:final_kill_reg\\D\[447] = zero[7]
 
 ------------------------------------------------------
 Aliased 0 equations, 8 wires.
@@ -667,14 +669,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\capsenseled.cyprj -dcpsoc3 capsenseled.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.763ms
+Warp synthesis phase: Elapsed time ==> 0s.796ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.1.0.2686, Family: PSoC3, Started at: Monday, 17 September 2018 17:10:42
+cyp3fit: V4.1.0.2686, Family: PSoC3, Started at: Monday, 17 September 2018 21:41:15
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\capsenseled.cyprj -d CY8C4247LQI-BL483 capsenseled.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.010ms
+Design parsing phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -1050,6 +1052,46 @@ Design Equations
         Properties:
         {
         }
+
+    Pin : Name = green(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => green(0)__PA ,
+            annotation => Net_534 ,
+            pad => green(0)_PAD );
+        Properties:
+        {
+        }
     </CYPRESSTAG>
     <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
 
@@ -1268,7 +1310,7 @@ Resource Type                 : Used : Free :  Max :  % Used
 ============================================================
 Digital Clocks                :    1 :    3 :    4 : 25.00 %
 Interrupts                    :    2 :   30 :   32 :  6.25 %
-IO                            :   12 :   26 :   38 : 31.58 %
+IO                            :   13 :   25 :   38 : 34.21 %
 Segment LCD                   :    0 :    1 :    1 :  0.00 %
 CapSense                      :    1 :    0 :    1 : 100.00 %
 Die Temp                      :    0 :    1 :    1 :  0.00 %
@@ -1291,8 +1333,8 @@ DAC                           :      :      :      :
   7-bit IDAC                  :    1 :    0 :    1 : 100.00 %
   8-bit IDAC                  :    1 :    0 :    1 : 100.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.066ms
-Tech Mapping phase: Elapsed time ==> 0s.084ms
+Technology Mapping: Elapsed time ==> 0s.078ms
+Tech Mapping phase: Elapsed time ==> 0s.093ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -1308,6 +1350,7 @@ red(0)                              : [IOP=(2)][IoId=(6)]
 \capsense:Sns(2)\                   : [IOP=(2)][IoId=(3)]                
 \capsense:Sns(3)\                   : [IOP=(2)][IoId=(4)]                
 \capsense:Sns(4)\                   : [IOP=(2)][IoId=(5)]                
+green(0)                            : [IOP=(3)][IoId=(6)]                
 ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
 \capsense:CSD_FFB\                  : CSD_[FFB(CSD,0)]                   
 \capsense:IDAC2:cy_psoc4_idac\      : CSIDAC7_[FFB(CSIDAC7,0)]           
@@ -1317,15 +1360,15 @@ ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.1282405s
+Elapsed time ==> 0.1188910s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.329ms
+Analog Placement phase: Elapsed time ==> 0s.296ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0057488 secs
+Route success=True, Iterations=1 Elapsed=0.0044848 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.006ms
+Analog Routing phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -1337,12 +1380,12 @@ Map of net to items {
     amuxbusa_sar
     P2_P41
     p2_1
-    P2_P42
-    p2_2
-    P2_P45
-    p2_5
     P2_P44
     p2_4
+    P2_P45
+    p2_5
+    P2_P42
+    p2_2
     P2_P43
     p2_3
     idac0_out
@@ -1361,12 +1404,12 @@ Map of item to net {
   amuxbusa_sar                                     -> \capsense:Net_245_0\
   P2_P41                                           -> \capsense:Net_245_0\
   p2_1                                             -> \capsense:Net_245_0\
-  P2_P42                                           -> \capsense:Net_245_0\
-  p2_2                                             -> \capsense:Net_245_0\
-  P2_P45                                           -> \capsense:Net_245_0\
-  p2_5                                             -> \capsense:Net_245_0\
   P2_P44                                           -> \capsense:Net_245_0\
   p2_4                                             -> \capsense:Net_245_0\
+  P2_P45                                           -> \capsense:Net_245_0\
+  p2_5                                             -> \capsense:Net_245_0\
+  P2_P42                                           -> \capsense:Net_245_0\
+  p2_2                                             -> \capsense:Net_245_0\
   P2_P43                                           -> \capsense:Net_245_0\
   p2_3                                             -> \capsense:Net_245_0\
   idac0_out                                        -> \capsense:Net_245_0\
@@ -1378,7 +1421,7 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.044ms
+Analog Code Generation phase: Elapsed time ==> 0s.031ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -1406,14 +1449,14 @@ PLD Packing Summary
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.001ms
+PLD Packing: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.013ms
+Partitioning: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -1890,6 +1933,47 @@ Pin : Name = red(0)
     }
 
 Port 3 contains the following IO cells:
+[IoId=6]: 
+Pin : Name = green(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => green(0)__PA ,
+        annotation => Net_534 ,
+        pad => green(0)_PAD );
+    Properties:
+    {
+    }
+
 [IoId=7]: 
 Pin : Name = blue(0)
     Attributes:
@@ -2088,15 +2172,16 @@ Port | Pin | Fixed |      Type |       Drive Mode |               Name | Connect
      |   5 |     * |      NONE |      HI_Z_ANALOG |  \capsense:Sns(4)\ | 
      |   6 |     * |      NONE |         CMOS_OUT |             red(0) | 
 -----+-----+-------+-----------+------------------+--------------------+---------------------------
-   3 |   7 |     * |      NONE |         CMOS_OUT |            blue(0) | In(Net_135)
+   3 |   6 |     * |      NONE |         CMOS_OUT |           green(0) | 
+     |   7 |     * |      NONE |         CMOS_OUT |            blue(0) | In(Net_135)
 -----+-----+-------+-----------+------------------+--------------------+---------------------------
    4 |   0 |     * |      NONE |      HI_Z_ANALOG | \capsense:Cmod(0)\ | Analog(\capsense:Net_398\)
 ---------------------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.017ms
-Digital Placement phase: Elapsed time ==> 0s.554ms
+Digital component placer commit/Report: Elapsed time ==> 0s.031ms
+Digital Placement phase: Elapsed time ==> 0s.499ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\dev\psoc4/3/128k/route_arch-rrg.cydata" --vh2-path "capsenseled_r.vh2" --pcf-path "capsenseled.pco" --des-name "capsenseled" --dsf-path "capsenseled.dsf" --sdc-path "capsenseled.sdc" --lib-path "capsenseled_r.lib"
@@ -2104,24 +2189,24 @@ Routing successful.
 Digital Routing phase: Elapsed time ==> 0s.562ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.219ms
+Bitstream Generation phase: Elapsed time ==> 0s.218ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.020ms
+Bitstream Verification phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in capsenseled_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.319ms
+Static timing analysis phase: Elapsed time ==> 0s.203ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.171ms
+Design database save phase: Elapsed time ==> 0s.156ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 2s.364ms
+cydsfit: Elapsed time ==> 2s.124ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 2s.365ms
-API generation phase: Elapsed time ==> 2s.351ms
-Dependency generation phase: Elapsed time ==> 0s.021ms
+Fitter phase: Elapsed time ==> 2s.124ms
+API generation phase: Elapsed time ==> 1s.468ms
+Dependency generation phase: Elapsed time ==> 0s.015ms
 Cleanup phase: Elapsed time ==> 0s.000ms

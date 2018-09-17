@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
   29:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED 
   30:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
   31:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYALIGNED __attribute__ ((aligned))
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 2
 
 
   32:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CY_CFG_UNUSED __attribute__ ((unused))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
   86:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
   87:Generated_Source\PSoC4/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n);
   88:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 3
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 3
 
 
   89:Generated_Source\PSoC4/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  143:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* If we have a clock startup error (bad MHz crystal, PLL lock, etc.),  */
  144:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* we will end up here to allow the customer to implement something to  */
  145:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* deal with the clock condition.                                       */
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 4
 
 
  146:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
   44 0006 11E0     		b	.L2
   45              	.LVL2:
   46              	.L5:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 5
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 5
 
 
   47              	.LBB2:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  192:Generated_Source\PSoC4/cyfitter_cfg.c **** 		}
  193:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
  194:Generated_Source\PSoC4/cyfitter_cfg.c **** }
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 6
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 6
 
 
   89              		.loc 1 194 0 is_stmt 1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  203:Generated_Source\PSoC4/cyfitter_cfg.c **** *   settings in the Clock tab of the DWR.  This includes enabling the requested
  204:Generated_Source\PSoC4/cyfitter_cfg.c **** *   clocks and setting the necessary dividers to produce the desired frequency. 
  205:Generated_Source\PSoC4/cyfitter_cfg.c **** *
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 7
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 7
 
 
  206:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  162 001e 264A     		ldr	r2, .L8+8
  163 0020 264B     		ldr	r3, .L8+12
  164 0022 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 8
 
 
  230:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  201 005c 204B     		ldr	r3, .L8+48
  202 005e 1A60     		str	r2, [r3]
  248:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF42u);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 9
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 9
 
 
  203              		.loc 1 248 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  267:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL4), 0x00000041u);
  239              		.loc 1 267 0
  240 0096 0132     		adds	r2, r2, #1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 10
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 10
 
 
  241 0098 1C4B     		ldr	r3, .L8+92
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  290              		.global	SetAnalogRoutingPumps
  291              		.code	16
  292              		.thumb_func
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 11
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 11
 
 
  293              		.type	SetAnalogRoutingPumps, %function
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  299              		@ frame_needed = 0, uses_anonymous_args = 0
  300              		@ link register save eliminated.
  301              	.LVL23:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 12
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 12
 
 
  321:Generated_Source\PSoC4/cyfitter_cfg.c **** 	uint32 regValue = CY_GET_XTND_REG32((void *)(CYREG_SAR_PUMP_CTRL));
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  337:Generated_Source\PSoC4/cyfitter_cfg.c **** 	{
  338:Generated_Source\PSoC4/cyfitter_cfg.c **** 		regValue &= ~0x02000000u;
  340              		.loc 1 338 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 13
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 13
 
 
  341 0028 044A     		ldr	r2, .L15+8
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  387 0012 0120     		movs	r0, #1
  388 0014 FFF7FEFF 		bl	SetAnalogRoutingPumps
  389              	.LVL32:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 14
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 14
 
 
  300:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  418              		.loc 1 366 0
  419              		.syntax divided
  420              	@ 366 "Generated_Source\PSoC4\cyfitter_cfg.c" 1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 15
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 15
 
 
  421 0116 72B6     		CPSID   i
@@ -849,7 +849,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  424              		.thumb
  425              		.syntax unified
  426 0118 0022     		movs	r2, #0
- 427 011a 304B     		ldr	r3, .L23
+ 427 011a 2F4B     		ldr	r3, .L23
  428 011c 1A60     		str	r2, [r3]
  429              	.LVL33:
  430              	.LBB3:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  411:Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x59u, 0x04u},
  412:Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Au, 0x04u},
  413:Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Bu, 0x04u},
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 16
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 16
 
 
  414:Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Fu, 0x01u},
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  468:Generated_Source\PSoC4/cyfitter_cfg.c **** 		};
  469:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  470:Generated_Source\PSoC4/cyfitter_cfg.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 17
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 17
 
 
  471:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -987,7 +987,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  488:Generated_Source\PSoC4/cyfitter_cfg.c **** 			const cfg_memset_t CYCODE * CYDATA ms = &cfg_memset_list[i];
  489:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CYMEMZERO(ms->address, (size_t)(uint32)(ms->size));
  437              		.loc 1 489 0 discriminator 3
- 438 0122 2F48     		ldr	r0, .L23+4
+ 438 0122 2E48     		ldr	r0, .L23+4
  439 0124 6200     		lsls	r2, r4, #1
  440 0126 1319     		adds	r3, r2, r4
  441 0128 5900     		lsls	r1, r3, #1
@@ -1017,12 +1017,12 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  491:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  492:Generated_Source\PSoC4/cyfitter_cfg.c **** 		cfg_write_bytes32(cy_cfg_addr_table, cy_cfg_data_table);
  462              		.loc 1 492 0 is_stmt 1
- 463 0146 2649     		ldr	r1, .L23+4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 18
+ 463 0146 2549     		ldr	r1, .L23+4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 18
 
 
  464 0148 0C31     		adds	r1, r1, #12
- 465 014a 2648     		ldr	r0, .L23+8
+ 465 014a 2548     		ldr	r0, .L23+8
  466 014c 3C30     		adds	r0, r0, #60
  467 014e FFF7FEFF 		bl	cfg_write_bytes32
  468              	.LVL38:
@@ -1032,7 +1032,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  469              		.loc 1 495 0
  470 0152 8022     		movs	r2, #128
  471 0154 D202     		lsls	r2, r2, #11
- 472 0156 244B     		ldr	r3, .L23+12
+ 472 0156 234B     		ldr	r3, .L23+12
  473 0158 1A60     		str	r2, [r3]
  496:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  497:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* HSIOM Starting address: CYDEV_HSIOM_BASE */
@@ -1040,13 +1040,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  474              		.loc 1 498 0
  475 015a EE22     		movs	r2, #238
  476 015c 1206     		lsls	r2, r2, #24
- 477 015e 234B     		ldr	r3, .L23+16
+ 477 015e 224B     		ldr	r3, .L23+16
  478 0160 1A60     		str	r2, [r3]
  499:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL3), 0x30000000u);
  479              		.loc 1 499 0
  480 0162 C022     		movs	r2, #192
  481 0164 9205     		lsls	r2, r2, #22
- 482 0166 224B     		ldr	r3, .L23+20
+ 482 0166 214B     		ldr	r3, .L23+20
  483 0168 1A60     		str	r2, [r3]
  500:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  501:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* UDB_PA_0 Starting address: CYDEV_UDB_PA0_BASE */
@@ -1054,34 +1054,34 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  484              		.loc 1 502 0
  485 016a 9923     		movs	r3, #153
  486 016c 1B04     		lsls	r3, r3, #16
- 487 016e 214A     		ldr	r2, .L23+24
+ 487 016e 204A     		ldr	r2, .L23+24
  488 0170 1360     		str	r3, [r2]
  503:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  504:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* UDB_PA_2 Starting address: CYDEV_UDB_PA2_BASE */
  505:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYDEV_UDB_PA2_BASE), 0x00990000u);
  489              		.loc 1 505 0
- 490 0172 214A     		ldr	r2, .L23+28
+ 490 0172 204A     		ldr	r2, .L23+28
  491 0174 1360     		str	r3, [r2]
  506:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  507:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* UDB_PA_3 Starting address: CYDEV_UDB_PA3_BASE */
  508:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYDEV_UDB_PA3_BASE), 0x00990000u);
  492              		.loc 1 508 0
- 493 0176 214A     		ldr	r2, .L23+32
+ 493 0176 204A     		ldr	r2, .L23+32
  494 0178 1360     		str	r3, [r2]
  509:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYREG_UDB_PA3_CFG8), 0x80000000u);
  495              		.loc 1 509 0
  496 017a 8022     		movs	r2, #128
  497 017c 1206     		lsls	r2, r2, #24
- 498 017e 204B     		ldr	r3, .L23+36
+ 498 017e 1F4B     		ldr	r3, .L23+36
  499 0180 1A60     		str	r2, [r3]
  510:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  511:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* Enable UDB array and digital routing */
  512:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_XTND_REG8((void *)CYREG_UDB_UDBIF_WAIT_CFG, (uint8)((CY_GET_XTND_REG8((void *)CYREG_UDB_UD
  500              		.loc 1 512 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 19
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 19
 
 
- 501 0182 2049     		ldr	r1, .L23+40
+ 501 0182 1F49     		ldr	r1, .L23+40
  502 0184 0B78     		ldrb	r3, [r1]
  503 0186 3C22     		movs	r2, #60
  504 0188 9343     		bics	r3, r2
@@ -1091,7 +1091,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  508 0190 0B70     		strb	r3, [r1]
  513:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_XTND_REG8((void *)CYREG_UDB_UDBIF_BANK_CTL, (uint8)(CY_GET_XTND_REG8((void *)CYREG_UDB_UDB
  509              		.loc 1 513 0
- 510 0192 1D4A     		ldr	r2, .L23+44
+ 510 0192 1C4A     		ldr	r2, .L23+44
  511 0194 1178     		ldrb	r1, [r2]
  512 0196 1623     		movs	r3, #22
  513 0198 0B43     		orrs	r3, r1
@@ -1104,1847 +1104,1845 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 1
  517:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_0 Starting address: CYDEV_GPIO_PRT0_BASE */
  518:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00D80000u);
  517              		.loc 1 518 0
- 518 019e D822     		movs	r2, #216
- 519 01a0 1204     		lsls	r2, r2, #16
- 520 01a2 1A4B     		ldr	r3, .L23+48
- 521 01a4 1A60     		str	r2, [r3]
+ 518 019e D823     		movs	r3, #216
+ 519 01a0 1B04     		lsls	r3, r3, #16
+ 520 01a2 194A     		ldr	r2, .L23+48
+ 521 01a4 1360     		str	r3, [r2]
  519:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  520:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
  521:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x0000007Eu);
  522              		.loc 1 521 0
- 523 01a6 7E22     		movs	r2, #126
- 524 01a8 194B     		ldr	r3, .L23+52
- 525 01aa 1A60     		str	r2, [r3]
+ 523 01a6 7E21     		movs	r1, #126
+ 524 01a8 184A     		ldr	r2, .L23+52
+ 525 01aa 1160     		str	r1, [r2]
  522:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC), 0x00180000u);
  526              		.loc 1 522 0
- 527 01ac C022     		movs	r2, #192
- 528 01ae 5203     		lsls	r2, r2, #13
- 529 01b0 184B     		ldr	r3, .L23+56
- 530 01b2 1A60     		str	r2, [r3]
+ 527 01ac C021     		movs	r1, #192
+ 528 01ae 4903     		lsls	r1, r1, #13
+ 529 01b0 174A     		ldr	r2, .L23+56
+ 530 01b2 1160     		str	r1, [r2]
  523:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x0000003Eu);
  531              		.loc 1 523 0
- 532 01b4 3E22     		movs	r2, #62
- 533 01b6 184B     		ldr	r3, .L23+60
- 534 01b8 1A60     		str	r2, [r3]
+ 532 01b4 3E21     		movs	r1, #62
+ 533 01b6 174A     		ldr	r2, .L23+60
+ 534 01b8 1160     		str	r1, [r2]
  524:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  525:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
- 526:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x00000080u);
+ 526:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x000000C0u);
  535              		.loc 1 526 0
- 536 01ba 4232     		adds	r2, r2, #66
- 537 01bc 174B     		ldr	r3, .L23+64
- 538 01be 1A60     		str	r2, [r3]
- 527:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT3_PC), 0x00C00000u);
+ 536 01ba 8231     		adds	r1, r1, #130
+ 537 01bc 164A     		ldr	r2, .L23+64
+ 538 01be 1160     		str	r1, [r2]
+ 527:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT3_PC), 0x00D80000u);
  539              		.loc 1 527 0
- 540 01c0 C022     		movs	r2, #192
- 541 01c2 1204     		lsls	r2, r2, #16
- 542 01c4 164B     		ldr	r3, .L23+68
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 20
-
-
- 543 01c6 1A60     		str	r2, [r3]
+ 540 01c0 164A     		ldr	r2, .L23+68
+ 541 01c2 1360     		str	r3, [r2]
  528:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 20
+
+
  529:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_4 Starting address: CYDEV_GPIO_PRT4_BASE */
  530:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT4_BASE), 0x00000001u);
- 544              		.loc 1 530 0
- 545 01c8 0123     		movs	r3, #1
- 546 01ca 164A     		ldr	r2, .L23+72
- 547 01cc 1360     		str	r3, [r2]
+ 542              		.loc 1 530 0
+ 543 01c4 0123     		movs	r3, #1
+ 544 01c6 164A     		ldr	r2, .L23+72
+ 545 01c8 1360     		str	r3, [r2]
  531:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT4_PC2), 0x00000001u);
- 548              		.loc 1 531 0
- 549 01ce 164A     		ldr	r2, .L23+76
- 550 01d0 1360     		str	r3, [r2]
+ 546              		.loc 1 531 0
+ 547 01ca 164A     		ldr	r2, .L23+76
+ 548 01cc 1360     		str	r3, [r2]
  532:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  533:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  534:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Setup clocks based on selections from Clock DWR */
  535:Generated_Source\PSoC4/cyfitter_cfg.c **** 	ClockSetup();
- 551              		.loc 1 535 0
- 552 01d2 FFF715FF 		bl	ClockSetup
- 553              	.LVL39:
+ 549              		.loc 1 535 0
+ 550 01ce FFF717FF 		bl	ClockSetup
+ 551              	.LVL39:
  536:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  537:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Perform basic analog initialization to defaults */
  538:Generated_Source\PSoC4/cyfitter_cfg.c **** 	AnalogSetDefault();
- 554              		.loc 1 538 0
- 555 01d6 FFF7FEFF 		bl	AnalogSetDefault
- 556              	.LVL40:
+ 552              		.loc 1 538 0
+ 553 01d2 FFF7FEFF 		bl	AnalogSetDefault
+ 554              	.LVL40:
  539:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  540:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 557              		.loc 1 540 0
- 558              		@ sp needed
- 559              	.LVL41:
- 560 01da 10BD     		pop	{r4, pc}
- 561              	.L24:
- 562              		.align	2
- 563              	.L23:
- 564 01dc 6CF02E40 		.word	1076818028
- 565 01e0 00000000 		.word	.LANCHOR0
- 566 01e4 80000000 		.word	.LANCHOR1
- 567 01e8 14000B40 		.word	1074462740
- 568 01ec 00000240 		.word	1073872896
- 569 01f0 00030240 		.word	1073873664
- 570 01f4 00500F40 		.word	1074745344
- 571 01f8 20500F40 		.word	1074745376
- 572 01fc 30500F40 		.word	1074745392
- 573 0200 38500F40 		.word	1074745400
- 574 0204 01700F40 		.word	1074753537
- 575 0208 00700F40 		.word	1074753536
- 576 020c 08000440 		.word	1074003976
- 577 0210 00020440 		.word	1074004480
- 578 0214 08020440 		.word	1074004488
- 579 0218 18020440 		.word	1074004504
- 580 021c 00030440 		.word	1074004736
- 581 0220 08030440 		.word	1074004744
- 582 0224 00040440 		.word	1074004992
- 583 0228 18040440 		.word	1074005016
- 584              		.cfi_endproc
- 585              	.LFE9:
- 586              		.size	cyfitter_cfg, .-cyfitter_cfg
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 21
+ 555              		.loc 1 540 0
+ 556              		@ sp needed
+ 557              	.LVL41:
+ 558 01d6 10BD     		pop	{r4, pc}
+ 559              	.L24:
+ 560              		.align	2
+ 561              	.L23:
+ 562 01d8 6CF02E40 		.word	1076818028
+ 563 01dc 00000000 		.word	.LANCHOR0
+ 564 01e0 80000000 		.word	.LANCHOR1
+ 565 01e4 14000B40 		.word	1074462740
+ 566 01e8 00000240 		.word	1073872896
+ 567 01ec 00030240 		.word	1073873664
+ 568 01f0 00500F40 		.word	1074745344
+ 569 01f4 20500F40 		.word	1074745376
+ 570 01f8 30500F40 		.word	1074745392
+ 571 01fc 38500F40 		.word	1074745400
+ 572 0200 01700F40 		.word	1074753537
+ 573 0204 00700F40 		.word	1074753536
+ 574 0208 08000440 		.word	1074003976
+ 575 020c 00020440 		.word	1074004480
+ 576 0210 08020440 		.word	1074004488
+ 577 0214 18020440 		.word	1074004504
+ 578 0218 00030440 		.word	1074004736
+ 579 021c 08030440 		.word	1074004744
+ 580 0220 00040440 		.word	1074004992
+ 581 0224 18040440 		.word	1074005016
+ 582              		.cfi_endproc
+ 583              	.LFE9:
+ 584              		.size	cyfitter_cfg, .-cyfitter_cfg
+ 585              		.section	.rodata
+ 586              		.align	2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 21
 
 
- 587              		.section	.rodata
- 588              		.align	2
- 589              		.set	.LANCHOR0,. + 0
- 590              		.set	.LANCHOR1,. + 128
- 591              		.type	cfg_memset_list.4913, %object
- 592              		.size	cfg_memset_list.4913, 12
- 593              	cfg_memset_list.4913:
- 594 0000 00300F40 		.word	1074737152
- 595 0004 0004     		.short	1024
- 596 0006 00400F40 		.4byte	1074741248
- 597 000a 0004     		.short	1024
- 598              		.type	cy_cfg_data_table.4908, %object
- 599              		.size	cy_cfg_data_table.4908, 174
- 600              	cy_cfg_data_table.4908:
- 601 000c 82       		.byte	-126
- 602 000d 0D       		.byte	13
- 603 000e 00       		.byte	0
- 604 000f 08       		.byte	8
- 605 0010 03       		.byte	3
- 606 0011 01       		.byte	1
- 607 0012 14       		.byte	20
- 608 0013 01       		.byte	1
- 609 0014 1A       		.byte	26
- 610 0015 07       		.byte	7
- 611 0016 1F       		.byte	31
- 612 0017 02       		.byte	2
- 613 0018 23       		.byte	35
- 614 0019 02       		.byte	2
- 615 001a 2E       		.byte	46
- 616 001b 04       		.byte	4
- 617 001c 30       		.byte	48
- 618 001d 04       		.byte	4
- 619 001e 31       		.byte	49
- 620 001f 01       		.byte	1
- 621 0020 32       		.byte	50
- 622 0021 02       		.byte	2
- 623 0022 34       		.byte	52
- 624 0023 08       		.byte	8
- 625 0024 35       		.byte	53
- 626 0025 02       		.byte	2
- 627 0026 36       		.byte	54
- 628 0027 01       		.byte	1
- 629 0028 3E       		.byte	62
- 630 0029 10       		.byte	16
- 631 002a 3F       		.byte	63
- 632 002b 10       		.byte	16
- 633 002c 40       		.byte	64
- 634 002d 10       		.byte	16
- 635 002e 41       		.byte	65
- 636 002f 05       		.byte	5
- 637 0030 45       		.byte	69
- 638 0031 D1       		.byte	-47
- 639 0032 46       		.byte	70
- 640 0033 02       		.byte	2
- 641 0034 48       		.byte	72
- 642 0035 07       		.byte	7
- 643 0036 49       		.byte	73
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 22
+ 587              		.set	.LANCHOR0,. + 0
+ 588              		.set	.LANCHOR1,. + 128
+ 589              		.type	cfg_memset_list.4913, %object
+ 590              		.size	cfg_memset_list.4913, 12
+ 591              	cfg_memset_list.4913:
+ 592 0000 00300F40 		.word	1074737152
+ 593 0004 0004     		.short	1024
+ 594 0006 00400F40 		.4byte	1074741248
+ 595 000a 0004     		.short	1024
+ 596              		.type	cy_cfg_data_table.4908, %object
+ 597              		.size	cy_cfg_data_table.4908, 174
+ 598              	cy_cfg_data_table.4908:
+ 599 000c 82       		.byte	-126
+ 600 000d 0D       		.byte	13
+ 601 000e 00       		.byte	0
+ 602 000f 08       		.byte	8
+ 603 0010 03       		.byte	3
+ 604 0011 01       		.byte	1
+ 605 0012 14       		.byte	20
+ 606 0013 01       		.byte	1
+ 607 0014 1A       		.byte	26
+ 608 0015 07       		.byte	7
+ 609 0016 1F       		.byte	31
+ 610 0017 02       		.byte	2
+ 611 0018 23       		.byte	35
+ 612 0019 02       		.byte	2
+ 613 001a 2E       		.byte	46
+ 614 001b 04       		.byte	4
+ 615 001c 30       		.byte	48
+ 616 001d 04       		.byte	4
+ 617 001e 31       		.byte	49
+ 618 001f 01       		.byte	1
+ 619 0020 32       		.byte	50
+ 620 0021 02       		.byte	2
+ 621 0022 34       		.byte	52
+ 622 0023 08       		.byte	8
+ 623 0024 35       		.byte	53
+ 624 0025 02       		.byte	2
+ 625 0026 36       		.byte	54
+ 626 0027 01       		.byte	1
+ 627 0028 3E       		.byte	62
+ 628 0029 10       		.byte	16
+ 629 002a 3F       		.byte	63
+ 630 002b 10       		.byte	16
+ 631 002c 40       		.byte	64
+ 632 002d 10       		.byte	16
+ 633 002e 41       		.byte	65
+ 634 002f 05       		.byte	5
+ 635 0030 45       		.byte	69
+ 636 0031 D1       		.byte	-47
+ 637 0032 46       		.byte	70
+ 638 0033 02       		.byte	2
+ 639 0034 48       		.byte	72
+ 640 0035 07       		.byte	7
+ 641 0036 49       		.byte	73
+ 642 0037 FF       		.byte	-1
+ 643 0038 4A       		.byte	74
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 22
 
 
- 644 0037 FF       		.byte	-1
- 645 0038 4A       		.byte	74
- 646 0039 FF       		.byte	-1
- 647 003a 4B       		.byte	75
- 648 003b FF       		.byte	-1
- 649 003c 4D       		.byte	77
- 650 003d A0       		.byte	-96
- 651 003e 4F       		.byte	79
- 652 003f 04       		.byte	4
- 653 0040 50       		.byte	80
- 654 0041 18       		.byte	24
- 655 0042 52       		.byte	82
- 656 0043 80       		.byte	-128
- 657 0044 54       		.byte	84
- 658 0045 05       		.byte	5
- 659 0046 58       		.byte	88
- 660 0047 04       		.byte	4
- 661 0048 59       		.byte	89
- 662 0049 04       		.byte	4
- 663 004a 5A       		.byte	90
- 664 004b 04       		.byte	4
- 665 004c 5B       		.byte	91
- 666 004d 04       		.byte	4
- 667 004e 5F       		.byte	95
- 668 004f 01       		.byte	1
- 669 0050 60       		.byte	96
- 670 0051 40       		.byte	64
- 671 0052 62       		.byte	98
- 672 0053 C0       		.byte	-64
- 673 0054 64       		.byte	100
- 674 0055 40       		.byte	64
- 675 0056 65       		.byte	101
- 676 0057 40       		.byte	64
- 677 0058 66       		.byte	102
- 678 0059 C0       		.byte	-64
- 679 005a 68       		.byte	104
- 680 005b C0       		.byte	-64
- 681 005c 6A       		.byte	106
- 682 005d C0       		.byte	-64
- 683 005e 6C       		.byte	108
- 684 005f C0       		.byte	-64
- 685 0060 6E       		.byte	110
- 686 0061 C0       		.byte	-64
- 687 0062 B8       		.byte	-72
- 688 0063 20       		.byte	32
- 689 0064 BE       		.byte	-66
- 690 0065 10       		.byte	16
- 691 0066 D8       		.byte	-40
- 692 0067 04       		.byte	4
- 693 0068 DF       		.byte	-33
- 694 0069 01       		.byte	1
- 695 006a 05       		.byte	5
- 696 006b 01       		.byte	1
- 697 006c 0E       		.byte	14
- 698 006d 20       		.byte	32
- 699 006e 0F       		.byte	15
- 700 006f 08       		.byte	8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 23
+ 644 0039 FF       		.byte	-1
+ 645 003a 4B       		.byte	75
+ 646 003b FF       		.byte	-1
+ 647 003c 4D       		.byte	77
+ 648 003d A0       		.byte	-96
+ 649 003e 4F       		.byte	79
+ 650 003f 04       		.byte	4
+ 651 0040 50       		.byte	80
+ 652 0041 18       		.byte	24
+ 653 0042 52       		.byte	82
+ 654 0043 80       		.byte	-128
+ 655 0044 54       		.byte	84
+ 656 0045 05       		.byte	5
+ 657 0046 58       		.byte	88
+ 658 0047 04       		.byte	4
+ 659 0048 59       		.byte	89
+ 660 0049 04       		.byte	4
+ 661 004a 5A       		.byte	90
+ 662 004b 04       		.byte	4
+ 663 004c 5B       		.byte	91
+ 664 004d 04       		.byte	4
+ 665 004e 5F       		.byte	95
+ 666 004f 01       		.byte	1
+ 667 0050 60       		.byte	96
+ 668 0051 40       		.byte	64
+ 669 0052 62       		.byte	98
+ 670 0053 C0       		.byte	-64
+ 671 0054 64       		.byte	100
+ 672 0055 40       		.byte	64
+ 673 0056 65       		.byte	101
+ 674 0057 40       		.byte	64
+ 675 0058 66       		.byte	102
+ 676 0059 C0       		.byte	-64
+ 677 005a 68       		.byte	104
+ 678 005b C0       		.byte	-64
+ 679 005c 6A       		.byte	106
+ 680 005d C0       		.byte	-64
+ 681 005e 6C       		.byte	108
+ 682 005f C0       		.byte	-64
+ 683 0060 6E       		.byte	110
+ 684 0061 C0       		.byte	-64
+ 685 0062 B8       		.byte	-72
+ 686 0063 20       		.byte	32
+ 687 0064 BE       		.byte	-66
+ 688 0065 10       		.byte	16
+ 689 0066 D8       		.byte	-40
+ 690 0067 04       		.byte	4
+ 691 0068 DF       		.byte	-33
+ 692 0069 01       		.byte	1
+ 693 006a 05       		.byte	5
+ 694 006b 01       		.byte	1
+ 695 006c 0E       		.byte	14
+ 696 006d 20       		.byte	32
+ 697 006e 0F       		.byte	15
+ 698 006f 08       		.byte	8
+ 699 0070 17       		.byte	23
+ 700 0071 80       		.byte	-128
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 23
 
 
- 701 0070 17       		.byte	23
- 702 0071 80       		.byte	-128
- 703 0072 1A       		.byte	26
- 704 0073 04       		.byte	4
- 705 0074 1D       		.byte	29
- 706 0075 11       		.byte	17
- 707 0076 1E       		.byte	30
- 708 0077 20       		.byte	32
- 709 0078 1F       		.byte	31
- 710 0079 40       		.byte	64
- 711 007a 27       		.byte	39
- 712 007b 88       		.byte	-120
- 713 007c 2F       		.byte	47
- 714 007d 80       		.byte	-128
- 715 007e 37       		.byte	55
- 716 007f 80       		.byte	-128
- 717 0080 3C       		.byte	60
- 718 0081 02       		.byte	2
- 719 0082 47       		.byte	71
- 720 0083 80       		.byte	-128
- 721 0084 4B       		.byte	75
- 722 0085 C0       		.byte	-64
- 723 0086 4F       		.byte	79
- 724 0087 89       		.byte	-119
- 725 0088 57       		.byte	87
- 726 0089 C0       		.byte	-64
- 727 008a 5F       		.byte	95
- 728 008b 49       		.byte	73
- 729 008c 74       		.byte	116
- 730 008d 01       		.byte	1
- 731 008e 86       		.byte	-122
- 732 008f 04       		.byte	4
- 733 0090 8D       		.byte	-115
- 734 0091 10       		.byte	16
- 735 0092 C0       		.byte	-64
- 736 0093 10       		.byte	16
- 737 0094 C2       		.byte	-62
- 738 0095 60       		.byte	96
- 739 0096 C4       		.byte	-60
- 740 0097 80       		.byte	-128
- 741 0098 CA       		.byte	-54
- 742 0099 80       		.byte	-128
- 743 009a CC       		.byte	-52
- 744 009b 10       		.byte	16
- 745 009c CE       		.byte	-50
- 746 009d 80       		.byte	-128
- 747 009e D0       		.byte	-48
- 748 009f 10       		.byte	16
- 749 00a0 D2       		.byte	-46
- 750 00a1 10       		.byte	16
- 751 00a2 D6       		.byte	-42
- 752 00a3 D0       		.byte	-48
- 753 00a4 3B       		.byte	59
- 754 00a5 04       		.byte	4
- 755 00a6 3F       		.byte	63
- 756 00a7 04       		.byte	4
- 757 00a8 87       		.byte	-121
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 24
+ 701 0072 1A       		.byte	26
+ 702 0073 04       		.byte	4
+ 703 0074 1D       		.byte	29
+ 704 0075 11       		.byte	17
+ 705 0076 1E       		.byte	30
+ 706 0077 20       		.byte	32
+ 707 0078 1F       		.byte	31
+ 708 0079 40       		.byte	64
+ 709 007a 27       		.byte	39
+ 710 007b 88       		.byte	-120
+ 711 007c 2F       		.byte	47
+ 712 007d 80       		.byte	-128
+ 713 007e 37       		.byte	55
+ 714 007f 80       		.byte	-128
+ 715 0080 3C       		.byte	60
+ 716 0081 02       		.byte	2
+ 717 0082 47       		.byte	71
+ 718 0083 80       		.byte	-128
+ 719 0084 4B       		.byte	75
+ 720 0085 C0       		.byte	-64
+ 721 0086 4F       		.byte	79
+ 722 0087 89       		.byte	-119
+ 723 0088 57       		.byte	87
+ 724 0089 C0       		.byte	-64
+ 725 008a 5F       		.byte	95
+ 726 008b 49       		.byte	73
+ 727 008c 74       		.byte	116
+ 728 008d 01       		.byte	1
+ 729 008e 86       		.byte	-122
+ 730 008f 04       		.byte	4
+ 731 0090 8D       		.byte	-115
+ 732 0091 10       		.byte	16
+ 733 0092 C0       		.byte	-64
+ 734 0093 10       		.byte	16
+ 735 0094 C2       		.byte	-62
+ 736 0095 60       		.byte	96
+ 737 0096 C4       		.byte	-60
+ 738 0097 80       		.byte	-128
+ 739 0098 CA       		.byte	-54
+ 740 0099 80       		.byte	-128
+ 741 009a CC       		.byte	-52
+ 742 009b 10       		.byte	16
+ 743 009c CE       		.byte	-50
+ 744 009d 80       		.byte	-128
+ 745 009e D0       		.byte	-48
+ 746 009f 10       		.byte	16
+ 747 00a0 D2       		.byte	-46
+ 748 00a1 10       		.byte	16
+ 749 00a2 D6       		.byte	-42
+ 750 00a3 D0       		.byte	-48
+ 751 00a4 3B       		.byte	59
+ 752 00a5 04       		.byte	4
+ 753 00a6 3F       		.byte	63
+ 754 00a7 04       		.byte	4
+ 755 00a8 87       		.byte	-121
+ 756 00a9 04       		.byte	4
+ 757 00aa CE       		.byte	-50
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 24
 
 
- 758 00a9 04       		.byte	4
- 759 00aa CE       		.byte	-50
- 760 00ab C0       		.byte	-64
- 761 00ac E2       		.byte	-30
- 762 00ad 40       		.byte	64
- 763 00ae 60       		.byte	96
- 764 00af 20       		.byte	32
- 765 00b0 8C       		.byte	-116
- 766 00b1 20       		.byte	32
- 767 00b2 D8       		.byte	-40
- 768 00b3 02       		.byte	2
- 769 00b4 E0       		.byte	-32
- 770 00b5 02       		.byte	2
- 771 00b6 01       		.byte	1
- 772 00b7 01       		.byte	1
- 773 00b8 10       		.byte	16
- 774 00b9 01       		.byte	1
- 775 00ba 0000     		.space	2
- 776              		.type	cy_cfg_addr_table.4907, %object
- 777              		.size	cy_cfg_addr_table.4907, 24
- 778              	cy_cfg_addr_table.4907:
- 779 00bc 01000F40 		.word	1074724865
- 780 00c0 2E320F40 		.word	1074737710
- 781 00c4 1D330F40 		.word	1074737949
- 782 00c8 05410F40 		.word	1074741509
- 783 00cc 04430F40 		.word	1074742020
- 784 00d0 02600F40 		.word	1074749442
- 785              		.text
- 786              	.Letext0:
- 787              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 788              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
- 789              		.file 4 "Generated_Source\\PSoC4\\CyLFClk.h"
- 790              		.file 5 "Generated_Source\\PSoC4\\CyLib.h"
- 791              		.section	.debug_info,"",%progbits
- 792              	.Ldebug_info0:
- 793 0000 95040000 		.4byte	0x495
- 794 0004 0400     		.2byte	0x4
- 795 0006 00000000 		.4byte	.Ldebug_abbrev0
- 796 000a 04       		.byte	0x4
- 797 000b 01       		.uleb128 0x1
- 798 000c CA010000 		.4byte	.LASF49
- 799 0010 0C       		.byte	0xc
- 800 0011 1A030000 		.4byte	.LASF50
- 801 0015 8E010000 		.4byte	.LASF51
- 802 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 803 001d 00000000 		.4byte	0
- 804 0021 00000000 		.4byte	.Ldebug_line0
- 805 0025 02       		.uleb128 0x2
- 806 0026 04       		.byte	0x4
- 807 0027 05       		.byte	0x5
- 808 0028 696E7400 		.ascii	"int\000"
- 809 002c 03       		.uleb128 0x3
- 810 002d 14000000 		.4byte	.LASF12
- 811 0031 02       		.byte	0x2
- 812 0032 D8       		.byte	0xd8
- 813 0033 37000000 		.4byte	0x37
- 814 0037 04       		.uleb128 0x4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 25
+ 758 00ab C0       		.byte	-64
+ 759 00ac E2       		.byte	-30
+ 760 00ad 40       		.byte	64
+ 761 00ae 60       		.byte	96
+ 762 00af 20       		.byte	32
+ 763 00b0 8C       		.byte	-116
+ 764 00b1 20       		.byte	32
+ 765 00b2 D8       		.byte	-40
+ 766 00b3 02       		.byte	2
+ 767 00b4 E0       		.byte	-32
+ 768 00b5 02       		.byte	2
+ 769 00b6 01       		.byte	1
+ 770 00b7 01       		.byte	1
+ 771 00b8 10       		.byte	16
+ 772 00b9 01       		.byte	1
+ 773 00ba 0000     		.space	2
+ 774              		.type	cy_cfg_addr_table.4907, %object
+ 775              		.size	cy_cfg_addr_table.4907, 24
+ 776              	cy_cfg_addr_table.4907:
+ 777 00bc 01000F40 		.word	1074724865
+ 778 00c0 2E320F40 		.word	1074737710
+ 779 00c4 1D330F40 		.word	1074737949
+ 780 00c8 05410F40 		.word	1074741509
+ 781 00cc 04430F40 		.word	1074742020
+ 782 00d0 02600F40 		.word	1074749442
+ 783              		.text
+ 784              	.Letext0:
+ 785              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 786              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
+ 787              		.file 4 "Generated_Source\\PSoC4\\CyLFClk.h"
+ 788              		.file 5 "Generated_Source\\PSoC4\\CyLib.h"
+ 789              		.section	.debug_info,"",%progbits
+ 790              	.Ldebug_info0:
+ 791 0000 95040000 		.4byte	0x495
+ 792 0004 0400     		.2byte	0x4
+ 793 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 794 000a 04       		.byte	0x4
+ 795 000b 01       		.uleb128 0x1
+ 796 000c CA010000 		.4byte	.LASF49
+ 797 0010 0C       		.byte	0xc
+ 798 0011 1A030000 		.4byte	.LASF50
+ 799 0015 8E010000 		.4byte	.LASF51
+ 800 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 801 001d 00000000 		.4byte	0
+ 802 0021 00000000 		.4byte	.Ldebug_line0
+ 803 0025 02       		.uleb128 0x2
+ 804 0026 04       		.byte	0x4
+ 805 0027 05       		.byte	0x5
+ 806 0028 696E7400 		.ascii	"int\000"
+ 807 002c 03       		.uleb128 0x3
+ 808 002d 14000000 		.4byte	.LASF12
+ 809 0031 02       		.byte	0x2
+ 810 0032 D8       		.byte	0xd8
+ 811 0033 37000000 		.4byte	0x37
+ 812 0037 04       		.uleb128 0x4
+ 813 0038 04       		.byte	0x4
+ 814 0039 07       		.byte	0x7
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 25
 
 
- 815 0038 04       		.byte	0x4
- 816 0039 07       		.byte	0x7
- 817 003a 55010000 		.4byte	.LASF0
- 818 003e 04       		.uleb128 0x4
- 819 003f 08       		.byte	0x8
- 820 0040 05       		.byte	0x5
- 821 0041 8A020000 		.4byte	.LASF1
- 822 0045 04       		.uleb128 0x4
- 823 0046 08       		.byte	0x8
- 824 0047 04       		.byte	0x4
- 825 0048 02030000 		.4byte	.LASF2
- 826 004c 04       		.uleb128 0x4
- 827 004d 01       		.byte	0x1
- 828 004e 06       		.byte	0x6
- 829 004f 0E030000 		.4byte	.LASF3
- 830 0053 04       		.uleb128 0x4
- 831 0054 01       		.byte	0x1
- 832 0055 08       		.byte	0x8
- 833 0056 F7000000 		.4byte	.LASF4
- 834 005a 04       		.uleb128 0x4
- 835 005b 02       		.byte	0x2
- 836 005c 05       		.byte	0x5
- 837 005d DA020000 		.4byte	.LASF5
- 838 0061 04       		.uleb128 0x4
- 839 0062 02       		.byte	0x2
- 840 0063 07       		.byte	0x7
- 841 0064 77020000 		.4byte	.LASF6
- 842 0068 04       		.uleb128 0x4
- 843 0069 04       		.byte	0x4
- 844 006a 05       		.byte	0x5
- 845 006b F9020000 		.4byte	.LASF7
- 846 006f 04       		.uleb128 0x4
- 847 0070 04       		.byte	0x4
- 848 0071 07       		.byte	0x7
- 849 0072 AE000000 		.4byte	.LASF8
- 850 0076 04       		.uleb128 0x4
- 851 0077 08       		.byte	0x8
- 852 0078 07       		.byte	0x7
- 853 0079 77010000 		.4byte	.LASF9
- 854 007d 04       		.uleb128 0x4
- 855 007e 04       		.byte	0x4
- 856 007f 07       		.byte	0x7
- 857 0080 6E020000 		.4byte	.LASF10
- 858 0084 05       		.uleb128 0x5
- 859 0085 04       		.byte	0x4
- 860 0086 04       		.uleb128 0x4
- 861 0087 01       		.byte	0x1
- 862 0088 08       		.byte	0x8
- 863 0089 A2020000 		.4byte	.LASF11
- 864 008d 06       		.uleb128 0x6
- 865 008e C0000000 		.4byte	.LASF13
- 866 0092 03       		.byte	0x3
- 867 0093 D201     		.2byte	0x1d2
- 868 0095 53000000 		.4byte	0x53
- 869 0099 06       		.uleb128 0x6
- 870 009a 3C010000 		.4byte	.LASF14
- 871 009e 03       		.byte	0x3
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 26
+ 815 003a 55010000 		.4byte	.LASF0
+ 816 003e 04       		.uleb128 0x4
+ 817 003f 08       		.byte	0x8
+ 818 0040 05       		.byte	0x5
+ 819 0041 8A020000 		.4byte	.LASF1
+ 820 0045 04       		.uleb128 0x4
+ 821 0046 08       		.byte	0x8
+ 822 0047 04       		.byte	0x4
+ 823 0048 02030000 		.4byte	.LASF2
+ 824 004c 04       		.uleb128 0x4
+ 825 004d 01       		.byte	0x1
+ 826 004e 06       		.byte	0x6
+ 827 004f 0E030000 		.4byte	.LASF3
+ 828 0053 04       		.uleb128 0x4
+ 829 0054 01       		.byte	0x1
+ 830 0055 08       		.byte	0x8
+ 831 0056 F7000000 		.4byte	.LASF4
+ 832 005a 04       		.uleb128 0x4
+ 833 005b 02       		.byte	0x2
+ 834 005c 05       		.byte	0x5
+ 835 005d DA020000 		.4byte	.LASF5
+ 836 0061 04       		.uleb128 0x4
+ 837 0062 02       		.byte	0x2
+ 838 0063 07       		.byte	0x7
+ 839 0064 77020000 		.4byte	.LASF6
+ 840 0068 04       		.uleb128 0x4
+ 841 0069 04       		.byte	0x4
+ 842 006a 05       		.byte	0x5
+ 843 006b F9020000 		.4byte	.LASF7
+ 844 006f 04       		.uleb128 0x4
+ 845 0070 04       		.byte	0x4
+ 846 0071 07       		.byte	0x7
+ 847 0072 AE000000 		.4byte	.LASF8
+ 848 0076 04       		.uleb128 0x4
+ 849 0077 08       		.byte	0x8
+ 850 0078 07       		.byte	0x7
+ 851 0079 77010000 		.4byte	.LASF9
+ 852 007d 04       		.uleb128 0x4
+ 853 007e 04       		.byte	0x4
+ 854 007f 07       		.byte	0x7
+ 855 0080 6E020000 		.4byte	.LASF10
+ 856 0084 05       		.uleb128 0x5
+ 857 0085 04       		.byte	0x4
+ 858 0086 04       		.uleb128 0x4
+ 859 0087 01       		.byte	0x1
+ 860 0088 08       		.byte	0x8
+ 861 0089 A2020000 		.4byte	.LASF11
+ 862 008d 06       		.uleb128 0x6
+ 863 008e C0000000 		.4byte	.LASF13
+ 864 0092 03       		.byte	0x3
+ 865 0093 D201     		.2byte	0x1d2
+ 866 0095 53000000 		.4byte	0x53
+ 867 0099 06       		.uleb128 0x6
+ 868 009a 3C010000 		.4byte	.LASF14
+ 869 009e 03       		.byte	0x3
+ 870 009f D301     		.2byte	0x1d3
+ 871 00a1 61000000 		.4byte	0x61
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 26
 
 
- 872 009f D301     		.2byte	0x1d3
- 873 00a1 61000000 		.4byte	0x61
- 874 00a5 06       		.uleb128 0x6
- 875 00a6 4E010000 		.4byte	.LASF15
- 876 00aa 03       		.byte	0x3
- 877 00ab D401     		.2byte	0x1d4
- 878 00ad 6F000000 		.4byte	0x6f
- 879 00b1 04       		.uleb128 0x4
- 880 00b2 04       		.byte	0x4
- 881 00b3 04       		.byte	0x4
- 882 00b4 76000000 		.4byte	.LASF16
- 883 00b8 04       		.uleb128 0x4
- 884 00b9 08       		.byte	0x8
- 885 00ba 04       		.byte	0x4
- 886 00bb 0C010000 		.4byte	.LASF17
- 887 00bf 06       		.uleb128 0x6
- 888 00c0 A9000000 		.4byte	.LASF18
- 889 00c4 03       		.byte	0x3
- 890 00c5 7C02     		.2byte	0x27c
- 891 00c7 CB000000 		.4byte	0xcb
- 892 00cb 07       		.uleb128 0x7
- 893 00cc 8D000000 		.4byte	0x8d
- 894 00d0 06       		.uleb128 0x6
- 895 00d1 0E000000 		.4byte	.LASF19
- 896 00d5 03       		.byte	0x3
- 897 00d6 7E02     		.2byte	0x27e
- 898 00d8 DC000000 		.4byte	0xdc
- 899 00dc 07       		.uleb128 0x7
- 900 00dd A5000000 		.4byte	0xa5
- 901 00e1 08       		.uleb128 0x8
- 902 00e2 02       		.byte	0x2
- 903 00e3 01       		.byte	0x1
- 904 00e4 9B       		.byte	0x9b
- 905 00e5 02010000 		.4byte	0x102
- 906 00e9 09       		.uleb128 0x9
- 907 00ea CB020000 		.4byte	.LASF20
- 908 00ee 01       		.byte	0x1
- 909 00ef 9D       		.byte	0x9d
- 910 00f0 8D000000 		.4byte	0x8d
- 911 00f4 00       		.byte	0
- 912 00f5 09       		.uleb128 0x9
- 913 00f6 3B000000 		.4byte	.LASF21
- 914 00fa 01       		.byte	0x1
- 915 00fb 9E       		.byte	0x9e
- 916 00fc 8D000000 		.4byte	0x8d
- 917 0100 01       		.byte	0x1
- 918 0101 00       		.byte	0
- 919 0102 03       		.uleb128 0x3
- 920 0103 B8020000 		.4byte	.LASF22
- 921 0107 01       		.byte	0x1
- 922 0108 9F       		.byte	0x9f
- 923 0109 E1000000 		.4byte	0xe1
- 924 010d 0A       		.uleb128 0xa
- 925 010e 13010000 		.4byte	.LASF27
- 926 0112 01       		.byte	0x1
- 927 0113 B2       		.byte	0xb2
- 928 0114 00000000 		.4byte	.LFB5
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 27
+ 872 00a5 06       		.uleb128 0x6
+ 873 00a6 4E010000 		.4byte	.LASF15
+ 874 00aa 03       		.byte	0x3
+ 875 00ab D401     		.2byte	0x1d4
+ 876 00ad 6F000000 		.4byte	0x6f
+ 877 00b1 04       		.uleb128 0x4
+ 878 00b2 04       		.byte	0x4
+ 879 00b3 04       		.byte	0x4
+ 880 00b4 76000000 		.4byte	.LASF16
+ 881 00b8 04       		.uleb128 0x4
+ 882 00b9 08       		.byte	0x8
+ 883 00ba 04       		.byte	0x4
+ 884 00bb 0C010000 		.4byte	.LASF17
+ 885 00bf 06       		.uleb128 0x6
+ 886 00c0 A9000000 		.4byte	.LASF18
+ 887 00c4 03       		.byte	0x3
+ 888 00c5 7C02     		.2byte	0x27c
+ 889 00c7 CB000000 		.4byte	0xcb
+ 890 00cb 07       		.uleb128 0x7
+ 891 00cc 8D000000 		.4byte	0x8d
+ 892 00d0 06       		.uleb128 0x6
+ 893 00d1 0E000000 		.4byte	.LASF19
+ 894 00d5 03       		.byte	0x3
+ 895 00d6 7E02     		.2byte	0x27e
+ 896 00d8 DC000000 		.4byte	0xdc
+ 897 00dc 07       		.uleb128 0x7
+ 898 00dd A5000000 		.4byte	0xa5
+ 899 00e1 08       		.uleb128 0x8
+ 900 00e2 02       		.byte	0x2
+ 901 00e3 01       		.byte	0x1
+ 902 00e4 9B       		.byte	0x9b
+ 903 00e5 02010000 		.4byte	0x102
+ 904 00e9 09       		.uleb128 0x9
+ 905 00ea CB020000 		.4byte	.LASF20
+ 906 00ee 01       		.byte	0x1
+ 907 00ef 9D       		.byte	0x9d
+ 908 00f0 8D000000 		.4byte	0x8d
+ 909 00f4 00       		.byte	0
+ 910 00f5 09       		.uleb128 0x9
+ 911 00f6 3B000000 		.4byte	.LASF21
+ 912 00fa 01       		.byte	0x1
+ 913 00fb 9E       		.byte	0x9e
+ 914 00fc 8D000000 		.4byte	0x8d
+ 915 0100 01       		.byte	0x1
+ 916 0101 00       		.byte	0
+ 917 0102 03       		.uleb128 0x3
+ 918 0103 B8020000 		.4byte	.LASF22
+ 919 0107 01       		.byte	0x1
+ 920 0108 9F       		.byte	0x9f
+ 921 0109 E1000000 		.4byte	0xe1
+ 922 010d 0A       		.uleb128 0xa
+ 923 010e 13010000 		.4byte	.LASF27
+ 924 0112 01       		.byte	0x1
+ 925 0113 B2       		.byte	0xb2
+ 926 0114 00000000 		.4byte	.LFB5
+ 927 0118 32000000 		.4byte	.LFE5-.LFB5
+ 928 011c 01       		.uleb128 0x1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 27
 
 
- 929 0118 32000000 		.4byte	.LFE5-.LFB5
- 930 011c 01       		.uleb128 0x1
- 931 011d 9C       		.byte	0x9c
- 932 011e 7F010000 		.4byte	0x17f
- 933 0122 0B       		.uleb128 0xb
- 934 0123 31010000 		.4byte	.LASF23
- 935 0127 01       		.byte	0x1
- 936 0128 B2       		.byte	0xb2
- 937 0129 7F010000 		.4byte	0x17f
- 938 012d 01       		.uleb128 0x1
- 939 012e 50       		.byte	0x50
- 940 012f 0B       		.uleb128 0xb
- 941 0130 43010000 		.4byte	.LASF24
- 942 0134 01       		.byte	0x1
- 943 0135 B2       		.byte	0xb2
- 944 0136 8A010000 		.4byte	0x18a
- 945 013a 01       		.uleb128 0x1
- 946 013b 51       		.byte	0x51
- 947 013c 0C       		.uleb128 0xc
- 948 013d 6900     		.ascii	"i\000"
- 949 013f 01       		.byte	0x1
- 950 0140 B5       		.byte	0xb5
- 951 0141 A5000000 		.4byte	0xa5
- 952 0145 00000000 		.4byte	.LLST0
- 953 0149 0C       		.uleb128 0xc
- 954 014a 6A00     		.ascii	"j\000"
- 955 014c 01       		.byte	0x1
- 956 014d B5       		.byte	0xb5
- 957 014e A5000000 		.4byte	0xa5
- 958 0152 1F000000 		.4byte	.LLST1
- 959 0156 0D       		.uleb128 0xd
- 960 0157 08000000 		.4byte	.LBB2
- 961 015b 22000000 		.4byte	.LBE2-.LBB2
- 962 015f 0E       		.uleb128 0xe
- 963 0160 65020000 		.4byte	.LASF25
- 964 0164 01       		.byte	0x1
- 965 0165 B8       		.byte	0xb8
- 966 0166 A5000000 		.4byte	0xa5
- 967 016a 3E000000 		.4byte	.LLST2
- 968 016e 0E       		.uleb128 0xe
- 969 016f 41000000 		.4byte	.LASF26
- 970 0173 01       		.byte	0x1
- 971 0174 B9       		.byte	0xb9
- 972 0175 8D000000 		.4byte	0x8d
- 973 0179 51000000 		.4byte	.LLST3
- 974 017d 00       		.byte	0
- 975 017e 00       		.byte	0
- 976 017f 0F       		.uleb128 0xf
- 977 0180 04       		.byte	0x4
- 978 0181 85010000 		.4byte	0x185
- 979 0185 10       		.uleb128 0x10
- 980 0186 A5000000 		.4byte	0xa5
- 981 018a 0F       		.uleb128 0xf
- 982 018b 04       		.byte	0x4
- 983 018c 90010000 		.4byte	0x190
- 984 0190 10       		.uleb128 0x10
- 985 0191 02010000 		.4byte	0x102
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 28
+ 929 011d 9C       		.byte	0x9c
+ 930 011e 7F010000 		.4byte	0x17f
+ 931 0122 0B       		.uleb128 0xb
+ 932 0123 31010000 		.4byte	.LASF23
+ 933 0127 01       		.byte	0x1
+ 934 0128 B2       		.byte	0xb2
+ 935 0129 7F010000 		.4byte	0x17f
+ 936 012d 01       		.uleb128 0x1
+ 937 012e 50       		.byte	0x50
+ 938 012f 0B       		.uleb128 0xb
+ 939 0130 43010000 		.4byte	.LASF24
+ 940 0134 01       		.byte	0x1
+ 941 0135 B2       		.byte	0xb2
+ 942 0136 8A010000 		.4byte	0x18a
+ 943 013a 01       		.uleb128 0x1
+ 944 013b 51       		.byte	0x51
+ 945 013c 0C       		.uleb128 0xc
+ 946 013d 6900     		.ascii	"i\000"
+ 947 013f 01       		.byte	0x1
+ 948 0140 B5       		.byte	0xb5
+ 949 0141 A5000000 		.4byte	0xa5
+ 950 0145 00000000 		.4byte	.LLST0
+ 951 0149 0C       		.uleb128 0xc
+ 952 014a 6A00     		.ascii	"j\000"
+ 953 014c 01       		.byte	0x1
+ 954 014d B5       		.byte	0xb5
+ 955 014e A5000000 		.4byte	0xa5
+ 956 0152 1F000000 		.4byte	.LLST1
+ 957 0156 0D       		.uleb128 0xd
+ 958 0157 08000000 		.4byte	.LBB2
+ 959 015b 22000000 		.4byte	.LBE2-.LBB2
+ 960 015f 0E       		.uleb128 0xe
+ 961 0160 65020000 		.4byte	.LASF25
+ 962 0164 01       		.byte	0x1
+ 963 0165 B8       		.byte	0xb8
+ 964 0166 A5000000 		.4byte	0xa5
+ 965 016a 3E000000 		.4byte	.LLST2
+ 966 016e 0E       		.uleb128 0xe
+ 967 016f 41000000 		.4byte	.LASF26
+ 968 0173 01       		.byte	0x1
+ 969 0174 B9       		.byte	0xb9
+ 970 0175 8D000000 		.4byte	0x8d
+ 971 0179 51000000 		.4byte	.LLST3
+ 972 017d 00       		.byte	0
+ 973 017e 00       		.byte	0
+ 974 017f 0F       		.uleb128 0xf
+ 975 0180 04       		.byte	0x4
+ 976 0181 85010000 		.4byte	0x185
+ 977 0185 10       		.uleb128 0x10
+ 978 0186 A5000000 		.4byte	0xa5
+ 979 018a 0F       		.uleb128 0xf
+ 980 018b 04       		.byte	0x4
+ 981 018c 90010000 		.4byte	0x190
+ 982 0190 10       		.uleb128 0x10
+ 983 0191 02010000 		.4byte	0x102
+ 984 0195 0A       		.uleb128 0xa
+ 985 0196 D7000000 		.4byte	.LASF28
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 28
 
 
- 986 0195 0A       		.uleb128 0xa
- 987 0196 D7000000 		.4byte	.LASF28
- 988 019a 01       		.byte	0x1
- 989 019b 4B       		.byte	0x4b
- 990 019c 00000000 		.4byte	.LFB2
- 991 01a0 0C000000 		.4byte	.LFE2-.LFB2
- 992 01a4 01       		.uleb128 0x1
- 993 01a5 9C       		.byte	0x9c
- 994 01a6 E2010000 		.4byte	0x1e2
- 995 01aa 11       		.uleb128 0x11
- 996 01ab 7300     		.ascii	"s\000"
- 997 01ad 01       		.byte	0x1
- 998 01ae 4B       		.byte	0x4b
- 999 01af 84000000 		.4byte	0x84
- 1000 01b3 6F000000 		.4byte	.LLST4
- 1001 01b7 11       		.uleb128 0x11
- 1002 01b8 6E00     		.ascii	"n\000"
- 1003 01ba 01       		.byte	0x1
- 1004 01bb 4B       		.byte	0x4b
- 1005 01bc 2C000000 		.4byte	0x2c
- 1006 01c0 90000000 		.4byte	.LLST5
- 1007 01c4 12       		.uleb128 0x12
- 1008 01c5 0A000000 		.4byte	.LVL14
- 1009 01c9 37040000 		.4byte	0x437
- 1010 01cd 13       		.uleb128 0x13
- 1011 01ce 01       		.uleb128 0x1
- 1012 01cf 50       		.byte	0x50
- 1013 01d0 03       		.uleb128 0x3
- 1014 01d1 F3       		.byte	0xf3
- 1015 01d2 01       		.uleb128 0x1
- 1016 01d3 50       		.byte	0x50
- 1017 01d4 13       		.uleb128 0x13
- 1018 01d5 01       		.uleb128 0x1
- 1019 01d6 51       		.byte	0x51
- 1020 01d7 01       		.uleb128 0x1
- 1021 01d8 30       		.byte	0x30
- 1022 01d9 13       		.uleb128 0x13
- 1023 01da 01       		.uleb128 0x1
- 1024 01db 52       		.byte	0x52
- 1025 01dc 03       		.uleb128 0x3
- 1026 01dd F3       		.byte	0xf3
- 1027 01de 01       		.uleb128 0x1
- 1028 01df 51       		.byte	0x51
- 1029 01e0 00       		.byte	0
- 1030 01e1 00       		.byte	0
- 1031 01e2 0A       		.uleb128 0xa
- 1032 01e3 47000000 		.4byte	.LASF29
- 1033 01e7 01       		.byte	0x1
- 1034 01e8 D7       		.byte	0xd7
- 1035 01e9 00000000 		.4byte	.LFB6
- 1036 01ed 14010000 		.4byte	.LFE6-.LFB6
- 1037 01f1 01       		.uleb128 0x1
- 1038 01f2 9C       		.byte	0x9c
- 1039 01f3 8B020000 		.4byte	0x28b
- 1040 01f7 14       		.uleb128 0x14
- 1041 01f8 0C000000 		.4byte	.LVL15
- 1042 01fc 40040000 		.4byte	0x440
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 29
+ 986 019a 01       		.byte	0x1
+ 987 019b 4B       		.byte	0x4b
+ 988 019c 00000000 		.4byte	.LFB2
+ 989 01a0 0C000000 		.4byte	.LFE2-.LFB2
+ 990 01a4 01       		.uleb128 0x1
+ 991 01a5 9C       		.byte	0x9c
+ 992 01a6 E2010000 		.4byte	0x1e2
+ 993 01aa 11       		.uleb128 0x11
+ 994 01ab 7300     		.ascii	"s\000"
+ 995 01ad 01       		.byte	0x1
+ 996 01ae 4B       		.byte	0x4b
+ 997 01af 84000000 		.4byte	0x84
+ 998 01b3 6F000000 		.4byte	.LLST4
+ 999 01b7 11       		.uleb128 0x11
+ 1000 01b8 6E00     		.ascii	"n\000"
+ 1001 01ba 01       		.byte	0x1
+ 1002 01bb 4B       		.byte	0x4b
+ 1003 01bc 2C000000 		.4byte	0x2c
+ 1004 01c0 90000000 		.4byte	.LLST5
+ 1005 01c4 12       		.uleb128 0x12
+ 1006 01c5 0A000000 		.4byte	.LVL14
+ 1007 01c9 37040000 		.4byte	0x437
+ 1008 01cd 13       		.uleb128 0x13
+ 1009 01ce 01       		.uleb128 0x1
+ 1010 01cf 50       		.byte	0x50
+ 1011 01d0 03       		.uleb128 0x3
+ 1012 01d1 F3       		.byte	0xf3
+ 1013 01d2 01       		.uleb128 0x1
+ 1014 01d3 50       		.byte	0x50
+ 1015 01d4 13       		.uleb128 0x13
+ 1016 01d5 01       		.uleb128 0x1
+ 1017 01d6 51       		.byte	0x51
+ 1018 01d7 01       		.uleb128 0x1
+ 1019 01d8 30       		.byte	0x30
+ 1020 01d9 13       		.uleb128 0x13
+ 1021 01da 01       		.uleb128 0x1
+ 1022 01db 52       		.byte	0x52
+ 1023 01dc 03       		.uleb128 0x3
+ 1024 01dd F3       		.byte	0xf3
+ 1025 01de 01       		.uleb128 0x1
+ 1026 01df 51       		.byte	0x51
+ 1027 01e0 00       		.byte	0
+ 1028 01e1 00       		.byte	0
+ 1029 01e2 0A       		.uleb128 0xa
+ 1030 01e3 47000000 		.4byte	.LASF29
+ 1031 01e7 01       		.byte	0x1
+ 1032 01e8 D7       		.byte	0xd7
+ 1033 01e9 00000000 		.4byte	.LFB6
+ 1034 01ed 14010000 		.4byte	.LFE6-.LFB6
+ 1035 01f1 01       		.uleb128 0x1
+ 1036 01f2 9C       		.byte	0x9c
+ 1037 01f3 8B020000 		.4byte	0x28b
+ 1038 01f7 14       		.uleb128 0x14
+ 1039 01f8 0C000000 		.4byte	.LVL15
+ 1040 01fc 40040000 		.4byte	0x440
+ 1041 0200 15       		.uleb128 0x15
+ 1042 0201 12000000 		.4byte	.LVL16
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 29
 
 
- 1043 0200 15       		.uleb128 0x15
- 1044 0201 12000000 		.4byte	.LVL16
- 1045 0205 4B040000 		.4byte	0x44b
- 1046 0209 17020000 		.4byte	0x217
- 1047 020d 13       		.uleb128 0x13
- 1048 020e 01       		.uleb128 0x1
- 1049 020f 50       		.byte	0x50
- 1050 0210 05       		.uleb128 0x5
- 1051 0211 0C       		.byte	0xc
- 1052 0212 001BB700 		.4byte	0xb71b00
- 1053 0216 00       		.byte	0
- 1054 0217 15       		.uleb128 0x15
- 1055 0218 18000000 		.4byte	.LVL17
- 1056 021c 56040000 		.4byte	0x456
- 1057 0220 2A020000 		.4byte	0x22a
- 1058 0224 13       		.uleb128 0x13
- 1059 0225 01       		.uleb128 0x1
- 1060 0226 50       		.byte	0x50
- 1061 0227 01       		.uleb128 0x1
- 1062 0228 31       		.byte	0x31
- 1063 0229 00       		.byte	0
- 1064 022a 15       		.uleb128 0x15
- 1065 022b 1E000000 		.4byte	.LVL18
- 1066 022f 61040000 		.4byte	0x461
- 1067 0233 3E020000 		.4byte	0x23e
- 1068 0237 13       		.uleb128 0x13
- 1069 0238 01       		.uleb128 0x1
- 1070 0239 50       		.byte	0x50
- 1071 023a 02       		.uleb128 0x2
- 1072 023b 08       		.byte	0x8
- 1073 023c 30       		.byte	0x30
- 1074 023d 00       		.byte	0
- 1075 023e 15       		.uleb128 0x15
- 1076 023f 54000000 		.4byte	.LVL19
- 1077 0243 6C040000 		.4byte	0x46c
- 1078 0247 53020000 		.4byte	0x253
- 1079 024b 13       		.uleb128 0x13
- 1080 024c 01       		.uleb128 0x1
- 1081 024d 50       		.byte	0x50
- 1082 024e 03       		.uleb128 0x3
- 1083 024f 0A       		.byte	0xa
- 1084 0250 D007     		.2byte	0x7d0
- 1085 0252 00       		.byte	0
- 1086 0253 15       		.uleb128 0x15
- 1087 0254 5A000000 		.4byte	.LVL20
- 1088 0258 77040000 		.4byte	0x477
- 1089 025c 68020000 		.4byte	0x268
- 1090 0260 13       		.uleb128 0x13
- 1091 0261 01       		.uleb128 0x1
- 1092 0262 50       		.byte	0x50
- 1093 0263 03       		.uleb128 0x3
- 1094 0264 0A       		.byte	0xa
- 1095 0265 DC05     		.2byte	0x5dc
- 1096 0267 00       		.byte	0
- 1097 0268 15       		.uleb128 0x15
- 1098 0269 A4000000 		.4byte	.LVL21
- 1099 026d 82040000 		.4byte	0x482
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 30
+ 1043 0205 4B040000 		.4byte	0x44b
+ 1044 0209 17020000 		.4byte	0x217
+ 1045 020d 13       		.uleb128 0x13
+ 1046 020e 01       		.uleb128 0x1
+ 1047 020f 50       		.byte	0x50
+ 1048 0210 05       		.uleb128 0x5
+ 1049 0211 0C       		.byte	0xc
+ 1050 0212 001BB700 		.4byte	0xb71b00
+ 1051 0216 00       		.byte	0
+ 1052 0217 15       		.uleb128 0x15
+ 1053 0218 18000000 		.4byte	.LVL17
+ 1054 021c 56040000 		.4byte	0x456
+ 1055 0220 2A020000 		.4byte	0x22a
+ 1056 0224 13       		.uleb128 0x13
+ 1057 0225 01       		.uleb128 0x1
+ 1058 0226 50       		.byte	0x50
+ 1059 0227 01       		.uleb128 0x1
+ 1060 0228 31       		.byte	0x31
+ 1061 0229 00       		.byte	0
+ 1062 022a 15       		.uleb128 0x15
+ 1063 022b 1E000000 		.4byte	.LVL18
+ 1064 022f 61040000 		.4byte	0x461
+ 1065 0233 3E020000 		.4byte	0x23e
+ 1066 0237 13       		.uleb128 0x13
+ 1067 0238 01       		.uleb128 0x1
+ 1068 0239 50       		.byte	0x50
+ 1069 023a 02       		.uleb128 0x2
+ 1070 023b 08       		.byte	0x8
+ 1071 023c 30       		.byte	0x30
+ 1072 023d 00       		.byte	0
+ 1073 023e 15       		.uleb128 0x15
+ 1074 023f 54000000 		.4byte	.LVL19
+ 1075 0243 6C040000 		.4byte	0x46c
+ 1076 0247 53020000 		.4byte	0x253
+ 1077 024b 13       		.uleb128 0x13
+ 1078 024c 01       		.uleb128 0x1
+ 1079 024d 50       		.byte	0x50
+ 1080 024e 03       		.uleb128 0x3
+ 1081 024f 0A       		.byte	0xa
+ 1082 0250 D007     		.2byte	0x7d0
+ 1083 0252 00       		.byte	0
+ 1084 0253 15       		.uleb128 0x15
+ 1085 0254 5A000000 		.4byte	.LVL20
+ 1086 0258 77040000 		.4byte	0x477
+ 1087 025c 68020000 		.4byte	0x268
+ 1088 0260 13       		.uleb128 0x13
+ 1089 0261 01       		.uleb128 0x1
+ 1090 0262 50       		.byte	0x50
+ 1091 0263 03       		.uleb128 0x3
+ 1092 0264 0A       		.byte	0xa
+ 1093 0265 DC05     		.2byte	0x5dc
+ 1094 0267 00       		.byte	0
+ 1095 0268 15       		.uleb128 0x15
+ 1096 0269 A4000000 		.4byte	.LVL21
+ 1097 026d 82040000 		.4byte	0x482
+ 1098 0271 7B020000 		.4byte	0x27b
+ 1099 0275 13       		.uleb128 0x13
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 30
 
 
- 1100 0271 7B020000 		.4byte	0x27b
- 1101 0275 13       		.uleb128 0x13
- 1102 0276 01       		.uleb128 0x1
- 1103 0277 50       		.byte	0x50
- 1104 0278 01       		.uleb128 0x1
- 1105 0279 38       		.byte	0x38
- 1106 027a 00       		.byte	0
- 1107 027b 12       		.uleb128 0x12
- 1108 027c AA000000 		.4byte	.LVL22
- 1109 0280 8D040000 		.4byte	0x48d
- 1110 0284 13       		.uleb128 0x13
- 1111 0285 01       		.uleb128 0x1
- 1112 0286 50       		.byte	0x50
- 1113 0287 01       		.uleb128 0x1
- 1114 0288 38       		.byte	0x38
- 1115 0289 00       		.byte	0
- 1116 028a 00       		.byte	0
- 1117 028b 16       		.uleb128 0x16
- 1118 028c E1000000 		.4byte	.LASF33
- 1119 0290 01       		.byte	0x1
- 1120 0291 3F01     		.2byte	0x13f
- 1121 0293 00000000 		.4byte	.LFB8
- 1122 0297 40000000 		.4byte	.LFE8-.LFB8
- 1123 029b 01       		.uleb128 0x1
- 1124 029c 9C       		.byte	0x9c
- 1125 029d C0020000 		.4byte	0x2c0
- 1126 02a1 17       		.uleb128 0x17
- 1127 02a2 D2020000 		.4byte	.LASF30
- 1128 02a6 01       		.byte	0x1
- 1129 02a7 3F01     		.2byte	0x13f
- 1130 02a9 8D000000 		.4byte	0x8d
- 1131 02ad 01       		.uleb128 0x1
- 1132 02ae 50       		.byte	0x50
- 1133 02af 18       		.uleb128 0x18
- 1134 02b0 40030000 		.4byte	.LASF31
- 1135 02b4 01       		.byte	0x1
- 1136 02b5 4101     		.2byte	0x141
- 1137 02b7 A5000000 		.4byte	0xa5
- 1138 02bb BC000000 		.4byte	.LLST6
- 1139 02bf 00       		.byte	0
- 1140 02c0 19       		.uleb128 0x19
- 1141 02c1 1B000000 		.4byte	.LASF32
- 1142 02c5 01       		.byte	0x1
- 1143 02c6 2601     		.2byte	0x126
- 1144 02c8 00000000 		.4byte	.LFB7
- 1145 02cc 28000000 		.4byte	.LFE7-.LFB7
- 1146 02d0 01       		.uleb128 0x1
- 1147 02d1 9C       		.byte	0x9c
- 1148 02d2 E6020000 		.4byte	0x2e6
- 1149 02d6 12       		.uleb128 0x12
- 1150 02d7 18000000 		.4byte	.LVL32
- 1151 02db 8B020000 		.4byte	0x28b
- 1152 02df 13       		.uleb128 0x13
- 1153 02e0 01       		.uleb128 0x1
- 1154 02e1 50       		.byte	0x50
- 1155 02e2 01       		.uleb128 0x1
- 1156 02e3 31       		.byte	0x31
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 31
+ 1100 0276 01       		.uleb128 0x1
+ 1101 0277 50       		.byte	0x50
+ 1102 0278 01       		.uleb128 0x1
+ 1103 0279 38       		.byte	0x38
+ 1104 027a 00       		.byte	0
+ 1105 027b 12       		.uleb128 0x12
+ 1106 027c AA000000 		.4byte	.LVL22
+ 1107 0280 8D040000 		.4byte	0x48d
+ 1108 0284 13       		.uleb128 0x13
+ 1109 0285 01       		.uleb128 0x1
+ 1110 0286 50       		.byte	0x50
+ 1111 0287 01       		.uleb128 0x1
+ 1112 0288 38       		.byte	0x38
+ 1113 0289 00       		.byte	0
+ 1114 028a 00       		.byte	0
+ 1115 028b 16       		.uleb128 0x16
+ 1116 028c E1000000 		.4byte	.LASF33
+ 1117 0290 01       		.byte	0x1
+ 1118 0291 3F01     		.2byte	0x13f
+ 1119 0293 00000000 		.4byte	.LFB8
+ 1120 0297 40000000 		.4byte	.LFE8-.LFB8
+ 1121 029b 01       		.uleb128 0x1
+ 1122 029c 9C       		.byte	0x9c
+ 1123 029d C0020000 		.4byte	0x2c0
+ 1124 02a1 17       		.uleb128 0x17
+ 1125 02a2 D2020000 		.4byte	.LASF30
+ 1126 02a6 01       		.byte	0x1
+ 1127 02a7 3F01     		.2byte	0x13f
+ 1128 02a9 8D000000 		.4byte	0x8d
+ 1129 02ad 01       		.uleb128 0x1
+ 1130 02ae 50       		.byte	0x50
+ 1131 02af 18       		.uleb128 0x18
+ 1132 02b0 40030000 		.4byte	.LASF31
+ 1133 02b4 01       		.byte	0x1
+ 1134 02b5 4101     		.2byte	0x141
+ 1135 02b7 A5000000 		.4byte	0xa5
+ 1136 02bb BC000000 		.4byte	.LLST6
+ 1137 02bf 00       		.byte	0
+ 1138 02c0 19       		.uleb128 0x19
+ 1139 02c1 1B000000 		.4byte	.LASF32
+ 1140 02c5 01       		.byte	0x1
+ 1141 02c6 2601     		.2byte	0x126
+ 1142 02c8 00000000 		.4byte	.LFB7
+ 1143 02cc 28000000 		.4byte	.LFE7-.LFB7
+ 1144 02d0 01       		.uleb128 0x1
+ 1145 02d1 9C       		.byte	0x9c
+ 1146 02d2 E6020000 		.4byte	0x2e6
+ 1147 02d6 12       		.uleb128 0x12
+ 1148 02d7 18000000 		.4byte	.LVL32
+ 1149 02db 8B020000 		.4byte	0x28b
+ 1150 02df 13       		.uleb128 0x13
+ 1151 02e0 01       		.uleb128 0x1
+ 1152 02e1 50       		.byte	0x50
+ 1153 02e2 01       		.uleb128 0x1
+ 1154 02e3 31       		.byte	0x31
+ 1155 02e4 00       		.byte	0
+ 1156 02e5 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 31
 
 
- 1157 02e4 00       		.byte	0
- 1158 02e5 00       		.byte	0
- 1159 02e6 16       		.uleb128 0x16
- 1160 02e7 62010000 		.4byte	.LASF34
- 1161 02eb 01       		.byte	0x1
- 1162 02ec 6B01     		.2byte	0x16b
- 1163 02ee 14010000 		.4byte	.LFB9
- 1164 02f2 18010000 		.4byte	.LFE9-.LFB9
- 1165 02f6 01       		.uleb128 0x1
- 1166 02f7 9C       		.byte	0x9c
- 1167 02f8 0D040000 		.4byte	0x40d
- 1168 02fc 1A       		.uleb128 0x1a
- 1169 02fd 1E010000 		.4byte	.LBB3
- 1170 0301 80000000 		.4byte	.LBE3-.LBB3
- 1171 0305 FA030000 		.4byte	0x3fa
- 1172 0309 1B       		.uleb128 0x1b
- 1173 030a 52000000 		.4byte	.LASF35
- 1174 030e 01       		.byte	0x1
- 1175 030f 7301     		.2byte	0x173
- 1176 0311 1D040000 		.4byte	0x41d
- 1177 0315 05       		.uleb128 0x5
- 1178 0316 03       		.byte	0x3
- 1179 0317 BC000000 		.4byte	cy_cfg_addr_table.4907
- 1180 031b 1B       		.uleb128 0x1b
- 1181 031c 64000000 		.4byte	.LASF36
- 1182 0320 01       		.byte	0x1
- 1183 0321 7C01     		.2byte	0x17c
- 1184 0323 32040000 		.4byte	0x432
- 1185 0327 05       		.uleb128 0x5
- 1186 0328 03       		.byte	0x3
- 1187 0329 0C000000 		.4byte	cy_cfg_data_table.4908
- 1188 032d 1C       		.uleb128 0x1c
- 1189 032e 06       		.byte	0x6
- 1190 032f 01       		.byte	0x1
- 1191 0330 D801     		.2byte	0x1d8
- 1192 0332 51030000 		.4byte	0x351
- 1193 0336 1D       		.uleb128 0x1d
- 1194 0337 6F010000 		.4byte	.LASF37
- 1195 033b 01       		.byte	0x1
- 1196 033c D901     		.2byte	0x1d9
- 1197 033e 84000000 		.4byte	0x84
- 1198 0342 00       		.byte	0
- 1199 0343 1D       		.uleb128 0x1d
- 1200 0344 8C000000 		.4byte	.LASF38
- 1201 0348 01       		.byte	0x1
- 1202 0349 DA01     		.2byte	0x1da
- 1203 034b 99000000 		.4byte	0x99
- 1204 034f 04       		.byte	0x4
- 1205 0350 00       		.byte	0
- 1206 0351 06       		.uleb128 0x6
- 1207 0352 58020000 		.4byte	.LASF39
- 1208 0356 01       		.byte	0x1
- 1209 0357 DB01     		.2byte	0x1db
- 1210 0359 2D030000 		.4byte	0x32d
- 1211 035d 1E       		.uleb128 0x1e
- 1212 035e 6D030000 		.4byte	0x36d
- 1213 0362 6D030000 		.4byte	0x36d
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 32
+ 1157 02e6 16       		.uleb128 0x16
+ 1158 02e7 62010000 		.4byte	.LASF34
+ 1159 02eb 01       		.byte	0x1
+ 1160 02ec 6B01     		.2byte	0x16b
+ 1161 02ee 14010000 		.4byte	.LFB9
+ 1162 02f2 14010000 		.4byte	.LFE9-.LFB9
+ 1163 02f6 01       		.uleb128 0x1
+ 1164 02f7 9C       		.byte	0x9c
+ 1165 02f8 0D040000 		.4byte	0x40d
+ 1166 02fc 1A       		.uleb128 0x1a
+ 1167 02fd 1E010000 		.4byte	.LBB3
+ 1168 0301 80000000 		.4byte	.LBE3-.LBB3
+ 1169 0305 FA030000 		.4byte	0x3fa
+ 1170 0309 1B       		.uleb128 0x1b
+ 1171 030a 52000000 		.4byte	.LASF35
+ 1172 030e 01       		.byte	0x1
+ 1173 030f 7301     		.2byte	0x173
+ 1174 0311 1D040000 		.4byte	0x41d
+ 1175 0315 05       		.uleb128 0x5
+ 1176 0316 03       		.byte	0x3
+ 1177 0317 BC000000 		.4byte	cy_cfg_addr_table.4907
+ 1178 031b 1B       		.uleb128 0x1b
+ 1179 031c 64000000 		.4byte	.LASF36
+ 1180 0320 01       		.byte	0x1
+ 1181 0321 7C01     		.2byte	0x17c
+ 1182 0323 32040000 		.4byte	0x432
+ 1183 0327 05       		.uleb128 0x5
+ 1184 0328 03       		.byte	0x3
+ 1185 0329 0C000000 		.4byte	cy_cfg_data_table.4908
+ 1186 032d 1C       		.uleb128 0x1c
+ 1187 032e 06       		.byte	0x6
+ 1188 032f 01       		.byte	0x1
+ 1189 0330 D801     		.2byte	0x1d8
+ 1190 0332 51030000 		.4byte	0x351
+ 1191 0336 1D       		.uleb128 0x1d
+ 1192 0337 6F010000 		.4byte	.LASF37
+ 1193 033b 01       		.byte	0x1
+ 1194 033c D901     		.2byte	0x1d9
+ 1195 033e 84000000 		.4byte	0x84
+ 1196 0342 00       		.byte	0
+ 1197 0343 1D       		.uleb128 0x1d
+ 1198 0344 8C000000 		.4byte	.LASF38
+ 1199 0348 01       		.byte	0x1
+ 1200 0349 DA01     		.2byte	0x1da
+ 1201 034b 99000000 		.4byte	0x99
+ 1202 034f 04       		.byte	0x4
+ 1203 0350 00       		.byte	0
+ 1204 0351 06       		.uleb128 0x6
+ 1205 0352 58020000 		.4byte	.LASF39
+ 1206 0356 01       		.byte	0x1
+ 1207 0357 DB01     		.2byte	0x1db
+ 1208 0359 2D030000 		.4byte	0x32d
+ 1209 035d 1E       		.uleb128 0x1e
+ 1210 035e 6D030000 		.4byte	0x36d
+ 1211 0362 6D030000 		.4byte	0x36d
+ 1212 0366 1F       		.uleb128 0x1f
+ 1213 0367 7D000000 		.4byte	0x7d
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 32
 
 
- 1214 0366 1F       		.uleb128 0x1f
- 1215 0367 7D000000 		.4byte	0x7d
- 1216 036b 01       		.byte	0x1
- 1217 036c 00       		.byte	0
- 1218 036d 10       		.uleb128 0x10
- 1219 036e 51030000 		.4byte	0x351
- 1220 0372 1B       		.uleb128 0x1b
- 1221 0373 7C000000 		.4byte	.LASF40
- 1222 0377 01       		.byte	0x1
- 1223 0378 DD01     		.2byte	0x1dd
- 1224 037a 84030000 		.4byte	0x384
- 1225 037e 05       		.uleb128 0x5
- 1226 037f 03       		.byte	0x3
- 1227 0380 00000000 		.4byte	cfg_memset_list.4913
- 1228 0384 10       		.uleb128 0x10
- 1229 0385 5D030000 		.4byte	0x35d
- 1230 0389 20       		.uleb128 0x20
- 1231 038a 6900     		.ascii	"i\000"
- 1232 038c 01       		.byte	0x1
- 1233 038d E301     		.2byte	0x1e3
- 1234 038f 8D000000 		.4byte	0x8d
- 1235 0393 F1000000 		.4byte	.LLST7
- 1236 0397 1A       		.uleb128 0x1a
- 1237 0398 22010000 		.4byte	.LBB4
- 1238 039c 1C000000 		.4byte	.LBE4-.LBB4
- 1239 03a0 DD030000 		.4byte	0x3dd
- 1240 03a4 20       		.uleb128 0x20
- 1241 03a5 6D7300   		.ascii	"ms\000"
- 1242 03a8 01       		.byte	0x1
- 1243 03a9 E801     		.2byte	0x1e8
- 1244 03ab B3030000 		.4byte	0x3b3
- 1245 03af 1B010000 		.4byte	.LLST8
- 1246 03b3 0F       		.uleb128 0xf
- 1247 03b4 04       		.byte	0x4
- 1248 03b5 6D030000 		.4byte	0x36d
- 1249 03b9 12       		.uleb128 0x12
- 1250 03ba 3E010000 		.4byte	.LVL35
- 1251 03be 95010000 		.4byte	0x195
- 1252 03c2 13       		.uleb128 0x13
- 1253 03c3 01       		.uleb128 0x1
- 1254 03c4 51       		.byte	0x51
- 1255 03c5 15       		.uleb128 0x15
- 1256 03c6 74       		.byte	0x74
- 1257 03c7 00       		.sleb128 0
- 1258 03c8 31       		.byte	0x31
- 1259 03c9 24       		.byte	0x24
- 1260 03ca 74       		.byte	0x74
- 1261 03cb 00       		.sleb128 0
- 1262 03cc 22       		.byte	0x22
- 1263 03cd 31       		.byte	0x31
- 1264 03ce 24       		.byte	0x24
- 1265 03cf 03       		.byte	0x3
- 1266 03d0 04000000 		.4byte	.LANCHOR0+4
- 1267 03d4 22       		.byte	0x22
- 1268 03d5 94       		.byte	0x94
- 1269 03d6 02       		.byte	0x2
- 1270 03d7 0A       		.byte	0xa
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 33
+ 1214 036b 01       		.byte	0x1
+ 1215 036c 00       		.byte	0
+ 1216 036d 10       		.uleb128 0x10
+ 1217 036e 51030000 		.4byte	0x351
+ 1218 0372 1B       		.uleb128 0x1b
+ 1219 0373 7C000000 		.4byte	.LASF40
+ 1220 0377 01       		.byte	0x1
+ 1221 0378 DD01     		.2byte	0x1dd
+ 1222 037a 84030000 		.4byte	0x384
+ 1223 037e 05       		.uleb128 0x5
+ 1224 037f 03       		.byte	0x3
+ 1225 0380 00000000 		.4byte	cfg_memset_list.4913
+ 1226 0384 10       		.uleb128 0x10
+ 1227 0385 5D030000 		.4byte	0x35d
+ 1228 0389 20       		.uleb128 0x20
+ 1229 038a 6900     		.ascii	"i\000"
+ 1230 038c 01       		.byte	0x1
+ 1231 038d E301     		.2byte	0x1e3
+ 1232 038f 8D000000 		.4byte	0x8d
+ 1233 0393 F1000000 		.4byte	.LLST7
+ 1234 0397 1A       		.uleb128 0x1a
+ 1235 0398 22010000 		.4byte	.LBB4
+ 1236 039c 1C000000 		.4byte	.LBE4-.LBB4
+ 1237 03a0 DD030000 		.4byte	0x3dd
+ 1238 03a4 20       		.uleb128 0x20
+ 1239 03a5 6D7300   		.ascii	"ms\000"
+ 1240 03a8 01       		.byte	0x1
+ 1241 03a9 E801     		.2byte	0x1e8
+ 1242 03ab B3030000 		.4byte	0x3b3
+ 1243 03af 1B010000 		.4byte	.LLST8
+ 1244 03b3 0F       		.uleb128 0xf
+ 1245 03b4 04       		.byte	0x4
+ 1246 03b5 6D030000 		.4byte	0x36d
+ 1247 03b9 12       		.uleb128 0x12
+ 1248 03ba 3E010000 		.4byte	.LVL35
+ 1249 03be 95010000 		.4byte	0x195
+ 1250 03c2 13       		.uleb128 0x13
+ 1251 03c3 01       		.uleb128 0x1
+ 1252 03c4 51       		.byte	0x51
+ 1253 03c5 15       		.uleb128 0x15
+ 1254 03c6 74       		.byte	0x74
+ 1255 03c7 00       		.sleb128 0
+ 1256 03c8 31       		.byte	0x31
+ 1257 03c9 24       		.byte	0x24
+ 1258 03ca 74       		.byte	0x74
+ 1259 03cb 00       		.sleb128 0
+ 1260 03cc 22       		.byte	0x22
+ 1261 03cd 31       		.byte	0x31
+ 1262 03ce 24       		.byte	0x24
+ 1263 03cf 03       		.byte	0x3
+ 1264 03d0 04000000 		.4byte	.LANCHOR0+4
+ 1265 03d4 22       		.byte	0x22
+ 1266 03d5 94       		.byte	0x94
+ 1267 03d6 02       		.byte	0x2
+ 1268 03d7 0A       		.byte	0xa
+ 1269 03d8 FFFF     		.2byte	0xffff
+ 1270 03da 1A       		.byte	0x1a
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 33
 
 
- 1271 03d8 FFFF     		.2byte	0xffff
- 1272 03da 1A       		.byte	0x1a
- 1273 03db 00       		.byte	0
- 1274 03dc 00       		.byte	0
- 1275 03dd 12       		.uleb128 0x12
- 1276 03de 52010000 		.4byte	.LVL38
- 1277 03e2 0D010000 		.4byte	0x10d
- 1278 03e6 13       		.uleb128 0x13
- 1279 03e7 01       		.uleb128 0x1
- 1280 03e8 50       		.byte	0x50
- 1281 03e9 05       		.uleb128 0x5
- 1282 03ea 03       		.byte	0x3
- 1283 03eb BC000000 		.4byte	.LANCHOR1+60
- 1284 03ef 13       		.uleb128 0x13
- 1285 03f0 01       		.uleb128 0x1
- 1286 03f1 51       		.byte	0x51
- 1287 03f2 05       		.uleb128 0x5
- 1288 03f3 03       		.byte	0x3
- 1289 03f4 0C000000 		.4byte	.LANCHOR0+12
- 1290 03f8 00       		.byte	0
- 1291 03f9 00       		.byte	0
- 1292 03fa 14       		.uleb128 0x14
- 1293 03fb D6010000 		.4byte	.LVL39
- 1294 03ff E2010000 		.4byte	0x1e2
- 1295 0403 14       		.uleb128 0x14
- 1296 0404 DA010000 		.4byte	.LVL40
- 1297 0408 C0020000 		.4byte	0x2c0
- 1298 040c 00       		.byte	0
- 1299 040d 1E       		.uleb128 0x1e
- 1300 040e 85010000 		.4byte	0x185
- 1301 0412 1D040000 		.4byte	0x41d
- 1302 0416 1F       		.uleb128 0x1f
- 1303 0417 7D000000 		.4byte	0x7d
- 1304 041b 05       		.byte	0x5
- 1305 041c 00       		.byte	0
- 1306 041d 10       		.uleb128 0x10
- 1307 041e 0D040000 		.4byte	0x40d
- 1308 0422 1E       		.uleb128 0x1e
- 1309 0423 90010000 		.4byte	0x190
- 1310 0427 32040000 		.4byte	0x432
- 1311 042b 1F       		.uleb128 0x1f
- 1312 042c 7D000000 		.4byte	0x7d
- 1313 0430 56       		.byte	0x56
- 1314 0431 00       		.byte	0
- 1315 0432 10       		.uleb128 0x10
- 1316 0433 22040000 		.4byte	0x422
- 1317 0437 21       		.uleb128 0x21
- 1318 0438 05010000 		.4byte	.LASF52
- 1319 043c 05010000 		.4byte	.LASF52
- 1320 0440 22       		.uleb128 0x22
- 1321 0441 C6000000 		.4byte	.LASF41
- 1322 0445 C6000000 		.4byte	.LASF41
- 1323 0449 04       		.byte	0x4
- 1324 044a 4E       		.byte	0x4e
- 1325 044b 22       		.uleb128 0x22
- 1326 044c 00000000 		.4byte	.LASF42
- 1327 0450 00000000 		.4byte	.LASF42
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 34
+ 1271 03db 00       		.byte	0
+ 1272 03dc 00       		.byte	0
+ 1273 03dd 12       		.uleb128 0x12
+ 1274 03de 52010000 		.4byte	.LVL38
+ 1275 03e2 0D010000 		.4byte	0x10d
+ 1276 03e6 13       		.uleb128 0x13
+ 1277 03e7 01       		.uleb128 0x1
+ 1278 03e8 50       		.byte	0x50
+ 1279 03e9 05       		.uleb128 0x5
+ 1280 03ea 03       		.byte	0x3
+ 1281 03eb BC000000 		.4byte	.LANCHOR1+60
+ 1282 03ef 13       		.uleb128 0x13
+ 1283 03f0 01       		.uleb128 0x1
+ 1284 03f1 51       		.byte	0x51
+ 1285 03f2 05       		.uleb128 0x5
+ 1286 03f3 03       		.byte	0x3
+ 1287 03f4 0C000000 		.4byte	.LANCHOR0+12
+ 1288 03f8 00       		.byte	0
+ 1289 03f9 00       		.byte	0
+ 1290 03fa 14       		.uleb128 0x14
+ 1291 03fb D2010000 		.4byte	.LVL39
+ 1292 03ff E2010000 		.4byte	0x1e2
+ 1293 0403 14       		.uleb128 0x14
+ 1294 0404 D6010000 		.4byte	.LVL40
+ 1295 0408 C0020000 		.4byte	0x2c0
+ 1296 040c 00       		.byte	0
+ 1297 040d 1E       		.uleb128 0x1e
+ 1298 040e 85010000 		.4byte	0x185
+ 1299 0412 1D040000 		.4byte	0x41d
+ 1300 0416 1F       		.uleb128 0x1f
+ 1301 0417 7D000000 		.4byte	0x7d
+ 1302 041b 05       		.byte	0x5
+ 1303 041c 00       		.byte	0
+ 1304 041d 10       		.uleb128 0x10
+ 1305 041e 0D040000 		.4byte	0x40d
+ 1306 0422 1E       		.uleb128 0x1e
+ 1307 0423 90010000 		.4byte	0x190
+ 1308 0427 32040000 		.4byte	0x432
+ 1309 042b 1F       		.uleb128 0x1f
+ 1310 042c 7D000000 		.4byte	0x7d
+ 1311 0430 56       		.byte	0x56
+ 1312 0431 00       		.byte	0
+ 1313 0432 10       		.uleb128 0x10
+ 1314 0433 22040000 		.4byte	0x422
+ 1315 0437 21       		.uleb128 0x21
+ 1316 0438 05010000 		.4byte	.LASF52
+ 1317 043c 05010000 		.4byte	.LASF52
+ 1318 0440 22       		.uleb128 0x22
+ 1319 0441 C6000000 		.4byte	.LASF41
+ 1320 0445 C6000000 		.4byte	.LASF41
+ 1321 0449 04       		.byte	0x4
+ 1322 044a 4E       		.byte	0x4e
+ 1323 044b 22       		.uleb128 0x22
+ 1324 044c 00000000 		.4byte	.LASF42
+ 1325 0450 00000000 		.4byte	.LASF42
+ 1326 0454 05       		.byte	0x5
+ 1327 0455 DC       		.byte	0xdc
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 34
 
 
- 1328 0454 05       		.byte	0x5
- 1329 0455 DC       		.byte	0xdc
- 1330 0456 22       		.uleb128 0x22
- 1331 0457 91000000 		.4byte	.LASF43
- 1332 045b 91000000 		.4byte	.LASF43
- 1333 045f 04       		.byte	0x4
- 1334 0460 50       		.byte	0x50
- 1335 0461 22       		.uleb128 0x22
- 1336 0462 E4020000 		.4byte	.LASF44
- 1337 0466 E4020000 		.4byte	.LASF44
- 1338 046a 05       		.byte	0x5
- 1339 046b 6C       		.byte	0x6c
- 1340 046c 22       		.uleb128 0x22
- 1341 046d A7020000 		.4byte	.LASF45
- 1342 0471 A7020000 		.4byte	.LASF45
- 1343 0475 05       		.byte	0x5
- 1344 0476 84       		.byte	0x84
- 1345 0477 22       		.uleb128 0x22
- 1346 0478 98020000 		.4byte	.LASF46
- 1347 047c 98020000 		.4byte	.LASF46
- 1348 0480 05       		.byte	0x5
- 1349 0481 DA       		.byte	0xda
- 1350 0482 22       		.uleb128 0x22
- 1351 0483 2C000000 		.4byte	.LASF47
- 1352 0487 2C000000 		.4byte	.LASF47
- 1353 048b 05       		.byte	0x5
- 1354 048c BD       		.byte	0xbd
- 1355 048d 22       		.uleb128 0x22
- 1356 048e 25010000 		.4byte	.LASF48
- 1357 0492 25010000 		.4byte	.LASF48
- 1358 0496 05       		.byte	0x5
- 1359 0497 C3       		.byte	0xc3
- 1360 0498 00       		.byte	0
- 1361              		.section	.debug_abbrev,"",%progbits
- 1362              	.Ldebug_abbrev0:
- 1363 0000 01       		.uleb128 0x1
- 1364 0001 11       		.uleb128 0x11
- 1365 0002 01       		.byte	0x1
- 1366 0003 25       		.uleb128 0x25
- 1367 0004 0E       		.uleb128 0xe
- 1368 0005 13       		.uleb128 0x13
- 1369 0006 0B       		.uleb128 0xb
- 1370 0007 03       		.uleb128 0x3
- 1371 0008 0E       		.uleb128 0xe
- 1372 0009 1B       		.uleb128 0x1b
- 1373 000a 0E       		.uleb128 0xe
- 1374 000b 55       		.uleb128 0x55
- 1375 000c 17       		.uleb128 0x17
- 1376 000d 11       		.uleb128 0x11
- 1377 000e 01       		.uleb128 0x1
- 1378 000f 10       		.uleb128 0x10
- 1379 0010 17       		.uleb128 0x17
- 1380 0011 00       		.byte	0
- 1381 0012 00       		.byte	0
- 1382 0013 02       		.uleb128 0x2
- 1383 0014 24       		.uleb128 0x24
- 1384 0015 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 35
+ 1328 0456 22       		.uleb128 0x22
+ 1329 0457 91000000 		.4byte	.LASF43
+ 1330 045b 91000000 		.4byte	.LASF43
+ 1331 045f 04       		.byte	0x4
+ 1332 0460 50       		.byte	0x50
+ 1333 0461 22       		.uleb128 0x22
+ 1334 0462 E4020000 		.4byte	.LASF44
+ 1335 0466 E4020000 		.4byte	.LASF44
+ 1336 046a 05       		.byte	0x5
+ 1337 046b 6C       		.byte	0x6c
+ 1338 046c 22       		.uleb128 0x22
+ 1339 046d A7020000 		.4byte	.LASF45
+ 1340 0471 A7020000 		.4byte	.LASF45
+ 1341 0475 05       		.byte	0x5
+ 1342 0476 84       		.byte	0x84
+ 1343 0477 22       		.uleb128 0x22
+ 1344 0478 98020000 		.4byte	.LASF46
+ 1345 047c 98020000 		.4byte	.LASF46
+ 1346 0480 05       		.byte	0x5
+ 1347 0481 DA       		.byte	0xda
+ 1348 0482 22       		.uleb128 0x22
+ 1349 0483 2C000000 		.4byte	.LASF47
+ 1350 0487 2C000000 		.4byte	.LASF47
+ 1351 048b 05       		.byte	0x5
+ 1352 048c BD       		.byte	0xbd
+ 1353 048d 22       		.uleb128 0x22
+ 1354 048e 25010000 		.4byte	.LASF48
+ 1355 0492 25010000 		.4byte	.LASF48
+ 1356 0496 05       		.byte	0x5
+ 1357 0497 C3       		.byte	0xc3
+ 1358 0498 00       		.byte	0
+ 1359              		.section	.debug_abbrev,"",%progbits
+ 1360              	.Ldebug_abbrev0:
+ 1361 0000 01       		.uleb128 0x1
+ 1362 0001 11       		.uleb128 0x11
+ 1363 0002 01       		.byte	0x1
+ 1364 0003 25       		.uleb128 0x25
+ 1365 0004 0E       		.uleb128 0xe
+ 1366 0005 13       		.uleb128 0x13
+ 1367 0006 0B       		.uleb128 0xb
+ 1368 0007 03       		.uleb128 0x3
+ 1369 0008 0E       		.uleb128 0xe
+ 1370 0009 1B       		.uleb128 0x1b
+ 1371 000a 0E       		.uleb128 0xe
+ 1372 000b 55       		.uleb128 0x55
+ 1373 000c 17       		.uleb128 0x17
+ 1374 000d 11       		.uleb128 0x11
+ 1375 000e 01       		.uleb128 0x1
+ 1376 000f 10       		.uleb128 0x10
+ 1377 0010 17       		.uleb128 0x17
+ 1378 0011 00       		.byte	0
+ 1379 0012 00       		.byte	0
+ 1380 0013 02       		.uleb128 0x2
+ 1381 0014 24       		.uleb128 0x24
+ 1382 0015 00       		.byte	0
+ 1383 0016 0B       		.uleb128 0xb
+ 1384 0017 0B       		.uleb128 0xb
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 35
 
 
- 1385 0016 0B       		.uleb128 0xb
- 1386 0017 0B       		.uleb128 0xb
- 1387 0018 3E       		.uleb128 0x3e
- 1388 0019 0B       		.uleb128 0xb
- 1389 001a 03       		.uleb128 0x3
- 1390 001b 08       		.uleb128 0x8
- 1391 001c 00       		.byte	0
- 1392 001d 00       		.byte	0
- 1393 001e 03       		.uleb128 0x3
- 1394 001f 16       		.uleb128 0x16
- 1395 0020 00       		.byte	0
- 1396 0021 03       		.uleb128 0x3
- 1397 0022 0E       		.uleb128 0xe
- 1398 0023 3A       		.uleb128 0x3a
- 1399 0024 0B       		.uleb128 0xb
- 1400 0025 3B       		.uleb128 0x3b
- 1401 0026 0B       		.uleb128 0xb
- 1402 0027 49       		.uleb128 0x49
- 1403 0028 13       		.uleb128 0x13
- 1404 0029 00       		.byte	0
- 1405 002a 00       		.byte	0
- 1406 002b 04       		.uleb128 0x4
- 1407 002c 24       		.uleb128 0x24
- 1408 002d 00       		.byte	0
- 1409 002e 0B       		.uleb128 0xb
- 1410 002f 0B       		.uleb128 0xb
- 1411 0030 3E       		.uleb128 0x3e
- 1412 0031 0B       		.uleb128 0xb
- 1413 0032 03       		.uleb128 0x3
- 1414 0033 0E       		.uleb128 0xe
- 1415 0034 00       		.byte	0
- 1416 0035 00       		.byte	0
- 1417 0036 05       		.uleb128 0x5
- 1418 0037 0F       		.uleb128 0xf
- 1419 0038 00       		.byte	0
- 1420 0039 0B       		.uleb128 0xb
- 1421 003a 0B       		.uleb128 0xb
- 1422 003b 00       		.byte	0
- 1423 003c 00       		.byte	0
- 1424 003d 06       		.uleb128 0x6
- 1425 003e 16       		.uleb128 0x16
- 1426 003f 00       		.byte	0
- 1427 0040 03       		.uleb128 0x3
- 1428 0041 0E       		.uleb128 0xe
- 1429 0042 3A       		.uleb128 0x3a
- 1430 0043 0B       		.uleb128 0xb
- 1431 0044 3B       		.uleb128 0x3b
- 1432 0045 05       		.uleb128 0x5
- 1433 0046 49       		.uleb128 0x49
- 1434 0047 13       		.uleb128 0x13
- 1435 0048 00       		.byte	0
- 1436 0049 00       		.byte	0
- 1437 004a 07       		.uleb128 0x7
- 1438 004b 35       		.uleb128 0x35
- 1439 004c 00       		.byte	0
- 1440 004d 49       		.uleb128 0x49
- 1441 004e 13       		.uleb128 0x13
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 36
+ 1385 0018 3E       		.uleb128 0x3e
+ 1386 0019 0B       		.uleb128 0xb
+ 1387 001a 03       		.uleb128 0x3
+ 1388 001b 08       		.uleb128 0x8
+ 1389 001c 00       		.byte	0
+ 1390 001d 00       		.byte	0
+ 1391 001e 03       		.uleb128 0x3
+ 1392 001f 16       		.uleb128 0x16
+ 1393 0020 00       		.byte	0
+ 1394 0021 03       		.uleb128 0x3
+ 1395 0022 0E       		.uleb128 0xe
+ 1396 0023 3A       		.uleb128 0x3a
+ 1397 0024 0B       		.uleb128 0xb
+ 1398 0025 3B       		.uleb128 0x3b
+ 1399 0026 0B       		.uleb128 0xb
+ 1400 0027 49       		.uleb128 0x49
+ 1401 0028 13       		.uleb128 0x13
+ 1402 0029 00       		.byte	0
+ 1403 002a 00       		.byte	0
+ 1404 002b 04       		.uleb128 0x4
+ 1405 002c 24       		.uleb128 0x24
+ 1406 002d 00       		.byte	0
+ 1407 002e 0B       		.uleb128 0xb
+ 1408 002f 0B       		.uleb128 0xb
+ 1409 0030 3E       		.uleb128 0x3e
+ 1410 0031 0B       		.uleb128 0xb
+ 1411 0032 03       		.uleb128 0x3
+ 1412 0033 0E       		.uleb128 0xe
+ 1413 0034 00       		.byte	0
+ 1414 0035 00       		.byte	0
+ 1415 0036 05       		.uleb128 0x5
+ 1416 0037 0F       		.uleb128 0xf
+ 1417 0038 00       		.byte	0
+ 1418 0039 0B       		.uleb128 0xb
+ 1419 003a 0B       		.uleb128 0xb
+ 1420 003b 00       		.byte	0
+ 1421 003c 00       		.byte	0
+ 1422 003d 06       		.uleb128 0x6
+ 1423 003e 16       		.uleb128 0x16
+ 1424 003f 00       		.byte	0
+ 1425 0040 03       		.uleb128 0x3
+ 1426 0041 0E       		.uleb128 0xe
+ 1427 0042 3A       		.uleb128 0x3a
+ 1428 0043 0B       		.uleb128 0xb
+ 1429 0044 3B       		.uleb128 0x3b
+ 1430 0045 05       		.uleb128 0x5
+ 1431 0046 49       		.uleb128 0x49
+ 1432 0047 13       		.uleb128 0x13
+ 1433 0048 00       		.byte	0
+ 1434 0049 00       		.byte	0
+ 1435 004a 07       		.uleb128 0x7
+ 1436 004b 35       		.uleb128 0x35
+ 1437 004c 00       		.byte	0
+ 1438 004d 49       		.uleb128 0x49
+ 1439 004e 13       		.uleb128 0x13
+ 1440 004f 00       		.byte	0
+ 1441 0050 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 36
 
 
- 1442 004f 00       		.byte	0
- 1443 0050 00       		.byte	0
- 1444 0051 08       		.uleb128 0x8
- 1445 0052 13       		.uleb128 0x13
- 1446 0053 01       		.byte	0x1
- 1447 0054 0B       		.uleb128 0xb
- 1448 0055 0B       		.uleb128 0xb
- 1449 0056 3A       		.uleb128 0x3a
- 1450 0057 0B       		.uleb128 0xb
- 1451 0058 3B       		.uleb128 0x3b
- 1452 0059 0B       		.uleb128 0xb
- 1453 005a 01       		.uleb128 0x1
- 1454 005b 13       		.uleb128 0x13
- 1455 005c 00       		.byte	0
- 1456 005d 00       		.byte	0
- 1457 005e 09       		.uleb128 0x9
- 1458 005f 0D       		.uleb128 0xd
- 1459 0060 00       		.byte	0
- 1460 0061 03       		.uleb128 0x3
- 1461 0062 0E       		.uleb128 0xe
- 1462 0063 3A       		.uleb128 0x3a
- 1463 0064 0B       		.uleb128 0xb
- 1464 0065 3B       		.uleb128 0x3b
- 1465 0066 0B       		.uleb128 0xb
- 1466 0067 49       		.uleb128 0x49
- 1467 0068 13       		.uleb128 0x13
- 1468 0069 38       		.uleb128 0x38
- 1469 006a 0B       		.uleb128 0xb
- 1470 006b 00       		.byte	0
- 1471 006c 00       		.byte	0
- 1472 006d 0A       		.uleb128 0xa
- 1473 006e 2E       		.uleb128 0x2e
- 1474 006f 01       		.byte	0x1
- 1475 0070 03       		.uleb128 0x3
- 1476 0071 0E       		.uleb128 0xe
- 1477 0072 3A       		.uleb128 0x3a
- 1478 0073 0B       		.uleb128 0xb
- 1479 0074 3B       		.uleb128 0x3b
- 1480 0075 0B       		.uleb128 0xb
- 1481 0076 27       		.uleb128 0x27
- 1482 0077 19       		.uleb128 0x19
- 1483 0078 11       		.uleb128 0x11
- 1484 0079 01       		.uleb128 0x1
- 1485 007a 12       		.uleb128 0x12
- 1486 007b 06       		.uleb128 0x6
- 1487 007c 40       		.uleb128 0x40
- 1488 007d 18       		.uleb128 0x18
- 1489 007e 9742     		.uleb128 0x2117
- 1490 0080 19       		.uleb128 0x19
- 1491 0081 01       		.uleb128 0x1
- 1492 0082 13       		.uleb128 0x13
- 1493 0083 00       		.byte	0
- 1494 0084 00       		.byte	0
- 1495 0085 0B       		.uleb128 0xb
- 1496 0086 05       		.uleb128 0x5
- 1497 0087 00       		.byte	0
- 1498 0088 03       		.uleb128 0x3
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 37
+ 1442 0051 08       		.uleb128 0x8
+ 1443 0052 13       		.uleb128 0x13
+ 1444 0053 01       		.byte	0x1
+ 1445 0054 0B       		.uleb128 0xb
+ 1446 0055 0B       		.uleb128 0xb
+ 1447 0056 3A       		.uleb128 0x3a
+ 1448 0057 0B       		.uleb128 0xb
+ 1449 0058 3B       		.uleb128 0x3b
+ 1450 0059 0B       		.uleb128 0xb
+ 1451 005a 01       		.uleb128 0x1
+ 1452 005b 13       		.uleb128 0x13
+ 1453 005c 00       		.byte	0
+ 1454 005d 00       		.byte	0
+ 1455 005e 09       		.uleb128 0x9
+ 1456 005f 0D       		.uleb128 0xd
+ 1457 0060 00       		.byte	0
+ 1458 0061 03       		.uleb128 0x3
+ 1459 0062 0E       		.uleb128 0xe
+ 1460 0063 3A       		.uleb128 0x3a
+ 1461 0064 0B       		.uleb128 0xb
+ 1462 0065 3B       		.uleb128 0x3b
+ 1463 0066 0B       		.uleb128 0xb
+ 1464 0067 49       		.uleb128 0x49
+ 1465 0068 13       		.uleb128 0x13
+ 1466 0069 38       		.uleb128 0x38
+ 1467 006a 0B       		.uleb128 0xb
+ 1468 006b 00       		.byte	0
+ 1469 006c 00       		.byte	0
+ 1470 006d 0A       		.uleb128 0xa
+ 1471 006e 2E       		.uleb128 0x2e
+ 1472 006f 01       		.byte	0x1
+ 1473 0070 03       		.uleb128 0x3
+ 1474 0071 0E       		.uleb128 0xe
+ 1475 0072 3A       		.uleb128 0x3a
+ 1476 0073 0B       		.uleb128 0xb
+ 1477 0074 3B       		.uleb128 0x3b
+ 1478 0075 0B       		.uleb128 0xb
+ 1479 0076 27       		.uleb128 0x27
+ 1480 0077 19       		.uleb128 0x19
+ 1481 0078 11       		.uleb128 0x11
+ 1482 0079 01       		.uleb128 0x1
+ 1483 007a 12       		.uleb128 0x12
+ 1484 007b 06       		.uleb128 0x6
+ 1485 007c 40       		.uleb128 0x40
+ 1486 007d 18       		.uleb128 0x18
+ 1487 007e 9742     		.uleb128 0x2117
+ 1488 0080 19       		.uleb128 0x19
+ 1489 0081 01       		.uleb128 0x1
+ 1490 0082 13       		.uleb128 0x13
+ 1491 0083 00       		.byte	0
+ 1492 0084 00       		.byte	0
+ 1493 0085 0B       		.uleb128 0xb
+ 1494 0086 05       		.uleb128 0x5
+ 1495 0087 00       		.byte	0
+ 1496 0088 03       		.uleb128 0x3
+ 1497 0089 0E       		.uleb128 0xe
+ 1498 008a 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 37
 
 
- 1499 0089 0E       		.uleb128 0xe
- 1500 008a 3A       		.uleb128 0x3a
- 1501 008b 0B       		.uleb128 0xb
- 1502 008c 3B       		.uleb128 0x3b
- 1503 008d 0B       		.uleb128 0xb
- 1504 008e 49       		.uleb128 0x49
- 1505 008f 13       		.uleb128 0x13
- 1506 0090 02       		.uleb128 0x2
- 1507 0091 18       		.uleb128 0x18
- 1508 0092 00       		.byte	0
- 1509 0093 00       		.byte	0
- 1510 0094 0C       		.uleb128 0xc
- 1511 0095 34       		.uleb128 0x34
- 1512 0096 00       		.byte	0
- 1513 0097 03       		.uleb128 0x3
- 1514 0098 08       		.uleb128 0x8
- 1515 0099 3A       		.uleb128 0x3a
- 1516 009a 0B       		.uleb128 0xb
- 1517 009b 3B       		.uleb128 0x3b
- 1518 009c 0B       		.uleb128 0xb
- 1519 009d 49       		.uleb128 0x49
- 1520 009e 13       		.uleb128 0x13
- 1521 009f 02       		.uleb128 0x2
- 1522 00a0 17       		.uleb128 0x17
- 1523 00a1 00       		.byte	0
- 1524 00a2 00       		.byte	0
- 1525 00a3 0D       		.uleb128 0xd
- 1526 00a4 0B       		.uleb128 0xb
- 1527 00a5 01       		.byte	0x1
- 1528 00a6 11       		.uleb128 0x11
- 1529 00a7 01       		.uleb128 0x1
- 1530 00a8 12       		.uleb128 0x12
- 1531 00a9 06       		.uleb128 0x6
- 1532 00aa 00       		.byte	0
- 1533 00ab 00       		.byte	0
- 1534 00ac 0E       		.uleb128 0xe
- 1535 00ad 34       		.uleb128 0x34
- 1536 00ae 00       		.byte	0
- 1537 00af 03       		.uleb128 0x3
- 1538 00b0 0E       		.uleb128 0xe
- 1539 00b1 3A       		.uleb128 0x3a
- 1540 00b2 0B       		.uleb128 0xb
- 1541 00b3 3B       		.uleb128 0x3b
- 1542 00b4 0B       		.uleb128 0xb
- 1543 00b5 49       		.uleb128 0x49
- 1544 00b6 13       		.uleb128 0x13
- 1545 00b7 02       		.uleb128 0x2
- 1546 00b8 17       		.uleb128 0x17
- 1547 00b9 00       		.byte	0
- 1548 00ba 00       		.byte	0
- 1549 00bb 0F       		.uleb128 0xf
- 1550 00bc 0F       		.uleb128 0xf
- 1551 00bd 00       		.byte	0
- 1552 00be 0B       		.uleb128 0xb
- 1553 00bf 0B       		.uleb128 0xb
- 1554 00c0 49       		.uleb128 0x49
- 1555 00c1 13       		.uleb128 0x13
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 38
+ 1499 008b 0B       		.uleb128 0xb
+ 1500 008c 3B       		.uleb128 0x3b
+ 1501 008d 0B       		.uleb128 0xb
+ 1502 008e 49       		.uleb128 0x49
+ 1503 008f 13       		.uleb128 0x13
+ 1504 0090 02       		.uleb128 0x2
+ 1505 0091 18       		.uleb128 0x18
+ 1506 0092 00       		.byte	0
+ 1507 0093 00       		.byte	0
+ 1508 0094 0C       		.uleb128 0xc
+ 1509 0095 34       		.uleb128 0x34
+ 1510 0096 00       		.byte	0
+ 1511 0097 03       		.uleb128 0x3
+ 1512 0098 08       		.uleb128 0x8
+ 1513 0099 3A       		.uleb128 0x3a
+ 1514 009a 0B       		.uleb128 0xb
+ 1515 009b 3B       		.uleb128 0x3b
+ 1516 009c 0B       		.uleb128 0xb
+ 1517 009d 49       		.uleb128 0x49
+ 1518 009e 13       		.uleb128 0x13
+ 1519 009f 02       		.uleb128 0x2
+ 1520 00a0 17       		.uleb128 0x17
+ 1521 00a1 00       		.byte	0
+ 1522 00a2 00       		.byte	0
+ 1523 00a3 0D       		.uleb128 0xd
+ 1524 00a4 0B       		.uleb128 0xb
+ 1525 00a5 01       		.byte	0x1
+ 1526 00a6 11       		.uleb128 0x11
+ 1527 00a7 01       		.uleb128 0x1
+ 1528 00a8 12       		.uleb128 0x12
+ 1529 00a9 06       		.uleb128 0x6
+ 1530 00aa 00       		.byte	0
+ 1531 00ab 00       		.byte	0
+ 1532 00ac 0E       		.uleb128 0xe
+ 1533 00ad 34       		.uleb128 0x34
+ 1534 00ae 00       		.byte	0
+ 1535 00af 03       		.uleb128 0x3
+ 1536 00b0 0E       		.uleb128 0xe
+ 1537 00b1 3A       		.uleb128 0x3a
+ 1538 00b2 0B       		.uleb128 0xb
+ 1539 00b3 3B       		.uleb128 0x3b
+ 1540 00b4 0B       		.uleb128 0xb
+ 1541 00b5 49       		.uleb128 0x49
+ 1542 00b6 13       		.uleb128 0x13
+ 1543 00b7 02       		.uleb128 0x2
+ 1544 00b8 17       		.uleb128 0x17
+ 1545 00b9 00       		.byte	0
+ 1546 00ba 00       		.byte	0
+ 1547 00bb 0F       		.uleb128 0xf
+ 1548 00bc 0F       		.uleb128 0xf
+ 1549 00bd 00       		.byte	0
+ 1550 00be 0B       		.uleb128 0xb
+ 1551 00bf 0B       		.uleb128 0xb
+ 1552 00c0 49       		.uleb128 0x49
+ 1553 00c1 13       		.uleb128 0x13
+ 1554 00c2 00       		.byte	0
+ 1555 00c3 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 38
 
 
- 1556 00c2 00       		.byte	0
- 1557 00c3 00       		.byte	0
- 1558 00c4 10       		.uleb128 0x10
- 1559 00c5 26       		.uleb128 0x26
- 1560 00c6 00       		.byte	0
- 1561 00c7 49       		.uleb128 0x49
- 1562 00c8 13       		.uleb128 0x13
- 1563 00c9 00       		.byte	0
- 1564 00ca 00       		.byte	0
- 1565 00cb 11       		.uleb128 0x11
- 1566 00cc 05       		.uleb128 0x5
- 1567 00cd 00       		.byte	0
- 1568 00ce 03       		.uleb128 0x3
- 1569 00cf 08       		.uleb128 0x8
- 1570 00d0 3A       		.uleb128 0x3a
- 1571 00d1 0B       		.uleb128 0xb
- 1572 00d2 3B       		.uleb128 0x3b
- 1573 00d3 0B       		.uleb128 0xb
- 1574 00d4 49       		.uleb128 0x49
- 1575 00d5 13       		.uleb128 0x13
- 1576 00d6 02       		.uleb128 0x2
- 1577 00d7 17       		.uleb128 0x17
- 1578 00d8 00       		.byte	0
- 1579 00d9 00       		.byte	0
- 1580 00da 12       		.uleb128 0x12
- 1581 00db 898201   		.uleb128 0x4109
- 1582 00de 01       		.byte	0x1
- 1583 00df 11       		.uleb128 0x11
- 1584 00e0 01       		.uleb128 0x1
- 1585 00e1 31       		.uleb128 0x31
- 1586 00e2 13       		.uleb128 0x13
- 1587 00e3 00       		.byte	0
- 1588 00e4 00       		.byte	0
- 1589 00e5 13       		.uleb128 0x13
- 1590 00e6 8A8201   		.uleb128 0x410a
- 1591 00e9 00       		.byte	0
- 1592 00ea 02       		.uleb128 0x2
- 1593 00eb 18       		.uleb128 0x18
- 1594 00ec 9142     		.uleb128 0x2111
- 1595 00ee 18       		.uleb128 0x18
- 1596 00ef 00       		.byte	0
- 1597 00f0 00       		.byte	0
- 1598 00f1 14       		.uleb128 0x14
- 1599 00f2 898201   		.uleb128 0x4109
- 1600 00f5 00       		.byte	0
- 1601 00f6 11       		.uleb128 0x11
- 1602 00f7 01       		.uleb128 0x1
- 1603 00f8 31       		.uleb128 0x31
- 1604 00f9 13       		.uleb128 0x13
- 1605 00fa 00       		.byte	0
- 1606 00fb 00       		.byte	0
- 1607 00fc 15       		.uleb128 0x15
- 1608 00fd 898201   		.uleb128 0x4109
- 1609 0100 01       		.byte	0x1
- 1610 0101 11       		.uleb128 0x11
- 1611 0102 01       		.uleb128 0x1
- 1612 0103 31       		.uleb128 0x31
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 39
+ 1556 00c4 10       		.uleb128 0x10
+ 1557 00c5 26       		.uleb128 0x26
+ 1558 00c6 00       		.byte	0
+ 1559 00c7 49       		.uleb128 0x49
+ 1560 00c8 13       		.uleb128 0x13
+ 1561 00c9 00       		.byte	0
+ 1562 00ca 00       		.byte	0
+ 1563 00cb 11       		.uleb128 0x11
+ 1564 00cc 05       		.uleb128 0x5
+ 1565 00cd 00       		.byte	0
+ 1566 00ce 03       		.uleb128 0x3
+ 1567 00cf 08       		.uleb128 0x8
+ 1568 00d0 3A       		.uleb128 0x3a
+ 1569 00d1 0B       		.uleb128 0xb
+ 1570 00d2 3B       		.uleb128 0x3b
+ 1571 00d3 0B       		.uleb128 0xb
+ 1572 00d4 49       		.uleb128 0x49
+ 1573 00d5 13       		.uleb128 0x13
+ 1574 00d6 02       		.uleb128 0x2
+ 1575 00d7 17       		.uleb128 0x17
+ 1576 00d8 00       		.byte	0
+ 1577 00d9 00       		.byte	0
+ 1578 00da 12       		.uleb128 0x12
+ 1579 00db 898201   		.uleb128 0x4109
+ 1580 00de 01       		.byte	0x1
+ 1581 00df 11       		.uleb128 0x11
+ 1582 00e0 01       		.uleb128 0x1
+ 1583 00e1 31       		.uleb128 0x31
+ 1584 00e2 13       		.uleb128 0x13
+ 1585 00e3 00       		.byte	0
+ 1586 00e4 00       		.byte	0
+ 1587 00e5 13       		.uleb128 0x13
+ 1588 00e6 8A8201   		.uleb128 0x410a
+ 1589 00e9 00       		.byte	0
+ 1590 00ea 02       		.uleb128 0x2
+ 1591 00eb 18       		.uleb128 0x18
+ 1592 00ec 9142     		.uleb128 0x2111
+ 1593 00ee 18       		.uleb128 0x18
+ 1594 00ef 00       		.byte	0
+ 1595 00f0 00       		.byte	0
+ 1596 00f1 14       		.uleb128 0x14
+ 1597 00f2 898201   		.uleb128 0x4109
+ 1598 00f5 00       		.byte	0
+ 1599 00f6 11       		.uleb128 0x11
+ 1600 00f7 01       		.uleb128 0x1
+ 1601 00f8 31       		.uleb128 0x31
+ 1602 00f9 13       		.uleb128 0x13
+ 1603 00fa 00       		.byte	0
+ 1604 00fb 00       		.byte	0
+ 1605 00fc 15       		.uleb128 0x15
+ 1606 00fd 898201   		.uleb128 0x4109
+ 1607 0100 01       		.byte	0x1
+ 1608 0101 11       		.uleb128 0x11
+ 1609 0102 01       		.uleb128 0x1
+ 1610 0103 31       		.uleb128 0x31
+ 1611 0104 13       		.uleb128 0x13
+ 1612 0105 01       		.uleb128 0x1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 39
 
 
- 1613 0104 13       		.uleb128 0x13
- 1614 0105 01       		.uleb128 0x1
- 1615 0106 13       		.uleb128 0x13
- 1616 0107 00       		.byte	0
- 1617 0108 00       		.byte	0
- 1618 0109 16       		.uleb128 0x16
- 1619 010a 2E       		.uleb128 0x2e
- 1620 010b 01       		.byte	0x1
- 1621 010c 3F       		.uleb128 0x3f
- 1622 010d 19       		.uleb128 0x19
- 1623 010e 03       		.uleb128 0x3
- 1624 010f 0E       		.uleb128 0xe
- 1625 0110 3A       		.uleb128 0x3a
- 1626 0111 0B       		.uleb128 0xb
- 1627 0112 3B       		.uleb128 0x3b
- 1628 0113 05       		.uleb128 0x5
- 1629 0114 27       		.uleb128 0x27
- 1630 0115 19       		.uleb128 0x19
- 1631 0116 11       		.uleb128 0x11
- 1632 0117 01       		.uleb128 0x1
- 1633 0118 12       		.uleb128 0x12
- 1634 0119 06       		.uleb128 0x6
- 1635 011a 40       		.uleb128 0x40
- 1636 011b 18       		.uleb128 0x18
- 1637 011c 9742     		.uleb128 0x2117
- 1638 011e 19       		.uleb128 0x19
- 1639 011f 01       		.uleb128 0x1
- 1640 0120 13       		.uleb128 0x13
- 1641 0121 00       		.byte	0
- 1642 0122 00       		.byte	0
- 1643 0123 17       		.uleb128 0x17
- 1644 0124 05       		.uleb128 0x5
- 1645 0125 00       		.byte	0
- 1646 0126 03       		.uleb128 0x3
- 1647 0127 0E       		.uleb128 0xe
- 1648 0128 3A       		.uleb128 0x3a
- 1649 0129 0B       		.uleb128 0xb
- 1650 012a 3B       		.uleb128 0x3b
- 1651 012b 05       		.uleb128 0x5
- 1652 012c 49       		.uleb128 0x49
- 1653 012d 13       		.uleb128 0x13
- 1654 012e 02       		.uleb128 0x2
- 1655 012f 18       		.uleb128 0x18
- 1656 0130 00       		.byte	0
- 1657 0131 00       		.byte	0
- 1658 0132 18       		.uleb128 0x18
- 1659 0133 34       		.uleb128 0x34
- 1660 0134 00       		.byte	0
- 1661 0135 03       		.uleb128 0x3
- 1662 0136 0E       		.uleb128 0xe
- 1663 0137 3A       		.uleb128 0x3a
- 1664 0138 0B       		.uleb128 0xb
- 1665 0139 3B       		.uleb128 0x3b
- 1666 013a 05       		.uleb128 0x5
- 1667 013b 49       		.uleb128 0x49
- 1668 013c 13       		.uleb128 0x13
- 1669 013d 02       		.uleb128 0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 40
+ 1613 0106 13       		.uleb128 0x13
+ 1614 0107 00       		.byte	0
+ 1615 0108 00       		.byte	0
+ 1616 0109 16       		.uleb128 0x16
+ 1617 010a 2E       		.uleb128 0x2e
+ 1618 010b 01       		.byte	0x1
+ 1619 010c 3F       		.uleb128 0x3f
+ 1620 010d 19       		.uleb128 0x19
+ 1621 010e 03       		.uleb128 0x3
+ 1622 010f 0E       		.uleb128 0xe
+ 1623 0110 3A       		.uleb128 0x3a
+ 1624 0111 0B       		.uleb128 0xb
+ 1625 0112 3B       		.uleb128 0x3b
+ 1626 0113 05       		.uleb128 0x5
+ 1627 0114 27       		.uleb128 0x27
+ 1628 0115 19       		.uleb128 0x19
+ 1629 0116 11       		.uleb128 0x11
+ 1630 0117 01       		.uleb128 0x1
+ 1631 0118 12       		.uleb128 0x12
+ 1632 0119 06       		.uleb128 0x6
+ 1633 011a 40       		.uleb128 0x40
+ 1634 011b 18       		.uleb128 0x18
+ 1635 011c 9742     		.uleb128 0x2117
+ 1636 011e 19       		.uleb128 0x19
+ 1637 011f 01       		.uleb128 0x1
+ 1638 0120 13       		.uleb128 0x13
+ 1639 0121 00       		.byte	0
+ 1640 0122 00       		.byte	0
+ 1641 0123 17       		.uleb128 0x17
+ 1642 0124 05       		.uleb128 0x5
+ 1643 0125 00       		.byte	0
+ 1644 0126 03       		.uleb128 0x3
+ 1645 0127 0E       		.uleb128 0xe
+ 1646 0128 3A       		.uleb128 0x3a
+ 1647 0129 0B       		.uleb128 0xb
+ 1648 012a 3B       		.uleb128 0x3b
+ 1649 012b 05       		.uleb128 0x5
+ 1650 012c 49       		.uleb128 0x49
+ 1651 012d 13       		.uleb128 0x13
+ 1652 012e 02       		.uleb128 0x2
+ 1653 012f 18       		.uleb128 0x18
+ 1654 0130 00       		.byte	0
+ 1655 0131 00       		.byte	0
+ 1656 0132 18       		.uleb128 0x18
+ 1657 0133 34       		.uleb128 0x34
+ 1658 0134 00       		.byte	0
+ 1659 0135 03       		.uleb128 0x3
+ 1660 0136 0E       		.uleb128 0xe
+ 1661 0137 3A       		.uleb128 0x3a
+ 1662 0138 0B       		.uleb128 0xb
+ 1663 0139 3B       		.uleb128 0x3b
+ 1664 013a 05       		.uleb128 0x5
+ 1665 013b 49       		.uleb128 0x49
+ 1666 013c 13       		.uleb128 0x13
+ 1667 013d 02       		.uleb128 0x2
+ 1668 013e 17       		.uleb128 0x17
+ 1669 013f 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 40
 
 
- 1670 013e 17       		.uleb128 0x17
- 1671 013f 00       		.byte	0
- 1672 0140 00       		.byte	0
- 1673 0141 19       		.uleb128 0x19
- 1674 0142 2E       		.uleb128 0x2e
- 1675 0143 01       		.byte	0x1
- 1676 0144 03       		.uleb128 0x3
- 1677 0145 0E       		.uleb128 0xe
- 1678 0146 3A       		.uleb128 0x3a
- 1679 0147 0B       		.uleb128 0xb
- 1680 0148 3B       		.uleb128 0x3b
- 1681 0149 05       		.uleb128 0x5
- 1682 014a 27       		.uleb128 0x27
- 1683 014b 19       		.uleb128 0x19
- 1684 014c 11       		.uleb128 0x11
- 1685 014d 01       		.uleb128 0x1
- 1686 014e 12       		.uleb128 0x12
- 1687 014f 06       		.uleb128 0x6
- 1688 0150 40       		.uleb128 0x40
- 1689 0151 18       		.uleb128 0x18
- 1690 0152 9742     		.uleb128 0x2117
- 1691 0154 19       		.uleb128 0x19
- 1692 0155 01       		.uleb128 0x1
- 1693 0156 13       		.uleb128 0x13
- 1694 0157 00       		.byte	0
- 1695 0158 00       		.byte	0
- 1696 0159 1A       		.uleb128 0x1a
- 1697 015a 0B       		.uleb128 0xb
- 1698 015b 01       		.byte	0x1
- 1699 015c 11       		.uleb128 0x11
- 1700 015d 01       		.uleb128 0x1
- 1701 015e 12       		.uleb128 0x12
- 1702 015f 06       		.uleb128 0x6
- 1703 0160 01       		.uleb128 0x1
- 1704 0161 13       		.uleb128 0x13
- 1705 0162 00       		.byte	0
- 1706 0163 00       		.byte	0
- 1707 0164 1B       		.uleb128 0x1b
- 1708 0165 34       		.uleb128 0x34
- 1709 0166 00       		.byte	0
- 1710 0167 03       		.uleb128 0x3
- 1711 0168 0E       		.uleb128 0xe
- 1712 0169 3A       		.uleb128 0x3a
- 1713 016a 0B       		.uleb128 0xb
- 1714 016b 3B       		.uleb128 0x3b
- 1715 016c 05       		.uleb128 0x5
- 1716 016d 49       		.uleb128 0x49
- 1717 016e 13       		.uleb128 0x13
- 1718 016f 02       		.uleb128 0x2
- 1719 0170 18       		.uleb128 0x18
- 1720 0171 00       		.byte	0
- 1721 0172 00       		.byte	0
- 1722 0173 1C       		.uleb128 0x1c
- 1723 0174 13       		.uleb128 0x13
- 1724 0175 01       		.byte	0x1
- 1725 0176 0B       		.uleb128 0xb
- 1726 0177 0B       		.uleb128 0xb
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 41
+ 1670 0140 00       		.byte	0
+ 1671 0141 19       		.uleb128 0x19
+ 1672 0142 2E       		.uleb128 0x2e
+ 1673 0143 01       		.byte	0x1
+ 1674 0144 03       		.uleb128 0x3
+ 1675 0145 0E       		.uleb128 0xe
+ 1676 0146 3A       		.uleb128 0x3a
+ 1677 0147 0B       		.uleb128 0xb
+ 1678 0148 3B       		.uleb128 0x3b
+ 1679 0149 05       		.uleb128 0x5
+ 1680 014a 27       		.uleb128 0x27
+ 1681 014b 19       		.uleb128 0x19
+ 1682 014c 11       		.uleb128 0x11
+ 1683 014d 01       		.uleb128 0x1
+ 1684 014e 12       		.uleb128 0x12
+ 1685 014f 06       		.uleb128 0x6
+ 1686 0150 40       		.uleb128 0x40
+ 1687 0151 18       		.uleb128 0x18
+ 1688 0152 9742     		.uleb128 0x2117
+ 1689 0154 19       		.uleb128 0x19
+ 1690 0155 01       		.uleb128 0x1
+ 1691 0156 13       		.uleb128 0x13
+ 1692 0157 00       		.byte	0
+ 1693 0158 00       		.byte	0
+ 1694 0159 1A       		.uleb128 0x1a
+ 1695 015a 0B       		.uleb128 0xb
+ 1696 015b 01       		.byte	0x1
+ 1697 015c 11       		.uleb128 0x11
+ 1698 015d 01       		.uleb128 0x1
+ 1699 015e 12       		.uleb128 0x12
+ 1700 015f 06       		.uleb128 0x6
+ 1701 0160 01       		.uleb128 0x1
+ 1702 0161 13       		.uleb128 0x13
+ 1703 0162 00       		.byte	0
+ 1704 0163 00       		.byte	0
+ 1705 0164 1B       		.uleb128 0x1b
+ 1706 0165 34       		.uleb128 0x34
+ 1707 0166 00       		.byte	0
+ 1708 0167 03       		.uleb128 0x3
+ 1709 0168 0E       		.uleb128 0xe
+ 1710 0169 3A       		.uleb128 0x3a
+ 1711 016a 0B       		.uleb128 0xb
+ 1712 016b 3B       		.uleb128 0x3b
+ 1713 016c 05       		.uleb128 0x5
+ 1714 016d 49       		.uleb128 0x49
+ 1715 016e 13       		.uleb128 0x13
+ 1716 016f 02       		.uleb128 0x2
+ 1717 0170 18       		.uleb128 0x18
+ 1718 0171 00       		.byte	0
+ 1719 0172 00       		.byte	0
+ 1720 0173 1C       		.uleb128 0x1c
+ 1721 0174 13       		.uleb128 0x13
+ 1722 0175 01       		.byte	0x1
+ 1723 0176 0B       		.uleb128 0xb
+ 1724 0177 0B       		.uleb128 0xb
+ 1725 0178 3A       		.uleb128 0x3a
+ 1726 0179 0B       		.uleb128 0xb
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 41
 
 
- 1727 0178 3A       		.uleb128 0x3a
- 1728 0179 0B       		.uleb128 0xb
- 1729 017a 3B       		.uleb128 0x3b
- 1730 017b 05       		.uleb128 0x5
- 1731 017c 01       		.uleb128 0x1
- 1732 017d 13       		.uleb128 0x13
- 1733 017e 00       		.byte	0
- 1734 017f 00       		.byte	0
- 1735 0180 1D       		.uleb128 0x1d
- 1736 0181 0D       		.uleb128 0xd
- 1737 0182 00       		.byte	0
- 1738 0183 03       		.uleb128 0x3
- 1739 0184 0E       		.uleb128 0xe
- 1740 0185 3A       		.uleb128 0x3a
- 1741 0186 0B       		.uleb128 0xb
- 1742 0187 3B       		.uleb128 0x3b
- 1743 0188 05       		.uleb128 0x5
- 1744 0189 49       		.uleb128 0x49
- 1745 018a 13       		.uleb128 0x13
- 1746 018b 38       		.uleb128 0x38
- 1747 018c 0B       		.uleb128 0xb
- 1748 018d 00       		.byte	0
- 1749 018e 00       		.byte	0
- 1750 018f 1E       		.uleb128 0x1e
- 1751 0190 01       		.uleb128 0x1
- 1752 0191 01       		.byte	0x1
- 1753 0192 49       		.uleb128 0x49
- 1754 0193 13       		.uleb128 0x13
- 1755 0194 01       		.uleb128 0x1
- 1756 0195 13       		.uleb128 0x13
- 1757 0196 00       		.byte	0
- 1758 0197 00       		.byte	0
- 1759 0198 1F       		.uleb128 0x1f
- 1760 0199 21       		.uleb128 0x21
- 1761 019a 00       		.byte	0
- 1762 019b 49       		.uleb128 0x49
- 1763 019c 13       		.uleb128 0x13
- 1764 019d 2F       		.uleb128 0x2f
- 1765 019e 0B       		.uleb128 0xb
- 1766 019f 00       		.byte	0
- 1767 01a0 00       		.byte	0
- 1768 01a1 20       		.uleb128 0x20
- 1769 01a2 34       		.uleb128 0x34
- 1770 01a3 00       		.byte	0
- 1771 01a4 03       		.uleb128 0x3
- 1772 01a5 08       		.uleb128 0x8
- 1773 01a6 3A       		.uleb128 0x3a
- 1774 01a7 0B       		.uleb128 0xb
- 1775 01a8 3B       		.uleb128 0x3b
- 1776 01a9 05       		.uleb128 0x5
- 1777 01aa 49       		.uleb128 0x49
- 1778 01ab 13       		.uleb128 0x13
- 1779 01ac 02       		.uleb128 0x2
- 1780 01ad 17       		.uleb128 0x17
- 1781 01ae 00       		.byte	0
- 1782 01af 00       		.byte	0
- 1783 01b0 21       		.uleb128 0x21
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 42
+ 1727 017a 3B       		.uleb128 0x3b
+ 1728 017b 05       		.uleb128 0x5
+ 1729 017c 01       		.uleb128 0x1
+ 1730 017d 13       		.uleb128 0x13
+ 1731 017e 00       		.byte	0
+ 1732 017f 00       		.byte	0
+ 1733 0180 1D       		.uleb128 0x1d
+ 1734 0181 0D       		.uleb128 0xd
+ 1735 0182 00       		.byte	0
+ 1736 0183 03       		.uleb128 0x3
+ 1737 0184 0E       		.uleb128 0xe
+ 1738 0185 3A       		.uleb128 0x3a
+ 1739 0186 0B       		.uleb128 0xb
+ 1740 0187 3B       		.uleb128 0x3b
+ 1741 0188 05       		.uleb128 0x5
+ 1742 0189 49       		.uleb128 0x49
+ 1743 018a 13       		.uleb128 0x13
+ 1744 018b 38       		.uleb128 0x38
+ 1745 018c 0B       		.uleb128 0xb
+ 1746 018d 00       		.byte	0
+ 1747 018e 00       		.byte	0
+ 1748 018f 1E       		.uleb128 0x1e
+ 1749 0190 01       		.uleb128 0x1
+ 1750 0191 01       		.byte	0x1
+ 1751 0192 49       		.uleb128 0x49
+ 1752 0193 13       		.uleb128 0x13
+ 1753 0194 01       		.uleb128 0x1
+ 1754 0195 13       		.uleb128 0x13
+ 1755 0196 00       		.byte	0
+ 1756 0197 00       		.byte	0
+ 1757 0198 1F       		.uleb128 0x1f
+ 1758 0199 21       		.uleb128 0x21
+ 1759 019a 00       		.byte	0
+ 1760 019b 49       		.uleb128 0x49
+ 1761 019c 13       		.uleb128 0x13
+ 1762 019d 2F       		.uleb128 0x2f
+ 1763 019e 0B       		.uleb128 0xb
+ 1764 019f 00       		.byte	0
+ 1765 01a0 00       		.byte	0
+ 1766 01a1 20       		.uleb128 0x20
+ 1767 01a2 34       		.uleb128 0x34
+ 1768 01a3 00       		.byte	0
+ 1769 01a4 03       		.uleb128 0x3
+ 1770 01a5 08       		.uleb128 0x8
+ 1771 01a6 3A       		.uleb128 0x3a
+ 1772 01a7 0B       		.uleb128 0xb
+ 1773 01a8 3B       		.uleb128 0x3b
+ 1774 01a9 05       		.uleb128 0x5
+ 1775 01aa 49       		.uleb128 0x49
+ 1776 01ab 13       		.uleb128 0x13
+ 1777 01ac 02       		.uleb128 0x2
+ 1778 01ad 17       		.uleb128 0x17
+ 1779 01ae 00       		.byte	0
+ 1780 01af 00       		.byte	0
+ 1781 01b0 21       		.uleb128 0x21
+ 1782 01b1 2E       		.uleb128 0x2e
+ 1783 01b2 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 42
 
 
- 1784 01b1 2E       		.uleb128 0x2e
- 1785 01b2 00       		.byte	0
- 1786 01b3 3F       		.uleb128 0x3f
- 1787 01b4 19       		.uleb128 0x19
- 1788 01b5 3C       		.uleb128 0x3c
- 1789 01b6 19       		.uleb128 0x19
- 1790 01b7 6E       		.uleb128 0x6e
- 1791 01b8 0E       		.uleb128 0xe
- 1792 01b9 03       		.uleb128 0x3
- 1793 01ba 0E       		.uleb128 0xe
- 1794 01bb 00       		.byte	0
- 1795 01bc 00       		.byte	0
- 1796 01bd 22       		.uleb128 0x22
- 1797 01be 2E       		.uleb128 0x2e
- 1798 01bf 00       		.byte	0
- 1799 01c0 3F       		.uleb128 0x3f
- 1800 01c1 19       		.uleb128 0x19
- 1801 01c2 3C       		.uleb128 0x3c
- 1802 01c3 19       		.uleb128 0x19
- 1803 01c4 6E       		.uleb128 0x6e
- 1804 01c5 0E       		.uleb128 0xe
- 1805 01c6 03       		.uleb128 0x3
- 1806 01c7 0E       		.uleb128 0xe
- 1807 01c8 3A       		.uleb128 0x3a
- 1808 01c9 0B       		.uleb128 0xb
- 1809 01ca 3B       		.uleb128 0x3b
- 1810 01cb 0B       		.uleb128 0xb
- 1811 01cc 00       		.byte	0
- 1812 01cd 00       		.byte	0
- 1813 01ce 00       		.byte	0
- 1814              		.section	.debug_loc,"",%progbits
- 1815              	.Ldebug_loc0:
- 1816              	.LLST0:
- 1817 0000 02000000 		.4byte	.LVL1
- 1818 0004 08000000 		.4byte	.LVL2
- 1819 0008 0200     		.2byte	0x2
- 1820 000a 30       		.byte	0x30
- 1821 000b 9F       		.byte	0x9f
- 1822 000c 08000000 		.4byte	.LVL2
- 1823 0010 30000000 		.4byte	.LVL11
- 1824 0014 0100     		.2byte	0x1
- 1825 0016 57       		.byte	0x57
- 1826 0017 00000000 		.4byte	0
- 1827 001b 00000000 		.4byte	0
- 1828              	.LLST1:
- 1829 001f 02000000 		.4byte	.LVL1
- 1830 0023 08000000 		.4byte	.LVL2
- 1831 0027 0200     		.2byte	0x2
- 1832 0029 30       		.byte	0x30
- 1833 002a 9F       		.byte	0x9f
- 1834 002b 08000000 		.4byte	.LVL2
- 1835 002f 30000000 		.4byte	.LVL10
- 1836 0033 0100     		.2byte	0x1
- 1837 0035 55       		.byte	0x55
- 1838 0036 00000000 		.4byte	0
- 1839 003a 00000000 		.4byte	0
- 1840              	.LLST2:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 43
+ 1784 01b3 3F       		.uleb128 0x3f
+ 1785 01b4 19       		.uleb128 0x19
+ 1786 01b5 3C       		.uleb128 0x3c
+ 1787 01b6 19       		.uleb128 0x19
+ 1788 01b7 6E       		.uleb128 0x6e
+ 1789 01b8 0E       		.uleb128 0xe
+ 1790 01b9 03       		.uleb128 0x3
+ 1791 01ba 0E       		.uleb128 0xe
+ 1792 01bb 00       		.byte	0
+ 1793 01bc 00       		.byte	0
+ 1794 01bd 22       		.uleb128 0x22
+ 1795 01be 2E       		.uleb128 0x2e
+ 1796 01bf 00       		.byte	0
+ 1797 01c0 3F       		.uleb128 0x3f
+ 1798 01c1 19       		.uleb128 0x19
+ 1799 01c2 3C       		.uleb128 0x3c
+ 1800 01c3 19       		.uleb128 0x19
+ 1801 01c4 6E       		.uleb128 0x6e
+ 1802 01c5 0E       		.uleb128 0xe
+ 1803 01c6 03       		.uleb128 0x3
+ 1804 01c7 0E       		.uleb128 0xe
+ 1805 01c8 3A       		.uleb128 0x3a
+ 1806 01c9 0B       		.uleb128 0xb
+ 1807 01ca 3B       		.uleb128 0x3b
+ 1808 01cb 0B       		.uleb128 0xb
+ 1809 01cc 00       		.byte	0
+ 1810 01cd 00       		.byte	0
+ 1811 01ce 00       		.byte	0
+ 1812              		.section	.debug_loc,"",%progbits
+ 1813              	.Ldebug_loc0:
+ 1814              	.LLST0:
+ 1815 0000 02000000 		.4byte	.LVL1
+ 1816 0004 08000000 		.4byte	.LVL2
+ 1817 0008 0200     		.2byte	0x2
+ 1818 000a 30       		.byte	0x30
+ 1819 000b 9F       		.byte	0x9f
+ 1820 000c 08000000 		.4byte	.LVL2
+ 1821 0010 30000000 		.4byte	.LVL11
+ 1822 0014 0100     		.2byte	0x1
+ 1823 0016 57       		.byte	0x57
+ 1824 0017 00000000 		.4byte	0
+ 1825 001b 00000000 		.4byte	0
+ 1826              	.LLST1:
+ 1827 001f 02000000 		.4byte	.LVL1
+ 1828 0023 08000000 		.4byte	.LVL2
+ 1829 0027 0200     		.2byte	0x2
+ 1830 0029 30       		.byte	0x30
+ 1831 002a 9F       		.byte	0x9f
+ 1832 002b 08000000 		.4byte	.LVL2
+ 1833 002f 30000000 		.4byte	.LVL10
+ 1834 0033 0100     		.2byte	0x1
+ 1835 0035 55       		.byte	0x55
+ 1836 0036 00000000 		.4byte	0
+ 1837 003a 00000000 		.4byte	0
+ 1838              	.LLST2:
+ 1839 003e 0C000000 		.4byte	.LVL3
+ 1840 0042 2C000000 		.4byte	.LVL9
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 43
 
 
- 1841 003e 0C000000 		.4byte	.LVL3
- 1842 0042 2C000000 		.4byte	.LVL9
- 1843 0046 0100     		.2byte	0x1
- 1844 0048 56       		.byte	0x56
- 1845 0049 00000000 		.4byte	0
- 1846 004d 00000000 		.4byte	0
- 1847              	.LLST3:
- 1848 0051 0E000000 		.4byte	.LVL4
- 1849 0055 24000000 		.4byte	.LVL7
- 1850 0059 0100     		.2byte	0x1
- 1851 005b 53       		.byte	0x53
- 1852 005c 26000000 		.4byte	.LVL8
- 1853 0060 2C000000 		.4byte	.LVL9
- 1854 0064 0100     		.2byte	0x1
- 1855 0066 53       		.byte	0x53
- 1856 0067 00000000 		.4byte	0
- 1857 006b 00000000 		.4byte	0
- 1858              	.LLST4:
- 1859 006f 00000000 		.4byte	.LVL12
- 1860 0073 09000000 		.4byte	.LVL14-1
- 1861 0077 0100     		.2byte	0x1
- 1862 0079 50       		.byte	0x50
- 1863 007a 09000000 		.4byte	.LVL14-1
- 1864 007e 0C000000 		.4byte	.LFE2
- 1865 0082 0400     		.2byte	0x4
- 1866 0084 F3       		.byte	0xf3
- 1867 0085 01       		.uleb128 0x1
- 1868 0086 50       		.byte	0x50
- 1869 0087 9F       		.byte	0x9f
- 1870 0088 00000000 		.4byte	0
- 1871 008c 00000000 		.4byte	0
- 1872              	.LLST5:
- 1873 0090 00000000 		.4byte	.LVL12
- 1874 0094 06000000 		.4byte	.LVL13
- 1875 0098 0100     		.2byte	0x1
- 1876 009a 51       		.byte	0x51
- 1877 009b 06000000 		.4byte	.LVL13
- 1878 009f 09000000 		.4byte	.LVL14-1
- 1879 00a3 0100     		.2byte	0x1
- 1880 00a5 52       		.byte	0x52
- 1881 00a6 09000000 		.4byte	.LVL14-1
- 1882 00aa 0C000000 		.4byte	.LFE2
- 1883 00ae 0400     		.2byte	0x4
- 1884 00b0 F3       		.byte	0xf3
- 1885 00b1 01       		.uleb128 0x1
- 1886 00b2 51       		.byte	0x51
- 1887 00b3 9F       		.byte	0x9f
- 1888 00b4 00000000 		.4byte	0
- 1889 00b8 00000000 		.4byte	0
- 1890              	.LLST6:
- 1891 00bc 04000000 		.4byte	.LVL24
- 1892 00c0 12000000 		.4byte	.LVL26
- 1893 00c4 0100     		.2byte	0x1
- 1894 00c6 53       		.byte	0x53
- 1895 00c7 14000000 		.4byte	.LVL27
- 1896 00cb 1A000000 		.4byte	.LVL28
- 1897 00cf 0100     		.2byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 44
+ 1841 0046 0100     		.2byte	0x1
+ 1842 0048 56       		.byte	0x56
+ 1843 0049 00000000 		.4byte	0
+ 1844 004d 00000000 		.4byte	0
+ 1845              	.LLST3:
+ 1846 0051 0E000000 		.4byte	.LVL4
+ 1847 0055 24000000 		.4byte	.LVL7
+ 1848 0059 0100     		.2byte	0x1
+ 1849 005b 53       		.byte	0x53
+ 1850 005c 26000000 		.4byte	.LVL8
+ 1851 0060 2C000000 		.4byte	.LVL9
+ 1852 0064 0100     		.2byte	0x1
+ 1853 0066 53       		.byte	0x53
+ 1854 0067 00000000 		.4byte	0
+ 1855 006b 00000000 		.4byte	0
+ 1856              	.LLST4:
+ 1857 006f 00000000 		.4byte	.LVL12
+ 1858 0073 09000000 		.4byte	.LVL14-1
+ 1859 0077 0100     		.2byte	0x1
+ 1860 0079 50       		.byte	0x50
+ 1861 007a 09000000 		.4byte	.LVL14-1
+ 1862 007e 0C000000 		.4byte	.LFE2
+ 1863 0082 0400     		.2byte	0x4
+ 1864 0084 F3       		.byte	0xf3
+ 1865 0085 01       		.uleb128 0x1
+ 1866 0086 50       		.byte	0x50
+ 1867 0087 9F       		.byte	0x9f
+ 1868 0088 00000000 		.4byte	0
+ 1869 008c 00000000 		.4byte	0
+ 1870              	.LLST5:
+ 1871 0090 00000000 		.4byte	.LVL12
+ 1872 0094 06000000 		.4byte	.LVL13
+ 1873 0098 0100     		.2byte	0x1
+ 1874 009a 51       		.byte	0x51
+ 1875 009b 06000000 		.4byte	.LVL13
+ 1876 009f 09000000 		.4byte	.LVL14-1
+ 1877 00a3 0100     		.2byte	0x1
+ 1878 00a5 52       		.byte	0x52
+ 1879 00a6 09000000 		.4byte	.LVL14-1
+ 1880 00aa 0C000000 		.4byte	.LFE2
+ 1881 00ae 0400     		.2byte	0x4
+ 1882 00b0 F3       		.byte	0xf3
+ 1883 00b1 01       		.uleb128 0x1
+ 1884 00b2 51       		.byte	0x51
+ 1885 00b3 9F       		.byte	0x9f
+ 1886 00b4 00000000 		.4byte	0
+ 1887 00b8 00000000 		.4byte	0
+ 1888              	.LLST6:
+ 1889 00bc 04000000 		.4byte	.LVL24
+ 1890 00c0 12000000 		.4byte	.LVL26
+ 1891 00c4 0100     		.2byte	0x1
+ 1892 00c6 53       		.byte	0x53
+ 1893 00c7 14000000 		.4byte	.LVL27
+ 1894 00cb 1A000000 		.4byte	.LVL28
+ 1895 00cf 0100     		.2byte	0x1
+ 1896 00d1 53       		.byte	0x53
+ 1897 00d2 1A000000 		.4byte	.LVL28
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 44
 
 
- 1898 00d1 53       		.byte	0x53
- 1899 00d2 1A000000 		.4byte	.LVL28
- 1900 00d6 1C000000 		.4byte	.LVL29
- 1901 00da 0200     		.2byte	0x2
- 1902 00dc 72       		.byte	0x72
- 1903 00dd 00       		.sleb128 0
- 1904 00de 1C000000 		.4byte	.LVL29
- 1905 00e2 40000000 		.4byte	.LFE8
- 1906 00e6 0100     		.2byte	0x1
- 1907 00e8 53       		.byte	0x53
- 1908 00e9 00000000 		.4byte	0
- 1909 00ed 00000000 		.4byte	0
- 1910              	.LLST7:
- 1911 00f1 1E010000 		.4byte	.LVL33
- 1912 00f5 22010000 		.4byte	.LVL34
- 1913 00f9 0200     		.2byte	0x2
- 1914 00fb 30       		.byte	0x30
- 1915 00fc 9F       		.byte	0x9f
- 1916 00fd 22010000 		.4byte	.LVL34
- 1917 0101 40010000 		.4byte	.LVL36
- 1918 0105 0100     		.2byte	0x1
- 1919 0107 54       		.byte	0x54
- 1920 0108 42010000 		.4byte	.LVL37
- 1921 010c DA010000 		.4byte	.LVL41
- 1922 0110 0100     		.2byte	0x1
- 1923 0112 54       		.byte	0x54
- 1924 0113 00000000 		.4byte	0
- 1925 0117 00000000 		.4byte	0
- 1926              	.LLST8:
- 1927 011b 22010000 		.4byte	.LVL34
- 1928 011f 40010000 		.4byte	.LVL36
- 1929 0123 0B00     		.2byte	0xb
- 1930 0125 74       		.byte	0x74
- 1931 0126 00       		.sleb128 0
- 1932 0127 36       		.byte	0x36
- 1933 0128 1E       		.byte	0x1e
- 1934 0129 03       		.byte	0x3
- 1935 012a 00000000 		.4byte	cfg_memset_list.4913
- 1936 012e 22       		.byte	0x22
- 1937 012f 9F       		.byte	0x9f
- 1938 0130 40010000 		.4byte	.LVL36
- 1939 0134 42010000 		.4byte	.LVL37
- 1940 0138 0B00     		.2byte	0xb
- 1941 013a 74       		.byte	0x74
- 1942 013b 7F       		.sleb128 -1
- 1943 013c 36       		.byte	0x36
- 1944 013d 1E       		.byte	0x1e
- 1945 013e 03       		.byte	0x3
- 1946 013f 00000000 		.4byte	cfg_memset_list.4913
- 1947 0143 22       		.byte	0x22
- 1948 0144 9F       		.byte	0x9f
- 1949 0145 00000000 		.4byte	0
- 1950 0149 00000000 		.4byte	0
- 1951              		.section	.debug_aranges,"",%progbits
- 1952 0000 44000000 		.4byte	0x44
- 1953 0004 0200     		.2byte	0x2
- 1954 0006 00000000 		.4byte	.Ldebug_info0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 45
+ 1898 00d6 1C000000 		.4byte	.LVL29
+ 1899 00da 0200     		.2byte	0x2
+ 1900 00dc 72       		.byte	0x72
+ 1901 00dd 00       		.sleb128 0
+ 1902 00de 1C000000 		.4byte	.LVL29
+ 1903 00e2 40000000 		.4byte	.LFE8
+ 1904 00e6 0100     		.2byte	0x1
+ 1905 00e8 53       		.byte	0x53
+ 1906 00e9 00000000 		.4byte	0
+ 1907 00ed 00000000 		.4byte	0
+ 1908              	.LLST7:
+ 1909 00f1 1E010000 		.4byte	.LVL33
+ 1910 00f5 22010000 		.4byte	.LVL34
+ 1911 00f9 0200     		.2byte	0x2
+ 1912 00fb 30       		.byte	0x30
+ 1913 00fc 9F       		.byte	0x9f
+ 1914 00fd 22010000 		.4byte	.LVL34
+ 1915 0101 40010000 		.4byte	.LVL36
+ 1916 0105 0100     		.2byte	0x1
+ 1917 0107 54       		.byte	0x54
+ 1918 0108 42010000 		.4byte	.LVL37
+ 1919 010c D6010000 		.4byte	.LVL41
+ 1920 0110 0100     		.2byte	0x1
+ 1921 0112 54       		.byte	0x54
+ 1922 0113 00000000 		.4byte	0
+ 1923 0117 00000000 		.4byte	0
+ 1924              	.LLST8:
+ 1925 011b 22010000 		.4byte	.LVL34
+ 1926 011f 40010000 		.4byte	.LVL36
+ 1927 0123 0B00     		.2byte	0xb
+ 1928 0125 74       		.byte	0x74
+ 1929 0126 00       		.sleb128 0
+ 1930 0127 36       		.byte	0x36
+ 1931 0128 1E       		.byte	0x1e
+ 1932 0129 03       		.byte	0x3
+ 1933 012a 00000000 		.4byte	cfg_memset_list.4913
+ 1934 012e 22       		.byte	0x22
+ 1935 012f 9F       		.byte	0x9f
+ 1936 0130 40010000 		.4byte	.LVL36
+ 1937 0134 42010000 		.4byte	.LVL37
+ 1938 0138 0B00     		.2byte	0xb
+ 1939 013a 74       		.byte	0x74
+ 1940 013b 7F       		.sleb128 -1
+ 1941 013c 36       		.byte	0x36
+ 1942 013d 1E       		.byte	0x1e
+ 1943 013e 03       		.byte	0x3
+ 1944 013f 00000000 		.4byte	cfg_memset_list.4913
+ 1945 0143 22       		.byte	0x22
+ 1946 0144 9F       		.byte	0x9f
+ 1947 0145 00000000 		.4byte	0
+ 1948 0149 00000000 		.4byte	0
+ 1949              		.section	.debug_aranges,"",%progbits
+ 1950 0000 44000000 		.4byte	0x44
+ 1951 0004 0200     		.2byte	0x2
+ 1952 0006 00000000 		.4byte	.Ldebug_info0
+ 1953 000a 04       		.byte	0x4
+ 1954 000b 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 45
 
 
- 1955 000a 04       		.byte	0x4
- 1956 000b 00       		.byte	0
- 1957 000c 0000     		.2byte	0
- 1958 000e 0000     		.2byte	0
- 1959 0010 00000000 		.4byte	.LFB5
- 1960 0014 32000000 		.4byte	.LFE5-.LFB5
- 1961 0018 00000000 		.4byte	.LFB2
- 1962 001c 0C000000 		.4byte	.LFE2-.LFB2
- 1963 0020 00000000 		.4byte	.LFB6
- 1964 0024 14010000 		.4byte	.LFE6-.LFB6
- 1965 0028 00000000 		.4byte	.LFB8
- 1966 002c 40000000 		.4byte	.LFE8-.LFB8
- 1967 0030 00000000 		.4byte	.LFB7
- 1968 0034 28000000 		.4byte	.LFE7-.LFB7
- 1969 0038 14010000 		.4byte	.LFB9
- 1970 003c 18010000 		.4byte	.LFE9-.LFB9
- 1971 0040 00000000 		.4byte	0
- 1972 0044 00000000 		.4byte	0
- 1973              		.section	.debug_ranges,"",%progbits
- 1974              	.Ldebug_ranges0:
- 1975 0000 00000000 		.4byte	.LFB5
- 1976 0004 32000000 		.4byte	.LFE5
- 1977 0008 00000000 		.4byte	.LFB2
- 1978 000c 0C000000 		.4byte	.LFE2
- 1979 0010 00000000 		.4byte	.LFB6
- 1980 0014 14010000 		.4byte	.LFE6
- 1981 0018 00000000 		.4byte	.LFB8
- 1982 001c 40000000 		.4byte	.LFE8
- 1983 0020 00000000 		.4byte	.LFB7
- 1984 0024 28000000 		.4byte	.LFE7
- 1985 0028 14010000 		.4byte	.LFB9
- 1986 002c 2C020000 		.4byte	.LFE9
- 1987 0030 00000000 		.4byte	0
- 1988 0034 00000000 		.4byte	0
- 1989              		.section	.debug_line,"",%progbits
- 1990              	.Ldebug_line0:
- 1991 0000 B2010000 		.section	.debug_str,"MS",%progbits,1
- 1991      0200E300 
- 1991      00000201 
- 1991      FB0E0D00 
- 1991      01010101 
- 1992              	.LASF42:
- 1993 0000 43794465 		.ascii	"CyDelayCycles\000"
- 1993      6C617943 
- 1993      79636C65 
- 1993      7300
- 1994              	.LASF19:
- 1995 000e 72656733 		.ascii	"reg32\000"
- 1995      3200
- 1996              	.LASF12:
- 1997 0014 73697A65 		.ascii	"size_t\000"
- 1997      5F7400
- 1998              	.LASF32:
- 1999 001b 416E616C 		.ascii	"AnalogSetDefault\000"
- 1999      6F675365 
- 1999      74446566 
- 1999      61756C74 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 46
+ 1955 000c 0000     		.2byte	0
+ 1956 000e 0000     		.2byte	0
+ 1957 0010 00000000 		.4byte	.LFB5
+ 1958 0014 32000000 		.4byte	.LFE5-.LFB5
+ 1959 0018 00000000 		.4byte	.LFB2
+ 1960 001c 0C000000 		.4byte	.LFE2-.LFB2
+ 1961 0020 00000000 		.4byte	.LFB6
+ 1962 0024 14010000 		.4byte	.LFE6-.LFB6
+ 1963 0028 00000000 		.4byte	.LFB8
+ 1964 002c 40000000 		.4byte	.LFE8-.LFB8
+ 1965 0030 00000000 		.4byte	.LFB7
+ 1966 0034 28000000 		.4byte	.LFE7-.LFB7
+ 1967 0038 14010000 		.4byte	.LFB9
+ 1968 003c 14010000 		.4byte	.LFE9-.LFB9
+ 1969 0040 00000000 		.4byte	0
+ 1970 0044 00000000 		.4byte	0
+ 1971              		.section	.debug_ranges,"",%progbits
+ 1972              	.Ldebug_ranges0:
+ 1973 0000 00000000 		.4byte	.LFB5
+ 1974 0004 32000000 		.4byte	.LFE5
+ 1975 0008 00000000 		.4byte	.LFB2
+ 1976 000c 0C000000 		.4byte	.LFE2
+ 1977 0010 00000000 		.4byte	.LFB6
+ 1978 0014 14010000 		.4byte	.LFE6
+ 1979 0018 00000000 		.4byte	.LFB8
+ 1980 001c 40000000 		.4byte	.LFE8
+ 1981 0020 00000000 		.4byte	.LFB7
+ 1982 0024 28000000 		.4byte	.LFE7
+ 1983 0028 14010000 		.4byte	.LFB9
+ 1984 002c 28020000 		.4byte	.LFE9
+ 1985 0030 00000000 		.4byte	0
+ 1986 0034 00000000 		.4byte	0
+ 1987              		.section	.debug_line,"",%progbits
+ 1988              	.Ldebug_line0:
+ 1989 0000 B2010000 		.section	.debug_str,"MS",%progbits,1
+ 1989      0200E300 
+ 1989      00000201 
+ 1989      FB0E0D00 
+ 1989      01010101 
+ 1990              	.LASF42:
+ 1991 0000 43794465 		.ascii	"CyDelayCycles\000"
+ 1991      6C617943 
+ 1991      79636C65 
+ 1991      7300
+ 1992              	.LASF19:
+ 1993 000e 72656733 		.ascii	"reg32\000"
+ 1993      3200
+ 1994              	.LASF12:
+ 1995 0014 73697A65 		.ascii	"size_t\000"
+ 1995      5F7400
+ 1996              	.LASF32:
+ 1997 001b 416E616C 		.ascii	"AnalogSetDefault\000"
+ 1997      6F675365 
+ 1997      74446566 
+ 1997      61756C74 
+ 1997      00
+ 1998              	.LASF47:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 46
 
 
- 1999      00
- 2000              	.LASF47:
- 2001 002c 4379496E 		.ascii	"CyIntSetVector\000"
- 2001      74536574 
- 2001      56656374 
- 2001      6F7200
- 2002              	.LASF21:
- 2003 003b 76616C75 		.ascii	"value\000"
- 2003      6500
- 2004              	.LASF26:
- 2005 0041 636F756E 		.ascii	"count\000"
- 2005      7400
- 2006              	.LASF29:
- 2007 0047 436C6F63 		.ascii	"ClockSetup\000"
- 2007      6B536574 
- 2007      757000
- 2008              	.LASF35:
- 2009 0052 63795F63 		.ascii	"cy_cfg_addr_table\000"
- 2009      66675F61 
- 2009      6464725F 
+ 1999 002c 4379496E 		.ascii	"CyIntSetVector\000"
+ 1999      74536574 
+ 1999      56656374 
+ 1999      6F7200
+ 2000              	.LASF21:
+ 2001 003b 76616C75 		.ascii	"value\000"
+ 2001      6500
+ 2002              	.LASF26:
+ 2003 0041 636F756E 		.ascii	"count\000"
+ 2003      7400
+ 2004              	.LASF29:
+ 2005 0047 436C6F63 		.ascii	"ClockSetup\000"
+ 2005      6B536574 
+ 2005      757000
+ 2006              	.LASF35:
+ 2007 0052 63795F63 		.ascii	"cy_cfg_addr_table\000"
+ 2007      66675F61 
+ 2007      6464725F 
+ 2007      7461626C 
+ 2007      6500
+ 2008              	.LASF36:
+ 2009 0064 63795F63 		.ascii	"cy_cfg_data_table\000"
+ 2009      66675F64 
+ 2009      6174615F 
  2009      7461626C 
  2009      6500
- 2010              	.LASF36:
- 2011 0064 63795F63 		.ascii	"cy_cfg_data_table\000"
- 2011      66675F64 
- 2011      6174615F 
- 2011      7461626C 
- 2011      6500
- 2012              	.LASF16:
- 2013 0076 666C6F61 		.ascii	"float\000"
- 2013      7400
- 2014              	.LASF40:
- 2015 007c 6366675F 		.ascii	"cfg_memset_list\000"
- 2015      6D656D73 
- 2015      65745F6C 
- 2015      69737400 
- 2016              	.LASF38:
- 2017 008c 73697A65 		.ascii	"size\000"
- 2017      00
- 2018              	.LASF43:
- 2019 0091 43795379 		.ascii	"CySysClkWcoSetPowerMode\000"
- 2019      73436C6B 
- 2019      57636F53 
- 2019      6574506F 
- 2019      7765724D 
- 2020              	.LASF18:
- 2021 00a9 72656738 		.ascii	"reg8\000"
- 2021      00
- 2022              	.LASF8:
- 2023 00ae 6C6F6E67 		.ascii	"long unsigned int\000"
- 2023      20756E73 
- 2023      69676E65 
- 2023      6420696E 
- 2023      7400
- 2024              	.LASF13:
- 2025 00c0 75696E74 		.ascii	"uint8\000"
- 2025      3800
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 47
+ 2010              	.LASF16:
+ 2011 0076 666C6F61 		.ascii	"float\000"
+ 2011      7400
+ 2012              	.LASF40:
+ 2013 007c 6366675F 		.ascii	"cfg_memset_list\000"
+ 2013      6D656D73 
+ 2013      65745F6C 
+ 2013      69737400 
+ 2014              	.LASF38:
+ 2015 008c 73697A65 		.ascii	"size\000"
+ 2015      00
+ 2016              	.LASF43:
+ 2017 0091 43795379 		.ascii	"CySysClkWcoSetPowerMode\000"
+ 2017      73436C6B 
+ 2017      57636F53 
+ 2017      6574506F 
+ 2017      7765724D 
+ 2018              	.LASF18:
+ 2019 00a9 72656738 		.ascii	"reg8\000"
+ 2019      00
+ 2020              	.LASF8:
+ 2021 00ae 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2021      20756E73 
+ 2021      69676E65 
+ 2021      6420696E 
+ 2021      7400
+ 2022              	.LASF13:
+ 2023 00c0 75696E74 		.ascii	"uint8\000"
+ 2023      3800
+ 2024              	.LASF41:
+ 2025 00c6 43795379 		.ascii	"CySysClkWcoStart\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 47
 
 
- 2026              	.LASF41:
- 2027 00c6 43795379 		.ascii	"CySysClkWcoStart\000"
- 2027      73436C6B 
- 2027      57636F53 
- 2027      74617274 
- 2027      00
- 2028              	.LASF28:
- 2029 00d7 43594D45 		.ascii	"CYMEMZERO\000"
- 2029      4D5A4552 
- 2029      4F00
- 2030              	.LASF33:
- 2031 00e1 53657441 		.ascii	"SetAnalogRoutingPumps\000"
- 2031      6E616C6F 
- 2031      67526F75 
- 2031      74696E67 
- 2031      50756D70 
- 2032              	.LASF4:
- 2033 00f7 756E7369 		.ascii	"unsigned char\000"
- 2033      676E6564 
- 2033      20636861 
- 2033      7200
- 2034              	.LASF52:
- 2035 0105 6D656D73 		.ascii	"memset\000"
- 2035      657400
- 2036              	.LASF17:
- 2037 010c 646F7562 		.ascii	"double\000"
- 2037      6C6500
- 2038              	.LASF27:
- 2039 0113 6366675F 		.ascii	"cfg_write_bytes32\000"
- 2039      77726974 
- 2039      655F6279 
- 2039      74657333 
- 2039      3200
- 2040              	.LASF48:
- 2041 0125 4379496E 		.ascii	"CyIntEnable\000"
- 2041      74456E61 
- 2041      626C6500 
- 2042              	.LASF23:
- 2043 0131 61646472 		.ascii	"addr_table\000"
- 2043      5F746162 
- 2043      6C6500
- 2044              	.LASF14:
- 2045 013c 75696E74 		.ascii	"uint16\000"
- 2045      313600
- 2046              	.LASF24:
- 2047 0143 64617461 		.ascii	"data_table\000"
- 2047      5F746162 
- 2047      6C6500
- 2048              	.LASF15:
- 2049 014e 75696E74 		.ascii	"uint32\000"
- 2049      333200
- 2050              	.LASF0:
- 2051 0155 756E7369 		.ascii	"unsigned int\000"
- 2051      676E6564 
- 2051      20696E74 
+ 2025      73436C6B 
+ 2025      57636F53 
+ 2025      74617274 
+ 2025      00
+ 2026              	.LASF28:
+ 2027 00d7 43594D45 		.ascii	"CYMEMZERO\000"
+ 2027      4D5A4552 
+ 2027      4F00
+ 2028              	.LASF33:
+ 2029 00e1 53657441 		.ascii	"SetAnalogRoutingPumps\000"
+ 2029      6E616C6F 
+ 2029      67526F75 
+ 2029      74696E67 
+ 2029      50756D70 
+ 2030              	.LASF4:
+ 2031 00f7 756E7369 		.ascii	"unsigned char\000"
+ 2031      676E6564 
+ 2031      20636861 
+ 2031      7200
+ 2032              	.LASF52:
+ 2033 0105 6D656D73 		.ascii	"memset\000"
+ 2033      657400
+ 2034              	.LASF17:
+ 2035 010c 646F7562 		.ascii	"double\000"
+ 2035      6C6500
+ 2036              	.LASF27:
+ 2037 0113 6366675F 		.ascii	"cfg_write_bytes32\000"
+ 2037      77726974 
+ 2037      655F6279 
+ 2037      74657333 
+ 2037      3200
+ 2038              	.LASF48:
+ 2039 0125 4379496E 		.ascii	"CyIntEnable\000"
+ 2039      74456E61 
+ 2039      626C6500 
+ 2040              	.LASF23:
+ 2041 0131 61646472 		.ascii	"addr_table\000"
+ 2041      5F746162 
+ 2041      6C6500
+ 2042              	.LASF14:
+ 2043 013c 75696E74 		.ascii	"uint16\000"
+ 2043      313600
+ 2044              	.LASF24:
+ 2045 0143 64617461 		.ascii	"data_table\000"
+ 2045      5F746162 
+ 2045      6C6500
+ 2046              	.LASF15:
+ 2047 014e 75696E74 		.ascii	"uint32\000"
+ 2047      333200
+ 2048              	.LASF0:
+ 2049 0155 756E7369 		.ascii	"unsigned int\000"
+ 2049      676E6564 
+ 2049      20696E74 
+ 2049      00
+ 2050              	.LASF34:
+ 2051 0162 63796669 		.ascii	"cyfitter_cfg\000"
+ 2051      74746572 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 48
+
+
+ 2051      5F636667 
  2051      00
- 2052              	.LASF34:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 48
-
-
- 2053 0162 63796669 		.ascii	"cyfitter_cfg\000"
- 2053      74746572 
- 2053      5F636667 
- 2053      00
- 2054              	.LASF37:
- 2055 016f 61646472 		.ascii	"address\000"
- 2055      65737300 
- 2056              	.LASF9:
- 2057 0177 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2057      206C6F6E 
- 2057      6720756E 
- 2057      7369676E 
- 2057      65642069 
- 2058              	.LASF51:
- 2059 018e 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\ca"
- 2059      73657273 
- 2059      5C707572 
- 2059      69615C44 
- 2059      6F63756D 
- 2060 01ba 7073656E 		.ascii	"psenseled.cydsn\000"
- 2060      73656C65 
- 2060      642E6379 
- 2060      64736E00 
- 2061              	.LASF49:
- 2062 01ca 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 2062      43313120 
- 2062      352E342E 
- 2062      31203230 
- 2062      31363036 
- 2063 01fd 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 2063      20726576 
- 2063      6973696F 
- 2063      6E203233 
- 2063      37373135 
- 2064 0230 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2064      66756E63 
- 2064      74696F6E 
- 2064      2D736563 
- 2064      74696F6E 
- 2065              	.LASF39:
- 2066 0258 6366675F 		.ascii	"cfg_memset_t\000"
- 2066      6D656D73 
- 2066      65745F74 
+ 2052              	.LASF37:
+ 2053 016f 61646472 		.ascii	"address\000"
+ 2053      65737300 
+ 2054              	.LASF9:
+ 2055 0177 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2055      206C6F6E 
+ 2055      6720756E 
+ 2055      7369676E 
+ 2055      65642069 
+ 2056              	.LASF51:
+ 2057 018e 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\ca"
+ 2057      73657273 
+ 2057      5C707572 
+ 2057      69615C44 
+ 2057      6F63756D 
+ 2058 01ba 7073656E 		.ascii	"psenseled.cydsn\000"
+ 2058      73656C65 
+ 2058      642E6379 
+ 2058      64736E00 
+ 2059              	.LASF49:
+ 2060 01ca 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2060      43313120 
+ 2060      352E342E 
+ 2060      31203230 
+ 2060      31363036 
+ 2061 01fd 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 2061      20726576 
+ 2061      6973696F 
+ 2061      6E203233 
+ 2061      37373135 
+ 2062 0230 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2062      66756E63 
+ 2062      74696F6E 
+ 2062      2D736563 
+ 2062      74696F6E 
+ 2063              	.LASF39:
+ 2064 0258 6366675F 		.ascii	"cfg_memset_t\000"
+ 2064      6D656D73 
+ 2064      65745F74 
+ 2064      00
+ 2065              	.LASF25:
+ 2066 0265 62617365 		.ascii	"baseAddr\000"
+ 2066      41646472 
  2066      00
- 2067              	.LASF25:
- 2068 0265 62617365 		.ascii	"baseAddr\000"
- 2068      41646472 
+ 2067              	.LASF10:
+ 2068 026e 73697A65 		.ascii	"sizetype\000"
+ 2068      74797065 
  2068      00
- 2069              	.LASF10:
- 2070 026e 73697A65 		.ascii	"sizetype\000"
- 2070      74797065 
- 2070      00
- 2071              	.LASF6:
- 2072 0277 73686F72 		.ascii	"short unsigned int\000"
- 2072      7420756E 
- 2072      7369676E 
- 2072      65642069 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 49
+ 2069              	.LASF6:
+ 2070 0277 73686F72 		.ascii	"short unsigned int\000"
+ 2070      7420756E 
+ 2070      7369676E 
+ 2070      65642069 
+ 2070      6E7400
+ 2071              	.LASF1:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 49
 
 
- 2072      6E7400
- 2073              	.LASF1:
- 2074 028a 6C6F6E67 		.ascii	"long long int\000"
- 2074      206C6F6E 
- 2074      6720696E 
- 2074      7400
- 2075              	.LASF46:
- 2076 0298 43794465 		.ascii	"CyDelayUs\000"
- 2076      6C617955 
- 2076      7300
- 2077              	.LASF11:
- 2078 02a2 63686172 		.ascii	"char\000"
+ 2072 028a 6C6F6E67 		.ascii	"long long int\000"
+ 2072      206C6F6E 
+ 2072      6720696E 
+ 2072      7400
+ 2073              	.LASF46:
+ 2074 0298 43794465 		.ascii	"CyDelayUs\000"
+ 2074      6C617955 
+ 2074      7300
+ 2075              	.LASF11:
+ 2076 02a2 63686172 		.ascii	"char\000"
+ 2076      00
+ 2077              	.LASF45:
+ 2078 02a7 43795379 		.ascii	"CySysClkEcoStart\000"
+ 2078      73436C6B 
+ 2078      45636F53 
+ 2078      74617274 
  2078      00
- 2079              	.LASF45:
- 2080 02a7 43795379 		.ascii	"CySysClkEcoStart\000"
- 2080      73436C6B 
- 2080      45636F53 
- 2080      74617274 
- 2080      00
- 2081              	.LASF22:
- 2082 02b8 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
- 2082      66675F61 
- 2082      64647276 
- 2082      616C7565 
- 2082      5F7400
- 2083              	.LASF20:
- 2084 02cb 6F666673 		.ascii	"offset\000"
- 2084      657400
- 2085              	.LASF30:
- 2086 02d2 656E6162 		.ascii	"enabled\000"
- 2086      6C656400 
- 2087              	.LASF5:
- 2088 02da 73686F72 		.ascii	"short int\000"
- 2088      7420696E 
- 2088      7400
- 2089              	.LASF44:
- 2090 02e4 43795379 		.ascii	"CySysClkWriteImoFreq\000"
- 2090      73436C6B 
- 2090      57726974 
- 2090      65496D6F 
- 2090      46726571 
- 2091              	.LASF7:
- 2092 02f9 6C6F6E67 		.ascii	"long int\000"
- 2092      20696E74 
- 2092      00
- 2093              	.LASF2:
- 2094 0302 6C6F6E67 		.ascii	"long double\000"
- 2094      20646F75 
- 2094      626C6500 
- 2095              	.LASF3:
- 2096 030e 7369676E 		.ascii	"signed char\000"
- 2096      65642063 
- 2096      68617200 
- 2097              	.LASF50:
- 2098 031a 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
- 2098      72617465 
- 2098      645F536F 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\cc6DSvMd.s 			page 50
+ 2079              	.LASF22:
+ 2080 02b8 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
+ 2080      66675F61 
+ 2080      64647276 
+ 2080      616C7565 
+ 2080      5F7400
+ 2081              	.LASF20:
+ 2082 02cb 6F666673 		.ascii	"offset\000"
+ 2082      657400
+ 2083              	.LASF30:
+ 2084 02d2 656E6162 		.ascii	"enabled\000"
+ 2084      6C656400 
+ 2085              	.LASF5:
+ 2086 02da 73686F72 		.ascii	"short int\000"
+ 2086      7420696E 
+ 2086      7400
+ 2087              	.LASF44:
+ 2088 02e4 43795379 		.ascii	"CySysClkWriteImoFreq\000"
+ 2088      73436C6B 
+ 2088      57726974 
+ 2088      65496D6F 
+ 2088      46726571 
+ 2089              	.LASF7:
+ 2090 02f9 6C6F6E67 		.ascii	"long int\000"
+ 2090      20696E74 
+ 2090      00
+ 2091              	.LASF2:
+ 2092 0302 6C6F6E67 		.ascii	"long double\000"
+ 2092      20646F75 
+ 2092      626C6500 
+ 2093              	.LASF3:
+ 2094 030e 7369676E 		.ascii	"signed char\000"
+ 2094      65642063 
+ 2094      68617200 
+ 2095              	.LASF50:
+ 2096 031a 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
+ 2096      72617465 
+ 2096      645F536F 
+ 2096      75726365 
+ 2096      5C50536F 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFguP9f.s 			page 50
 
 
- 2098      75726365 
- 2098      5C50536F 
- 2099              	.LASF31:
- 2100 0340 72656756 		.ascii	"regValue\000"
- 2100      616C7565 
- 2100      00
- 2101              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 2097              	.LASF31:
+ 2098 0340 72656756 		.ascii	"regValue\000"
+ 2098      616C7565 
+ 2098      00
+ 2099              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
