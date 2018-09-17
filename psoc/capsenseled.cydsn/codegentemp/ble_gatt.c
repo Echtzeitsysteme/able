@@ -113,7 +113,7 @@ CYBLE_STATE_T cyBle_state;
     0x000Bu,    /* Handle of the Client Characteristic Configuration descriptor */
 };
     
-    static uint8 cyBle_attValues[0x2Fu] = {
+    static uint8 cyBle_attValues[0x30u] = {
     /* Device Name */
     (uint8)'c', (uint8)'a', (uint8)'p', (uint8)'l', (uint8)'e', (uint8)'d',
 
@@ -127,7 +127,7 @@ CYBLE_STATE_T cyBle_state;
     0x00u, 0x00u, 0x00u, 0x00u,
 
     /* led */
-    0x00u,
+    0x00u, 0x00u,
 
     /* Characteristic User Description */
     (uint8)'l', (uint8)'e', (uint8)'d', (uint8)' ', (uint8)'u', (uint8)'i', (uint8)'n', (uint8)'t', (uint8)'8',
@@ -146,7 +146,7 @@ uint8 cyBle_attValuesCCCD[CYBLE_GATT_DB_CCCD_COUNT];
 
 const uint8 cyBle_attUuid128[][16u] = {
     /* ledcapsense */
-    { 0xF0u, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u },
+    { 0xFBu, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0x29u, 0x2Au, 0x00u, 0x00u },
     /* led */
     { 0xF1u, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u },
     /* capsense */
@@ -161,12 +161,12 @@ CYBLE_GATTS_ATT_GEN_VAL_LEN_T cyBle_attValuesLen[CYBLE_GATT_DB_ATT_VAL_COUNT] = 
     { 0x0002u, (void *)&cyBle_attValuesCCCD[0] }, /* Client Characteristic Configuration */
     { 0x0010u, (void *)&cyBle_attUuid128[0] }, /* ledcapsense UUID */
     { 0x0010u, (void *)&cyBle_attUuid128[1] }, /* led UUID */
-    { 0x0001u, (void *)&cyBle_attValues[20] }, /* led */
-    { 0x0009u, (void *)&cyBle_attValues[21] }, /* Characteristic User Description */
+    { 0x0002u, (void *)&cyBle_attValues[20] }, /* led */
+    { 0x0009u, (void *)&cyBle_attValues[22] }, /* Characteristic User Description */
     { 0x0010u, (void *)&cyBle_attUuid128[2] }, /* capsense UUID */
-    { 0x0002u, (void *)&cyBle_attValues[30] }, /* capsense */
+    { 0x0002u, (void *)&cyBle_attValues[31] }, /* capsense */
     { 0x0002u, (void *)&cyBle_attValuesCCCD[2] }, /* capsensecccd */
-    { 0x000Fu, (void *)&cyBle_attValues[32] }, /* Characteristic User Description */
+    { 0x000Fu, (void *)&cyBle_attValues[33] }, /* Characteristic User Description */
 };
 
 const CYBLE_GATTS_DB_T cyBle_gattDB[0x13u] = {
@@ -183,7 +183,7 @@ const CYBLE_GATTS_DB_T cyBle_gattDB[0x13u] = {
     { 0x000Bu, 0x2902u /* Client Characteristic Configuration */, 0x010A0101u /* rd,wr  */, 0x000Bu, {{0x0002u, (void *)&cyBle_attValuesLen[4]}} },
     { 0x000Cu, 0x2800u /* Primary service                     */, 0x08000001u /*        */, 0x0013u, {{0x0010u, (void *)&cyBle_attValuesLen[5]}} },
     { 0x000Du, 0x2803u /* Characteristic                      */, 0x000A0001u /* rd,wr  */, 0x000Fu, {{0x0010u, (void *)&cyBle_attValuesLen[6]}} },
-    { 0x000Eu, 0x0000u /* led                                 */, 0x090A0101u /* rd,wr  */, 0x000Fu, {{0x0001u, (void *)&cyBle_attValuesLen[7]}} },
+    { 0x000Eu, 0x0000u /* led                                 */, 0x090A0101u /* rd,wr  */, 0x000Fu, {{0x0002u, (void *)&cyBle_attValuesLen[7]}} },
     { 0x000Fu, 0x2901u /* Characteristic User Description     */, 0x01020001u /* rd     */, 0x000Fu, {{0x0009u, (void *)&cyBle_attValuesLen[8]}} },
     { 0x0010u, 0x2803u /* Characteristic                      */, 0x00120001u /* rd,ntf */, 0x0013u, {{0x0010u, (void *)&cyBle_attValuesLen[9]}} },
     { 0x0011u, 0x0000u /* capsense                            */, 0x09120001u /* rd,ntf */, 0x0013u, {{0x0002u, (void *)&cyBle_attValuesLen[10]}} },

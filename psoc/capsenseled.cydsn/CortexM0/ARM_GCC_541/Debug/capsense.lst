@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
   28:Generated_Source\PSoC4/capsense.c ****    For more details please see the IAR Technical Note 49981 */
   29:Generated_Source\PSoC4/capsense.c **** #if defined(__ICCARM__)
   30:Generated_Source\PSoC4/capsense.c ****     extern void capsense_EnableSensor(uint32 sensor);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 2
 
 
   31:Generated_Source\PSoC4/capsense.c ****     extern void capsense_DisableSensor(uint32 sensor);
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
   85:Generated_Source\PSoC4/capsense.c ****     capsense_Sns__LinearSlider0_e0__LS__MASK, 
   86:Generated_Source\PSoC4/capsense.c ****     capsense_Sns__LinearSlider0_e1__LS__MASK, 
   87:Generated_Source\PSoC4/capsense.c ****     capsense_Sns__LinearSlider0_e2__LS__MASK, 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 3
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 3
 
 
   88:Generated_Source\PSoC4/capsense.c ****     capsense_Sns__LinearSlider0_e3__LS__MASK, 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  142:Generated_Source\PSoC4/capsense.c **** };
  143:Generated_Source\PSoC4/capsense.c **** 
  144:Generated_Source\PSoC4/capsense.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 4
 
 
  145:Generated_Source\PSoC4/capsense.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  199:Generated_Source\PSoC4/capsense.c ****     for(curSensor = 0u; curSensor < capsense_TOTAL_SENSOR_COUNT; curSensor++)
  200:Generated_Source\PSoC4/capsense.c ****     {
  201:Generated_Source\PSoC4/capsense.c ****         capsense_SetUnscannedSensorState(curSensor, capsense_CONNECT_INACTIVE_SNS);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 5
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 5
 
 
  202:Generated_Source\PSoC4/capsense.c ****     }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  246:Generated_Source\PSoC4/capsense.c ****             newRegValue &= capsense_CSD_IDAC2_TRIM_MASK;
  247:Generated_Source\PSoC4/capsense.c ****             newRegValue |= (uint32)((uint32)capsense_SFLASH_CSD_TRIM2_REG & (uint32)capsense_CSFLAS
  248:Generated_Source\PSoC4/capsense.c ****         #endif /* (capsense_IDAC_CNT == 2u) */
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 6
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 6
 
 
  249:Generated_Source\PSoC4/capsense.c ****         capsense_CSD_TRIM2_REG = newRegValue;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
   74              	.LVL7:
  267:Generated_Source\PSoC4/capsense.c ****         capsense_CSD_CFG_REG = capsense_DEFAULT_CSD_CONFIG;
   75              		.loc 1 267 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 7
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 7
 
 
   76 002e 0F4A     		ldr	r2, .L2+20
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  105              	.LVL13:
  293:Generated_Source\PSoC4/capsense.c ****     #endif /* (CY_EXTERNAL_INTERRUPT_CONFIG) */
  294:Generated_Source\PSoC4/capsense.c **** }
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 8
 
 
  106              		.loc 1 294 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  136 0000 10B5     		push	{r4, lr}
  137              		.cfi_def_cfa_offset 8
  138              		.cfi_offset 4, -8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 9
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 9
 
 
  139              		.cfi_offset 14, -4
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  340:Generated_Source\PSoC4/capsense.c ****     capsense_CSD_CFG_REG = newRegValue;
  172              		.loc 1 340 0
  173 002e 1360     		str	r3, [r2]
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 10
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 10
 
 
  341:Generated_Source\PSoC4/capsense.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  372:Generated_Source\PSoC4/capsense.c **** * Side Effects:
  373:Generated_Source\PSoC4/capsense.c **** *  None
  374:Generated_Source\PSoC4/capsense.c **** *
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 11
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 11
 
 
  375:Generated_Source\PSoC4/capsense.c **** *******************************************************************************/
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  429:Generated_Source\PSoC4/capsense.c ****             #endif /* (capsense_IDAC_CNT > 1u) */
  430:Generated_Source\PSoC4/capsense.c **** 
  431:Generated_Source\PSoC4/capsense.c ****         #endif /* (0u != capsense_AUTOCALIBRATION_ENABLE) */
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 12
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 12
 
 
  432:Generated_Source\PSoC4/capsense.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  209              		.loc 1 473 0
  210 0008 064A     		ldr	r2, .L8
  211 000a 1168     		ldr	r1, [r2]
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 13
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 13
 
 
  212 000c 064B     		ldr	r3, .L8+4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  495:Generated_Source\PSoC4/capsense.c **** * Return:
  496:Generated_Source\PSoC4/capsense.c **** *  Returns the next sensor index to scan.
  497:Generated_Source\PSoC4/capsense.c **** *
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 14
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 14
 
 
  498:Generated_Source\PSoC4/capsense.c **** * Global Variables:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  552:Generated_Source\PSoC4/capsense.c **** *
  553:Generated_Source\PSoC4/capsense.c **** *******************************************************************************/
  554:Generated_Source\PSoC4/capsense.c **** void capsense_ScanSensor(uint32 sensor)
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 15
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 15
 
 
  555:Generated_Source\PSoC4/capsense.c **** {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  609:Generated_Source\PSoC4/capsense.c ****     }
  610:Generated_Source\PSoC4/capsense.c **** 
  611:Generated_Source\PSoC4/capsense.c ****     /* Get last sensor in widget */
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 16
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 16
 
 
  612:Generated_Source\PSoC4/capsense.c ****     lastSensor = (capsense_rawDataIndex[widget] + sensorsPerWidget) - 1u;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  666:Generated_Source\PSoC4/capsense.c **** *  None
  667:Generated_Source\PSoC4/capsense.c **** *
  668:Generated_Source\PSoC4/capsense.c **** * Global Variables:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 17
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 17
 
 
  669:Generated_Source\PSoC4/capsense.c **** *  capsense_csdStatusVar - used to provide the status and mode of the scanning process.
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  247              		@ args = 0, pretend = 0, frame = 0
  248              		@ frame_needed = 0, uses_anonymous_args = 0
  249              		@ link register save eliminated.
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 18
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 18
 
 
  721:Generated_Source\PSoC4/capsense.c ****     return ((uint32)((0u != (capsense_csdStatusVar & capsense_SW_STS_BUSY)) ? 1u : 0u));
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  274              		.cfi_startproc
  275              		@ args = 0, pretend = 0, frame = 0
  276              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 19
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 19
 
 
  277              		@ link register save eliminated.
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  304              		.cfi_startproc
  305              		@ args = 0, pretend = 0, frame = 0
  306              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 20
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 20
 
 
  307              		@ link register save eliminated.
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  806:Generated_Source\PSoC4/capsense.c ****     *              capsense_RESOLUTION_16_BITS
  807:Generated_Source\PSoC4/capsense.c ****     *
  808:Generated_Source\PSoC4/capsense.c ****     * Return:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 21
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 21
 
 
  809:Generated_Source\PSoC4/capsense.c ****     *  None
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  834:Generated_Source\PSoC4/capsense.c **** *  widget:     Widget index.
  835:Generated_Source\PSoC4/capsense.c **** *
  836:Generated_Source\PSoC4/capsense.c **** * Return:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 22
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 22
 
 
  837:Generated_Source\PSoC4/capsense.c **** *  resolution: Returns the resolution value for the appropriate sensor.
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  390              	.LFB49:
  863:Generated_Source\PSoC4/capsense.c **** 
  864:Generated_Source\PSoC4/capsense.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 23
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 23
 
 
  865:Generated_Source\PSoC4/capsense.c **** /*******************************************************************************
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  919:Generated_Source\PSoC4/capsense.c ****     *  The offset and position in this array are stored in a port and mask table for
  920:Generated_Source\PSoC4/capsense.c ****     *  complex sensors.
  921:Generated_Source\PSoC4/capsense.c ****     *  Bit 7 (msb) is used to define the sensor type: single or complex.
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 24
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 24
 
 
  922:Generated_Source\PSoC4/capsense.c ****     *
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  976:Generated_Source\PSoC4/capsense.c ****     *  The offset and position in this array are stored in a port and mask table for
  977:Generated_Source\PSoC4/capsense.c ****     *  complex sensors.
  978:Generated_Source\PSoC4/capsense.c ****     *  7bit(msb) is used to define the sensor type: single or complex.
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 25
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 25
 
 
  979:Generated_Source\PSoC4/capsense.c ****     *
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1033:Generated_Source\PSoC4/capsense.c **** *  capsense_pinShiftTbl[] - used to store position of pin that
 1034:Generated_Source\PSoC4/capsense.c **** *  configured as sensor in port.
 1035:Generated_Source\PSoC4/capsense.c **** *  capsense_prtSelTbl[] - Contains pointers to the HSIOM
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 26
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 26
 
 
 1036:Generated_Source\PSoC4/capsense.c **** *  registers for each port.
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1058:Generated_Source\PSoC4/capsense.c ****     newRegisterValue = *capsense_prtSelTbl[port];
  423              		.loc 1 1058 0
  424 0018 B300     		lsls	r3, r6, #2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 27
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 27
 
 
  425 001a FB18     		adds	r3, r7, r3
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  471              		.thumb_func
  472              		.type	capsense_DisableSensor, %function
  473              	capsense_DisableSensor:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 28
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 28
 
 
  474              	.LFB50:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1103:Generated_Source\PSoC4/capsense.c ****     uint8  pinHSIOMShift = capsense_pinShiftTbl[sensor] * capsense_HSIOM_PIN_CFG_SIZE;
  492              		.loc 1 1103 0
  493 0006 1318     		adds	r3, r2, r0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 29
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 29
 
 
  494 0008 1F7A     		ldrb	r7, [r3, #8]
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  529              	.L32:
 1122:Generated_Source\PSoC4/capsense.c ****         {
 1123:Generated_Source\PSoC4/capsense.c ****             /* Connected to Ground */
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 30
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 30
 
 
 1124:Generated_Source\PSoC4/capsense.c ****             inactiveConnect = (uint32)capsense_SNS_GROUND_CONNECT;
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1138:Generated_Source\PSoC4/capsense.c ****     #if(capsense_IS_SHIELD_ENABLE != 0)
 1139:Generated_Source\PSoC4/capsense.c ****     }
 1140:Generated_Source\PSoC4/capsense.c ****     else
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 31
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 31
 
 
 1141:Generated_Source\PSoC4/capsense.c ****     {
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  890:Generated_Source\PSoC4/capsense.c ****     {
  614              		.loc 1 890 0 is_stmt 0 discriminator 1
  615 000e 042C     		cmp	r4, #4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 32
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 32
 
 
  616 0010 F9D9     		bls	.L37
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1184:Generated_Source\PSoC4/capsense.c ****     for(curSensor = 0u; curSensor < capsense_TOTAL_SENSOR_COUNT; curSensor++)
 1185:Generated_Source\PSoC4/capsense.c ****     {
 1186:Generated_Source\PSoC4/capsense.c ****         #if (capsense_IS_COMPLEX_SCANSLOTS)
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 33
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 33
 
 
 1187:Generated_Source\PSoC4/capsense.c ****             /* Read sensor type: single or complex */
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1241:Generated_Source\PSoC4/capsense.c **** *  registers for each port.
 1242:Generated_Source\PSoC4/capsense.c **** *
 1243:Generated_Source\PSoC4/capsense.c **** * Side Effects:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 34
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 34
 
 
 1244:Generated_Source\PSoC4/capsense.c **** *  This API is called only after the CapSense component is stopped.
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1298:Generated_Source\PSoC4/capsense.c **** *******************************************************************************/
 1299:Generated_Source\PSoC4/capsense.c **** void capsense_SetPinDriveMode(uint32 driveMode, uint32 pinNumber, uint32 portNumber)
 1300:Generated_Source\PSoC4/capsense.c **** {
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 35
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 35
 
 
  632              		.loc 1 1300 0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  676              		.align	2
  677              		.global	capsense_SetDriveModeAllPins
  678              		.code	16
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 36
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 36
 
 
  679              		.thumb_func
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  725 0022 2800     		movs	r0, r5
  726 0024 FFF7FEFF 		bl	capsense_SetPinDriveMode
  727              	.LVL87:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 37
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 37
 
 
 1222:Generated_Source\PSoC4/capsense.c **** 
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  774              		.loc 1 1271 0
  775              		@ sp needed
  776 0016 10BD     		pop	{r4, pc}
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 38
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 38
 
 
  777              	.L48:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1350:Generated_Source\PSoC4/capsense.c ****     #endif /* ((capsense_TUNING_METHOD == capsense__TUNING_AUTO) &&\
 1351:Generated_Source\PSoC4/capsense.c ****                (0 != capsense_IS_OVERSAMPLING_EN)) */
 1352:Generated_Source\PSoC4/capsense.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 39
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 39
 
 
 1353:Generated_Source\PSoC4/capsense.c ****     /* Define widget sensor belongs to */
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1407:Generated_Source\PSoC4/capsense.c **** 
 1408:Generated_Source\PSoC4/capsense.c ****             CyIntDisable(capsense_ISR_NUMBER);
 1409:Generated_Source\PSoC4/capsense.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 40
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 40
 
 
 1410:Generated_Source\PSoC4/capsense.c ****             newRegValue = capsense_CSD_CFG_REG;
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1464:Generated_Source\PSoC4/capsense.c ****     newRegValue &= ~(capsense_CSD_CMOD_CONNECTION_MASK);
 1465:Generated_Source\PSoC4/capsense.c ****     newRegValue |= capsense_CSD_CMOD_TO_AMUXBUS_A;
 1466:Generated_Source\PSoC4/capsense.c ****     capsense_CMOD_CONNECTION_REG = newRegValue;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 41
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 41
 
 
 1467:Generated_Source\PSoC4/capsense.c **** 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1521:Generated_Source\PSoC4/capsense.c **** *
 1522:Generated_Source\PSoC4/capsense.c **** * Return:
 1523:Generated_Source\PSoC4/capsense.c **** *  None
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 42
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 42
 
 
 1524:Generated_Source\PSoC4/capsense.c **** *
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1578:Generated_Source\PSoC4/capsense.c ****     capsense_CMOD_PORT_PC_REG = newRegValue;
 1579:Generated_Source\PSoC4/capsense.c **** 
 1580:Generated_Source\PSoC4/capsense.c ****     newRegValue = capsense_CMOD_PORT_DR_REG;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 43
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 43
 
 
 1581:Generated_Source\PSoC4/capsense.c ****     newRegValue &= ~(capsense_CMOD_DR_MASK);
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  800              		.cfi_offset 5, -8
  801              		.cfi_offset 14, -4
 1627:Generated_Source\PSoC4/capsense.c ****     uint32 newRegValue;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 44
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 44
 
 
 1628:Generated_Source\PSoC4/capsense.c **** 
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  849              		.thumb_func
  850              		.type	capsense_SetShieldDelay, %function
  851              	capsense_SetShieldDelay:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 45
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 45
 
 
  852              	.LFB57:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  871              		.loc 1 1669 0
  872 000e 1060     		str	r0, [r2]
 1670:Generated_Source\PSoC4/capsense.c **** }
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 46
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 46
 
 
  873              		.loc 1 1670 0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  899 0004 DB07     		lsls	r3, r3, #31
  900 0006 03D5     		bpl	.L57
  901              		.loc 1 1698 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 47
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 47
 
 
  902 0008 034B     		ldr	r3, .L58
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  929              		.loc 1 1725 0
  930              		.cfi_startproc
  931              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 48
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 48
 
 
  932              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  969              		.type	capsense_FindNextSensor, %function
  970              	capsense_FindNextSensor:
  971              	.LFB39:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 49
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 49
 
 
  507:Generated_Source\PSoC4/capsense.c ****     uint32 enableFlag;
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1020              		.type	capsense_PreScan, %function
  1021              	capsense_PreScan:
  1022              	.LFB54:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 50
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 50
 
 
 1336:Generated_Source\PSoC4/capsense.c ****     uint8 widget;
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1069              		.loc 1 1372 0
  1070 0028 FFF7FEFF 		bl	capsense_SenseClk_Stop
  1071              	.LVL129:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 51
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 51
 
 
 1373:Generated_Source\PSoC4/capsense.c ****     #endif /* (0u != capsense_IS_M0S8PERI_BLOCK) */
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1117 0072 1A60     		str	r2, [r3]
 1396:Generated_Source\PSoC4/capsense.c ****             CyIntEnable(capsense_ISR_NUMBER);
  1118              		.loc 1 1396 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 52
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 52
 
 
  1119 0074 1020     		movs	r0, #16
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1162              	.LVL144:
 1479:Generated_Source\PSoC4/capsense.c **** 
  1163              		.loc 1 1479 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 53
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 53
 
 
  1164 00aa 1020     		movs	r0, #16
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1211 0104 FF1FDFFF 		.word	-2154497
  1212 0108 20E02000 		.word	2154528
  1213              		.cfi_endproc
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 54
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 54
 
 
  1214              	.LFE54:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1262              	capsense_ScanEnabledWidgets:
  1263              	.LFB42:
  679:Generated_Source\PSoC4/capsense.c ****     /* Clears status/control variable and set sensorIndex */
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 55
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 55
 
 
  1264              		.loc 1 679 0
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1311              		.size	capsense_ScanEnabledWidgets, .-capsense_ScanEnabledWidgets
  1312              		.section	.text.capsense_PostScan,"ax",%progbits
  1313              		.align	2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 56
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 56
 
 
  1314              		.global	capsense_PostScan
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1362 002e 6B00     		lsls	r3, r5, #1
  1363 0030 0E4A     		ldr	r2, .L82+4
  1364 0032 D318     		adds	r3, r2, r3
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 57
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 57
 
 
  1365 0034 0441     		asrs	r4, r4, r0
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1410              	.L82:
  1411 0068 0C002840 		.word	1076363276
  1412 006c 00000000 		.word	.LANCHOR0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 58
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 58
 
 
  1413 0070 00000000 		.word	.LANCHOR2
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1769:Generated_Source\PSoC4/capsense.c ****     uint32 offset;
 1770:Generated_Source\PSoC4/capsense.c ****     uint8 enMask;
 1771:Generated_Source\PSoC4/capsense.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 59
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 59
 
 
 1772:Generated_Source\PSoC4/capsense.c ****     /* position is divided by 8 to calculate the element of the
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1792:Generated_Source\PSoC4/capsense.c **** }
  1475              		.loc 1 1792 0
  1476              		@ sp needed
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 60
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 60
 
 
  1477 0024 10BD     		pop	{r4, pc}
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1524              	.LVL190:
  1525              	.L90:
  618:Generated_Source\PSoC4/capsense.c ****     }
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 61
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 61
 
 
  1526              		.loc 1 618 0 discriminator 3
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  622:Generated_Source\PSoC4/capsense.c ****     {
  1573              		.loc 1 622 0 is_stmt 0 discriminator 1
  1574 005a 042C     		cmp	r4, #4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 62
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 62
 
 
  1575 005c E8D9     		bls	.L94
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1802:Generated_Source\PSoC4/capsense.c **** *
 1803:Generated_Source\PSoC4/capsense.c **** * Parameters:
 1804:Generated_Source\PSoC4/capsense.c **** *  sensor: sensor index. The index value can be
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 63
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 63
 
 
 1805:Generated_Source\PSoC4/capsense.c **** *  from 0 to (capsense_TOTAL_SENSOR_COUNT-1).
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1831:Generated_Source\PSoC4/capsense.c ****     * Summary:
 1832:Generated_Source\PSoC4/capsense.c ****     *  This API sets a value of the sense clock divider for the  sensor.
 1833:Generated_Source\PSoC4/capsense.c ****     *
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 64
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 64
 
 
 1834:Generated_Source\PSoC4/capsense.c ****     * Parameters:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1861:Generated_Source\PSoC4/capsense.c **** ********************************************************************************
 1862:Generated_Source\PSoC4/capsense.c **** *
 1863:Generated_Source\PSoC4/capsense.c **** * Summary:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 65
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 65
 
 
 1864:Generated_Source\PSoC4/capsense.c **** *  This API returns a value of the modulator sample clock divider for the  sensor.
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1890:Generated_Source\PSoC4/capsense.c ****     /*******************************************************************************
 1891:Generated_Source\PSoC4/capsense.c ****     * Function Name: capsense_SetModulatorClkDivider
 1892:Generated_Source\PSoC4/capsense.c ****     ********************************************************************************
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 66
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 66
 
 
 1893:Generated_Source\PSoC4/capsense.c ****     *
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1920:Generated_Source\PSoC4/capsense.c **** 
 1921:Generated_Source\PSoC4/capsense.c **** /*******************************************************************************
 1922:Generated_Source\PSoC4/capsense.c **** * Function Name: capsense_GetModulationIDAC
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 67
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 67
 
 
 1923:Generated_Source\PSoC4/capsense.c **** ********************************************************************************
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1949:Generated_Source\PSoC4/capsense.c ****     * Function Name: capsense_SetModulationIDAC
 1950:Generated_Source\PSoC4/capsense.c ****     ********************************************************************************
 1951:Generated_Source\PSoC4/capsense.c ****     *
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 68
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 68
 
 
 1952:Generated_Source\PSoC4/capsense.c ****     * Summary:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 1979:Generated_Source\PSoC4/capsense.c ****     ********************************************************************************
 1980:Generated_Source\PSoC4/capsense.c ****     *
 1981:Generated_Source\PSoC4/capsense.c ****     * Summary:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 69
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 69
 
 
 1982:Generated_Source\PSoC4/capsense.c ****     *  This API returns a value of the compensation IDAC for the  sensor.
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2008:Generated_Source\PSoC4/capsense.c ****     ********************************************************************************
 2009:Generated_Source\PSoC4/capsense.c ****     *
 2010:Generated_Source\PSoC4/capsense.c ****     * Summary:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 70
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 70
 
 
 2011:Generated_Source\PSoC4/capsense.c ****     *  This API sets a value of compensation IDAC for the  sensor.
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2038:Generated_Source\PSoC4/capsense.c **** *  This API returns a value that indicates the IDAC range used by the
 2039:Generated_Source\PSoC4/capsense.c **** *  component to scan sensors. The IDAC range is common for all the sensors.
 2040:Generated_Source\PSoC4/capsense.c **** *
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 71
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 71
 
 
 2041:Generated_Source\PSoC4/capsense.c **** * Parameters:
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2063:Generated_Source\PSoC4/capsense.c ****     * Function Name: capsense_SetIDACRange
 2064:Generated_Source\PSoC4/capsense.c ****     ********************************************************************************
 2065:Generated_Source\PSoC4/capsense.c ****     *
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 72
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 72
 
 
 2066:Generated_Source\PSoC4/capsense.c ****     * Summary:
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1889 0016 0B40     		ands	r3, r1
  1890 0018 1360     		str	r3, [r2]
  1891              	.L127:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 73
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 73
 
 
 2099:Generated_Source\PSoC4/capsense.c ****                                                capsense_CSD_IDAC2_RANGE_8X);
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  1917 0000 70B5     		push	{r4, r5, r6, lr}
  1918              		.cfi_def_cfa_offset 16
  1919              		.cfi_offset 4, -16
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 74
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 74
 
 
  1920              		.cfi_offset 5, -12
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2143:Generated_Source\PSoC4/capsense.c ****     }
  1957              		.loc 1 2143 0
  1958              		@ sp needed
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 75
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 75
 
 
  1959              	.LVL220:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2183:Generated_Source\PSoC4/capsense.c **** 
 2184:Generated_Source\PSoC4/capsense.c ****             /* Scan null Channel and get Rawdata */
 2185:Generated_Source\PSoC4/capsense.c ****             rawData = capsense_GetSensorRaw(sensor);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 76
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 76
 
 
 2186:Generated_Source\PSoC4/capsense.c **** 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2234:Generated_Source\PSoC4/capsense.c ****     #if(capsense_IS_COMPLEX_SCANSLOTS)
 2235:Generated_Source\PSoC4/capsense.c ****         uint8 snsType;
 2236:Generated_Source\PSoC4/capsense.c ****         uint8 curSensor;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 77
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 77
 
 
 2237:Generated_Source\PSoC4/capsense.c ****         uint16 snsNumber;
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2008              		.cfi_offset 14, -4
  2009              	.LVL224:
  199:Generated_Source\PSoC4/capsense.c ****     {
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 78
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 78
 
 
  2010              		.loc 1 199 0
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2056 0000 10B5     		push	{r4, lr}
  2057              		.cfi_def_cfa_offset 8
  2058              		.cfi_offset 4, -8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 79
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 79
 
 
  2059              		.cfi_offset 14, -4
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2105              		.thumb_func
  2106              		.type	capsense_NormalizeWidgets, %function
  2107              	capsense_NormalizeWidgets:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 80
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 80
 
 
  2108              	.LFB73:
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2297:Generated_Source\PSoC4/capsense.c ****         maxPerWidget = 0u;
 2298:Generated_Source\PSoC4/capsense.c **** 
 2299:Generated_Source\PSoC4/capsense.c ****         sensorsPerWidget = capsense_numberOfSensors[currentWidget];
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 81
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 81
 
 
  2127              		.loc 1 2299 0
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
 2314:Generated_Source\PSoC4/capsense.c ****         while(currentSensor < lastSensor)
 2315:Generated_Source\PSoC4/capsense.c ****         {
 2316:Generated_Source\PSoC4/capsense.c ****             dataPtr[currentSensor] = (uint8)maxPerWidget;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 82
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 82
 
 
  2164              		.loc 1 2316 0
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2211              		.global	capsense_csdStatusVar
  2212              		.comm	capsense_scanSpeedTbl,1,4
  2213              		.global	capsense_lowLevelTuningDone
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 83
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 83
 
 
  2214              		.section	.rodata
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2268 0064 00000000 		.space	5
  2268      00
  2269 0069 000000   		.space	3
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 84
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 84
 
 
  2270              		.type	capsense_maskTable, %object
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2322              		.text
  2323              	.Letext0:
  2324              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 85
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 85
 
 
  2325              		.file 3 "Generated_Source\\PSoC4\\capsense_CSHL.h"
@@ -5053,10 +5053,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2334 0006 00000000 		.4byte	.Ldebug_abbrev0
  2335 000a 04       		.byte	0x4
  2336 000b 01       		.uleb128 0x1
- 2337 000c 80020000 		.4byte	.LASF140
+ 2337 000c BC020000 		.4byte	.LASF140
  2338 0010 0C       		.byte	0xc
- 2339 0011 70060000 		.4byte	.LASF141
- 2340 0015 E6060000 		.4byte	.LASF142
+ 2339 0011 AC060000 		.4byte	.LASF141
+ 2340 0015 1D010000 		.4byte	.LASF142
  2341 0019 00000000 		.4byte	.Ldebug_ranges0+0
  2342 001d 00000000 		.4byte	0
  2343 0021 00000000 		.4byte	.Ldebug_line0
@@ -5071,7 +5071,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2352 0033 02       		.uleb128 0x2
  2353 0034 02       		.byte	0x2
  2354 0035 05       		.byte	0x5
- 2355 0036 22060000 		.4byte	.LASF2
+ 2355 0036 5E060000 		.4byte	.LASF2
  2356 003a 02       		.uleb128 0x2
  2357 003b 02       		.byte	0x2
  2358 003c 07       		.byte	0x7
@@ -5079,7 +5079,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2360 0041 02       		.uleb128 0x2
  2361 0042 04       		.byte	0x4
  2362 0043 05       		.byte	0x5
- 2363 0044 2C060000 		.4byte	.LASF4
+ 2363 0044 68060000 		.4byte	.LASF4
  2364 0048 02       		.uleb128 0x2
  2365 0049 04       		.byte	0x4
  2366 004a 07       		.byte	0x7
@@ -5087,18 +5087,18 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2368 004f 02       		.uleb128 0x2
  2369 0050 08       		.byte	0x8
  2370 0051 05       		.byte	0x5
- 2371 0052 6E040000 		.4byte	.LASF6
+ 2371 0052 AA040000 		.4byte	.LASF6
  2372 0056 02       		.uleb128 0x2
  2373 0057 08       		.byte	0x8
  2374 0058 07       		.byte	0x7
- 2375 0059 E8010000 		.4byte	.LASF7
+ 2375 0059 24020000 		.4byte	.LASF7
  2376 005d 03       		.uleb128 0x3
  2377 005e 04       		.byte	0x4
  2378 005f 05       		.byte	0x5
  2379 0060 696E7400 		.ascii	"int\000"
  2380 0064 02       		.uleb128 0x2
  2381 0065 04       		.byte	0x4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 86
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 86
 
 
  2382 0066 07       		.byte	0x7
@@ -5109,19 +5109,19 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2387 0071 D201     		.2byte	0x1d2
  2388 0073 2C000000 		.4byte	0x2c
  2389 0077 04       		.uleb128 0x4
- 2390 0078 21040000 		.4byte	.LASF10
+ 2390 0078 5D040000 		.4byte	.LASF10
  2391 007c 02       		.byte	0x2
  2392 007d D301     		.2byte	0x1d3
  2393 007f 3A000000 		.4byte	0x3a
  2394 0083 04       		.uleb128 0x4
- 2395 0084 F7040000 		.4byte	.LASF11
+ 2395 0084 33050000 		.4byte	.LASF11
  2396 0088 02       		.byte	0x2
  2397 0089 D401     		.2byte	0x1d4
  2398 008b 48000000 		.4byte	0x48
  2399 008f 02       		.uleb128 0x2
  2400 0090 04       		.byte	0x4
  2401 0091 04       		.byte	0x4
- 2402 0092 C7010000 		.4byte	.LASF12
+ 2402 0092 03020000 		.4byte	.LASF12
  2403 0096 02       		.uleb128 0x2
  2404 0097 08       		.byte	0x8
  2405 0098 04       		.byte	0x4
@@ -5129,7 +5129,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2407 009d 02       		.uleb128 0x2
  2408 009e 01       		.byte	0x1
  2409 009f 08       		.byte	0x8
- 2410 00a0 BE030000 		.4byte	.LASF14
+ 2410 00a0 FA030000 		.4byte	.LASF14
  2411 00a4 04       		.uleb128 0x4
  2412 00a5 C0000000 		.4byte	.LASF15
  2413 00a9 02       		.byte	0x2
@@ -5138,7 +5138,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2416 00b0 05       		.uleb128 0x5
  2417 00b1 6B000000 		.4byte	0x6b
  2418 00b5 04       		.uleb128 0x4
- 2419 00b6 B5050000 		.4byte	.LASF16
+ 2419 00b6 F1050000 		.4byte	.LASF16
  2420 00ba 02       		.byte	0x2
  2421 00bb 7E02     		.2byte	0x27e
  2422 00bd C1000000 		.4byte	0xc1
@@ -5151,14 +5151,14 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2429 00cd 02       		.uleb128 0x2
  2430 00ce 08       		.byte	0x8
  2431 00cf 04       		.byte	0x4
- 2432 00d0 9E050000 		.4byte	.LASF18
+ 2432 00d0 DA050000 		.4byte	.LASF18
  2433 00d4 06       		.uleb128 0x6
  2434 00d5 04       		.byte	0x4
  2435 00d6 6B000000 		.4byte	0x6b
  2436 00da 06       		.uleb128 0x6
  2437 00db 04       		.byte	0x4
  2438 00dc E0000000 		.4byte	0xe0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 87
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 87
 
 
  2439 00e0 07       		.uleb128 0x7
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2493 0149 01       		.byte	0x1
  2494 014a 3D01     		.2byte	0x13d
  2495 014c 00000000 		.4byte	.LFB36
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 88
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 88
 
 
  2496 0150 40000000 		.4byte	.LFE36-.LFB36
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2550 01bd 08       		.byte	0x8
  2551 01be FF       		.byte	0xff
  2552 01bf 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 89
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 89
 
 
  2553 01c0 0A       		.uleb128 0xa
@@ -5303,7 +5303,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2572 01e2 00       		.byte	0
  2573 01e3 00       		.byte	0
  2574 01e4 0D       		.uleb128 0xd
- 2575 01e5 14050000 		.4byte	.LASF22
+ 2575 01e5 50050000 		.4byte	.LASF22
  2576 01e9 01       		.byte	0x1
  2577 01ea D401     		.2byte	0x1d4
  2578 01ec 00000000 		.4byte	.LFB38
@@ -5329,7 +5329,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2598 021b 96100000 		.4byte	0x1096
  2599 021f 00       		.byte	0
  2600 0220 10       		.uleb128 0x10
- 2601 0221 B5040000 		.4byte	.LASF54
+ 2601 0221 F1040000 		.4byte	.LASF54
  2602 0225 01       		.byte	0x1
  2603 0226 CF02     		.2byte	0x2cf
  2604 0228 83000000 		.4byte	0x83
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2607 0234 01       		.uleb128 0x1
  2608 0235 9C       		.byte	0x9c
  2609 0236 11       		.uleb128 0x11
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 90
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 90
 
 
  2610 0237 B9090000 		.4byte	.LASF29
@@ -5351,7 +5351,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2617 024b 9C       		.byte	0x9c
  2618 024c 61020000 		.4byte	0x261
  2619 0250 12       		.uleb128 0x12
- 2620 0251 9F030000 		.4byte	.LASF24
+ 2620 0251 DB030000 		.4byte	.LASF24
  2621 0255 01       		.byte	0x1
  2622 0256 ED02     		.2byte	0x2ed
  2623 0258 83000000 		.4byte	0x83
@@ -5367,13 +5367,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2633 0272 9C       		.byte	0x9c
  2634 0273 96020000 		.4byte	0x296
  2635 0277 12       		.uleb128 0x12
- 2636 0278 9F030000 		.4byte	.LASF24
+ 2636 0278 DB030000 		.4byte	.LASF24
  2637 027c 01       		.byte	0x1
  2638 027d 0803     		.2byte	0x308
  2639 027f 83000000 		.4byte	0x83
  2640 0283 74000000 		.4byte	.LLST3
  2641 0287 13       		.uleb128 0x13
- 2642 0288 4A020000 		.4byte	.LASF25
+ 2642 0288 86020000 		.4byte	.LASF25
  2643 028c 01       		.byte	0x1
  2644 028d 0803     		.2byte	0x308
  2645 028f 77000000 		.4byte	0x77
@@ -5381,7 +5381,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2647 0294 51       		.byte	0x51
  2648 0295 00       		.byte	0
  2649 0296 0D       		.uleb128 0xd
- 2650 0297 2F020000 		.4byte	.LASF26
+ 2650 0297 6B020000 		.4byte	.LASF26
  2651 029b 01       		.byte	0x1
  2652 029c 3203     		.2byte	0x332
  2653 029e 00000000 		.4byte	.LFB46
@@ -5390,15 +5390,15 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2656 02a7 9C       		.byte	0x9c
  2657 02a8 CB020000 		.4byte	0x2cb
  2658 02ac 12       		.uleb128 0x12
- 2659 02ad 16020000 		.4byte	.LASF27
+ 2659 02ad 52020000 		.4byte	.LASF27
  2660 02b1 01       		.byte	0x1
  2661 02b2 3203     		.2byte	0x332
  2662 02b4 83000000 		.4byte	0x83
  2663 02b8 95000000 		.4byte	.LLST4
  2664 02bc 13       		.uleb128 0x13
- 2665 02bd 37040000 		.4byte	.LASF28
+ 2665 02bd 73040000 		.4byte	.LASF28
  2666 02c1 01       		.byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 91
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 91
 
 
  2667 02c2 3203     		.2byte	0x332
@@ -5407,7 +5407,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2670 02c9 51       		.byte	0x51
  2671 02ca 00       		.byte	0
  2672 02cb 11       		.uleb128 0x11
- 2673 02cc CD010000 		.4byte	.LASF30
+ 2673 02cc 09020000 		.4byte	.LASF30
  2674 02d0 01       		.byte	0x1
  2675 02d1 5B03     		.2byte	0x35b
  2676 02d3 83000000 		.4byte	0x83
@@ -5417,7 +5417,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2680 02e0 9C       		.byte	0x9c
  2681 02e1 F6020000 		.4byte	0x2f6
  2682 02e5 12       		.uleb128 0x12
- 2683 02e6 16020000 		.4byte	.LASF27
+ 2683 02e6 52020000 		.4byte	.LASF27
  2684 02ea 01       		.byte	0x1
  2685 02eb 5B03     		.2byte	0x35b
  2686 02ed 83000000 		.4byte	0x83
@@ -5433,13 +5433,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2696 0307 9C       		.byte	0x9c
  2697 0308 7F030000 		.4byte	0x37f
  2698 030c 12       		.uleb128 0x12
- 2699 030d 9F030000 		.4byte	.LASF24
+ 2699 030d DB030000 		.4byte	.LASF24
  2700 0311 01       		.byte	0x1
  2701 0312 1404     		.2byte	0x414
  2702 0314 83000000 		.4byte	0x83
  2703 0318 D7000000 		.4byte	.LLST6
  2704 031c 0E       		.uleb128 0xe
- 2705 031d 37010000 		.4byte	.LASF32
+ 2705 031d 73010000 		.4byte	.LASF32
  2706 0321 01       		.byte	0x1
  2707 0322 1604     		.2byte	0x416
  2708 0324 6B000000 		.4byte	0x6b
@@ -5457,8 +5457,8 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2720 0344 6B000000 		.4byte	0x6b
  2721 0348 9F010000 		.4byte	.LLST9
  2722 034c 0E       		.uleb128 0xe
- 2723 034d 0E030000 		.4byte	.LASF35
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 92
+ 2723 034d 4A030000 		.4byte	.LASF35
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 92
 
 
  2724 0351 01       		.byte	0x1
@@ -5479,7 +5479,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2739 037a E3100000 		.4byte	0x10e3
  2740 037e 00       		.byte	0
  2741 037f 0D       		.uleb128 0xd
- 2742 0380 FF010000 		.4byte	.LASF37
+ 2742 0380 3B020000 		.4byte	.LASF37
  2743 0384 01       		.byte	0x1
  2744 0385 4904     		.2byte	0x449
  2745 0387 00000000 		.4byte	.LFB50
@@ -5488,7 +5488,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2748 0390 9C       		.byte	0x9c
  2749 0391 28040000 		.4byte	0x428
  2750 0395 12       		.uleb128 0x12
- 2751 0396 9F030000 		.4byte	.LASF24
+ 2751 0396 DB030000 		.4byte	.LASF24
  2752 039a 01       		.byte	0x1
  2753 039b 4904     		.2byte	0x449
  2754 039d 83000000 		.4byte	0x83
@@ -5500,7 +5500,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2760 03ad 6B000000 		.4byte	0x6b
  2761 03b1 3E020000 		.4byte	.LLST13
  2762 03b5 0E       		.uleb128 0xe
- 2763 03b6 0E030000 		.4byte	.LASF35
+ 2763 03b6 4A030000 		.4byte	.LASF35
  2764 03ba 01       		.byte	0x1
  2765 03bb 4C04     		.2byte	0x44c
  2766 03bd 83000000 		.4byte	0x83
@@ -5518,22 +5518,22 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2778 03dd 6B000000 		.4byte	0x6b
  2779 03e1 D5020000 		.4byte	.LLST16
  2780 03e5 0E       		.uleb128 0xe
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 93
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 93
 
 
- 2781 03e6 37010000 		.4byte	.LASF32
+ 2781 03e6 73010000 		.4byte	.LASF32
  2782 03ea 01       		.byte	0x1
  2783 03eb 5004     		.2byte	0x450
  2784 03ed 6B000000 		.4byte	0x6b
  2785 03f1 0F030000 		.4byte	.LLST17
  2786 03f5 0E       		.uleb128 0xe
- 2787 03f6 88010000 		.4byte	.LASF38
+ 2787 03f6 C4010000 		.4byte	.LASF38
  2788 03fa 01       		.byte	0x1
  2789 03fb 5204     		.2byte	0x452
  2790 03fd 83000000 		.4byte	0x83
  2791 0401 5E030000 		.4byte	.LLST18
  2792 0405 0E       		.uleb128 0xe
- 2793 0406 1F030000 		.4byte	.LASF39
+ 2793 0406 5B030000 		.4byte	.LASF39
  2794 040a 01       		.byte	0x1
  2795 040b 5304     		.2byte	0x453
  2796 040d 83000000 		.4byte	0x83
@@ -5546,7 +5546,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2803 0423 E3100000 		.4byte	0x10e3
  2804 0427 00       		.byte	0
  2805 0428 0D       		.uleb128 0xd
- 2806 0429 A9060000 		.4byte	.LASF40
+ 2806 0429 E5060000 		.4byte	.LASF40
  2807 042d 01       		.byte	0x1
  2808 042e 7603     		.2byte	0x376
  2809 0430 00000000 		.4byte	.LFB48
@@ -5555,7 +5555,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2812 0439 9C       		.byte	0x9c
  2813 043a 5F040000 		.4byte	0x45f
  2814 043e 0E       		.uleb128 0xe
- 2815 043f 74050000 		.4byte	.LASF41
+ 2815 043f B0050000 		.4byte	.LASF41
  2816 0443 01       		.byte	0x1
  2817 0444 7803     		.2byte	0x378
  2818 0446 83000000 		.4byte	0x83
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2835 0467 00000000 		.4byte	.LFB53
  2836 046b 24000000 		.4byte	.LFE53-.LFB53
  2837 046f 01       		.uleb128 0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 94
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 94
 
 
  2838 0470 9C       		.byte	0x9c
@@ -5590,33 +5590,33 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2844 047d 83000000 		.4byte	0x83
  2845 0481 AF030000 		.4byte	.LLST21
  2846 0485 12       		.uleb128 0x12
- 2847 0486 49050000 		.4byte	.LASF44
+ 2847 0486 85050000 		.4byte	.LASF44
  2848 048a 01       		.byte	0x1
  2849 048b 1305     		.2byte	0x513
  2850 048d 83000000 		.4byte	0x83
  2851 0491 D0030000 		.4byte	.LLST22
  2852 0495 12       		.uleb128 0x12
- 2853 0496 D5050000 		.4byte	.LASF45
+ 2853 0496 11060000 		.4byte	.LASF45
  2854 049a 01       		.byte	0x1
  2855 049b 1305     		.2byte	0x513
  2856 049d 83000000 		.4byte	0x83
  2857 04a1 F1030000 		.4byte	.LLST23
  2858 04a5 14       		.uleb128 0x14
- 2859 04a6 37010000 		.4byte	.LASF32
+ 2859 04a6 73010000 		.4byte	.LASF32
  2860 04aa 01       		.byte	0x1
  2861 04ab 1505     		.2byte	0x515
  2862 04ad 83000000 		.4byte	0x83
  2863 04b1 01       		.uleb128 0x1
  2864 04b2 51       		.byte	0x51
  2865 04b3 0E       		.uleb128 0xe
- 2866 04b4 0E030000 		.4byte	.LASF35
+ 2866 04b4 4A030000 		.4byte	.LASF35
  2867 04b8 01       		.byte	0x1
  2868 04b9 1605     		.2byte	0x516
  2869 04bb 83000000 		.4byte	0x83
  2870 04bf 12040000 		.4byte	.LLST24
  2871 04c3 00       		.byte	0
  2872 04c4 0D       		.uleb128 0xd
- 2873 04c5 BF060000 		.4byte	.LASF46
+ 2873 04c5 FB060000 		.4byte	.LASF46
  2874 04c9 01       		.byte	0x1
  2875 04ca 9604     		.2byte	0x496
  2876 04cc 00000000 		.4byte	.LFB51
@@ -5637,8 +5637,8 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2891 04f2 6B000000 		.4byte	0x6b
  2892 04f6 5C040000 		.4byte	.LLST26
  2893 04fa 0E       		.uleb128 0xe
- 2894 04fb 52030000 		.4byte	.LASF48
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 95
+ 2894 04fb 8E030000 		.4byte	.LASF48
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 95
 
 
  2895 04ff 01       		.byte	0x1
@@ -5646,7 +5646,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2897 0502 83000000 		.4byte	0x83
  2898 0506 86040000 		.4byte	.LLST27
  2899 050a 0E       		.uleb128 0xe
- 2900 050b 42040000 		.4byte	.LASF49
+ 2900 050b 7E040000 		.4byte	.LASF49
  2901 050f 01       		.byte	0x1
  2902 0510 9E04     		.2byte	0x49e
  2903 0512 83000000 		.4byte	0x83
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2949 055b 50       		.byte	0x50
  2950 055c 02       		.uleb128 0x2
  2951 055d 75       		.byte	0x75
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 96
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 96
 
 
  2952 055e 00       		.sleb128 0
@@ -5715,7 +5715,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2963 0569 00       		.byte	0
  2964 056a 00       		.byte	0
  2965 056b 0D       		.uleb128 0xd
- 2966 056c 7D050000 		.4byte	.LASF50
+ 2966 056c B9050000 		.4byte	.LASF50
  2967 0570 01       		.byte	0x1
  2968 0571 DF04     		.2byte	0x4df
  2969 0573 00000000 		.4byte	.LFB52
@@ -5724,7 +5724,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2972 057c 9C       		.byte	0x9c
  2973 057d 9F050000 		.4byte	0x59f
  2974 0581 14       		.uleb128 0x14
- 2975 0582 0E030000 		.4byte	.LASF35
+ 2975 0582 4A030000 		.4byte	.LASF35
  2976 0586 01       		.byte	0x1
  2977 0587 E104     		.2byte	0x4e1
  2978 0589 83000000 		.4byte	0x83
@@ -5741,7 +5741,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2989 059d 00       		.byte	0
  2990 059e 00       		.byte	0
  2991 059f 0D       		.uleb128 0xd
- 2992 05a0 4F040000 		.4byte	.LASF51
+ 2992 05a0 8B040000 		.4byte	.LASF51
  2993 05a4 01       		.byte	0x1
  2994 05a5 5906     		.2byte	0x659
  2995 05a7 00000000 		.4byte	.LFB56
@@ -5750,15 +5750,15 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  2998 05b0 9C       		.byte	0x9c
  2999 05b1 E6050000 		.4byte	0x5e6
  3000 05b5 12       		.uleb128 0x12
- 3001 05b6 49050000 		.4byte	.LASF44
+ 3001 05b6 85050000 		.4byte	.LASF44
  3002 05ba 01       		.byte	0x1
  3003 05bb 5906     		.2byte	0x659
  3004 05bd 83000000 		.4byte	0x83
  3005 05c1 0C050000 		.4byte	.LLST29
  3006 05c5 12       		.uleb128 0x12
- 3007 05c6 D5050000 		.4byte	.LASF45
+ 3007 05c6 11060000 		.4byte	.LASF45
  3008 05ca 01       		.byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 97
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 97
 
 
  3009 05cb 5906     		.2byte	0x659
@@ -5781,7 +5781,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3026 05f7 9C       		.byte	0x9c
  3027 05f8 1D060000 		.4byte	0x61d
  3028 05fc 12       		.uleb128 0x12
- 3029 05fd 35060000 		.4byte	.LASF53
+ 3029 05fd 71060000 		.4byte	.LASF53
  3030 0601 01       		.byte	0x1
  3031 0602 7C06     		.2byte	0x67c
  3032 0604 83000000 		.4byte	0x83
@@ -5803,7 +5803,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3048 0631 01       		.uleb128 0x1
  3049 0632 9C       		.byte	0x9c
  3050 0633 11       		.uleb128 0x11
- 3051 0634 B2010000 		.4byte	.LASF56
+ 3051 0634 EE010000 		.4byte	.LASF56
  3052 0638 01       		.byte	0x1
  3053 0639 BC06     		.2byte	0x6bc
  3054 063b 83000000 		.4byte	0x83
@@ -5813,12 +5813,12 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3058 0648 9C       		.byte	0x9c
  3059 0649 8C060000 		.4byte	0x68c
  3060 064d 12       		.uleb128 0x12
- 3061 064e 1B040000 		.4byte	.LASF57
+ 3061 064e 57040000 		.4byte	.LASF57
  3062 0652 01       		.byte	0x1
  3063 0653 BC06     		.2byte	0x6bc
  3064 0655 DA000000 		.4byte	0xda
  3065 0659 C7050000 		.4byte	.LLST34
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 98
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 98
 
 
  3066 065d 12       		.uleb128 0x12
@@ -5828,7 +5828,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3070 0665 83000000 		.4byte	0x83
  3071 0669 01060000 		.4byte	.LLST35
  3072 066d 0E       		.uleb128 0xe
- 3073 066e 2B030000 		.4byte	.LASF59
+ 3073 066e 67030000 		.4byte	.LASF59
  3074 0672 01       		.byte	0x1
  3075 0673 BE06     		.2byte	0x6be
  3076 0675 83000000 		.4byte	0x83
@@ -5842,7 +5842,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3084 068a 53       		.byte	0x53
  3085 068b 00       		.byte	0
  3086 068c 11       		.uleb128 0x11
- 3087 068d 70010000 		.4byte	.LASF61
+ 3087 068d AC010000 		.4byte	.LASF61
  3088 0691 01       		.byte	0x1
  3089 0692 FA01     		.2byte	0x1fa
  3090 0694 6B000000 		.4byte	0x6b
@@ -5852,13 +5852,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3094 06a1 9C       		.byte	0x9c
  3095 06a2 E0060000 		.4byte	0x6e0
  3096 06a6 12       		.uleb128 0x12
- 3097 06a7 74050000 		.4byte	.LASF41
+ 3097 06a7 B0050000 		.4byte	.LASF41
  3098 06ab 01       		.byte	0x1
  3099 06ac FA01     		.2byte	0x1fa
  3100 06ae 6B000000 		.4byte	0x6b
  3101 06b2 45060000 		.4byte	.LLST37
  3102 06b6 0E       		.uleb128 0xe
- 3103 06b7 9C040000 		.4byte	.LASF62
+ 3103 06b7 D8040000 		.4byte	.LASF62
  3104 06bb 01       		.byte	0x1
  3105 06bc FC01     		.2byte	0x1fc
  3106 06be 83000000 		.4byte	0x83
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3120 06db 02       		.uleb128 0x2
  3121 06dc 74       		.byte	0x74
  3122 06dd 00       		.sleb128 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 99
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 99
 
 
  3123 06de 00       		.byte	0
@@ -5893,13 +5893,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3132 06f1 9C       		.byte	0x9c
  3133 06f2 73080000 		.4byte	0x873
  3134 06f6 12       		.uleb128 0x12
- 3135 06f7 9F030000 		.4byte	.LASF24
+ 3135 06f7 DB030000 		.4byte	.LASF24
  3136 06fb 01       		.byte	0x1
  3137 06fc 3705     		.2byte	0x537
  3138 06fe 83000000 		.4byte	0x83
  3139 0702 8C060000 		.4byte	.LLST39
  3140 0706 0E       		.uleb128 0xe
- 3141 0707 16020000 		.4byte	.LASF27
+ 3141 0707 52020000 		.4byte	.LASF27
  3142 070b 01       		.byte	0x1
  3143 070c 3905     		.2byte	0x539
  3144 070e 6B000000 		.4byte	0x6b
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3177 0766 05       		.uleb128 0x5
  3178 0767 03       		.byte	0x3
  3179 0768 00000000 		.4byte	capsense_scanSpeedTbl
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 100
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 100
 
 
  3180 076c 0B       		.uleb128 0xb
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3234 07d2 00       		.byte	0
  3235 07d3 0A       		.uleb128 0xa
  3236 07d4 5E000000 		.4byte	.LVL135
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 101
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 101
 
 
  3237 07d8 6A100000 		.4byte	0x106a
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3291 0841 50       		.byte	0x50
  3292 0842 02       		.uleb128 0x2
  3293 0843 74       		.byte	0x74
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 102
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 102
 
 
  3294 0844 00       		.sleb128 0
@@ -6088,7 +6088,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3318 0871 00       		.byte	0
  3319 0872 00       		.byte	0
  3320 0873 0D       		.uleb128 0xd
- 3321 0874 07040000 		.4byte	.LASF66
+ 3321 0874 43040000 		.4byte	.LASF66
  3322 0878 01       		.byte	0x1
  3323 0879 2A02     		.2byte	0x22a
  3324 087b 00000000 		.4byte	.LFB40
@@ -6097,7 +6097,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3327 0884 9C       		.byte	0x9c
  3328 0885 AB080000 		.4byte	0x8ab
  3329 0889 12       		.uleb128 0x12
- 3330 088a 9F030000 		.4byte	.LASF24
+ 3330 088a DB030000 		.4byte	.LASF24
  3331 088e 01       		.byte	0x1
  3332 088f 2A02     		.2byte	0x22a
  3333 0891 83000000 		.4byte	0x83
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3348 08ac 59090000 		.4byte	.LASF67
  3349 08b0 01       		.byte	0x1
  3350 08b1 A602     		.2byte	0x2a6
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 103
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 103
 
 
  3351 08b3 00000000 		.4byte	.LFB42
@@ -6134,7 +6134,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3361 08cf E0060000 		.4byte	0x6e0
  3362 08d3 00       		.byte	0
  3363 08d4 0D       		.uleb128 0xd
- 3364 08d5 22050000 		.4byte	.LASF68
+ 3364 08d5 5E050000 		.4byte	.LASF68
  3365 08d9 01       		.byte	0x1
  3366 08da FC05     		.2byte	0x5fc
  3367 08dc 00000000 		.4byte	.LFB55
@@ -6143,7 +6143,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3370 08e5 9C       		.byte	0x9c
  3371 08e6 7E090000 		.4byte	0x97e
  3372 08ea 12       		.uleb128 0x12
- 3373 08eb 9F030000 		.4byte	.LASF24
+ 3373 08eb DB030000 		.4byte	.LASF24
  3374 08ef 01       		.byte	0x1
  3375 08f0 FC05     		.2byte	0x5fc
  3376 08f2 83000000 		.4byte	0x83
@@ -6161,7 +6161,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3388 0912 83000000 		.4byte	0x83
  3389 0916 1B080000 		.4byte	.LLST48
  3390 091a 0E       		.uleb128 0xe
- 3391 091b 16020000 		.4byte	.LASF27
+ 3391 091b 52020000 		.4byte	.LASF27
  3392 091f 01       		.byte	0x1
  3393 0920 0206     		.2byte	0x602
  3394 0922 83000000 		.4byte	0x83
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3405 093c 00000000 		.4byte	capsense_scanSpeedTbl
  3406 0940 0B       		.uleb128 0xb
  3407 0941 01       		.uleb128 0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 104
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 104
 
 
  3408 0942 51       		.byte	0x51
@@ -6227,7 +6227,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3451 098f 9C       		.byte	0x9c
  3452 0990 E3090000 		.4byte	0x9e3
  3453 0994 13       		.uleb128 0x13
- 3454 0995 1B040000 		.4byte	.LASF57
+ 3454 0995 57040000 		.4byte	.LASF57
  3455 0999 01       		.byte	0x1
  3456 099a E706     		.2byte	0x6e7
  3457 099c D4000000 		.4byte	0xd4
@@ -6238,18 +6238,18 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3462 09a7 01       		.byte	0x1
  3463 09a8 E706     		.2byte	0x6e7
  3464 09aa 83000000 		.4byte	0x83
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 105
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 105
 
 
  3465 09ae BD080000 		.4byte	.LLST50
  3466 09b2 12       		.uleb128 0x12
- 3467 09b3 4A020000 		.4byte	.LASF25
+ 3467 09b3 86020000 		.4byte	.LASF25
  3468 09b7 01       		.byte	0x1
  3469 09b8 E706     		.2byte	0x6e7
  3470 09ba 83000000 		.4byte	0x83
  3471 09be DE080000 		.4byte	.LLST51
  3472 09c2 0E       		.uleb128 0xe
- 3473 09c3 2B030000 		.4byte	.LASF59
+ 3473 09c3 67030000 		.4byte	.LASF59
  3474 09c7 01       		.byte	0x1
  3475 09c8 E906     		.2byte	0x6e9
  3476 09ca 83000000 		.4byte	0x83
@@ -6262,7 +6262,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3483 09de 56090000 		.4byte	.LLST53
  3484 09e2 00       		.byte	0
  3485 09e3 0D       		.uleb128 0xd
- 3486 09e4 50020000 		.4byte	.LASF70
+ 3486 09e4 8C020000 		.4byte	.LASF70
  3487 09e8 01       		.byte	0x1
  3488 09e9 5102     		.2byte	0x251
  3489 09eb 00000000 		.4byte	.LFB41
@@ -6271,25 +6271,25 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3492 09f4 9C       		.byte	0x9c
  3493 09f5 870A0000 		.4byte	0xa87
  3494 09f9 12       		.uleb128 0x12
- 3495 09fa 16020000 		.4byte	.LASF27
+ 3495 09fa 52020000 		.4byte	.LASF27
  3496 09fe 01       		.byte	0x1
  3497 09ff 5102     		.2byte	0x251
  3498 0a01 83000000 		.4byte	0x83
  3499 0a05 92090000 		.4byte	.LLST54
  3500 0a09 0E       		.uleb128 0xe
- 3501 0a0a 5F030000 		.4byte	.LASF71
+ 3501 0a0a 9B030000 		.4byte	.LASF71
  3502 0a0e 01       		.byte	0x1
  3503 0a0f 5302     		.2byte	0x253
  3504 0a11 83000000 		.4byte	0x83
  3505 0a15 B3090000 		.4byte	.LLST55
  3506 0a19 0E       		.uleb128 0xe
- 3507 0a1a AA050000 		.4byte	.LASF72
+ 3507 0a1a E6050000 		.4byte	.LASF72
  3508 0a1e 01       		.byte	0x1
  3509 0a1f 5402     		.2byte	0x254
  3510 0a21 83000000 		.4byte	0x83
  3511 0a25 C6090000 		.4byte	.LLST56
  3512 0a29 0E       		.uleb128 0xe
- 3513 0a2a 74050000 		.4byte	.LASF41
+ 3513 0a2a B0050000 		.4byte	.LASF41
  3514 0a2e 01       		.byte	0x1
  3515 0a2f 5502     		.2byte	0x255
  3516 0a31 83000000 		.4byte	0x83
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3519 0a3a 4A000000 		.4byte	.LVL193
  3520 0a3e 7E090000 		.4byte	0x97e
  3521 0a42 5B0A0000 		.4byte	0xa5b
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 106
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 106
 
 
  3522 0a46 0B       		.uleb128 0xb
@@ -6356,9 +6356,9 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3574 0a9c 9C       		.byte	0x9c
  3575 0a9d B20A0000 		.4byte	0xab2
  3576 0aa1 12       		.uleb128 0x12
- 3577 0aa2 9F030000 		.4byte	.LASF24
+ 3577 0aa2 DB030000 		.4byte	.LASF24
  3578 0aa6 01       		.byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 107
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 107
 
 
  3579 0aa7 1907     		.2byte	0x719
@@ -6366,7 +6366,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3581 0aad 030A0000 		.4byte	.LLST58
  3582 0ab1 00       		.byte	0
  3583 0ab2 0D       		.uleb128 0xd
- 3584 0ab3 DB040000 		.4byte	.LASF74
+ 3584 0ab3 17050000 		.4byte	.LASF74
  3585 0ab7 01       		.byte	0x1
  3586 0ab8 3807     		.2byte	0x738
  3587 0aba 00000000 		.4byte	.LFB62
@@ -6375,14 +6375,14 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3590 0ac3 9C       		.byte	0x9c
  3591 0ac4 E50A0000 		.4byte	0xae5
  3592 0ac8 13       		.uleb128 0x13
- 3593 0ac9 9F030000 		.4byte	.LASF24
+ 3593 0ac9 DB030000 		.4byte	.LASF24
  3594 0acd 01       		.byte	0x1
  3595 0ace 3807     		.2byte	0x738
  3596 0ad0 83000000 		.4byte	0x83
  3597 0ad4 01       		.uleb128 0x1
  3598 0ad5 50       		.byte	0x50
  3599 0ad6 13       		.uleb128 0x13
- 3600 0ad7 19060000 		.4byte	.LASF75
+ 3600 0ad7 55060000 		.4byte	.LASF75
  3601 0adb 01       		.byte	0x1
  3602 0adc 3807     		.2byte	0x738
  3603 0ade 83000000 		.4byte	0x83
@@ -6390,7 +6390,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3605 0ae3 51       		.byte	0x51
  3606 0ae4 00       		.byte	0
  3607 0ae5 11       		.uleb128 0x11
- 3608 0ae6 E7030000 		.4byte	.LASF76
+ 3608 0ae6 23040000 		.4byte	.LASF76
  3609 0aea 01       		.byte	0x1
  3610 0aeb 5807     		.2byte	0x758
  3611 0aed 83000000 		.4byte	0x83
@@ -6400,14 +6400,14 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3615 0afa 9C       		.byte	0x9c
  3616 0afb 100B0000 		.4byte	0xb10
  3617 0aff 12       		.uleb128 0x12
- 3618 0b00 9F030000 		.4byte	.LASF24
+ 3618 0b00 DB030000 		.4byte	.LASF24
  3619 0b04 01       		.byte	0x1
  3620 0b05 5807     		.2byte	0x758
  3621 0b07 83000000 		.4byte	0x83
  3622 0b0b 240A0000 		.4byte	.LLST59
  3623 0b0f 00       		.byte	0
  3624 0b10 0D       		.uleb128 0xd
- 3625 0b11 32030000 		.4byte	.LASF77
+ 3625 0b11 6E030000 		.4byte	.LASF77
  3626 0b15 01       		.byte	0x1
  3627 0b16 7707     		.2byte	0x777
  3628 0b18 00000000 		.4byte	.LFB64
@@ -6416,9 +6416,9 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3631 0b21 9C       		.byte	0x9c
  3632 0b22 430B0000 		.4byte	0xb43
  3633 0b26 13       		.uleb128 0x13
- 3634 0b27 9F030000 		.4byte	.LASF24
+ 3634 0b27 DB030000 		.4byte	.LASF24
  3635 0b2b 01       		.byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 108
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 108
 
 
  3636 0b2c 7707     		.2byte	0x777
@@ -6444,7 +6444,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3656 0b58 9C       		.byte	0x9c
  3657 0b59 6E0B0000 		.4byte	0xb6e
  3658 0b5d 12       		.uleb128 0x12
- 3659 0b5e 9F030000 		.4byte	.LASF24
+ 3659 0b5e DB030000 		.4byte	.LASF24
  3660 0b62 01       		.byte	0x1
  3661 0b63 9607     		.2byte	0x796
  3662 0b65 83000000 		.4byte	0x83
@@ -6460,7 +6460,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3672 0b7f 9C       		.byte	0x9c
  3673 0b80 A10B0000 		.4byte	0xba1
  3674 0b84 13       		.uleb128 0x13
- 3675 0b85 9F030000 		.4byte	.LASF24
+ 3675 0b85 DB030000 		.4byte	.LASF24
  3676 0b89 01       		.byte	0x1
  3677 0b8a B107     		.2byte	0x7b1
  3678 0b8c 83000000 		.4byte	0x83
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3690 0ba2 75090000 		.4byte	.LASF82
  3691 0ba6 01       		.byte	0x1
  3692 0ba7 CE07     		.2byte	0x7ce
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 109
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 109
 
 
  3693 0ba9 83000000 		.4byte	0x83
@@ -6488,7 +6488,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3697 0bb6 9C       		.byte	0x9c
  3698 0bb7 CC0B0000 		.4byte	0xbcc
  3699 0bbb 12       		.uleb128 0x12
- 3700 0bbc 9F030000 		.4byte	.LASF24
+ 3700 0bbc DB030000 		.4byte	.LASF24
  3701 0bc0 01       		.byte	0x1
  3702 0bc1 CE07     		.2byte	0x7ce
  3703 0bc3 83000000 		.4byte	0x83
@@ -6504,7 +6504,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3713 0bdd 9C       		.byte	0x9c
  3714 0bde FF0B0000 		.4byte	0xbff
  3715 0be2 13       		.uleb128 0x13
- 3716 0be3 9F030000 		.4byte	.LASF24
+ 3716 0be3 DB030000 		.4byte	.LASF24
  3717 0be7 01       		.byte	0x1
  3718 0be8 EB07     		.2byte	0x7eb
  3719 0bea 83000000 		.4byte	0x83
@@ -6528,7 +6528,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3737 0c13 01       		.uleb128 0x1
  3738 0c14 9C       		.byte	0x9c
  3739 0c15 0D       		.uleb128 0xd
- 3740 0c16 5A010000 		.4byte	.LASF86
+ 3740 0c16 96010000 		.4byte	.LASF86
  3741 0c1a 01       		.byte	0x1
  3742 0c1b 2608     		.2byte	0x826
  3743 0c1d 00000000 		.4byte	.LFB70
@@ -6537,8 +6537,8 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3746 0c26 9C       		.byte	0x9c
  3747 0c27 3A0C0000 		.4byte	0xc3a
  3748 0c2b 13       		.uleb128 0x13
- 3749 0c2c DC060000 		.4byte	.LASF87
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 110
+ 3749 0c2c 18070000 		.4byte	.LASF87
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 110
 
 
  3750 0c30 01       		.byte	0x1
@@ -6558,13 +6558,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3764 0c4f 9C       		.byte	0x9c
  3765 0c50 B20C0000 		.4byte	0xcb2
  3766 0c54 12       		.uleb128 0x12
- 3767 0c55 9F030000 		.4byte	.LASF24
+ 3767 0c55 DB030000 		.4byte	.LASF24
  3768 0c59 01       		.byte	0x1
  3769 0c5a 4E08     		.2byte	0x84e
  3770 0c5c 83000000 		.4byte	0x83
  3771 0c60 870A0000 		.4byte	.LLST62
  3772 0c64 0E       		.uleb128 0xe
- 3773 0c65 70030000 		.4byte	.LASF89
+ 3773 0c65 AC030000 		.4byte	.LASF89
  3774 0c69 01       		.byte	0x1
  3775 0c6a 5008     		.2byte	0x850
  3776 0c6c 83000000 		.4byte	0x83
@@ -6598,13 +6598,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3804 0cad 02       		.uleb128 0x2
  3805 0cae 76       		.byte	0x76
  3806 0caf 00       		.sleb128 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 111
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 111
 
 
  3807 0cb0 00       		.byte	0
  3808 0cb1 00       		.byte	0
  3809 0cb2 0D       		.uleb128 0xd
- 3810 0cb3 53050000 		.4byte	.LASF91
+ 3810 0cb3 8F050000 		.4byte	.LASF91
  3811 0cb7 01       		.byte	0x1
  3812 0cb8 B808     		.2byte	0x8b8
  3813 0cba 00000000 		.4byte	.LFB72
@@ -6613,14 +6613,14 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3816 0cc3 9C       		.byte	0x9c
  3817 0cc4 E50C0000 		.4byte	0xce5
  3818 0cc8 13       		.uleb128 0x13
- 3819 0cc9 9F030000 		.4byte	.LASF24
+ 3819 0cc9 DB030000 		.4byte	.LASF24
  3820 0ccd 01       		.byte	0x1
  3821 0cce B808     		.2byte	0x8b8
  3822 0cd0 83000000 		.4byte	0x83
  3823 0cd4 01       		.uleb128 0x1
  3824 0cd5 50       		.byte	0x50
  3825 0cd6 13       		.uleb128 0x13
- 3826 0cd7 1F030000 		.4byte	.LASF39
+ 3826 0cd7 5B030000 		.4byte	.LASF39
  3827 0cdb 01       		.byte	0x1
  3828 0cdc B808     		.2byte	0x8b8
  3829 0cde 83000000 		.4byte	0x83
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3861 0d1f 01       		.uleb128 0x1
  3862 0d20 30       		.byte	0x30
  3863 0d21 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 112
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 112
 
 
  3864 0d22 0F       		.uleb128 0xf
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3918 0da3 D8000000 		.4byte	.LASF96
  3919 0da7 01       		.byte	0x1
  3920 0da8 EF08     		.2byte	0x8ef
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 113
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 113
 
 
  3921 0daa 83000000 		.4byte	0x83
@@ -6732,7 +6732,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3929 0dbc 01       		.uleb128 0x1
  3930 0dbd 51       		.byte	0x51
  3931 0dbe 0E       		.uleb128 0xe
- 3932 0dbf A7040000 		.4byte	.LASF98
+ 3932 0dbf E3040000 		.4byte	.LASF98
  3933 0dc3 01       		.byte	0x1
  3934 0dc4 F108     		.2byte	0x8f1
  3935 0dc6 83000000 		.4byte	0x83
@@ -6744,26 +6744,26 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3941 0dd6 83000000 		.4byte	0x83
  3942 0dda 2F0B0000 		.4byte	.LLST67
  3943 0dde 0E       		.uleb128 0xe
- 3944 0ddf AA050000 		.4byte	.LASF72
+ 3944 0ddf E6050000 		.4byte	.LASF72
  3945 0de3 01       		.byte	0x1
  3946 0de4 F308     		.2byte	0x8f3
  3947 0de6 83000000 		.4byte	0x83
  3948 0dea 580B0000 		.4byte	.LLST68
  3949 0dee 0E       		.uleb128 0xe
- 3950 0def 5F030000 		.4byte	.LASF71
+ 3950 0def 9B030000 		.4byte	.LASF71
  3951 0df3 01       		.byte	0x1
  3952 0df4 F408     		.2byte	0x8f4
  3953 0df6 83000000 		.4byte	0x83
  3954 0dfa 6B0B0000 		.4byte	.LLST69
  3955 0dfe 0E       		.uleb128 0xe
- 3956 0dff E0050000 		.4byte	.LASF100
+ 3956 0dff 1C060000 		.4byte	.LASF100
  3957 0e03 01       		.byte	0x1
  3958 0e04 F508     		.2byte	0x8f5
  3959 0e06 83000000 		.4byte	0x83
  3960 0e0a 7E0B0000 		.4byte	.LLST70
  3961 0e0e 00       		.byte	0
  3962 0e0f 15       		.uleb128 0x15
- 3963 0e10 64020000 		.4byte	.LASF101
+ 3963 0e10 A0020000 		.4byte	.LASF101
  3964 0e14 01       		.byte	0x1
  3965 0e15 24       		.byte	0x24
  3966 0e16 6B000000 		.4byte	0x6b
@@ -6778,10 +6778,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3975 0e2e 00       		.byte	0
  3976 0e2f 00       		.byte	0
  3977 0e30 15       		.uleb128 0x15
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 114
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 114
 
 
- 3978 0e31 C5040000 		.4byte	.LASF102
+ 3978 0e31 01050000 		.4byte	.LASF102
  3979 0e35 01       		.byte	0x1
  3980 0e36 25       		.byte	0x25
  3981 0e37 200E0000 		.4byte	0xe20
@@ -6789,7 +6789,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3983 0e3c 03       		.byte	0x3
  3984 0e3d 00000000 		.4byte	capsense_scanSpeedTbl
  3985 0e41 15       		.uleb128 0x15
- 3986 0e42 FE040000 		.4byte	.LASF103
+ 3986 0e42 3A050000 		.4byte	.LASF103
  3987 0e46 01       		.byte	0x1
  3988 0e47 2D       		.byte	0x2d
  3989 0e48 B0000000 		.4byte	0xb0
@@ -6797,7 +6797,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  3991 0e4d 03       		.byte	0x3
  3992 0e4e 00000000 		.4byte	capsense_csdStatusVar
  3993 0e52 15       		.uleb128 0x15
- 3994 0e53 34050000 		.4byte	.LASF104
+ 3994 0e53 70050000 		.4byte	.LASF104
  3995 0e57 01       		.byte	0x1
  3996 0e58 2E       		.byte	0x2e
  3997 0e59 B0000000 		.4byte	0xb0
@@ -6812,7 +6812,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4006 0e71 04       		.byte	0x4
  4007 0e72 00       		.byte	0
  4008 0e73 15       		.uleb128 0x15
- 4009 0e74 7A030000 		.4byte	.LASF105
+ 4009 0e74 B6030000 		.4byte	.LASF105
  4010 0e78 01       		.byte	0x1
  4011 0e79 31       		.byte	0x31
  4012 0e7a 630E0000 		.4byte	0xe63
@@ -6827,7 +6827,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4021 0e92 04       		.byte	0x4
  4022 0e93 00       		.byte	0
  4023 0e94 15       		.uleb128 0x15
- 4024 0e95 51060000 		.4byte	.LASF106
+ 4024 0e95 8D060000 		.4byte	.LASF106
  4025 0e99 01       		.byte	0x1
  4026 0e9a 3B       		.byte	0x3b
  4027 0e9b 840E0000 		.4byte	0xe84
@@ -6835,10 +6835,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4029 0ea0 03       		.byte	0x3
  4030 0ea1 00000000 		.4byte	capsense_unscannedSnsDriveMode
  4031 0ea5 15       		.uleb128 0x15
- 4032 0ea6 7C040000 		.4byte	.LASF107
+ 4032 0ea6 B8040000 		.4byte	.LASF107
  4033 0eaa 01       		.byte	0x1
  4034 0eab 3E       		.byte	0x3e
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 115
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 115
 
 
  4035 0eac 200E0000 		.4byte	0xe20
@@ -6862,7 +6862,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4053 0ed3 03       		.byte	0x3
  4054 0ed4 00000000 		.4byte	capsense_modulationIDAC
  4055 0ed8 15       		.uleb128 0x15
- 4056 0ed9 BB050000 		.4byte	.LASF110
+ 4056 0ed9 F7050000 		.4byte	.LASF110
  4057 0edd 01       		.byte	0x1
  4058 0ede 65       		.byte	0x65
  4059 0edf 840E0000 		.4byte	0xe84
@@ -6877,7 +6877,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4068 0ef7 00       		.byte	0
  4069 0ef8 00       		.byte	0
  4070 0ef9 15       		.uleb128 0x15
- 4071 0efa 1D010000 		.4byte	.LASF111
+ 4071 0efa 59010000 		.4byte	.LASF111
  4072 0efe 01       		.byte	0x1
  4073 0eff 67       		.byte	0x67
  4074 0f00 E90E0000 		.4byte	0xee9
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4089 0f21 6C       		.byte	0x6c
  4090 0f22 840E0000 		.4byte	0xe84
  4091 0f26 05       		.uleb128 0x5
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 116
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 116
 
 
  4092 0f27 03       		.byte	0x3
@@ -6911,7 +6911,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4099 0f3a 04       		.byte	0x4
  4100 0f3b 00       		.byte	0
  4101 0f3c 15       		.uleb128 0x15
- 4102 0f3d 44010000 		.4byte	.LASF114
+ 4102 0f3d 80010000 		.4byte	.LASF114
  4103 0f41 01       		.byte	0x1
  4104 0f42 6E       		.byte	0x6e
  4105 0f43 4D0F0000 		.4byte	0xf4d
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4146 0f9f 86       		.byte	0x86
  4147 0fa0 AA0F0000 		.4byte	0xfaa
  4148 0fa4 05       		.uleb128 0x5
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 117
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 117
 
 
  4149 0fa5 03       		.byte	0x3
@@ -6981,7 +6981,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4166 0fcb 03       		.byte	0x3
  4167 0fcc 00000000 		.4byte	capsense_pcTable
  4168 0fd0 15       		.uleb128 0x15
- 4169 0fd1 ED050000 		.4byte	.LASF119
+ 4169 0fd1 29060000 		.4byte	.LASF119
  4170 0fd5 01       		.byte	0x1
  4171 0fd6 4C       		.byte	0x4c
  4172 0fd7 E10F0000 		.4byte	0xfe1
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4203 101d 03       		.byte	0x3
  4204 101e 00000000 		.4byte	capsense_pinShiftTbl
  4205 1022 07       		.uleb128 0x7
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 118
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 118
 
 
  4206 1023 2C0F0000 		.4byte	0xf2c
@@ -7030,14 +7030,14 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4212 1035 00       		.byte	0
  4213 1036 00       		.byte	0
  4214 1037 18       		.uleb128 0x18
- 4215 1038 3B060000 		.4byte	.LASF122
+ 4215 1038 77060000 		.4byte	.LASF122
  4216 103c 03       		.byte	0x3
  4217 103d 3A01     		.2byte	0x13a
  4218 103f 43100000 		.4byte	0x1043
  4219 1043 07       		.uleb128 0x7
  4220 1044 27100000 		.4byte	0x1027
  4221 1048 18       		.uleb128 0x18
- 4222 1049 00060000 		.4byte	.LASF123
+ 4222 1049 3C060000 		.4byte	.LASF123
  4223 104d 03       		.byte	0x3
  4224 104e 3B01     		.2byte	0x13b
  4225 1050 54100000 		.4byte	0x1054
@@ -7057,8 +7057,8 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4239 1073 04       		.byte	0x4
  4240 1074 C5       		.byte	0xc5
  4241 1075 19       		.uleb128 0x19
- 4242 1076 28040000 		.4byte	.LASF126
- 4243 107a 28040000 		.4byte	.LASF126
+ 4242 1076 64040000 		.4byte	.LASF126
+ 4243 107a 64040000 		.4byte	.LASF126
  4244 107e 04       		.byte	0x4
  4245 107f BD       		.byte	0xbd
  4246 1080 19       		.uleb128 0x19
@@ -7067,18 +7067,18 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4249 1089 04       		.byte	0x4
  4250 108a C0       		.byte	0xc0
  4251 108b 19       		.uleb128 0x19
- 4252 108c 92060000 		.4byte	.LASF128
- 4253 1090 92060000 		.4byte	.LASF128
+ 4252 108c CE060000 		.4byte	.LASF128
+ 4253 1090 CE060000 		.4byte	.LASF128
  4254 1094 05       		.byte	0x5
  4255 1095 27       		.byte	0x27
  4256 1096 19       		.uleb128 0x19
- 4257 1097 A6030000 		.4byte	.LASF129
- 4258 109b A6030000 		.4byte	.LASF129
+ 4257 1097 E2030000 		.4byte	.LASF129
+ 4258 109b E2030000 		.4byte	.LASF129
  4259 109f 06       		.byte	0x6
  4260 10a0 27       		.byte	0x27
  4261 10a1 19       		.uleb128 0x19
  4262 10a2 A5070000 		.4byte	.LASF130
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 119
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 119
 
 
  4263 10a6 A5070000 		.4byte	.LASF130
@@ -7095,8 +7095,8 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4274 10c0 06       		.byte	0x6
  4275 10c1 1D       		.byte	0x1d
  4276 10c2 19       		.uleb128 0x19
- 4277 10c3 98010000 		.4byte	.LASF133
- 4278 10c7 98010000 		.4byte	.LASF133
+ 4277 10c3 D4010000 		.4byte	.LASF133
+ 4278 10c7 D4010000 		.4byte	.LASF133
  4279 10cb 05       		.byte	0x5
  4280 10cc 1D       		.byte	0x1d
  4281 10cd 19       		.uleb128 0x19
@@ -7110,23 +7110,23 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4289 10e1 04       		.byte	0x4
  4290 10e2 E5       		.byte	0xe5
  4291 10e3 19       		.uleb128 0x19
- 4292 10e4 C3030000 		.4byte	.LASF136
- 4293 10e8 C3030000 		.4byte	.LASF136
+ 4292 10e4 FF030000 		.4byte	.LASF136
+ 4293 10e8 FF030000 		.4byte	.LASF136
  4294 10ec 04       		.byte	0x4
  4295 10ed E6       		.byte	0xe6
  4296 10ee 19       		.uleb128 0x19
- 4297 10ef 1D020000 		.4byte	.LASF137
- 4298 10f3 1D020000 		.4byte	.LASF137
+ 4297 10ef 59020000 		.4byte	.LASF137
+ 4298 10f3 59020000 		.4byte	.LASF137
  4299 10f7 04       		.byte	0x4
  4300 10f8 C8       		.byte	0xc8
  4301 10f9 19       		.uleb128 0x19
- 4302 10fa D9030000 		.4byte	.LASF138
- 4303 10fe D9030000 		.4byte	.LASF138
+ 4302 10fa 15040000 		.4byte	.LASF138
+ 4303 10fe 15040000 		.4byte	.LASF138
  4304 1102 04       		.byte	0x4
  4305 1103 DC       		.byte	0xdc
  4306 1104 1A       		.uleb128 0x1a
- 4307 1105 8D030000 		.4byte	.LASF139
- 4308 1109 8D030000 		.4byte	.LASF139
+ 4307 1105 C9030000 		.4byte	.LASF139
+ 4308 1109 C9030000 		.4byte	.LASF139
  4309 110d 07       		.byte	0x7
  4310 110e CF02     		.2byte	0x2cf
  4311 1110 00       		.byte	0
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4317 0003 25       		.uleb128 0x25
  4318 0004 0E       		.uleb128 0xe
  4319 0005 13       		.uleb128 0x13
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 120
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 120
 
 
  4320 0006 0B       		.uleb128 0xb
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4374 003c 00       		.byte	0
  4375 003d 06       		.uleb128 0x6
  4376 003e 0F       		.uleb128 0xf
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 121
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 121
 
 
  4377 003f 00       		.byte	0
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4431 0076 0A       		.uleb128 0xa
  4432 0077 898201   		.uleb128 0x4109
  4433 007a 01       		.byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 122
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 122
 
 
  4434 007b 11       		.uleb128 0x11
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4488 00b7 03       		.uleb128 0x3
  4489 00b8 0E       		.uleb128 0xe
  4490 00b9 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 123
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 123
 
 
  4491 00ba 0B       		.uleb128 0xb
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4545 00f3 27       		.uleb128 0x27
  4546 00f4 19       		.uleb128 0x19
  4547 00f5 49       		.uleb128 0x49
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 124
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 124
 
 
  4548 00f6 13       		.uleb128 0x13
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4602 012d 02       		.uleb128 0x2
  4603 012e 18       		.uleb128 0x18
  4604 012f 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 125
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 125
 
 
  4605 0130 00       		.byte	0
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4659 0166 2E       		.uleb128 0x2e
  4660 0167 00       		.byte	0
  4661 0168 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 126
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 126
 
 
  4662 0169 19       		.uleb128 0x19
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4716 0037 53       		.byte	0x53
  4717 0038 00000000 		.4byte	0
  4718 003c 00000000 		.4byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 127
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 127
 
 
  4719              	.LLST1:
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4773 00c1 02000000 		.4byte	.LVL33
  4774 00c5 0C000000 		.4byte	.LFE47
  4775 00c9 0400     		.2byte	0x4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 128
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 128
 
 
  4776 00cb F3       		.byte	0xf3
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4830 0127 FF       		.byte	0xff
  4831 0128 1A       		.byte	0x1a
  4832 0129 22       		.byte	0x22
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 129
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 129
 
 
  4833 012a 9F       		.byte	0x9f
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4887 0183 48000000 		.4byte	.LFE49
  4888 0187 0E00     		.2byte	0xe
  4889 0189 F3       		.byte	0xf3
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 130
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 130
 
 
  4890 018a 01       		.uleb128 0x1
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  4944 01fc 40000000 		.4byte	.LVL48
  4945 0200 48000000 		.4byte	.LFE49
  4946 0204 0F00     		.2byte	0xf
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 131
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 131
 
 
  4947 0206 F3       		.byte	0xf3
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5001 0284 54       		.byte	0x54
  5002 0285 3E000000 		.4byte	.LVL57
  5003 0289 40000000 		.4byte	.LVL58
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 132
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 132
 
 
  5004 028d 0F00     		.2byte	0xf
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5058 02eb 00       		.sleb128 0
  5059 02ec 32       		.byte	0x32
  5060 02ed 24       		.byte	0x24
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 133
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 133
 
 
  5061 02ee 9F       		.byte	0x9f
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5115 034e 22       		.byte	0x22
  5116 034f 94       		.byte	0x94
  5117 0350 01       		.byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 134
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 134
 
 
  5118 0351 08       		.byte	0x8
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5172 03d4 06000000 		.4byte	.LVL73
  5173 03d8 0100     		.2byte	0x1
  5174 03da 51       		.byte	0x51
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 135
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 135
 
 
  5175 03db 06000000 		.4byte	.LVL73
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5229 0460 08000000 		.4byte	.LVL81
  5230 0464 0200     		.2byte	0x2
  5231 0466 30       		.byte	0x30
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 136
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 136
 
 
  5232 0467 9F       		.byte	0x9f
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5286 04de 74       		.byte	0x74
  5287 04df 00       		.sleb128 0
  5288 04e0 03       		.byte	0x3
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 137
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 137
 
 
  5289 04e1 08000000 		.4byte	.LANCHOR2+8
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5343 0552 24000000 		.4byte	.LVL98
  5344 0556 0100     		.2byte	0x1
  5345 0558 53       		.byte	0x53
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 138
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 138
 
 
  5346 0559 26000000 		.4byte	.LVL99
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5400 05dd 01       		.uleb128 0x1
  5401 05de 50       		.byte	0x50
  5402 05df 9F       		.byte	0x9f
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 139
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 139
 
 
  5403 05e0 14000000 		.4byte	.LVL111
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5457 0663 0100     		.2byte	0x1
  5458 0665 54       		.byte	0x54
  5459 0666 1C000000 		.4byte	.LVL119
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 140
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 140
 
 
  5460 066a 24000000 		.4byte	.LFE39
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5514 06ee 00       		.sleb128 0
  5515 06ef 03       		.byte	0x3
  5516 06f0 64000000 		.4byte	.LANCHOR2+100
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 141
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 141
 
 
  5517 06f4 22       		.byte	0x22
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5571 077a 55       		.byte	0x55
  5572 077b 00000000 		.4byte	0
  5573 077f 00000000 		.4byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 142
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 142
 
 
  5574              	.LLST44:
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5628 080c 0500     		.2byte	0x5
  5629 080e 0C       		.byte	0xc
  5630 080f 04002840 		.4byte	0x40280004
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 143
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 143
 
 
  5631 0813 00000000 		.4byte	0
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5685 087f 01       		.byte	0x1
  5686 0880 08       		.byte	0x8
  5687 0881 FF       		.byte	0xff
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 144
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 144
 
 
  5688 0882 1A       		.byte	0x1a
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5742 08f1 0400     		.2byte	0x4
  5743 08f3 F3       		.byte	0xf3
  5744 08f4 01       		.uleb128 0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 145
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 145
 
 
  5745 08f5 52       		.byte	0x52
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5799 096d 00       		.sleb128 0
  5800 096e 24       		.byte	0x24
  5801 096f 9F       		.byte	0x9f
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 146
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 146
 
 
  5802 0970 1C000000 		.4byte	.LVL181
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5856 09f8 0100     		.2byte	0x1
  5857 09fa 54       		.byte	0x54
  5858 09fb 00000000 		.4byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 147
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 147
 
 
  5859 09ff 00000000 		.4byte	0
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5913 0a7e 9F       		.byte	0x9f
  5914 0a7f 00000000 		.4byte	0
  5915 0a83 00000000 		.4byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 148
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 148
 
 
  5916              	.LLST62:
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  5970              	.LLST66:
  5971 0b10 02000000 		.4byte	.LVL236
  5972 0b14 06000000 		.4byte	.LVL237
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 149
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 149
 
 
  5973 0b18 0200     		.2byte	0x2
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6027 000a 04       		.byte	0x4
  6028 000b 00       		.byte	0
  6029 000c 0000     		.2byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 150
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 150
 
 
  6030 000e 0000     		.2byte	0
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6084 00e4 0C000000 		.4byte	.LFE62-.LFB62
  6085 00e8 00000000 		.4byte	.LFB63
  6086 00ec 0C000000 		.4byte	.LFE63-.LFB63
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 151
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 151
 
 
  6087 00f0 00000000 		.4byte	.LFB64
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6141 0068 00000000 		.4byte	.LFB52
  6142 006c 1C000000 		.4byte	.LFE52
  6143 0070 00000000 		.4byte	.LFB56
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 152
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 152
 
 
  6144 0074 34000000 		.4byte	.LFE56
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6198              	.Ldebug_line0:
  6199 0000 F7040000 		.section	.debug_str,"MS",%progbits,1
  6199      0200A000 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 153
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 153
 
 
  6199      00000201 
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6218              	.LASF34:
  6219 00b1 696E7465 		.ascii	"interruptState\000"
  6219      72727570 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 154
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 154
 
 
  6219      74537461 
@@ -9215,433 +9215,433 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6232              	.LASF90:
  6233 0116 61766756 		.ascii	"avgVal\000"
  6233      616C00
- 6234              	.LASF111:
- 6235 011d 63617073 		.ascii	"capsense_widgetResolution\000"
- 6235      656E7365 
- 6235      5F776964 
- 6235      67657452 
- 6235      65736F6C 
- 6236              	.LASF32:
- 6237 0137 70696E4D 		.ascii	"pinModeShift\000"
- 6237      6F646553 
- 6237      68696674 
- 6237      00
- 6238              	.LASF114:
- 6239 0144 63617073 		.ascii	"capsense_widgetNumber\000"
- 6239      656E7365 
- 6239      5F776964 
- 6239      6765744E 
- 6239      756D6265 
- 6240              	.LASF86:
- 6241 015a 63617073 		.ascii	"capsense_SetIDACRange\000"
- 6241      656E7365 
- 6241      5F536574 
- 6241      49444143 
- 6241      52616E67 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 155
+ 6234              	.LASF142:
+ 6235 011d 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\ca"
+ 6235      73657273 
+ 6235      5C707572 
+ 6235      69615C44 
+ 6235      6F63756D 
+ 6236 0149 7073656E 		.ascii	"psenseled.cydsn\000"
+ 6236      73656C65 
+ 6236      642E6379 
+ 6236      64736E00 
+ 6237              	.LASF111:
+ 6238 0159 63617073 		.ascii	"capsense_widgetResolution\000"
+ 6238      656E7365 
+ 6238      5F776964 
+ 6238      67657452 
+ 6238      65736F6C 
+ 6239              	.LASF32:
+ 6240 0173 70696E4D 		.ascii	"pinModeShift\000"
+ 6240      6F646553 
+ 6240      68696674 
+ 6240      00
+ 6241              	.LASF114:
+ 6242 0180 63617073 		.ascii	"capsense_widgetNumber\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 155
 
 
- 6242              	.LASF61:
- 6243 0170 63617073 		.ascii	"capsense_FindNextSensor\000"
- 6243      656E7365 
- 6243      5F46696E 
- 6243      644E6578 
- 6243      7453656E 
- 6244              	.LASF38:
- 6245 0188 696E6163 		.ascii	"inactiveConnect\000"
- 6245      74697665 
- 6245      436F6E6E 
- 6245      65637400 
- 6246              	.LASF133:
- 6247 0198 63617073 		.ascii	"capsense_SenseClk_StartEx\000"
- 6247      656E7365 
- 6247      5F53656E 
- 6247      7365436C 
- 6247      6B5F5374 
- 6248              	.LASF56:
- 6249 01b2 63617073 		.ascii	"capsense_GetBitValue\000"
- 6249      656E7365 
- 6249      5F476574 
- 6249      42697456 
- 6249      616C7565 
- 6250              	.LASF12:
- 6251 01c7 666C6F61 		.ascii	"float\000"
- 6251      7400
- 6252              	.LASF30:
- 6253 01cd 63617073 		.ascii	"capsense_GetScanResolution\000"
- 6253      656E7365 
- 6253      5F476574 
- 6253      5363616E 
- 6253      5265736F 
- 6254              	.LASF7:
- 6255 01e8 6C6F6E67 		.ascii	"long long unsigned int\000"
- 6255      206C6F6E 
- 6255      6720756E 
- 6255      7369676E 
- 6255      65642069 
- 6256              	.LASF37:
- 6257 01ff 63617073 		.ascii	"capsense_DisableSensor\000"
- 6257      656E7365 
- 6257      5F446973 
- 6257      61626C65 
- 6257      53656E73 
- 6258              	.LASF27:
- 6259 0216 77696467 		.ascii	"widget\000"
- 6259      657400
- 6260              	.LASF137:
- 6261 021d 4379496E 		.ascii	"CyIntClearPending\000"
- 6261      74436C65 
- 6261      61725065 
- 6261      6E64696E 
- 6261      6700
- 6262              	.LASF26:
- 6263 022f 63617073 		.ascii	"capsense_SetScanResolution\000"
- 6263      656E7365 
- 6263      5F536574 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 156
+ 6242      656E7365 
+ 6242      5F776964 
+ 6242      6765744E 
+ 6242      756D6265 
+ 6243              	.LASF86:
+ 6244 0196 63617073 		.ascii	"capsense_SetIDACRange\000"
+ 6244      656E7365 
+ 6244      5F536574 
+ 6244      49444143 
+ 6244      52616E67 
+ 6245              	.LASF61:
+ 6246 01ac 63617073 		.ascii	"capsense_FindNextSensor\000"
+ 6246      656E7365 
+ 6246      5F46696E 
+ 6246      644E6578 
+ 6246      7453656E 
+ 6247              	.LASF38:
+ 6248 01c4 696E6163 		.ascii	"inactiveConnect\000"
+ 6248      74697665 
+ 6248      436F6E6E 
+ 6248      65637400 
+ 6249              	.LASF133:
+ 6250 01d4 63617073 		.ascii	"capsense_SenseClk_StartEx\000"
+ 6250      656E7365 
+ 6250      5F53656E 
+ 6250      7365436C 
+ 6250      6B5F5374 
+ 6251              	.LASF56:
+ 6252 01ee 63617073 		.ascii	"capsense_GetBitValue\000"
+ 6252      656E7365 
+ 6252      5F476574 
+ 6252      42697456 
+ 6252      616C7565 
+ 6253              	.LASF12:
+ 6254 0203 666C6F61 		.ascii	"float\000"
+ 6254      7400
+ 6255              	.LASF30:
+ 6256 0209 63617073 		.ascii	"capsense_GetScanResolution\000"
+ 6256      656E7365 
+ 6256      5F476574 
+ 6256      5363616E 
+ 6256      5265736F 
+ 6257              	.LASF7:
+ 6258 0224 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 6258      206C6F6E 
+ 6258      6720756E 
+ 6258      7369676E 
+ 6258      65642069 
+ 6259              	.LASF37:
+ 6260 023b 63617073 		.ascii	"capsense_DisableSensor\000"
+ 6260      656E7365 
+ 6260      5F446973 
+ 6260      61626C65 
+ 6260      53656E73 
+ 6261              	.LASF27:
+ 6262 0252 77696467 		.ascii	"widget\000"
+ 6262      657400
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 156
 
 
- 6263      5363616E 
- 6263      5265736F 
- 6264              	.LASF25:
- 6265 024a 76616C75 		.ascii	"value\000"
- 6265      6500
- 6266              	.LASF70:
- 6267 0250 63617073 		.ascii	"capsense_ScanWidget\000"
- 6267      656E7365 
- 6267      5F536361 
- 6267      6E576964 
- 6267      67657400 
- 6268              	.LASF101:
- 6269 0264 63617073 		.ascii	"capsense_lowLevelTuningDone\000"
- 6269      656E7365 
- 6269      5F6C6F77 
- 6269      4C657665 
- 6269      6C54756E 
- 6270              	.LASF140:
- 6271 0280 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 6271      43313120 
- 6271      352E342E 
- 6271      31203230 
- 6271      31363036 
- 6272 02b3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 6272      20726576 
- 6272      6973696F 
- 6272      6E203233 
- 6272      37373135 
- 6273 02e6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 6273      66756E63 
- 6273      74696F6E 
- 6273      2D736563 
- 6273      74696F6E 
- 6274              	.LASF35:
- 6275 030e 6E657752 		.ascii	"newRegisterValue\000"
- 6275      65676973 
- 6275      74657256 
- 6275      616C7565 
- 6275      00
- 6276              	.LASF39:
- 6277 031f 73656E73 		.ascii	"sensorState\000"
- 6277      6F725374 
- 6277      61746500 
- 6278              	.LASF59:
- 6279 032b 6F666673 		.ascii	"offset\000"
- 6279      657400
- 6280              	.LASF77:
- 6281 0332 63617073 		.ascii	"capsense_SetModulatorClkDivider\000"
- 6281      656E7365 
- 6281      5F536574 
- 6281      4D6F6475 
- 6281      6C61746F 
- 6282              	.LASF48:
- 6283 0352 7072744E 		.ascii	"prtNumberTmp\000"
- 6283      756D6265 
- 6283      72546D70 
- 6283      00
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 157
+ 6263              	.LASF137:
+ 6264 0259 4379496E 		.ascii	"CyIntClearPending\000"
+ 6264      74436C65 
+ 6264      61725065 
+ 6264      6E64696E 
+ 6264      6700
+ 6265              	.LASF26:
+ 6266 026b 63617073 		.ascii	"capsense_SetScanResolution\000"
+ 6266      656E7365 
+ 6266      5F536574 
+ 6266      5363616E 
+ 6266      5265736F 
+ 6267              	.LASF25:
+ 6268 0286 76616C75 		.ascii	"value\000"
+ 6268      6500
+ 6269              	.LASF70:
+ 6270 028c 63617073 		.ascii	"capsense_ScanWidget\000"
+ 6270      656E7365 
+ 6270      5F536361 
+ 6270      6E576964 
+ 6270      67657400 
+ 6271              	.LASF101:
+ 6272 02a0 63617073 		.ascii	"capsense_lowLevelTuningDone\000"
+ 6272      656E7365 
+ 6272      5F6C6F77 
+ 6272      4C657665 
+ 6272      6C54756E 
+ 6273              	.LASF140:
+ 6274 02bc 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 6274      43313120 
+ 6274      352E342E 
+ 6274      31203230 
+ 6274      31363036 
+ 6275 02ef 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 6275      20726576 
+ 6275      6973696F 
+ 6275      6E203233 
+ 6275      37373135 
+ 6276 0322 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 6276      66756E63 
+ 6276      74696F6E 
+ 6276      2D736563 
+ 6276      74696F6E 
+ 6277              	.LASF35:
+ 6278 034a 6E657752 		.ascii	"newRegisterValue\000"
+ 6278      65676973 
+ 6278      74657256 
+ 6278      616C7565 
+ 6278      00
+ 6279              	.LASF39:
+ 6280 035b 73656E73 		.ascii	"sensorState\000"
+ 6280      6F725374 
+ 6280      61746500 
+ 6281              	.LASF59:
+ 6282 0367 6F666673 		.ascii	"offset\000"
+ 6282      657400
+ 6283              	.LASF77:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 157
 
 
- 6284              	.LASF71:
- 6285 035f 73656E73 		.ascii	"sensorsPerWidget\000"
- 6285      6F727350 
- 6285      65725769 
- 6285      64676574 
- 6285      00
- 6286              	.LASF89:
- 6287 0370 63757253 		.ascii	"curSample\000"
- 6287      616D706C 
- 6287      6500
- 6288              	.LASF105:
- 6289 037a 63617073 		.ascii	"capsense_sensorRaw\000"
- 6289      656E7365 
- 6289      5F73656E 
- 6289      736F7252 
- 6289      617700
- 6290              	.LASF139:
- 6291 038d 63617073 		.ascii	"capsense_AutoTune\000"
- 6291      656E7365 
- 6291      5F417574 
- 6291      6F54756E 
- 6291      6500
- 6292              	.LASF24:
- 6293 039f 73656E73 		.ascii	"sensor\000"
- 6293      6F7200
- 6294              	.LASF129:
- 6295 03a6 63617073 		.ascii	"capsense_SampleClk_Stop\000"
- 6295      656E7365 
- 6295      5F53616D 
- 6295      706C6543 
- 6295      6C6B5F53 
- 6296              	.LASF14:
- 6297 03be 63686172 		.ascii	"char\000"
- 6297      00
- 6298              	.LASF136:
- 6299 03c3 43794578 		.ascii	"CyExitCriticalSection\000"
- 6299      69744372 
- 6299      69746963 
- 6299      616C5365 
- 6299      6374696F 
- 6300              	.LASF138:
- 6301 03d9 43794465 		.ascii	"CyDelayCycles\000"
- 6301      6C617943 
- 6301      79636C65 
- 6301      7300
- 6302              	.LASF76:
- 6303 03e7 63617073 		.ascii	"capsense_GetModulatorClkDivider\000"
- 6303      656E7365 
- 6303      5F476574 
- 6303      4D6F6475 
- 6303      6C61746F 
- 6304              	.LASF66:
- 6305 0407 63617073 		.ascii	"capsense_ScanSensor\000"
- 6305      656E7365 
- 6305      5F536361 
- 6305      6E53656E 
- 6305      736F7200 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 158
+ 6284 036e 63617073 		.ascii	"capsense_SetModulatorClkDivider\000"
+ 6284      656E7365 
+ 6284      5F536574 
+ 6284      4D6F6475 
+ 6284      6C61746F 
+ 6285              	.LASF48:
+ 6286 038e 7072744E 		.ascii	"prtNumberTmp\000"
+ 6286      756D6265 
+ 6286      72546D70 
+ 6286      00
+ 6287              	.LASF71:
+ 6288 039b 73656E73 		.ascii	"sensorsPerWidget\000"
+ 6288      6F727350 
+ 6288      65725769 
+ 6288      64676574 
+ 6288      00
+ 6289              	.LASF89:
+ 6290 03ac 63757253 		.ascii	"curSample\000"
+ 6290      616D706C 
+ 6290      6500
+ 6291              	.LASF105:
+ 6292 03b6 63617073 		.ascii	"capsense_sensorRaw\000"
+ 6292      656E7365 
+ 6292      5F73656E 
+ 6292      736F7252 
+ 6292      617700
+ 6293              	.LASF139:
+ 6294 03c9 63617073 		.ascii	"capsense_AutoTune\000"
+ 6294      656E7365 
+ 6294      5F417574 
+ 6294      6F54756E 
+ 6294      6500
+ 6295              	.LASF24:
+ 6296 03db 73656E73 		.ascii	"sensor\000"
+ 6296      6F7200
+ 6297              	.LASF129:
+ 6298 03e2 63617073 		.ascii	"capsense_SampleClk_Stop\000"
+ 6298      656E7365 
+ 6298      5F53616D 
+ 6298      706C6543 
+ 6298      6C6B5F53 
+ 6299              	.LASF14:
+ 6300 03fa 63686172 		.ascii	"char\000"
+ 6300      00
+ 6301              	.LASF136:
+ 6302 03ff 43794578 		.ascii	"CyExitCriticalSection\000"
+ 6302      69744372 
+ 6302      69746963 
+ 6302      616C5365 
+ 6302      6374696F 
+ 6303              	.LASF138:
+ 6304 0415 43794465 		.ascii	"CyDelayCycles\000"
+ 6304      6C617943 
+ 6304      79636C65 
+ 6304      7300
+ 6305              	.LASF76:
+ 6306 0423 63617073 		.ascii	"capsense_GetModulatorClkDivider\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 158
 
 
- 6306              	.LASF57:
- 6307 041b 7461626C 		.ascii	"table\000"
- 6307      6500
- 6308              	.LASF10:
- 6309 0421 75696E74 		.ascii	"uint16\000"
- 6309      313600
- 6310              	.LASF126:
- 6311 0428 4379496E 		.ascii	"CyIntSetVector\000"
- 6311      74536574 
- 6311      56656374 
- 6311      6F7200
- 6312              	.LASF28:
- 6313 0437 7265736F 		.ascii	"resolution\000"
- 6313      6C757469 
- 6313      6F6E00
- 6314              	.LASF49:
- 6315 0442 70696E4E 		.ascii	"pinNumberTmp\000"
- 6315      756D6265 
- 6315      72546D70 
- 6315      00
- 6316              	.LASF51:
- 6317 044f 63617073 		.ascii	"capsense_EnableShieldElectrode\000"
- 6317      656E7365 
- 6317      5F456E61 
- 6317      626C6553 
- 6317      6869656C 
- 6318              	.LASF6:
- 6319 046e 6C6F6E67 		.ascii	"long long int\000"
- 6319      206C6F6E 
- 6319      6720696E 
- 6319      7400
- 6320              	.LASF107:
- 6321 047c 63617073 		.ascii	"capsense_sensorEnableMaskBackup\000"
- 6321      656E7365 
- 6321      5F73656E 
- 6321      736F7245 
- 6321      6E61626C 
- 6322              	.LASF62:
- 6323 049c 656E6162 		.ascii	"enableFlag\000"
- 6323      6C65466C 
- 6323      616700
- 6324              	.LASF98:
- 6325 04a7 63757272 		.ascii	"currentWidget\000"
- 6325      656E7457 
- 6325      69646765 
- 6325      7400
- 6326              	.LASF54:
- 6327 04b5 63617073 		.ascii	"capsense_IsBusy\000"
- 6327      656E7365 
- 6327      5F497342 
- 6327      75737900 
- 6328              	.LASF102:
- 6329 04c5 63617073 		.ascii	"capsense_scanSpeedTbl\000"
- 6329      656E7365 
- 6329      5F736361 
- 6329      6E537065 
- 6329      65645462 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 159
+ 6306      656E7365 
+ 6306      5F476574 
+ 6306      4D6F6475 
+ 6306      6C61746F 
+ 6307              	.LASF66:
+ 6308 0443 63617073 		.ascii	"capsense_ScanSensor\000"
+ 6308      656E7365 
+ 6308      5F536361 
+ 6308      6E53656E 
+ 6308      736F7200 
+ 6309              	.LASF57:
+ 6310 0457 7461626C 		.ascii	"table\000"
+ 6310      6500
+ 6311              	.LASF10:
+ 6312 045d 75696E74 		.ascii	"uint16\000"
+ 6312      313600
+ 6313              	.LASF126:
+ 6314 0464 4379496E 		.ascii	"CyIntSetVector\000"
+ 6314      74536574 
+ 6314      56656374 
+ 6314      6F7200
+ 6315              	.LASF28:
+ 6316 0473 7265736F 		.ascii	"resolution\000"
+ 6316      6C757469 
+ 6316      6F6E00
+ 6317              	.LASF49:
+ 6318 047e 70696E4E 		.ascii	"pinNumberTmp\000"
+ 6318      756D6265 
+ 6318      72546D70 
+ 6318      00
+ 6319              	.LASF51:
+ 6320 048b 63617073 		.ascii	"capsense_EnableShieldElectrode\000"
+ 6320      656E7365 
+ 6320      5F456E61 
+ 6320      626C6553 
+ 6320      6869656C 
+ 6321              	.LASF6:
+ 6322 04aa 6C6F6E67 		.ascii	"long long int\000"
+ 6322      206C6F6E 
+ 6322      6720696E 
+ 6322      7400
+ 6323              	.LASF107:
+ 6324 04b8 63617073 		.ascii	"capsense_sensorEnableMaskBackup\000"
+ 6324      656E7365 
+ 6324      5F73656E 
+ 6324      736F7245 
+ 6324      6E61626C 
+ 6325              	.LASF62:
+ 6326 04d8 656E6162 		.ascii	"enableFlag\000"
+ 6326      6C65466C 
+ 6326      616700
+ 6327              	.LASF98:
+ 6328 04e3 63757272 		.ascii	"currentWidget\000"
+ 6328      656E7457 
+ 6328      69646765 
+ 6328      7400
+ 6329              	.LASF54:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 159
 
 
- 6330              	.LASF74:
- 6331 04db 63617073 		.ascii	"capsense_SetSenseClkDivider\000"
- 6331      656E7365 
- 6331      5F536574 
- 6331      53656E73 
- 6331      65436C6B 
- 6332              	.LASF11:
- 6333 04f7 75696E74 		.ascii	"uint32\000"
- 6333      333200
- 6334              	.LASF103:
- 6335 04fe 63617073 		.ascii	"capsense_csdStatusVar\000"
- 6335      656E7365 
- 6335      5F637364 
- 6335      53746174 
- 6335      75735661 
- 6336              	.LASF22:
- 6337 0514 63617073 		.ascii	"capsense_Stop\000"
- 6337      656E7365 
- 6337      5F53746F 
- 6337      7000
- 6338              	.LASF68:
- 6339 0522 63617073 		.ascii	"capsense_PostScan\000"
- 6339      656E7365 
- 6339      5F506F73 
- 6339      74536361 
- 6339      6E00
- 6340              	.LASF104:
- 6341 0534 63617073 		.ascii	"capsense_sensorIndex\000"
- 6341      656E7365 
- 6341      5F73656E 
- 6341      736F7249 
- 6341      6E646578 
- 6342              	.LASF44:
- 6343 0549 70696E4E 		.ascii	"pinNumber\000"
- 6343      756D6265 
- 6343      7200
- 6344              	.LASF91:
- 6345 0553 63617073 		.ascii	"capsense_SetUnscannedSensorState\000"
- 6345      656E7365 
- 6345      5F536574 
- 6345      556E7363 
- 6345      616E6E65 
- 6346              	.LASF41:
- 6347 0574 736E7349 		.ascii	"snsIndex\000"
- 6347      6E646578 
- 6347      00
- 6348              	.LASF50:
- 6349 057d 63617073 		.ascii	"capsense_RestoreDriveModeAllPins\000"
- 6349      656E7365 
- 6349      5F526573 
- 6349      746F7265 
- 6349      44726976 
- 6350              	.LASF18:
- 6351 059e 6C6F6E67 		.ascii	"long double\000"
- 6351      20646F75 
- 6351      626C6500 
- 6352              	.LASF72:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 160
+ 6330 04f1 63617073 		.ascii	"capsense_IsBusy\000"
+ 6330      656E7365 
+ 6330      5F497342 
+ 6330      75737900 
+ 6331              	.LASF102:
+ 6332 0501 63617073 		.ascii	"capsense_scanSpeedTbl\000"
+ 6332      656E7365 
+ 6332      5F736361 
+ 6332      6E537065 
+ 6332      65645462 
+ 6333              	.LASF74:
+ 6334 0517 63617073 		.ascii	"capsense_SetSenseClkDivider\000"
+ 6334      656E7365 
+ 6334      5F536574 
+ 6334      53656E73 
+ 6334      65436C6B 
+ 6335              	.LASF11:
+ 6336 0533 75696E74 		.ascii	"uint32\000"
+ 6336      333200
+ 6337              	.LASF103:
+ 6338 053a 63617073 		.ascii	"capsense_csdStatusVar\000"
+ 6338      656E7365 
+ 6338      5F637364 
+ 6338      53746174 
+ 6338      75735661 
+ 6339              	.LASF22:
+ 6340 0550 63617073 		.ascii	"capsense_Stop\000"
+ 6340      656E7365 
+ 6340      5F53746F 
+ 6340      7000
+ 6341              	.LASF68:
+ 6342 055e 63617073 		.ascii	"capsense_PostScan\000"
+ 6342      656E7365 
+ 6342      5F506F73 
+ 6342      74536361 
+ 6342      6E00
+ 6343              	.LASF104:
+ 6344 0570 63617073 		.ascii	"capsense_sensorIndex\000"
+ 6344      656E7365 
+ 6344      5F73656E 
+ 6344      736F7249 
+ 6344      6E646578 
+ 6345              	.LASF44:
+ 6346 0585 70696E4E 		.ascii	"pinNumber\000"
+ 6346      756D6265 
+ 6346      7200
+ 6347              	.LASF91:
+ 6348 058f 63617073 		.ascii	"capsense_SetUnscannedSensorState\000"
+ 6348      656E7365 
+ 6348      5F536574 
+ 6348      556E7363 
+ 6348      616E6E65 
+ 6349              	.LASF41:
+ 6350 05b0 736E7349 		.ascii	"snsIndex\000"
+ 6350      6E646578 
+ 6350      00
+ 6351              	.LASF50:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 160
 
 
- 6353 05aa 6C617374 		.ascii	"lastSensor\000"
- 6353      53656E73 
- 6353      6F7200
- 6354              	.LASF16:
- 6355 05b5 72656733 		.ascii	"reg32\000"
- 6355      3200
- 6356              	.LASF110:
- 6357 05bb 63617073 		.ascii	"capsense_compensationIDAC\000"
- 6357      656E7365 
- 6357      5F636F6D 
- 6357      70656E73 
- 6357      6174696F 
- 6358              	.LASF45:
- 6359 05d5 706F7274 		.ascii	"portNumber\000"
- 6359      4E756D62 
- 6359      657200
- 6360              	.LASF100:
- 6361 05e0 6D617850 		.ascii	"maxPerWidget\000"
- 6361      65725769 
- 6361      64676574 
- 6361      00
- 6362              	.LASF119:
- 6363 05ed 63617073 		.ascii	"capsense_portTable\000"
- 6363      656E7365 
- 6363      5F706F72 
- 6363      74546162 
- 6363      6C6500
- 6364              	.LASF123:
- 6365 0600 63617073 		.ascii	"capsense_numberOfSensors\000"
- 6365      656E7365 
- 6365      5F6E756D 
- 6365      6265724F 
- 6365      6653656E 
- 6366              	.LASF75:
- 6367 0619 73656E73 		.ascii	"senseClk\000"
- 6367      65436C6B 
- 6367      00
- 6368              	.LASF2:
- 6369 0622 73686F72 		.ascii	"short int\000"
- 6369      7420696E 
- 6369      7400
- 6370              	.LASF4:
- 6371 062c 6C6F6E67 		.ascii	"long int\000"
- 6371      20696E74 
- 6371      00
- 6372              	.LASF53:
- 6373 0635 64656C61 		.ascii	"delay\000"
- 6373      7900
- 6374              	.LASF122:
- 6375 063b 63617073 		.ascii	"capsense_rawDataIndex\000"
- 6375      656E7365 
- 6375      5F726177 
- 6375      44617461 
- 6375      496E6465 
- 6376              	.LASF106:
- 6377 0651 63617073 		.ascii	"capsense_unscannedSnsDriveMode\000"
- 6377      656E7365 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 161
+ 6352 05b9 63617073 		.ascii	"capsense_RestoreDriveModeAllPins\000"
+ 6352      656E7365 
+ 6352      5F526573 
+ 6352      746F7265 
+ 6352      44726976 
+ 6353              	.LASF18:
+ 6354 05da 6C6F6E67 		.ascii	"long double\000"
+ 6354      20646F75 
+ 6354      626C6500 
+ 6355              	.LASF72:
+ 6356 05e6 6C617374 		.ascii	"lastSensor\000"
+ 6356      53656E73 
+ 6356      6F7200
+ 6357              	.LASF16:
+ 6358 05f1 72656733 		.ascii	"reg32\000"
+ 6358      3200
+ 6359              	.LASF110:
+ 6360 05f7 63617073 		.ascii	"capsense_compensationIDAC\000"
+ 6360      656E7365 
+ 6360      5F636F6D 
+ 6360      70656E73 
+ 6360      6174696F 
+ 6361              	.LASF45:
+ 6362 0611 706F7274 		.ascii	"portNumber\000"
+ 6362      4E756D62 
+ 6362      657200
+ 6363              	.LASF100:
+ 6364 061c 6D617850 		.ascii	"maxPerWidget\000"
+ 6364      65725769 
+ 6364      64676574 
+ 6364      00
+ 6365              	.LASF119:
+ 6366 0629 63617073 		.ascii	"capsense_portTable\000"
+ 6366      656E7365 
+ 6366      5F706F72 
+ 6366      74546162 
+ 6366      6C6500
+ 6367              	.LASF123:
+ 6368 063c 63617073 		.ascii	"capsense_numberOfSensors\000"
+ 6368      656E7365 
+ 6368      5F6E756D 
+ 6368      6265724F 
+ 6368      6653656E 
+ 6369              	.LASF75:
+ 6370 0655 73656E73 		.ascii	"senseClk\000"
+ 6370      65436C6B 
+ 6370      00
+ 6371              	.LASF2:
+ 6372 065e 73686F72 		.ascii	"short int\000"
+ 6372      7420696E 
+ 6372      7400
+ 6373              	.LASF4:
+ 6374 0668 6C6F6E67 		.ascii	"long int\000"
+ 6374      20696E74 
+ 6374      00
+ 6375              	.LASF53:
+ 6376 0671 64656C61 		.ascii	"delay\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 161
 
 
- 6377      5F756E73 
- 6377      63616E6E 
- 6377      6564536E 
- 6378              	.LASF141:
- 6379 0670 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense.c\000"
- 6379      72617465 
- 6379      645F536F 
- 6379      75726365 
- 6379      5C50536F 
- 6380              	.LASF128:
- 6381 0692 63617073 		.ascii	"capsense_SenseClk_Stop\000"
- 6381      656E7365 
- 6381      5F53656E 
- 6381      7365436C 
- 6381      6B5F5374 
- 6382              	.LASF40:
- 6383 06a9 63617073 		.ascii	"capsense_ClearSensors\000"
- 6383      656E7365 
- 6383      5F436C65 
- 6383      61725365 
- 6383      6E736F72 
- 6384              	.LASF46:
- 6385 06bf 63617073 		.ascii	"capsense_SetDriveModeAllPins\000"
- 6385      656E7365 
- 6385      5F536574 
- 6385      44726976 
- 6385      654D6F64 
- 6386              	.LASF87:
- 6387 06dc 69446163 		.ascii	"iDacRange\000"
- 6387      52616E67 
- 6387      6500
- 6388              	.LASF142:
- 6389 06e6 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\able\\capsenseled\\cap"
- 6389      73657273 
- 6389      5C707572 
- 6389      69615C44 
- 6389      6F63756D 
- 6390 0713 73656E73 		.ascii	"senseled.cydsn\000"
- 6390      656C6564 
- 6390      2E637964 
- 6390      736E00
+ 6376      7900
+ 6377              	.LASF122:
+ 6378 0677 63617073 		.ascii	"capsense_rawDataIndex\000"
+ 6378      656E7365 
+ 6378      5F726177 
+ 6378      44617461 
+ 6378      496E6465 
+ 6379              	.LASF106:
+ 6380 068d 63617073 		.ascii	"capsense_unscannedSnsDriveMode\000"
+ 6380      656E7365 
+ 6380      5F756E73 
+ 6380      63616E6E 
+ 6380      6564536E 
+ 6381              	.LASF141:
+ 6382 06ac 47656E65 		.ascii	"Generated_Source\\PSoC4\\capsense.c\000"
+ 6382      72617465 
+ 6382      645F536F 
+ 6382      75726365 
+ 6382      5C50536F 
+ 6383              	.LASF128:
+ 6384 06ce 63617073 		.ascii	"capsense_SenseClk_Stop\000"
+ 6384      656E7365 
+ 6384      5F53656E 
+ 6384      7365436C 
+ 6384      6B5F5374 
+ 6385              	.LASF40:
+ 6386 06e5 63617073 		.ascii	"capsense_ClearSensors\000"
+ 6386      656E7365 
+ 6386      5F436C65 
+ 6386      61725365 
+ 6386      6E736F72 
+ 6387              	.LASF46:
+ 6388 06fb 63617073 		.ascii	"capsense_SetDriveModeAllPins\000"
+ 6388      656E7365 
+ 6388      5F536574 
+ 6388      44726976 
+ 6388      654D6F64 
+ 6389              	.LASF87:
+ 6390 0718 69446163 		.ascii	"iDacRange\000"
+ 6390      52616E67 
+ 6390      6500
  6391              	.LASF124:
  6392 0722 63617073 		.ascii	"capsense_csdTrim1\000"
  6392      656E7365 
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6396 0757 63757272 		.ascii	"currentSensor\000"
  6396      656E7453 
  6396      656E736F 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 162
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 162
 
 
  6396      7200
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6416      706C6543 
  6416      6C6B5F53 
  6417              	.LASF36:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 163
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 163
 
 
  6418 0836 706F7274 		.ascii	"port\000"
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6438      6C61746F 
  6438      72436C6B 
  6438      00
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 164
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 164
 
 
  6439              	.LASF94:
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6460 09b9 63617073 		.ascii	"capsense_ReadSensorRaw\000"
  6460      656E7365 
  6460      5F526561 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 165
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 165
 
 
  6460      6453656E 
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 1
  6482      654D6F64 
  6482      6500
  6483              	.LASF95:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccYzfb2S.s 			page 166
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccFJJkPC.s 			page 166
 
 
  6484 0aa0 63617073 		.ascii	"capsense_NormalizeWidgets\000"

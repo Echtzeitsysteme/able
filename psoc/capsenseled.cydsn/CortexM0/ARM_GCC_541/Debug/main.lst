@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 1
 
 
    1              		.syntax unified
@@ -58,42 +58,43 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
   40 0008 4342     		rsbs	r3, r0, #0
   41 000a 4341     		adcs	r3, r3, r0
   42 000c 6A46     		mov	r2, sp
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 2
 
 
   43 000e D370     		strb	r3, [r2, #3]
   44 0010 0332     		adds	r2, r2, #3
   16:main.c        ****     //CyBLE_getState() checks if the ble is conntected, if connected it is reasonable to update the
-  17:main.c        ****     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
-  45              		.loc 1 17 0
+  17:main.c        ****   
+  18:main.c        ****     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
+  45              		.loc 1 18 0
   46 0012 084B     		ldr	r3, .L4
   47 0014 1B78     		ldrb	r3, [r3]
   48 0016 022B     		cmp	r3, #2
   49 0018 0AD1     		bne	.L1
-  18:main.c        ****         return;
-  19:main.c        ****     
-  20:main.c        ****     tempHandle.attrHandle = CYBLE_LEDCAPSENSE_LED_CHAR_HANDLE;
-  50              		.loc 1 20 0
+  19:main.c        ****         return; 
+  20:main.c        ****     
+  21:main.c        ****     tempHandle.attrHandle = CYBLE_LEDCAPSENSE_LED_CHAR_HANDLE;
+  50              		.loc 1 21 0
   51 001a 01A8     		add	r0, sp, #4
   52 001c 0C33     		adds	r3, r3, #12
   53 001e 0381     		strh	r3, [r0, #8]
-  21:main.c        ****   	tempHandle.value.val = (uint8 *) &red_State;
-  54              		.loc 1 21 0
+  22:main.c        ****   	tempHandle.value.val = (uint8 *) &red_State;
+  54              		.loc 1 22 0
   55 0020 0192     		str	r2, [sp, #4]
-  22:main.c        ****     tempHandle.value.len = 1;
-  56              		.loc 1 22 0
+  23:main.c        ****     tempHandle.value.len = 1;
+  56              		.loc 1 23 0
   57 0022 0123     		movs	r3, #1
   58 0024 8380     		strh	r3, [r0, #4]
-  23:main.c        ****     CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED)
-  59              		.loc 1 23 0
+  24:main.c        ****     CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED)
+  59              		.loc 1 24 0
   60 0026 0023     		movs	r3, #0
   61 0028 034A     		ldr	r2, .L4+4
   62 002a 0021     		movs	r1, #0
   63 002c FFF7FEFF 		bl	CyBle_GattsWriteAttributeValue
   64              	.LVL1:
   65              	.L1:
-  24:main.c        **** }
-  66              		.loc 1 24 0
+  25:main.c        **** }
+  66              		.loc 1 25 0
   67 0030 05B0     		add	sp, sp, #20
   68              		@ sp needed
   69 0032 00BD     		pop	{pc}
@@ -113,16 +114,16 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
   83              		.type	updateCapsense, %function
   84              	updateCapsense:
   85              	.LFB36:
-  25:main.c        **** 
-  26:main.c        **** /***************************************************************
-  27:main.c        ****  * Function to update the CapSesnse state in the GATT database
-  28:main.c        ****  **************************************************************/
-  29:main.c        **** void updateCapsense()//similiar to upper method but for capsense sensor
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 3
+  26:main.c        **** 
+  27:main.c        **** /***************************************************************
+  28:main.c        ****  * Function to update the CapSesnse state in the GATT database
+  29:main.c        ****  **************************************************************/
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 3
 
 
-  30:main.c        **** {
-  86              		.loc 1 30 0
+  30:main.c        **** void updateCapsense()//similiar to upper method but for capsense sensor
+  31:main.c        **** {
+  86              		.loc 1 31 0
   87              		.cfi_startproc
   88              		@ args = 0, pretend = 0, frame = 16
   89              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -131,56 +132,56 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
   92              		.cfi_offset 14, -4
   93 0002 85B0     		sub	sp, sp, #20
   94              		.cfi_def_cfa_offset 24
-  31:main.c        ****     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
-  95              		.loc 1 31 0
+  32:main.c        ****     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
+  95              		.loc 1 32 0
   96 0004 124B     		ldr	r3, .L10
   97 0006 1B78     		ldrb	r3, [r3]
   98 0008 022B     		cmp	r3, #2
   99 000a 1FD1     		bne	.L6
-  32:main.c        ****         return;
-  33:main.c        ****     
-  34:main.c        **** 	CYBLE_GATTS_HANDLE_VALUE_NTF_T 	tempHandle;
-  35:main.c        ****     
-  36:main.c        ****     tempHandle.attrHandle = CYBLE_LEDCAPSENSE_CAPSENSE_CHAR_HANDLE;
- 100              		.loc 1 36 0
+  33:main.c        ****         return;
+  34:main.c        ****     
+  35:main.c        **** 	CYBLE_GATTS_HANDLE_VALUE_NTF_T 	tempHandle;
+  36:main.c        ****     
+  37:main.c        ****     tempHandle.attrHandle = CYBLE_LEDCAPSENSE_CAPSENSE_CHAR_HANDLE;
+ 100              		.loc 1 37 0
  101 000c 01A8     		add	r0, sp, #4
  102 000e 0F33     		adds	r3, r3, #15
  103 0010 0381     		strh	r3, [r0, #8]
-  37:main.c        ****   	tempHandle.value.val = (uint8 *)&fingerPos;//cast to uint8 integerpointer
- 104              		.loc 1 37 0
+  38:main.c        ****   	tempHandle.value.val = (uint8 *)&fingerPos;//cast to uint8 integerpointer
+ 104              		.loc 1 38 0
  105 0012 104B     		ldr	r3, .L10+4
  106 0014 0193     		str	r3, [sp, #4]
-  38:main.c        ****     tempHandle.value.len = 2; 
- 107              		.loc 1 38 0
+  39:main.c        ****     tempHandle.value.len = 2; 
+ 107              		.loc 1 39 0
  108 0016 0223     		movs	r3, #2
  109 0018 8380     		strh	r3, [r0, #4]
-  39:main.c        ****     CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED 
- 110              		.loc 1 39 0
+  40:main.c        ****     CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED 
+ 110              		.loc 1 40 0
  111 001a 0023     		movs	r3, #0
  112 001c 0E4A     		ldr	r2, .L10+8
  113 001e 0021     		movs	r1, #0
  114 0020 FFF7FEFF 		bl	CyBle_GattsWriteAttributeValue
  115              	.LVL2:
-  40:main.c        ****     //ble accepts clients which connect and register for notifications and therefore sends those ch
-  41:main.c        ****     //capsenseNotify gets set if client characteristiy configuration descriptor gets set , option w
-  42:main.c        ****     /* send notification to client if notifications are enabled and finger location has changed */
-  43:main.c        ****     if (capsenseNotify && (fingerPos != fingerPosOld) )
- 116              		.loc 1 43 0
+  41:main.c        ****     //ble accepts clients which connect and register for notifications and therefore sends those ch
+  42:main.c        ****     //capsenseNotify gets set if client characteristiy configuration descriptor gets set , option w
+  43:main.c        ****     /* send notification to client if notifications are enabled and finger location has changed */
+  44:main.c        ****     if (capsenseNotify && (fingerPos != fingerPosOld) )
+ 116              		.loc 1 44 0
  117 0024 0D4B     		ldr	r3, .L10+12
  118 0026 1B68     		ldr	r3, [r3]
  119 0028 002B     		cmp	r3, #0
  120 002a 0CD0     		beq	.L8
- 121              		.loc 1 43 0 is_stmt 0 discriminator 1
+ 121              		.loc 1 44 0 is_stmt 0 discriminator 1
  122 002c 094B     		ldr	r3, .L10+4
  123 002e 1A88     		ldrh	r2, [r3]
  124 0030 5B88     		ldrh	r3, [r3, #2]
  125 0032 9A42     		cmp	r2, r3
  126 0034 07D0     		beq	.L8
-  44:main.c        ****         CyBle_GattsNotification(cyBle_connHandle,&tempHandle);//this method sends an notification v
- 127              		.loc 1 44 0 is_stmt 1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 4
+  45:main.c        ****         CyBle_GattsNotification(cyBle_connHandle,&tempHandle);//this method sends an notification v
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 4
 
 
+ 127              		.loc 1 45 0 is_stmt 1
  128 0036 084A     		ldr	r2, .L10+8
  129 0038 1378     		ldrb	r3, [r2]
  130 003a 5078     		ldrb	r0, [r2, #1]
@@ -190,14 +191,14 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  134 0042 FFF7FEFF 		bl	CyBle_GattsNotification
  135              	.LVL3:
  136              	.L8:
-  45:main.c        ****         fingerPosOld = fingerPos;
- 137              		.loc 1 45 0
+  46:main.c        ****         fingerPosOld = fingerPos;
+ 137              		.loc 1 46 0
  138 0046 034B     		ldr	r3, .L10+4
  139 0048 1A88     		ldrh	r2, [r3]
  140 004a 5A80     		strh	r2, [r3, #2]
  141              	.L6:
-  46:main.c        **** }
- 142              		.loc 1 46 0
+  47:main.c        **** }
+ 142              		.loc 1 47 0
  143 004c 05B0     		add	sp, sp, #20
  144              		@ sp needed
  145 004e 00BD     		pop	{pc}
@@ -219,13 +220,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  161              		.type	BleCallBack, %function
  162              	BleCallBack:
  163              	.LFB37:
-  47:main.c        **** 
-  48:main.c        **** /***************************************************************
-  49:main.c        ****  * Function to handle the BLE stack
-  50:main.c        ****  **************************************************************/
-  51:main.c        **** void BleCallBack(uint32 event, void* eventParam)//ble event handler, statemachine 
-  52:main.c        **** {
- 164              		.loc 1 52 0
+  48:main.c        **** 
+  49:main.c        **** /***************************************************************
+  50:main.c        ****  * Function to handle the BLE stack
+  51:main.c        ****  **************************************************************/
+  52:main.c        **** void BleCallBack(uint32 event, void* eventParam)//ble event handler, statemachine 
+  53:main.c        **** {
+ 164              		.loc 1 53 0
  165              		.cfi_startproc
  166              		@ args = 0, pretend = 0, frame = 0
  167              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -237,13 +238,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  173              		.cfi_offset 6, -8
  174              		.cfi_offset 14, -4
  175 0002 0C00     		movs	r4, r1
-  53:main.c        ****     CYBLE_GATTS_WRITE_REQ_PARAM_T *wrReqParam;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 5
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 5
 
 
-  54:main.c        **** 
-  55:main.c        ****     switch(event)
- 176              		.loc 1 55 0
+  54:main.c        ****     CYBLE_GATTS_WRITE_REQ_PARAM_T *wrReqParam;
+  55:main.c        **** 
+  56:main.c        ****     switch(event)
+ 176              		.loc 1 56 0
  177 0004 2828     		cmp	r0, #40
  178 0006 08D0     		beq	.L14
  179 0008 02D8     		bhi	.L15
@@ -257,71 +258,71 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  187 0016 10D0     		beq	.L17
  188 0018 3EE0     		b	.L12
  189              	.L14:
-  56:main.c        ****     {
-  57:main.c        ****         /* if there is a disconnect or the stack just turned on from a reset then start the adverti
-  58:main.c        ****         case CYBLE_EVT_STACK_ON:
-  59:main.c        ****         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://both cases get same handling
-  60:main.c        ****             capsenseNotify = 0;//turn off notifications 
- 190              		.loc 1 60 0
+  57:main.c        ****     {
+  58:main.c        ****         /* if there is a disconnect or the stack just turned on from a reset then start the adverti
+  59:main.c        ****         case CYBLE_EVT_STACK_ON:
+  60:main.c        ****         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://both cases get same handling
+  61:main.c        ****             capsenseNotify = 0;//turn off notifications 
+ 190              		.loc 1 61 0
  191 001a 0022     		movs	r2, #0
  192 001c 1F4B     		ldr	r3, .L19
  193 001e 1A60     		str	r2, [r3]
-  61:main.c        ****             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//start advertising the database a
- 194              		.loc 1 61 0
+  62:main.c        ****             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//start advertising the database a
+ 194              		.loc 1 62 0
  195 0020 0020     		movs	r0, #0
  196              	.LVL5:
  197 0022 FFF7FEFF 		bl	CyBle_GappStartAdvertisement
  198              	.LVL6:
-  62:main.c        ****             pwm_Start();//start the pwm to drive the led 
- 199              		.loc 1 62 0
+  63:main.c        ****             pwm_Start();//start the pwm to drive the led 
+ 199              		.loc 1 63 0
  200 0026 FFF7FEFF 		bl	pwm_Start
  201              	.LVL7:
-  63:main.c        ****         break;
- 202              		.loc 1 63 0
+  64:main.c        ****         break;
+ 202              		.loc 1 64 0
  203 002a 35E0     		b	.L12
  204              	.LVL8:
  205              	.L16:
-  64:main.c        ****         
-  65:main.c        ****         /* when a connection is made, update the LED and Capsense states in the GATT database and s
-  66:main.c        ****         case CYBLE_EVT_GATT_CONNECT_IND://what happens if the connection is established by remotesi
-  67:main.c        ****             updateLed();//update database with current state of led
- 206              		.loc 1 67 0
+  65:main.c        ****         
+  66:main.c        ****         /* when a connection is made, update the LED and Capsense states in the GATT database and s
+  67:main.c        ****         case CYBLE_EVT_GATT_CONNECT_IND://what happens if the connection is established by remotesi
+  68:main.c        ****             updateLed();//update database with current state of led
+ 206              		.loc 1 68 0
  207 002c FFF7FEFF 		bl	updateLed
  208              	.LVL9:
-  68:main.c        ****             updateCapsense();  //update database with current state of capsense#
- 209              		.loc 1 68 0
+  69:main.c        ****             updateCapsense();  //update database with current state of capsense#
+ 209              		.loc 1 69 0
  210 0030 FFF7FEFF 		bl	updateCapsense
  211              	.LVL10:
-  69:main.c        ****             //both functions enable the remote side to read the state of the sensors, handled by bl
-  70:main.c        ****             
-  71:main.c        ****             pwm_Stop();//somehow this stops the blinking bluelight, probably because the default on
- 212              		.loc 1 71 0
+  70:main.c        ****             //both functions enable the remote side to read the state of the sensors, handled by bl
+  71:main.c        ****             
+  72:main.c        ****             pwm_Stop();//somehow this stops the blinking bluelight, probably because the default on
+ 212              		.loc 1 72 0
  213 0034 FFF7FEFF 		bl	pwm_Stop
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 6
+
+
  214              	.LVL11:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 6
-
-
-  72:main.c        **** 		break;
- 215              		.loc 1 72 0
+  73:main.c        **** 		break;
+ 215              		.loc 1 73 0
  216 0038 2EE0     		b	.L12
  217              	.LVL12:
  218              	.L17:
-  73:main.c        **** 
-  74:main.c        ****         /* handle a write request */
-  75:main.c        ****         case CYBLE_EVT_GATTS_WRITE_REQ://this event gets active, if remoteside wants to write data 
-  76:main.c        ****             wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;//the stack tells which chara
-  77:main.c        **** 			      
-  78:main.c        ****             /* request write the LED value */
-  79:main.c        ****             if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_LED_CHAR_HANDLE)//check if
- 219              		.loc 1 79 0
+  74:main.c        **** 
+  75:main.c        ****         /* handle a write request */
+  76:main.c        ****         case CYBLE_EVT_GATTS_WRITE_REQ://this event gets active, if remoteside wants to write data 
+  77:main.c        ****             wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;//the stack tells which chara
+  78:main.c        **** 			      
+  79:main.c        ****             /* request write the LED value */
+  80:main.c        ****             if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_LED_CHAR_HANDLE)//check if
+ 219              		.loc 1 80 0
  220 003a 8B89     		ldrh	r3, [r1, #12]
  221 003c 0E2B     		cmp	r3, #14
  222 003e 15D1     		bne	.L18
-  80:main.c        ****             //does the remote tries to change the state of the led
-  81:main.c        ****             {
-  82:main.c        ****                 /* only update the value and write the response if the requested write is allowed *
-  83:main.c        ****                 if(CYBLE_GATT_ERR_NONE == CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair
- 223              		.loc 1 83 0
+  81:main.c        ****             //does the remote tries to change the state of the led
+  82:main.c        ****             {
+  83:main.c        ****                 /* only update the value and write the response if the requested write is allowed *
+  84:main.c        ****                 if(CYBLE_GATT_ERR_NONE == CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair
+ 223              		.loc 1 84 0
  224 0040 081D     		adds	r0, r1, #4
  225              	.LVL13:
  226 0042 3233     		adds	r3, r3, #50
@@ -332,10 +333,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  231              	.LVL15:
  232 004c 0028     		cmp	r0, #0
  233 004e 0DD1     		bne	.L18
-  84:main.c        ****                 {   
-  85:main.c        ****                     //if no error the write operation is allowed 
-  86:main.c        ****                     red_Write(!wrReqParam->handleValPair.value.val[0]);
- 234              		.loc 1 86 0
+  85:main.c        ****                 {   
+  86:main.c        ****                     //if no error the write operation is allowed 
+  87:main.c        ****                     red_Write(!wrReqParam->handleValPair.value.val[0]);
+ 234              		.loc 1 87 0
  235 0050 6368     		ldr	r3, [r4, #4]
  236 0052 1B78     		ldrb	r3, [r3]
  237 0054 5842     		rsbs	r0, r3, #0
@@ -343,11 +344,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  239 0058 C0B2     		uxtb	r0, r0
  240 005a FFF7FEFF 		bl	red_Write
  241              	.LVL16:
-  87:main.c        ****                     //turn on or off the led considering the wished value, red led is active 0, hav
-  88:main.c        ****                     
-  89:main.c        ****                     //send an response 
-  90:main.c        ****                     CyBle_GattsWriteRsp(cyBle_connHandle);
- 242              		.loc 1 90 0
+  88:main.c        ****                     //turn on or off the led considering the wished value, red led is active 0, hav
+  89:main.c        ****                     
+  90:main.c        ****                     //send an response 
+  91:main.c        ****                     CyBle_GattsWriteRsp(cyBle_connHandle);
+ 242              		.loc 1 91 0
  243 005e 104A     		ldr	r2, .L19+4
  244 0060 1378     		ldrb	r3, [r2]
  245 0062 5078     		ldrb	r0, [r2, #1]
@@ -356,22 +357,22 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  248 0068 FFF7FEFF 		bl	CyBle_GattsWriteRsp
  249              	.LVL17:
  250              	.L18:
-  91:main.c        ****                 }
-  92:main.c        ****             }
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 7
+  92:main.c        ****                 }
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 7
 
 
-  93:main.c        ****             
-  94:main.c        ****             /* request to update the CapSense notification */
-  95:main.c        ****             if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_CAPSENSE_CAPSENSECCCD_DESC
- 251              		.loc 1 95 0
+  93:main.c        ****             }
+  94:main.c        ****             
+  95:main.c        ****             /* request to update the CapSense notification */
+  96:main.c        ****             if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_CAPSENSE_CAPSENSECCCD_DESC
+ 251              		.loc 1 96 0
  252 006c A389     		ldrh	r3, [r4, #12]
  253 006e 122B     		cmp	r3, #18
  254 0070 12D1     		bne	.L12
-  96:main.c        ****             {
-  97:main.c        ****                 
-  98:main.c        ****                 CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair, 0, &cyBle_connHandle, CY
- 255              		.loc 1 98 0
+  97:main.c        ****             {
+  98:main.c        ****                 
+  99:main.c        ****                 CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair, 0, &cyBle_connHandle, CY
+ 255              		.loc 1 99 0
  256 0072 0B4D     		ldr	r5, .L19+4
  257 0074 201D     		adds	r0, r4, #4
  258 0076 2E33     		adds	r3, r3, #46
@@ -379,18 +380,18 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  260 007a 0021     		movs	r1, #0
  261 007c FFF7FEFF 		bl	CyBle_GattsWriteAttributeValue
  262              	.LVL18:
-  99:main.c        ****                 capsenseNotify = wrReqParam->handleValPair.value.val[0] & 0x01;
- 263              		.loc 1 99 0
+ 100:main.c        ****                 capsenseNotify = wrReqParam->handleValPair.value.val[0] & 0x01;
+ 263              		.loc 1 100 0
  264 0080 6368     		ldr	r3, [r4, #4]
  265 0082 1B78     		ldrb	r3, [r3]
  266 0084 0122     		movs	r2, #1
  267 0086 1340     		ands	r3, r2
  268 0088 044A     		ldr	r2, .L19
  269 008a 1360     		str	r3, [r2]
- 100:main.c        ****                 
- 101:main.c        ****                 //send an response 
- 102:main.c        ****                 CyBle_GattsWriteRsp(cyBle_connHandle);
- 270              		.loc 1 102 0
+ 101:main.c        ****                 
+ 102:main.c        ****                 //send an response 
+ 103:main.c        ****                 CyBle_GattsWriteRsp(cyBle_connHandle);
+ 270              		.loc 1 103 0
  271 008c 2B78     		ldrb	r3, [r5]
  272 008e 6878     		ldrb	r0, [r5, #1]
  273 0090 0002     		lsls	r0, r0, #8
@@ -398,14 +399,14 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  275 0094 FFF7FEFF 		bl	CyBle_GattsWriteRsp
  276              	.LVL19:
  277              	.L12:
- 103:main.c        ****             }		
- 104:main.c        **** 			break;  
- 105:main.c        ****         
- 106:main.c        ****         default:
- 107:main.c        ****             break;
- 108:main.c        ****     }
- 109:main.c        **** } 
- 278              		.loc 1 109 0
+ 104:main.c        ****             }		
+ 105:main.c        **** 			break;  
+ 106:main.c        ****         
+ 107:main.c        ****         default:
+ 108:main.c        ****             break;
+ 109:main.c        ****     }
+ 110:main.c        **** } 
+ 278              		.loc 1 110 0
  279              		@ sp needed
  280              	.LVL20:
  281 0098 70BD     		pop	{r4, r5, r6, pc}
@@ -417,10 +418,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  287              		.cfi_endproc
  288              	.LFE37:
  289              		.size	BleCallBack, .-BleCallBack
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 8
+
+
  290              		.section	.text.main,"ax",%progbits
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 8
-
-
  291              		.align	2
  292              		.global	main
  293              		.code	16
@@ -428,13 +429,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  295              		.type	main, %function
  296              	main:
  297              	.LFB38:
- 110:main.c        **** 
- 111:main.c        **** /***************************************************************
- 112:main.c        ****  * Main
- 113:main.c        ****  **************************************************************/
- 114:main.c        **** int main()
- 115:main.c        **** {   
- 298              		.loc 1 115 0
+ 111:main.c        **** 
+ 112:main.c        **** /***************************************************************
+ 113:main.c        ****  * Main
+ 114:main.c        ****  **************************************************************/
+ 115:main.c        **** int main()
+ 116:main.c        **** {   
+ 298              		.loc 1 116 0
  299              		.cfi_startproc
  300              		@ Volatile: function does not return.
  301              		@ args = 0, pretend = 0, frame = 0
@@ -443,79 +444,79 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  304              		.cfi_def_cfa_offset 8
  305              		.cfi_offset 4, -8
  306              		.cfi_offset 14, -4
- 116:main.c        ****     //initialize: turn on global interrupts, done by CyGlobalIntEnable macro
- 117:main.c        ****     CyGlobalIntEnable; 
- 307              		.loc 1 117 0
+ 117:main.c        ****     //initialize: turn on global interrupts, done by CyGlobalIntEnable macro
+ 118:main.c        ****     CyGlobalIntEnable; 
+ 307              		.loc 1 118 0
  308              		.syntax divided
- 309              	@ 117 "main.c" 1
+ 309              	@ 118 "main.c" 1
  310 0002 62B6     		CPSIE   i
  311              	@ 0 "" 2
- 118:main.c        ****     
- 119:main.c        ****     //starting capsense components, and initilizebaseline noise removes the noise from the sensor
- 120:main.c        ****     capsense_Start();
- 312              		.loc 1 120 0
+ 119:main.c        ****     
+ 120:main.c        ****     //starting capsense components, and initilizebaseline noise removes the noise from the sensor
+ 121:main.c        ****     capsense_Start();
+ 312              		.loc 1 121 0
  313              		.thumb
  314              		.syntax unified
  315 0004 FFF7FEFF 		bl	capsense_Start
  316              	.LVL21:
- 121:main.c        ****     capsense_InitializeEnabledBaselines();
- 317              		.loc 1 121 0
+ 122:main.c        ****     capsense_InitializeEnabledBaselines();
+ 317              		.loc 1 122 0
  318 0008 FFF7FEFF 		bl	capsense_InitializeEnabledBaselines
  319              	.LVL22:
- 122:main.c        ****     
- 123:main.c        ****     /* Start BLE stack and register the callback function */
- 124:main.c        ****     CyBle_Start(BleCallBack);
- 320              		.loc 1 124 0
+ 123:main.c        ****     
+ 124:main.c        ****     /* Start BLE stack and register the callback function */
+ 125:main.c        ****     CyBle_Start(BleCallBack);
+ 320              		.loc 1 125 0
  321 000c 0B48     		ldr	r0, .L24
  322 000e FFF7FEFF 		bl	CyBle_Start
  323              	.LVL23:
  324              	.L23:
- 125:main.c        **** 
- 126:main.c        ****     for(;;)
- 127:main.c        ****     {        
- 128:main.c        ****         /* if Capsense scan is done, read the value and start another scan */
- 129:main.c        ****         if(!capsense_IsBusy())
- 325              		.loc 1 129 0
+ 126:main.c        **** 
+ 127:main.c        ****     for(;;)
+ 128:main.c        ****     {        
+ 129:main.c        ****         /* if Capsense scan is done, read the value and start another scan */
+ 130:main.c        ****         if(!capsense_IsBusy())
+ 325              		.loc 1 130 0
  326 0012 FFF7FEFF 		bl	capsense_IsBusy
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 9
+
+
  327              	.LVL24:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 9
-
-
  328 0016 0028     		cmp	r0, #0
  329 0018 09D1     		bne	.L22
- 130:main.c        ****         {
- 131:main.c        ****             fingerPos=capsense_GetCentroidPos(capsense_LINEARSLIDER0__LS);//get fingerposition valu
- 330              		.loc 1 131 0
+ 131:main.c        ****         {
+ 132:main.c        ****             fingerPos=capsense_GetCentroidPos(capsense_LINEARSLIDER0__LS);//get fingerposition valu
+ 330              		.loc 1 132 0
  331 001a FFF7FEFF 		bl	capsense_GetCentroidPos
  332              	.LVL25:
  333 001e 084B     		ldr	r3, .L24+4
  334 0020 1880     		strh	r0, [r3]
- 132:main.c        ****             capsense_UpdateEnabledBaselines();//update baselines?
- 335              		.loc 1 132 0
+ 133:main.c        ****             capsense_UpdateEnabledBaselines();//update baselines?
+ 335              		.loc 1 133 0
  336 0022 FFF7FEFF 		bl	capsense_UpdateEnabledBaselines
  337              	.LVL26:
- 133:main.c        ****             capsense_ScanEnabledWidgets();//start the scan
- 338              		.loc 1 133 0
+ 134:main.c        ****             capsense_ScanEnabledWidgets();//start the scan
+ 338              		.loc 1 134 0
  339 0026 FFF7FEFF 		bl	capsense_ScanEnabledWidgets
  340              	.LVL27:
- 134:main.c        ****             updateCapsense();//call function which is described above,get value , write to database
- 341              		.loc 1 134 0
+ 135:main.c        ****             updateCapsense();//call function which is described above,get value , write to database
+ 341              		.loc 1 135 0
  342 002a FFF7FEFF 		bl	updateCapsense
  343              	.LVL28:
  344              	.L22:
- 135:main.c        ****         }
- 136:main.c        ****    
- 137:main.c        ****         CyBle_ProcessEvents();//blackbox somehow processhandling via method
- 345              		.loc 1 137 0
+ 136:main.c        ****         }
+ 137:main.c        ****    
+ 138:main.c        ****         CyBle_ProcessEvents();//blackbox somehow processhandling via method
+ 345              		.loc 1 138 0
  346 002e FFF7FEFF 		bl	CyBle_ProcessEvents
  347              	.LVL29:
- 138:main.c        ****         CyBle_EnterLPM(CYBLE_BLESS_DEEPSLEEP); // change to deepsleep to save power if its possible
- 348              		.loc 1 138 0
+ 139:main.c        ****         CyBle_EnterLPM(CYBLE_BLESS_DEEPSLEEP); // change to deepsleep to save power if its possible
+ 348              		.loc 1 139 0
  349 0032 0320     		movs	r0, #3
  350 0034 FFF7FEFF 		bl	CyBle_EnterLPM
  351              	.LVL30:
- 139:main.c        ****     }
- 352              		.loc 1 139 0
+ 140:main.c        ****     }
+ 352              		.loc 1 140 0
  353 0038 EBE7     		b	.L23
  354              	.L25:
  355 003a C046     		.align	2
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  371 0000 FFFF     		.short	-1
  372              		.type	fingerPosOld, %object
  373              		.size	fingerPosOld, 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 10
+
+
  374              	fingerPosOld:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 10
-
-
  375 0002 FFFF     		.short	-1
  376              		.text
  377              	.Letext0:
@@ -564,8 +565,8 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  395 000b 01       		.uleb128 0x1
  396 000c EF010000 		.4byte	.LASF181
  397 0010 0C       		.byte	0xc
- 398 0011 27090000 		.4byte	.LASF182
- 399 0015 040A0000 		.4byte	.LASF183
+ 398 0011 03090000 		.4byte	.LASF182
+ 399 0015 280D0000 		.4byte	.LASF183
  400 0019 00000000 		.4byte	.Ldebug_ranges0+0
  401 001d 00000000 		.4byte	0
  402 0021 00000000 		.4byte	.Ldebug_line0
@@ -576,7 +577,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  407 002c 02       		.uleb128 0x2
  408 002d 01       		.byte	0x1
  409 002e 08       		.byte	0x8
- 410 002f 800D0000 		.4byte	.LASF1
+ 410 002f 640D0000 		.4byte	.LASF1
  411 0033 02       		.uleb128 0x2
  412 0034 02       		.byte	0x2
  413 0035 05       		.byte	0x5
@@ -592,15 +593,15 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  423 0048 02       		.uleb128 0x2
  424 0049 04       		.byte	0x4
  425 004a 07       		.byte	0x7
- 426 004b 4B070000 		.4byte	.LASF5
+ 426 004b 27070000 		.4byte	.LASF5
  427 004f 02       		.uleb128 0x2
  428 0050 08       		.byte	0x8
  429 0051 05       		.byte	0x5
  430 0052 D5030000 		.4byte	.LASF6
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 11
+
+
  431 0056 02       		.uleb128 0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 11
-
-
  432 0057 08       		.byte	0x8
  433 0058 07       		.byte	0x7
  434 0059 7D020000 		.4byte	.LASF7
@@ -611,30 +612,30 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  439 0064 02       		.uleb128 0x2
  440 0065 04       		.byte	0x4
  441 0066 07       		.byte	0x7
- 442 0067 D6060000 		.4byte	.LASF8
+ 442 0067 B2060000 		.4byte	.LASF8
  443 006b 04       		.uleb128 0x4
- 444 006c 30050000 		.4byte	.LASF9
+ 444 006c 0C050000 		.4byte	.LASF9
  445 0070 02       		.byte	0x2
  446 0071 D201     		.2byte	0x1d2
  447 0073 2C000000 		.4byte	0x2c
  448 0077 04       		.uleb128 0x4
- 449 0078 8E0D0000 		.4byte	.LASF10
+ 449 0078 720D0000 		.4byte	.LASF10
  450 007c 02       		.byte	0x2
  451 007d D301     		.2byte	0x1d3
  452 007f 3A000000 		.4byte	0x3a
  453 0083 04       		.uleb128 0x4
- 454 0084 B7050000 		.4byte	.LASF11
+ 454 0084 93050000 		.4byte	.LASF11
  455 0088 02       		.byte	0x2
  456 0089 D401     		.2byte	0x1d4
  457 008b 48000000 		.4byte	0x48
  458 008f 02       		.uleb128 0x2
  459 0090 04       		.byte	0x4
  460 0091 04       		.byte	0x4
- 461 0092 0E0D0000 		.4byte	.LASF12
+ 461 0092 D20C0000 		.4byte	.LASF12
  462 0096 02       		.uleb128 0x2
  463 0097 08       		.byte	0x8
  464 0098 04       		.byte	0x4
- 465 0099 5F050000 		.4byte	.LASF13
+ 465 0099 3B050000 		.4byte	.LASF13
  466 009d 02       		.uleb128 0x2
  467 009e 01       		.byte	0x1
  468 009f 08       		.byte	0x8
@@ -642,7 +643,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  470 00a4 02       		.uleb128 0x2
  471 00a5 04       		.byte	0x4
  472 00a6 07       		.byte	0x7
- 473 00a7 CC0A0000 		.4byte	.LASF15
+ 473 00a7 900A0000 		.4byte	.LASF15
  474 00ab 02       		.uleb128 0x2
  475 00ac 08       		.byte	0x8
  476 00ad 04       		.byte	0x4
@@ -657,12 +658,12 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  485 00bc 2C000000 		.4byte	0x2c
  486 00c0 03       		.byte	0x3
  487 00c1 4D01     		.2byte	0x14d
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 12
+
+
  488 00c3 78020000 		.4byte	0x278
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 12
-
-
  489 00c7 08       		.uleb128 0x8
- 490 00c8 46080000 		.4byte	.LASF17
+ 490 00c8 22080000 		.4byte	.LASF17
  491 00cc 00       		.byte	0
  492 00cd 08       		.uleb128 0x8
  493 00ce EF030000 		.4byte	.LASF18
@@ -680,31 +681,31 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  505 00e6 23000000 		.4byte	.LASF22
  506 00ea 05       		.byte	0x5
  507 00eb 08       		.uleb128 0x8
- 508 00ec 7B080000 		.4byte	.LASF23
+ 508 00ec 57080000 		.4byte	.LASF23
  509 00f0 06       		.byte	0x6
  510 00f1 08       		.uleb128 0x8
- 511 00f2 5F060000 		.4byte	.LASF24
+ 511 00f2 3B060000 		.4byte	.LASF24
  512 00f6 20       		.byte	0x20
  513 00f7 08       		.uleb128 0x8
- 514 00f8 4F040000 		.4byte	.LASF25
+ 514 00f8 2B040000 		.4byte	.LASF25
  515 00fc 21       		.byte	0x21
  516 00fd 08       		.uleb128 0x8
- 517 00fe CC080000 		.4byte	.LASF26
+ 517 00fe A8080000 		.4byte	.LASF26
  518 0102 22       		.byte	0x22
  519 0103 08       		.uleb128 0x8
- 520 0104 A1090000 		.4byte	.LASF27
+ 520 0104 7D090000 		.4byte	.LASF27
  521 0108 23       		.byte	0x23
  522 0109 08       		.uleb128 0x8
- 523 010a 340C0000 		.4byte	.LASF28
+ 523 010a F80B0000 		.4byte	.LASF28
  524 010e 24       		.byte	0x24
  525 010f 08       		.uleb128 0x8
- 526 0110 500B0000 		.4byte	.LASF29
+ 526 0110 140B0000 		.4byte	.LASF29
  527 0114 25       		.byte	0x25
  528 0115 08       		.uleb128 0x8
- 529 0116 08050000 		.4byte	.LASF30
+ 529 0116 E4040000 		.4byte	.LASF30
  530 011a 26       		.byte	0x26
  531 011b 08       		.uleb128 0x8
- 532 011c F0080000 		.4byte	.LASF31
+ 532 011c CC080000 		.4byte	.LASF31
  533 0120 27       		.byte	0x27
  534 0121 08       		.uleb128 0x8
  535 0122 09100000 		.4byte	.LASF32
@@ -716,11 +717,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  541 012e 7F0E0000 		.4byte	.LASF34
  542 0132 2A       		.byte	0x2a
  543 0133 08       		.uleb128 0x8
- 544 0134 26040000 		.4byte	.LASF35
+ 544 0134 02040000 		.4byte	.LASF35
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 13
+
+
  545 0138 2B       		.byte	0x2b
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 13
-
-
  546 0139 08       		.uleb128 0x8
  547 013a B7120000 		.4byte	.LASF36
  548 013e 2C       		.byte	0x2c
@@ -728,40 +729,40 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  550 0140 44030000 		.4byte	.LASF37
  551 0144 2D       		.byte	0x2d
  552 0145 08       		.uleb128 0x8
- 553 0146 950D0000 		.4byte	.LASF38
+ 553 0146 790D0000 		.4byte	.LASF38
  554 014a 2E       		.byte	0x2e
  555 014b 08       		.uleb128 0x8
  556 014c 51010000 		.4byte	.LASF39
  557 0150 2F       		.byte	0x2f
  558 0151 08       		.uleb128 0x8
- 559 0152 CC0B0000 		.4byte	.LASF40
+ 559 0152 900B0000 		.4byte	.LASF40
  560 0156 30       		.byte	0x30
  561 0157 08       		.uleb128 0x8
  562 0158 58130000 		.4byte	.LASF41
  563 015c 31       		.byte	0x31
  564 015d 08       		.uleb128 0x8
- 565 015e 950B0000 		.4byte	.LASF42
+ 565 015e 590B0000 		.4byte	.LASF42
  566 0162 32       		.byte	0x32
  567 0163 08       		.uleb128 0x8
  568 0164 550F0000 		.4byte	.LASF43
  569 0168 33       		.byte	0x33
  570 0169 08       		.uleb128 0x8
- 571 016a 5D070000 		.4byte	.LASF44
+ 571 016a 39070000 		.4byte	.LASF44
  572 016e 34       		.byte	0x34
  573 016f 08       		.uleb128 0x8
- 574 0170 ED0B0000 		.4byte	.LASF45
+ 574 0170 B10B0000 		.4byte	.LASF45
  575 0174 35       		.byte	0x35
  576 0175 08       		.uleb128 0x8
- 577 0176 48090000 		.4byte	.LASF46
+ 577 0176 24090000 		.4byte	.LASF46
  578 017a 36       		.byte	0x36
  579 017b 08       		.uleb128 0x8
- 580 017c 580A0000 		.4byte	.LASF47
+ 580 017c 1C0A0000 		.4byte	.LASF47
  581 0180 37       		.byte	0x37
  582 0181 08       		.uleb128 0x8
  583 0182 1A110000 		.4byte	.LASF48
  584 0186 40       		.byte	0x40
  585 0187 08       		.uleb128 0x8
- 586 0188 C7090000 		.4byte	.LASF49
+ 586 0188 A3090000 		.4byte	.LASF49
  587 018c 41       		.byte	0x41
  588 018d 08       		.uleb128 0x8
  589 018e 98130000 		.4byte	.LASF50
@@ -770,25 +771,25 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  592 0194 B7110000 		.4byte	.LASF51
  593 0198 43       		.byte	0x43
  594 0199 08       		.uleb128 0x8
- 595 019a AC070000 		.4byte	.LASF52
+ 595 019a 88070000 		.4byte	.LASF52
  596 019e 44       		.byte	0x44
  597 019f 08       		.uleb128 0x8
- 598 01a0 E70C0000 		.4byte	.LASF53
+ 598 01a0 AB0C0000 		.4byte	.LASF53
  599 01a4 45       		.byte	0x45
  600 01a5 08       		.uleb128 0x8
- 601 01a6 AB0A0000 		.4byte	.LASF54
+ 601 01a6 6F0A0000 		.4byte	.LASF54
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 14
+
+
  602 01aa 46       		.byte	0x46
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 14
-
-
  603 01ab 08       		.uleb128 0x8
- 604 01ac 5D080000 		.4byte	.LASF55
+ 604 01ac 39080000 		.4byte	.LASF55
  605 01b0 47       		.byte	0x47
  606 01b1 08       		.uleb128 0x8
  607 01b2 90120000 		.4byte	.LASF56
  608 01b6 48       		.byte	0x48
  609 01b7 08       		.uleb128 0x8
- 610 01b8 66040000 		.4byte	.LASF57
+ 610 01b8 42040000 		.4byte	.LASF57
  611 01bc 49       		.byte	0x49
  612 01bd 08       		.uleb128 0x8
  613 01be EE110000 		.4byte	.LASF58
@@ -797,13 +798,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  616 01c4 7A010000 		.4byte	.LASF59
  617 01c8 4B       		.byte	0x4b
  618 01c9 08       		.uleb128 0x8
- 619 01ca 2E090000 		.4byte	.LASF60
+ 619 01ca 0A090000 		.4byte	.LASF60
  620 01ce 4C       		.byte	0x4c
  621 01cf 08       		.uleb128 0x8
- 622 01d0 7B0B0000 		.4byte	.LASF61
+ 622 01d0 3F0B0000 		.4byte	.LASF61
  623 01d4 4D       		.byte	0x4d
  624 01d5 08       		.uleb128 0x8
- 625 01d6 9A040000 		.4byte	.LASF62
+ 625 01d6 76040000 		.4byte	.LASF62
  626 01da 4E       		.byte	0x4e
  627 01db 08       		.uleb128 0x8
  628 01dc D10E0000 		.4byte	.LASF63
@@ -812,10 +813,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  631 01e2 99010000 		.4byte	.LASF64
  632 01e6 50       		.byte	0x50
  633 01e7 08       		.uleb128 0x8
- 634 01e8 40050000 		.4byte	.LASF65
+ 634 01e8 1C050000 		.4byte	.LASF65
  635 01ec 51       		.byte	0x51
  636 01ed 08       		.uleb128 0x8
- 637 01ee 630C0000 		.4byte	.LASF66
+ 637 01ee 270C0000 		.4byte	.LASF66
  638 01f2 52       		.byte	0x52
  639 01f3 08       		.uleb128 0x8
  640 01f4 310E0000 		.4byte	.LASF67
@@ -824,37 +825,37 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  643 01fa 000F0000 		.4byte	.LASF68
  644 01fe 54       		.byte	0x54
  645 01ff 08       		.uleb128 0x8
- 646 0200 CA070000 		.4byte	.LASF69
+ 646 0200 A6070000 		.4byte	.LASF69
  647 0204 55       		.byte	0x55
  648 0205 08       		.uleb128 0x8
- 649 0206 B4060000 		.4byte	.LASF70
+ 649 0206 90060000 		.4byte	.LASF70
  650 020a 56       		.byte	0x56
  651 020b 08       		.uleb128 0x8
  652 020c 2B100000 		.4byte	.LASF71
  653 0210 57       		.byte	0x57
  654 0211 08       		.uleb128 0x8
- 655 0212 FB070000 		.4byte	.LASF72
+ 655 0212 D7070000 		.4byte	.LASF72
  656 0216 58       		.byte	0x58
  657 0217 08       		.uleb128 0x8
  658 0218 01030000 		.4byte	.LASF73
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 15
+
+
  659 021c 70       		.byte	0x70
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 15
-
-
  660 021d 08       		.uleb128 0x8
  661 021e 1A130000 		.4byte	.LASF74
  662 0222 71       		.byte	0x71
  663 0223 08       		.uleb128 0x8
- 664 0224 E8090000 		.4byte	.LASF75
+ 664 0224 C4090000 		.4byte	.LASF75
  665 0228 72       		.byte	0x72
  666 0229 08       		.uleb128 0x8
- 667 022a 8D0A0000 		.4byte	.LASF76
+ 667 022a 510A0000 		.4byte	.LASF76
  668 022e 73       		.byte	0x73
  669 022f 08       		.uleb128 0x8
- 670 0230 A30C0000 		.4byte	.LASF77
+ 670 0230 670C0000 		.4byte	.LASF77
  671 0234 74       		.byte	0x74
  672 0235 08       		.uleb128 0x8
- 673 0236 66050000 		.4byte	.LASF78
+ 673 0236 42050000 		.4byte	.LASF78
  674 023a 75       		.byte	0x75
  675 023b 08       		.uleb128 0x8
  676 023c 30010000 		.4byte	.LASF79
@@ -869,13 +870,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  685 024e 54100000 		.4byte	.LASF82
  686 0252 79       		.byte	0x79
  687 0253 08       		.uleb128 0x8
- 688 0254 30060000 		.4byte	.LASF83
+ 688 0254 0C060000 		.4byte	.LASF83
  689 0258 7A       		.byte	0x7a
  690 0259 08       		.uleb128 0x8
  691 025a FC120000 		.4byte	.LASF84
  692 025e FA       		.byte	0xfa
  693 025f 08       		.uleb128 0x8
- 694 0260 E3060000 		.4byte	.LASF85
+ 694 0260 BF060000 		.4byte	.LASF85
  695 0264 FB       		.byte	0xfb
  696 0265 08       		.uleb128 0x8
  697 0266 6D0E0000 		.4byte	.LASF86
@@ -884,7 +885,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  700 026c B6130000 		.4byte	.LASF87
  701 0270 FD       		.byte	0xfd
  702 0271 08       		.uleb128 0x8
- 703 0272 E1050000 		.4byte	.LASF88
+ 703 0272 BD050000 		.4byte	.LASF88
  704 0276 FF       		.byte	0xff
  705 0277 00       		.byte	0
  706 0278 07       		.uleb128 0x7
@@ -897,19 +898,19 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  713 0286 45130000 		.4byte	.LASF89
  714 028a 01       		.byte	0x1
  715 028b 08       		.uleb128 0x8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 16
+
+
  716 028c BE0F0000 		.4byte	.LASF90
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 16
-
-
  717 0290 02       		.byte	0x2
  718 0291 08       		.uleb128 0x8
  719 0292 7A120000 		.4byte	.LASF91
  720 0296 03       		.byte	0x3
  721 0297 08       		.uleb128 0x8
- 722 0298 B60B0000 		.4byte	.LASF92
+ 722 0298 7A0B0000 		.4byte	.LASF92
  723 029c 04       		.byte	0x4
  724 029d 08       		.uleb128 0x8
- 725 029e 98070000 		.4byte	.LASF93
+ 725 029e 74070000 		.4byte	.LASF93
  726 02a2 FF       		.byte	0xff
  727 02a3 00       		.byte	0
  728 02a4 09       		.uleb128 0x9
@@ -919,19 +920,19 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  732 02ab A5       		.byte	0xa5
  733 02ac 9B030000 		.4byte	0x39b
  734 02b0 08       		.uleb128 0x8
- 735 02b1 FA050000 		.4byte	.LASF94
+ 735 02b1 D6050000 		.4byte	.LASF94
  736 02b5 00       		.byte	0
  737 02b6 08       		.uleb128 0x8
  738 02b7 03010000 		.4byte	.LASF95
  739 02bb 01       		.byte	0x1
  740 02bc 08       		.uleb128 0x8
- 741 02bd 0E060000 		.4byte	.LASF96
+ 741 02bd EA050000 		.4byte	.LASF96
  742 02c1 02       		.byte	0x2
  743 02c2 08       		.uleb128 0x8
- 744 02c3 BE050000 		.4byte	.LASF97
+ 744 02c3 9A050000 		.4byte	.LASF97
  745 02c7 03       		.byte	0x3
  746 02c8 08       		.uleb128 0x8
- 747 02c9 7F040000 		.4byte	.LASF98
+ 747 02c9 5B040000 		.4byte	.LASF98
  748 02cd 04       		.byte	0x4
  749 02ce 08       		.uleb128 0x8
  750 02cf 92030000 		.4byte	.LASF99
@@ -943,25 +944,25 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  756 02db 0C120000 		.4byte	.LASF101
  757 02df 07       		.byte	0x7
  758 02e0 08       		.uleb128 0x8
- 759 02e1 0A0C0000 		.4byte	.LASF102
+ 759 02e1 CE0B0000 		.4byte	.LASF102
  760 02e5 08       		.byte	0x8
  761 02e6 08       		.uleb128 0x8
- 762 02e7 140D0000 		.4byte	.LASF103
+ 762 02e7 D80C0000 		.4byte	.LASF103
  763 02eb 09       		.byte	0x9
  764 02ec 08       		.uleb128 0x8
- 765 02ed 75070000 		.4byte	.LASF104
+ 765 02ed 51070000 		.4byte	.LASF104
  766 02f1 0A       		.byte	0xa
  767 02f2 08       		.uleb128 0x8
- 768 02f3 24080000 		.4byte	.LASF105
+ 768 02f3 00080000 		.4byte	.LASF105
  769 02f7 0B       		.byte	0xb
  770 02f8 08       		.uleb128 0x8
  771 02f9 AA000000 		.4byte	.LASF106
  772 02fd 0C       		.byte	0xc
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 17
+
+
  773 02fe 08       		.uleb128 0x8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 17
-
-
- 774 02ff B90D0000 		.4byte	.LASF107
+ 774 02ff 9D0D0000 		.4byte	.LASF107
  775 0303 0D       		.byte	0xd
  776 0304 08       		.uleb128 0x8
  777 0305 77100000 		.4byte	.LASF108
@@ -970,10 +971,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  780 030b 90110000 		.4byte	.LASF109
  781 030f 0F       		.byte	0xf
  782 0310 08       		.uleb128 0x8
- 783 0311 91050000 		.4byte	.LASF110
+ 783 0311 6D050000 		.4byte	.LASF110
  784 0315 10       		.byte	0x10
  785 0316 08       		.uleb128 0x8
- 786 0317 D50A0000 		.4byte	.LASF111
+ 786 0317 990A0000 		.4byte	.LASF111
  787 031b 11       		.byte	0x11
  788 031c 08       		.uleb128 0x8
  789 031d D50F0000 		.4byte	.LASF112
@@ -985,13 +986,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  795 0329 62110000 		.4byte	.LASF114
  796 032d 80       		.byte	0x80
  797 032e 08       		.uleb128 0x8
- 798 032f B8040000 		.4byte	.LASF115
+ 798 032f 94040000 		.4byte	.LASF115
  799 0333 80       		.byte	0x80
  800 0334 08       		.uleb128 0x8
- 801 0335 75090000 		.4byte	.LASF116
+ 801 0335 51090000 		.4byte	.LASF116
  802 0339 80       		.byte	0x80
  803 033a 08       		.uleb128 0x8
- 804 033b 1D070000 		.4byte	.LASF117
+ 804 033b F9060000 		.4byte	.LASF117
  805 033f 80       		.byte	0x80
  806 0340 08       		.uleb128 0x8
  807 0341 6D030000 		.4byte	.LASF118
@@ -1000,13 +1001,13 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  810 0347 520E0000 		.4byte	.LASF119
  811 034b 80       		.byte	0x80
  812 034c 08       		.uleb128 0x8
- 813 034d DE0D0000 		.4byte	.LASF120
+ 813 034d C20D0000 		.4byte	.LASF120
  814 0351 81       		.byte	0x81
  815 0352 08       		.uleb128 0x8
  816 0353 BC020000 		.4byte	.LASF121
  817 0357 81       		.byte	0x81
  818 0358 08       		.uleb128 0x8
- 819 0359 02070000 		.4byte	.LASF122
+ 819 0359 DE060000 		.4byte	.LASF122
  820 035d 81       		.byte	0x81
  821 035e 08       		.uleb128 0x8
  822 035f 53000000 		.4byte	.LASF123
@@ -1017,17 +1018,17 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  827 036a 08       		.uleb128 0x8
  828 036b A80E0000 		.4byte	.LASF125
  829 036f A0       		.byte	0xa0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 18
+
+
  830 0370 08       		.uleb128 0x8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 18
-
-
- 831 0371 A8080000 		.4byte	.LASF126
+ 831 0371 84080000 		.4byte	.LASF126
  832 0375 A0       		.byte	0xa0
  833 0376 08       		.uleb128 0x8
  834 0377 DD020000 		.4byte	.LASF127
  835 037b A1       		.byte	0xa1
  836 037c 08       		.uleb128 0x8
- 837 037d C10C0000 		.4byte	.LASF128
+ 837 037d 850C0000 		.4byte	.LASF128
  838 0381 A2       		.byte	0xa2
  839 0382 08       		.uleb128 0x8
  840 0383 95100000 		.4byte	.LASF129
@@ -1039,7 +1040,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  846 038f C1100000 		.4byte	.LASF131
  847 0393 FE       		.byte	0xfe
  848 0394 08       		.uleb128 0x8
- 849 0395 640D0000 		.4byte	.LASF132
+ 849 0395 ED0D0000 		.4byte	.LASF132
  850 0399 FF       		.byte	0xff
  851 039a 00       		.byte	0
  852 039b 04       		.uleb128 0x4
@@ -1059,7 +1060,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  866 03b8 6B000000 		.4byte	0x6b
  867 03bc 00       		.byte	0
  868 03bd 0B       		.uleb128 0xb
- 869 03be E2090000 		.4byte	.LASF135
+ 869 03be BE090000 		.4byte	.LASF135
  870 03c2 04       		.byte	0x4
  871 03c3 A001     		.2byte	0x1a0
  872 03c5 6B000000 		.4byte	0x6b
@@ -1077,10 +1078,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  884 03dc 08040000 		.4byte	0x408
  885 03e0 0C       		.uleb128 0xc
  886 03e1 76616C00 		.ascii	"val\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 19
+
+
  887 03e5 04       		.byte	0x4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 19
-
-
  888 03e6 C101     		.2byte	0x1c1
  889 03e8 B4000000 		.4byte	0xb4
  890 03ec 00       		.byte	0
@@ -1091,7 +1092,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  895 03f5 77000000 		.4byte	0x77
  896 03f9 04       		.byte	0x4
  897 03fa 0B       		.uleb128 0xb
- 898 03fb 45040000 		.4byte	.LASF137
+ 898 03fb 21040000 		.4byte	.LASF137
  899 03ff 04       		.byte	0x4
  900 0400 CB01     		.2byte	0x1cb
  901 0402 77000000 		.4byte	0x77
@@ -1108,25 +1109,25 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  912 0417 D001     		.2byte	0x1d0
  913 0419 38040000 		.4byte	0x438
  914 041d 0B       		.uleb128 0xb
- 915 041e 83060000 		.4byte	.LASF139
+ 915 041e 5F060000 		.4byte	.LASF139
  916 0422 04       		.byte	0x4
  917 0423 D301     		.2byte	0x1d3
  918 0425 08040000 		.4byte	0x408
  919 0429 00       		.byte	0
  920 042a 0B       		.uleb128 0xb
- 921 042b 54060000 		.4byte	.LASF140
+ 921 042b 30060000 		.4byte	.LASF140
  922 042f 04       		.byte	0x4
  923 0430 D601     		.2byte	0x1d6
  924 0432 9B030000 		.4byte	0x39b
  925 0436 08       		.byte	0x8
  926 0437 00       		.byte	0
  927 0438 04       		.uleb128 0x4
- 928 0439 840C0000 		.4byte	.LASF141
+ 928 0439 480C0000 		.4byte	.LASF141
  929 043d 04       		.byte	0x4
  930 043e D801     		.2byte	0x1d8
  931 0440 14040000 		.4byte	0x414
  932 0444 0D       		.uleb128 0xd
- 933 0445 180B0000 		.4byte	.LASF142
+ 933 0445 DC0A0000 		.4byte	.LASF142
  934 0449 05       		.byte	0x5
  935 044a 34       		.byte	0x34
  936 044b 38040000 		.4byte	0x438
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  941 0453 70040000 		.4byte	0x470
  942 0457 0F       		.uleb128 0xf
  943 0458 D3000000 		.4byte	.LASF143
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 20
+
+
  944 045c 05       		.byte	0x5
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 20
-
-
  945 045d 8D       		.byte	0x8d
  946 045e CB030000 		.4byte	0x3cb
  947 0462 00       		.byte	0
@@ -1152,7 +1153,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  953 046e 04       		.byte	0x4
  954 046f 00       		.byte	0
  955 0470 0D       		.uleb128 0xd
- 956 0471 FA0A0000 		.4byte	.LASF145
+ 956 0471 BE0A0000 		.4byte	.LASF145
  957 0475 05       		.byte	0x5
  958 0476 92       		.byte	0x92
  959 0477 4F040000 		.4byte	0x44f
@@ -1166,7 +1167,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  967 0489 3F000000 		.4byte	.LASF146
  968 048d 00       		.byte	0
  969 048e 08       		.uleb128 0x8
- 970 048f 370B0000 		.4byte	.LASF147
+ 970 048f FB0A0000 		.4byte	.LASF147
  971 0493 01       		.byte	0x1
  972 0494 08       		.uleb128 0x8
  973 0495 50120000 		.4byte	.LASF148
@@ -1175,7 +1176,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  976 049b BD030000 		.4byte	.LASF149
  977 049f 03       		.byte	0x3
  978 04a0 08       		.uleb128 0x8
- 979 04a1 EF040000 		.4byte	.LASF150
+ 979 04a1 CB040000 		.4byte	.LASF150
  980 04a5 04       		.byte	0x4
  981 04a6 00       		.byte	0
  982 04a7 04       		.uleb128 0x4
@@ -1193,18 +1194,18 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  994 04c3 9C       		.byte	0x9c
  995 04c4 08050000 		.4byte	0x508
  996 04c8 11       		.uleb128 0x11
- 997 04c9 590D0000 		.4byte	.LASF152
+ 997 04c9 1D0D0000 		.4byte	.LASF152
  998 04cd 01       		.byte	0x1
  999 04ce 0D       		.byte	0xd
  1000 04cf 44040000 		.4byte	0x444
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 21
+
+
  1001 04d3 02       		.uleb128 0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 21
-
-
  1002 04d4 91       		.byte	0x91
  1003 04d5 6C       		.sleb128 -20
  1004 04d6 11       		.uleb128 0x11
- 1005 04d7 87050000 		.4byte	.LASF153
+ 1005 04d7 63050000 		.4byte	.LASF153
  1006 04db 01       		.byte	0x1
  1007 04dc 0F       		.byte	0xf
  1008 04dd 6B000000 		.4byte	0x6b
@@ -1238,16 +1239,16 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1036 0508 10       		.uleb128 0x10
  1037 0509 21010000 		.4byte	.LASF155
  1038 050d 01       		.byte	0x1
- 1039 050e 1D       		.byte	0x1d
+ 1039 050e 1E       		.byte	0x1e
  1040 050f 00000000 		.4byte	.LFB36
  1041 0513 60000000 		.4byte	.LFE36-.LFB36
  1042 0517 01       		.uleb128 0x1
  1043 0518 9C       		.byte	0x9c
  1044 0519 5A050000 		.4byte	0x55a
  1045 051d 11       		.uleb128 0x11
- 1046 051e 590D0000 		.4byte	.LASF152
+ 1046 051e 1D0D0000 		.4byte	.LASF152
  1047 0522 01       		.byte	0x1
- 1048 0523 22       		.byte	0x22
+ 1048 0523 23       		.byte	0x23
  1049 0524 44040000 		.4byte	0x444
  1050 0528 02       		.uleb128 0x2
  1051 0529 91       		.byte	0x91
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1055 0530 0B070000 		.4byte	0x70b
  1056 0534 49050000 		.4byte	0x549
  1057 0538 14       		.uleb128 0x14
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 22
+
+
  1058 0539 01       		.uleb128 0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 22
-
-
  1059 053a 50       		.byte	0x50
  1060 053b 02       		.uleb128 0x2
  1061 053c 91       		.byte	0x91
@@ -1288,39 +1289,39 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1083 0558 00       		.byte	0
  1084 0559 00       		.byte	0
  1085 055a 16       		.uleb128 0x16
- 1086 055b A8060000 		.4byte	.LASF184
+ 1086 055b 84060000 		.4byte	.LASF184
  1087 055f 01       		.byte	0x1
- 1088 0560 33       		.byte	0x33
+ 1088 0560 34       		.byte	0x34
  1089 0561 00000000 		.4byte	.LFB37
  1090 0565 A4000000 		.4byte	.LFE37-.LFB37
  1091 0569 01       		.uleb128 0x1
  1092 056a 9C       		.byte	0x9c
  1093 056b 27060000 		.4byte	0x627
  1094 056f 17       		.uleb128 0x17
- 1095 0570 1E080000 		.4byte	.LASF156
+ 1095 0570 FA070000 		.4byte	.LASF156
  1096 0574 01       		.byte	0x1
- 1097 0575 33       		.byte	0x33
+ 1097 0575 34       		.byte	0x34
  1098 0576 83000000 		.4byte	0x83
  1099 057a 00000000 		.4byte	.LLST0
  1100 057e 17       		.uleb128 0x17
  1101 057f D5110000 		.4byte	.LASF157
  1102 0583 01       		.byte	0x1
- 1103 0584 33       		.byte	0x33
+ 1103 0584 34       		.byte	0x34
  1104 0585 B2000000 		.4byte	0xb2
  1105 0589 53000000 		.4byte	.LLST1
  1106 058d 18       		.uleb128 0x18
- 1107 058e EF050000 		.4byte	.LASF158
+ 1107 058e CB050000 		.4byte	.LASF158
  1108 0592 01       		.byte	0x1
- 1109 0593 35       		.byte	0x35
+ 1109 0593 36       		.byte	0x36
  1110 0594 27060000 		.4byte	0x627
  1111 0598 AB000000 		.4byte	.LLST2
  1112 059c 15       		.uleb128 0x15
  1113 059d 26000000 		.4byte	.LVL6
  1114 05a1 22070000 		.4byte	0x722
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 23
+
+
  1115 05a5 AF050000 		.4byte	0x5af
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 23
-
-
  1116 05a9 14       		.uleb128 0x14
  1117 05aa 01       		.uleb128 0x1
  1118 05ab 50       		.byte	0x50
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1169 0614 01       		.uleb128 0x1
  1170 0615 30       		.byte	0x30
  1171 0616 14       		.uleb128 0x14
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 24
+
+
  1172 0617 01       		.uleb128 0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 24
-
-
  1173 0618 52       		.byte	0x52
  1174 0619 02       		.uleb128 0x2
  1175 061a 75       		.byte	0x75
@@ -1396,7 +1397,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1185 062d 19       		.uleb128 0x19
  1186 062e 40130000 		.4byte	.LASF185
  1187 0632 01       		.byte	0x1
- 1188 0633 72       		.byte	0x72
+ 1188 0633 73       		.byte	0x73
  1189 0634 5D000000 		.4byte	0x5d
  1190 0638 00000000 		.4byte	.LFB38
  1191 063c 44000000 		.4byte	.LFE38-.LFB38
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1226 0698 08050000 		.4byte	0x508
  1227 069c 12       		.uleb128 0x12
  1228 069d 32000000 		.4byte	.LVL29
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 25
+
+
  1229 06a1 A9070000 		.4byte	0x7a9
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 25
-
-
  1230 06a5 13       		.uleb128 0x13
  1231 06a6 38000000 		.4byte	.LVL30
  1232 06aa B5070000 		.4byte	0x7b5
@@ -1452,17 +1453,17 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1238 06b3 00       		.byte	0
  1239 06b4 00       		.byte	0
  1240 06b5 1A       		.uleb128 0x1a
- 1241 06b6 95090000 		.4byte	.LASF159
+ 1241 06b6 71090000 		.4byte	.LASF159
  1242 06ba 06       		.byte	0x6
  1243 06bb A90A     		.2byte	0xaa9
  1244 06bd A7040000 		.4byte	0x4a7
  1245 06c1 1A       		.uleb128 0x1a
- 1246 06c2 6A0B0000 		.4byte	.LASF160
+ 1246 06c2 2E0B0000 		.4byte	.LASF160
  1247 06c6 06       		.byte	0x6
  1248 06c7 AA0A     		.2byte	0xaaa
  1249 06c9 CB030000 		.4byte	0x3cb
  1250 06cd 1B       		.uleb128 0x1b
- 1251 06ce 500C0000 		.4byte	.LASF161
+ 1251 06ce 140C0000 		.4byte	.LASF161
  1252 06d2 01       		.byte	0x1
  1253 06d3 03       		.byte	0x3
  1254 06d4 77000000 		.4byte	0x77
@@ -1470,7 +1471,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1256 06d9 03       		.byte	0x3
  1257 06da 00000000 		.4byte	fingerPos
  1258 06de 1B       		.uleb128 0x1b
- 1259 06df EE070000 		.4byte	.LASF162
+ 1259 06df CA070000 		.4byte	.LASF162
  1260 06e3 01       		.byte	0x1
  1261 06e4 04       		.byte	0x4
  1262 06e5 77000000 		.4byte	0x77
@@ -1486,41 +1487,41 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1272 06fb 03       		.byte	0x3
  1273 06fc 00000000 		.4byte	capsenseNotify
  1274 0700 1C       		.uleb128 0x1c
- 1275 0701 5A0C0000 		.4byte	.LASF164
- 1276 0705 5A0C0000 		.4byte	.LASF164
+ 1275 0701 1E0C0000 		.4byte	.LASF164
+ 1276 0705 1E0C0000 		.4byte	.LASF164
  1277 0709 07       		.byte	0x7
  1278 070a 32       		.byte	0x32
  1279 070b 1D       		.uleb128 0x1d
- 1280 070c 89060000 		.4byte	.LASF165
- 1281 0710 89060000 		.4byte	.LASF165
+ 1280 070c 65060000 		.4byte	.LASF165
+ 1281 0710 65060000 		.4byte	.LASF165
  1282 0714 08       		.byte	0x8
  1283 0715 7E01     		.2byte	0x17e
  1284 0717 1C       		.uleb128 0x1c
  1285 0718 DB120000 		.4byte	.LASF166
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 26
+
+
  1286 071c DB120000 		.4byte	.LASF166
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 26
-
-
  1287 0720 05       		.byte	0x5
  1288 0721 F2       		.byte	0xf2
  1289 0722 1D       		.uleb128 0x1d
- 1290 0723 3C0D0000 		.4byte	.LASF167
- 1291 0727 3C0D0000 		.4byte	.LASF167
+ 1290 0723 000D0000 		.4byte	.LASF167
+ 1291 0727 000D0000 		.4byte	.LASF167
  1292 072b 09       		.byte	0x9
- 1293 072c 8002     		.2byte	0x280
+ 1293 072c 8102     		.2byte	0x281
  1294 072e 1C       		.uleb128 0x1c
  1295 072f B7100000 		.4byte	.LASF168
  1296 0733 B7100000 		.4byte	.LASF168
  1297 0737 0A       		.byte	0xa
  1298 0738 92       		.byte	0x92
  1299 0739 1C       		.uleb128 0x1c
- 1300 073a 4F0A0000 		.4byte	.LASF169
- 1301 073e 4F0A0000 		.4byte	.LASF169
+ 1300 073a 130A0000 		.4byte	.LASF169
+ 1301 073e 130A0000 		.4byte	.LASF169
  1302 0742 0A       		.byte	0xa
  1303 0743 93       		.byte	0x93
  1304 0744 1C       		.uleb128 0x1c
- 1305 0745 36050000 		.4byte	.LASF170
- 1306 0749 36050000 		.4byte	.LASF170
+ 1305 0745 12050000 		.4byte	.LASF170
+ 1306 0749 12050000 		.4byte	.LASF170
  1307 074d 07       		.byte	0x7
  1308 074e 33       		.byte	0x33
  1309 074f 1D       		.uleb128 0x1d
@@ -1534,46 +1535,46 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1317 0764 0B       		.byte	0xb
  1318 0765 99       		.byte	0x99
  1319 0766 1C       		.uleb128 0x1c
- 1320 0767 02040000 		.4byte	.LASF173
- 1321 076b 02040000 		.4byte	.LASF173
+ 1320 0767 E0090000 		.4byte	.LASF173
+ 1321 076b E0090000 		.4byte	.LASF173
  1322 076f 0C       		.byte	0xc
  1323 0770 AC       		.byte	0xac
  1324 0771 1D       		.uleb128 0x1d
- 1325 0772 69090000 		.4byte	.LASF174
- 1326 0776 69090000 		.4byte	.LASF174
+ 1325 0772 45090000 		.4byte	.LASF174
+ 1326 0776 45090000 		.4byte	.LASF174
  1327 077a 09       		.byte	0x9
- 1328 077b 7002     		.2byte	0x270
+ 1328 077b 7102     		.2byte	0x271
  1329 077d 1C       		.uleb128 0x1c
  1330 077e F00E0000 		.4byte	.LASF175
  1331 0782 F00E0000 		.4byte	.LASF175
  1332 0786 0B       		.byte	0xb
  1333 0787 9F       		.byte	0x9f
  1334 0788 1C       		.uleb128 0x1c
- 1335 0789 0F090000 		.4byte	.LASF176
- 1336 078d 0F090000 		.4byte	.LASF176
+ 1335 0789 EB080000 		.4byte	.LASF176
+ 1336 078d EB080000 		.4byte	.LASF176
  1337 0791 0C       		.byte	0xc
  1338 0792 E2       		.byte	0xe2
  1339 0793 1C       		.uleb128 0x1c
  1340 0794 42110000 		.4byte	.LASF177
  1341 0798 42110000 		.4byte	.LASF177
  1342 079c 0C       		.byte	0xc
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 27
+
+
  1343 079d AF       		.byte	0xaf
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 27
-
-
  1344 079e 1C       		.uleb128 0x1c
  1345 079f B8010000 		.4byte	.LASF178
  1346 07a3 B8010000 		.4byte	.LASF178
  1347 07a7 0B       		.byte	0xb
  1348 07a8 A2       		.byte	0xa2
  1349 07a9 1D       		.uleb128 0x1d
- 1350 07aa 94080000 		.4byte	.LASF179
- 1351 07ae 94080000 		.4byte	.LASF179
+ 1350 07aa 70080000 		.4byte	.LASF179
+ 1351 07ae 70080000 		.4byte	.LASF179
  1352 07b2 03       		.byte	0x3
  1353 07b3 E107     		.2byte	0x7e1
  1354 07b5 1D       		.uleb128 0x1d
- 1355 07b6 400A0000 		.4byte	.LASF180
- 1356 07ba 400A0000 		.4byte	.LASF180
+ 1355 07b6 040A0000 		.4byte	.LASF180
+ 1356 07ba 040A0000 		.4byte	.LASF180
  1357 07be 03       		.byte	0x3
  1358 07bf AA07     		.2byte	0x7aa
  1359 07c1 00       		.byte	0
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1397 0023 3E       		.uleb128 0x3e
  1398 0024 0B       		.uleb128 0xb
  1399 0025 03       		.uleb128 0x3
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 28
+
+
  1400 0026 08       		.uleb128 0x8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 28
-
-
  1401 0027 00       		.byte	0
  1402 0028 00       		.byte	0
  1403 0029 04       		.uleb128 0x4
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1454 005c 00       		.byte	0
  1455 005d 00       		.byte	0
  1456 005e 09       		.uleb128 0x9
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 29
+
+
  1457 005f 04       		.uleb128 0x4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 29
-
-
  1458 0060 01       		.byte	0x1
  1459 0061 0B       		.uleb128 0xb
  1460 0062 0B       		.uleb128 0xb
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1511 0095 0B       		.uleb128 0xb
  1512 0096 00       		.byte	0
  1513 0097 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 30
+
+
  1514 0098 0D       		.uleb128 0xd
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 30
-
-
  1515 0099 16       		.uleb128 0x16
  1516 009a 00       		.byte	0
  1517 009b 03       		.uleb128 0x3
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1568 00ce 12       		.uleb128 0x12
  1569 00cf 06       		.uleb128 0x6
  1570 00d0 40       		.uleb128 0x40
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 31
+
+
  1571 00d1 18       		.uleb128 0x18
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 31
-
-
  1572 00d2 9742     		.uleb128 0x2117
  1573 00d4 19       		.uleb128 0x19
  1574 00d5 01       		.uleb128 0x1
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1625 0111 31       		.uleb128 0x31
  1626 0112 13       		.uleb128 0x13
  1627 0113 01       		.uleb128 0x1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 32
+
+
  1628 0114 13       		.uleb128 0x13
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 32
-
-
  1629 0115 00       		.byte	0
  1630 0116 00       		.byte	0
  1631 0117 16       		.uleb128 0x16
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1682 014b 02       		.uleb128 0x2
  1683 014c 17       		.uleb128 0x17
  1684 014d 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 33
+
+
  1685 014e 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 33
-
-
  1686 014f 19       		.uleb128 0x19
  1687 0150 2E       		.uleb128 0x2e
  1688 0151 01       		.byte	0x1
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1739 0186 49       		.uleb128 0x49
  1740 0187 13       		.uleb128 0x13
  1741 0188 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 34
+
+
  1742 0189 19       		.uleb128 0x19
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 34
-
-
  1743 018a 02       		.uleb128 0x2
  1744 018b 18       		.uleb128 0x18
  1745 018c 00       		.byte	0
@@ -2037,10 +2038,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1796 0019 2C000000 		.4byte	.LVL8
  1797 001d 2F000000 		.4byte	.LVL9-1
  1798 0021 0100     		.2byte	0x1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 35
+
+
  1799 0023 50       		.byte	0x50
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 35
-
-
  1800 0024 2F000000 		.4byte	.LVL9-1
  1801 0028 3A000000 		.4byte	.LVL12
  1802 002c 0400     		.2byte	0x4
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1853 00a7 00000000 		.4byte	0
  1854              	.LLST2:
  1855 00ab 3A000000 		.4byte	.LVL12
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 36
+
+
  1856 00af 48000000 		.4byte	.LVL14
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 36
-
-
  1857 00b3 0100     		.2byte	0x1
  1858 00b5 51       		.byte	0x51
  1859 00b6 48000000 		.4byte	.LVL14
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1901      455F4556 
  1901      545F5354 
  1901      41434B5F 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 37
+
+
  1901      42555359 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 37
-
-
  1902              	.LASF146:
  1903 003f 4359424C 		.ascii	"CYBLE_STATE_STOPPED\000"
  1903      455F5354 
@@ -2217,10 +2218,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1921      455F4556 
  1921      545F4C32 
  1921      4341505F 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 38
+
+
  1921      43424643 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 38
-
-
  1922              	.LASF39:
  1923 0151 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
  1923      455F4556 
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1939      6720756E 
  1939      7369676E 
  1939      65642069 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 39
+
+
  1940              	.LASF138:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 39
-
-
  1941 0294 4359424C 		.ascii	"CYBLE_GATT_VALUE_T\000"
  1941      455F4741 
  1941      54545F56 
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1958              	.LASF149:
  1959 03bd 4359424C 		.ascii	"CYBLE_STATE_ADVERTISING\000"
  1959      455F5354 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 40
+
+
  1959      4154455F 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 40
-
-
  1959      41445645 
  1959      52544953 
  1960              	.LASF6:
@@ -2358,575 +2359,575 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  1965      545F5354 
  1965      41434B5F 
  1965      4F4E00
- 1966              	.LASF173:
- 1967 0402 63617073 		.ascii	"capsense_InitializeEnabledBaselines\000"
- 1967      656E7365 
- 1967      5F496E69 
- 1967      7469616C 
- 1967      697A6545 
- 1968              	.LASF35:
- 1969 0426 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
- 1969      455F4556 
- 1969      545F4741 
- 1969      50435F53 
- 1969      43414E5F 
- 1970              	.LASF137:
- 1971 0445 61637475 		.ascii	"actualLen\000"
- 1971      616C4C65 
- 1971      6E00
- 1972              	.LASF25:
- 1973 044f 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 1966              	.LASF35:
+ 1967 0402 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 1967      455F4556 
+ 1967      545F4741 
+ 1967      50435F53 
+ 1967      43414E5F 
+ 1968              	.LASF137:
+ 1969 0421 61637475 		.ascii	"actualLen\000"
+ 1969      616C4C65 
+ 1969      6E00
+ 1970              	.LASF25:
+ 1971 042b 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 1971      455F4556 
+ 1971      545F4741 
+ 1971      505F4155 
+ 1971      54485F52 
+ 1972              	.LASF57:
+ 1973 0442 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
  1973      455F4556 
  1973      545F4741 
- 1973      505F4155 
- 1973      54485F52 
- 1974              	.LASF57:
- 1975 0466 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
- 1975      455F4556 
- 1975      545F4741 
- 1975      5454435F 
- 1975      52454144 
- 1976              	.LASF98:
- 1977 047f 4359424C 		.ascii	"CYBLE_GATT_ERR_INVALID_PDU\000"
- 1977      455F4741 
- 1977      54545F45 
- 1977      52525F49 
- 1977      4E56414C 
- 1978              	.LASF62:
- 1979 049a 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
- 1979      455F4556 
- 1979      545F4741 
- 1979      5454535F 
- 1979      57524954 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 41
+ 1973      5454435F 
+ 1973      52454144 
+ 1974              	.LASF98:
+ 1975 045b 4359424C 		.ascii	"CYBLE_GATT_ERR_INVALID_PDU\000"
+ 1975      455F4741 
+ 1975      54545F45 
+ 1975      52525F49 
+ 1975      4E56414C 
+ 1976              	.LASF62:
+ 1977 0476 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 1977      455F4556 
+ 1977      545F4741 
+ 1977      5454535F 
+ 1977      57524954 
+ 1978              	.LASF115:
+ 1979 0494 4359424C 		.ascii	"CYBLE_GATT_ERR_CPS_INAPPROPRIATE_CONNECTION_PARAMET"
+ 1979      455F4741 
+ 1979      54545F45 
+ 1979      52525F43 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 41
 
 
- 1980              	.LASF115:
- 1981 04b8 4359424C 		.ascii	"CYBLE_GATT_ERR_CPS_INAPPROPRIATE_CONNECTION_PARAMET"
- 1981      455F4741 
- 1981      54545F45 
- 1981      52525F43 
- 1981      50535F49 
- 1982 04eb 45525300 		.ascii	"ERS\000"
- 1983              	.LASF150:
- 1984 04ef 4359424C 		.ascii	"CYBLE_STATE_DISCONNECTED\000"
- 1984      455F5354 
- 1984      4154455F 
- 1984      44495343 
- 1984      4F4E4E45 
- 1985              	.LASF30:
- 1986 0508 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
- 1986      455F4556 
- 1986      545F4741 
- 1986      50505F41 
- 1986      44564552 
- 1987              	.LASF9:
- 1988 0530 75696E74 		.ascii	"uint8\000"
- 1988      3800
- 1989              	.LASF170:
- 1990 0536 7265645F 		.ascii	"red_Write\000"
- 1990      57726974 
- 1990      6500
- 1991              	.LASF65:
- 1992 0540 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
- 1992      455F4556 
- 1992      545F4741 
- 1992      5454435F 
- 1992      45584543 
- 1993              	.LASF13:
- 1994 055f 646F7562 		.ascii	"double\000"
- 1994      6C6500
- 1995              	.LASF78:
- 1996 0566 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
- 1996      455F4556 
- 1996      545F4C32 
- 1996      4341505F 
- 1996      43424643 
- 1997              	.LASF153:
- 1998 0587 7265645F 		.ascii	"red_State\000"
- 1998      53746174 
- 1998      6500
- 1999              	.LASF110:
- 2000 0591 4359424C 		.ascii	"CYBLE_GATT_ERR_UNSUPPORTED_GROUP_TYPE\000"
- 2000      455F4741 
- 2000      54545F45 
- 2000      52525F55 
- 2000      4E535550 
- 2001              	.LASF11:
- 2002 05b7 75696E74 		.ascii	"uint32\000"
- 2002      333200
- 2003              	.LASF97:
- 2004 05be 4359424C 		.ascii	"CYBLE_GATT_ERR_WRITE_NOT_PERMITTED\000"
- 2004      455F4741 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 42
+ 1979      50535F49 
+ 1980 04c7 45525300 		.ascii	"ERS\000"
+ 1981              	.LASF150:
+ 1982 04cb 4359424C 		.ascii	"CYBLE_STATE_DISCONNECTED\000"
+ 1982      455F5354 
+ 1982      4154455F 
+ 1982      44495343 
+ 1982      4F4E4E45 
+ 1983              	.LASF30:
+ 1984 04e4 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 1984      455F4556 
+ 1984      545F4741 
+ 1984      50505F41 
+ 1984      44564552 
+ 1985              	.LASF9:
+ 1986 050c 75696E74 		.ascii	"uint8\000"
+ 1986      3800
+ 1987              	.LASF170:
+ 1988 0512 7265645F 		.ascii	"red_Write\000"
+ 1988      57726974 
+ 1988      6500
+ 1989              	.LASF65:
+ 1990 051c 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 1990      455F4556 
+ 1990      545F4741 
+ 1990      5454435F 
+ 1990      45584543 
+ 1991              	.LASF13:
+ 1992 053b 646F7562 		.ascii	"double\000"
+ 1992      6C6500
+ 1993              	.LASF78:
+ 1994 0542 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 1994      455F4556 
+ 1994      545F4C32 
+ 1994      4341505F 
+ 1994      43424643 
+ 1995              	.LASF153:
+ 1996 0563 7265645F 		.ascii	"red_State\000"
+ 1996      53746174 
+ 1996      6500
+ 1997              	.LASF110:
+ 1998 056d 4359424C 		.ascii	"CYBLE_GATT_ERR_UNSUPPORTED_GROUP_TYPE\000"
+ 1998      455F4741 
+ 1998      54545F45 
+ 1998      52525F55 
+ 1998      4E535550 
+ 1999              	.LASF11:
+ 2000 0593 75696E74 		.ascii	"uint32\000"
+ 2000      333200
+ 2001              	.LASF97:
+ 2002 059a 4359424C 		.ascii	"CYBLE_GATT_ERR_WRITE_NOT_PERMITTED\000"
+ 2002      455F4741 
+ 2002      54545F45 
+ 2002      52525F57 
+ 2002      52495445 
+ 2003              	.LASF88:
+ 2004 05bd 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 42
 
 
- 2004      54545F45 
- 2004      52525F57 
- 2004      52495445 
- 2005              	.LASF88:
- 2006 05e1 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
- 2006      455F4556 
- 2006      545F4D41 
- 2006      5800
- 2007              	.LASF158:
- 2008 05ef 77725265 		.ascii	"wrReqParam\000"
- 2008      71506172 
- 2008      616D00
- 2009              	.LASF94:
- 2010 05fa 4359424C 		.ascii	"CYBLE_GATT_ERR_NONE\000"
+ 2004      455F4556 
+ 2004      545F4D41 
+ 2004      5800
+ 2005              	.LASF158:
+ 2006 05cb 77725265 		.ascii	"wrReqParam\000"
+ 2006      71506172 
+ 2006      616D00
+ 2007              	.LASF94:
+ 2008 05d6 4359424C 		.ascii	"CYBLE_GATT_ERR_NONE\000"
+ 2008      455F4741 
+ 2008      54545F45 
+ 2008      52525F4E 
+ 2008      4F4E4500 
+ 2009              	.LASF96:
+ 2010 05ea 4359424C 		.ascii	"CYBLE_GATT_ERR_READ_NOT_PERMITTED\000"
  2010      455F4741 
  2010      54545F45 
- 2010      52525F4E 
- 2010      4F4E4500 
- 2011              	.LASF96:
- 2012 060e 4359424C 		.ascii	"CYBLE_GATT_ERR_READ_NOT_PERMITTED\000"
- 2012      455F4741 
- 2012      54545F45 
- 2012      52525F52 
- 2012      4541445F 
- 2013              	.LASF83:
- 2014 0630 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
- 2014      455F4556 
- 2014      545F4C32 
- 2014      4341505F 
- 2014      43424643 
- 2015              	.LASF140:
- 2016 0654 61747472 		.ascii	"attrHandle\000"
- 2016      48616E64 
- 2016      6C6500
- 2017              	.LASF24:
- 2018 065f 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
- 2018      455F4556 
- 2018      545F4741 
- 2018      50435F53 
- 2018      43414E5F 
- 2019              	.LASF139:
- 2020 0683 76616C75 		.ascii	"value\000"
- 2020      6500
- 2021              	.LASF165:
- 2022 0689 4379426C 		.ascii	"CyBle_GattsWriteAttributeValue\000"
- 2022      655F4761 
- 2022      74747357 
- 2022      72697465 
- 2022      41747472 
- 2023              	.LASF184:
- 2024 06a8 426C6543 		.ascii	"BleCallBack\000"
- 2024      616C6C42 
- 2024      61636B00 
- 2025              	.LASF70:
- 2026 06b4 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
- 2026      455F4556 
- 2026      545F4741 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 43
+ 2010      52525F52 
+ 2010      4541445F 
+ 2011              	.LASF83:
+ 2012 060c 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 2012      455F4556 
+ 2012      545F4C32 
+ 2012      4341505F 
+ 2012      43424643 
+ 2013              	.LASF140:
+ 2014 0630 61747472 		.ascii	"attrHandle\000"
+ 2014      48616E64 
+ 2014      6C6500
+ 2015              	.LASF24:
+ 2016 063b 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 2016      455F4556 
+ 2016      545F4741 
+ 2016      50435F53 
+ 2016      43414E5F 
+ 2017              	.LASF139:
+ 2018 065f 76616C75 		.ascii	"value\000"
+ 2018      6500
+ 2019              	.LASF165:
+ 2020 0665 4379426C 		.ascii	"CyBle_GattsWriteAttributeValue\000"
+ 2020      655F4761 
+ 2020      74747357 
+ 2020      72697465 
+ 2020      41747472 
+ 2021              	.LASF184:
+ 2022 0684 426C6543 		.ascii	"BleCallBack\000"
+ 2022      616C6C42 
+ 2022      61636B00 
+ 2023              	.LASF70:
+ 2024 0690 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 2024      455F4556 
+ 2024      545F4741 
+ 2024      5454435F 
+ 2024      53544F50 
+ 2025              	.LASF8:
+ 2026 06b2 756E7369 		.ascii	"unsigned int\000"
+ 2026      676E6564 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 43
 
 
- 2026      5454435F 
- 2026      53544F50 
- 2027              	.LASF8:
- 2028 06d6 756E7369 		.ascii	"unsigned int\000"
- 2028      676E6564 
- 2028      20696E74 
- 2028      00
- 2029              	.LASF85:
- 2030 06e3 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
- 2030      455F4556 
- 2030      545F4C45 
- 2030      5F50494E 
- 2030      475F4155 
- 2031              	.LASF122:
- 2032 0702 4359424C 		.ascii	"CYBLE_GATT_ERR_INVALID_CRC\000"
+ 2026      20696E74 
+ 2026      00
+ 2027              	.LASF85:
+ 2028 06bf 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 2028      455F4556 
+ 2028      545F4C45 
+ 2028      5F50494E 
+ 2028      475F4155 
+ 2029              	.LASF122:
+ 2030 06de 4359424C 		.ascii	"CYBLE_GATT_ERR_INVALID_CRC\000"
+ 2030      455F4741 
+ 2030      54545F45 
+ 2030      52525F49 
+ 2030      4E56414C 
+ 2031              	.LASF117:
+ 2032 06f9 4359424C 		.ascii	"CYBLE_GATTS_ERR_PROCEDURE_ALREADY_IN_PROGRESS\000"
  2032      455F4741 
- 2032      54545F45 
- 2032      52525F49 
- 2032      4E56414C 
- 2033              	.LASF117:
- 2034 071d 4359424C 		.ascii	"CYBLE_GATTS_ERR_PROCEDURE_ALREADY_IN_PROGRESS\000"
- 2034      455F4741 
- 2034      5454535F 
- 2034      4552525F 
- 2034      50524F43 
- 2035              	.LASF5:
- 2036 074b 6C6F6E67 		.ascii	"long unsigned int\000"
- 2036      20756E73 
- 2036      69676E65 
- 2036      6420696E 
- 2036      7400
- 2037              	.LASF44:
- 2038 075d 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
- 2038      455F4556 
- 2038      545F4741 
- 2038      505F434F 
- 2038      4E4E5F45 
- 2039              	.LASF104:
- 2040 0775 4359424C 		.ascii	"CYBLE_GATT_ERR_ATTRIBUTE_NOT_FOUND\000"
- 2040      455F4741 
- 2040      54545F45 
- 2040      52525F41 
- 2040      54545249 
- 2041              	.LASF93:
- 2042 0798 4359424C 		.ascii	"CYBLE_BLESS_INVALID\000"
- 2042      455F424C 
- 2042      4553535F 
- 2042      494E5641 
- 2042      4C494400 
- 2043              	.LASF52:
- 2044 07ac 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 2032      5454535F 
+ 2032      4552525F 
+ 2032      50524F43 
+ 2033              	.LASF5:
+ 2034 0727 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2034      20756E73 
+ 2034      69676E65 
+ 2034      6420696E 
+ 2034      7400
+ 2035              	.LASF44:
+ 2036 0739 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
+ 2036      455F4556 
+ 2036      545F4741 
+ 2036      505F434F 
+ 2036      4E4E5F45 
+ 2037              	.LASF104:
+ 2038 0751 4359424C 		.ascii	"CYBLE_GATT_ERR_ATTRIBUTE_NOT_FOUND\000"
+ 2038      455F4741 
+ 2038      54545F45 
+ 2038      52525F41 
+ 2038      54545249 
+ 2039              	.LASF93:
+ 2040 0774 4359424C 		.ascii	"CYBLE_BLESS_INVALID\000"
+ 2040      455F424C 
+ 2040      4553535F 
+ 2040      494E5641 
+ 2040      4C494400 
+ 2041              	.LASF52:
+ 2042 0788 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 2042      455F4556 
+ 2042      545F4741 
+ 2042      5454435F 
+ 2042      5843484E 
+ 2043              	.LASF69:
+ 2044 07a6 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
  2044      455F4556 
  2044      545F4741 
- 2044      5454435F 
- 2044      5843484E 
- 2045              	.LASF69:
- 2046 07ca 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 44
+ 2044      5454535F 
+ 2044      44415441 
+ 2045              	.LASF162:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 44
 
 
- 2046      455F4556 
- 2046      545F4741 
- 2046      5454535F 
- 2046      44415441 
- 2047              	.LASF162:
- 2048 07ee 66696E67 		.ascii	"fingerPosOld\000"
- 2048      6572506F 
- 2048      734F6C64 
- 2048      00
- 2049              	.LASF72:
- 2050 07fb 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
- 2050      455F4556 
- 2050      545F4741 
- 2050      5454435F 
- 2050      4C4F4E47 
- 2051              	.LASF156:
- 2052 081e 6576656E 		.ascii	"event\000"
- 2052      7400
- 2053              	.LASF105:
- 2054 0824 4359424C 		.ascii	"CYBLE_GATT_ERR_ATTRIBUTE_NOT_LONG\000"
- 2054      455F4741 
- 2054      54545F45 
- 2054      52525F41 
- 2054      54545249 
- 2055              	.LASF17:
- 2056 0846 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 2046 07ca 66696E67 		.ascii	"fingerPosOld\000"
+ 2046      6572506F 
+ 2046      734F6C64 
+ 2046      00
+ 2047              	.LASF72:
+ 2048 07d7 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 2048      455F4556 
+ 2048      545F4741 
+ 2048      5454435F 
+ 2048      4C4F4E47 
+ 2049              	.LASF156:
+ 2050 07fa 6576656E 		.ascii	"event\000"
+ 2050      7400
+ 2051              	.LASF105:
+ 2052 0800 4359424C 		.ascii	"CYBLE_GATT_ERR_ATTRIBUTE_NOT_LONG\000"
+ 2052      455F4741 
+ 2052      54545F45 
+ 2052      52525F41 
+ 2052      54545249 
+ 2053              	.LASF17:
+ 2054 0822 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 2054      455F4556 
+ 2054      545F484F 
+ 2054      53545F49 
+ 2054      4E56414C 
+ 2055              	.LASF55:
+ 2056 0839 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
  2056      455F4556 
- 2056      545F484F 
- 2056      53545F49 
- 2056      4E56414C 
- 2057              	.LASF55:
- 2058 085d 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 2056      545F4741 
+ 2056      5454435F 
+ 2056      46494E44 
+ 2057              	.LASF23:
+ 2058 0857 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
  2058      455F4556 
- 2058      545F4741 
- 2058      5454435F 
- 2058      46494E44 
- 2059              	.LASF23:
- 2060 087b 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
- 2060      455F4556 
- 2060      545F4D45 
- 2060      4D4F5259 
- 2060      5F524551 
- 2061              	.LASF179:
- 2062 0894 4379426C 		.ascii	"CyBle_ProcessEvents\000"
- 2062      655F5072 
- 2062      6F636573 
- 2062      73457665 
- 2062      6E747300 
- 2063              	.LASF126:
- 2064 08a8 4359424C 		.ascii	"CYBLE_GATT_ERR_ANCS_UNKNOWN_COMMAND\000"
- 2064      455F4741 
- 2064      54545F45 
- 2064      52525F41 
- 2064      4E43535F 
- 2065              	.LASF26:
- 2066 08cc 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 2058      545F4D45 
+ 2058      4D4F5259 
+ 2058      5F524551 
+ 2059              	.LASF179:
+ 2060 0870 4379426C 		.ascii	"CyBle_ProcessEvents\000"
+ 2060      655F5072 
+ 2060      6F636573 
+ 2060      73457665 
+ 2060      6E747300 
+ 2061              	.LASF126:
+ 2062 0884 4359424C 		.ascii	"CYBLE_GATT_ERR_ANCS_UNKNOWN_COMMAND\000"
+ 2062      455F4741 
+ 2062      54545F45 
+ 2062      52525F41 
+ 2062      4E43535F 
+ 2063              	.LASF26:
+ 2064 08a8 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 2064      455F4556 
+ 2064      545F4741 
+ 2064      505F5041 
+ 2064      53534B45 
+ 2065              	.LASF31:
+ 2066 08cc 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 45
+
+
  2066      455F4556 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 45
-
-
  2066      545F4741 
- 2066      505F5041 
- 2066      53534B45 
- 2067              	.LASF31:
- 2068 08f0 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
- 2068      455F4556 
- 2068      545F4741 
- 2068      505F4445 
- 2068      56494345 
- 2069              	.LASF176:
- 2070 090f 63617073 		.ascii	"capsense_GetCentroidPos\000"
- 2070      656E7365 
- 2070      5F476574 
- 2070      43656E74 
- 2070      726F6964 
- 2071              	.LASF182:
- 2072 0927 6D61696E 		.ascii	"main.c\000"
- 2072      2E6300
- 2073              	.LASF60:
- 2074 092e 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 2066      505F4445 
+ 2066      56494345 
+ 2067              	.LASF176:
+ 2068 08eb 63617073 		.ascii	"capsense_GetCentroidPos\000"
+ 2068      656E7365 
+ 2068      5F476574 
+ 2068      43656E74 
+ 2068      726F6964 
+ 2069              	.LASF182:
+ 2070 0903 6D61696E 		.ascii	"main.c\000"
+ 2070      2E6300
+ 2071              	.LASF60:
+ 2072 090a 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 2072      455F4556 
+ 2072      545F4741 
+ 2072      5454535F 
+ 2072      57524954 
+ 2073              	.LASF46:
+ 2074 0924 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
  2074      455F4556 
  2074      545F4741 
- 2074      5454535F 
- 2074      57524954 
- 2075              	.LASF46:
- 2076 0948 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
- 2076      455F4556 
- 2076      545F4741 
- 2076      505F4155 
- 2076      54485F52 
- 2077              	.LASF174:
- 2078 0969 4379426C 		.ascii	"CyBle_Start\000"
- 2078      655F5374 
- 2078      61727400 
- 2079              	.LASF116:
- 2080 0975 4359424C 		.ascii	"CYBLE_GATT_ERR_HTS_OUT_OF_RANGE\000"
- 2080      455F4741 
- 2080      54545F45 
- 2080      52525F48 
- 2080      54535F4F 
- 2081              	.LASF159:
- 2082 0995 6379426C 		.ascii	"cyBle_state\000"
- 2082      655F7374 
- 2082      61746500 
- 2083              	.LASF27:
- 2084 09a1 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 2074      505F4155 
+ 2074      54485F52 
+ 2075              	.LASF174:
+ 2076 0945 4379426C 		.ascii	"CyBle_Start\000"
+ 2076      655F5374 
+ 2076      61727400 
+ 2077              	.LASF116:
+ 2078 0951 4359424C 		.ascii	"CYBLE_GATT_ERR_HTS_OUT_OF_RANGE\000"
+ 2078      455F4741 
+ 2078      54545F45 
+ 2078      52525F48 
+ 2078      54535F4F 
+ 2079              	.LASF159:
+ 2080 0971 6379426C 		.ascii	"cyBle_state\000"
+ 2080      655F7374 
+ 2080      61746500 
+ 2081              	.LASF27:
+ 2082 097d 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 2082      455F4556 
+ 2082      545F4741 
+ 2082      505F5041 
+ 2082      53534B45 
+ 2083              	.LASF49:
+ 2084 09a3 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
  2084      455F4556 
  2084      545F4741 
- 2084      505F5041 
- 2084      53534B45 
- 2085              	.LASF49:
- 2086 09c7 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
- 2086      455F4556 
- 2086      545F4741 
- 2086      54545F43 
- 2086      4F4E4E45 
- 2087              	.LASF135:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 46
+ 2084      54545F43 
+ 2084      4F4E4E45 
+ 2085              	.LASF135:
+ 2086 09be 61747449 		.ascii	"attId\000"
+ 2086      6400
+ 2087              	.LASF75:
+ 2088 09c4 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 2088      455F4556 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 46
 
 
- 2088 09e2 61747449 		.ascii	"attId\000"
- 2088      6400
- 2089              	.LASF75:
- 2090 09e8 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
- 2090      455F4556 
- 2090      545F4C32 
- 2090      4341505F 
- 2090      434F4D4D 
- 2091              	.LASF183:
- 2092 0a04 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\able\\capsenseled\\cap"
- 2092      73657273 
- 2092      5C707572 
- 2092      69615C44 
- 2092      6F63756D 
- 2093 0a31 73656E73 		.ascii	"senseled.cydsn\000"
- 2093      656C6564 
- 2093      2E637964 
- 2093      736E00
- 2094              	.LASF180:
- 2095 0a40 4379426C 		.ascii	"CyBle_EnterLPM\000"
- 2095      655F456E 
- 2095      7465724C 
- 2095      504D00
- 2096              	.LASF169:
- 2097 0a4f 70776D5F 		.ascii	"pwm_Stop\000"
- 2097      53746F70 
- 2097      00
- 2098              	.LASF47:
- 2099 0a58 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
+ 2088      545F4C32 
+ 2088      4341505F 
+ 2088      434F4D4D 
+ 2089              	.LASF173:
+ 2090 09e0 63617073 		.ascii	"capsense_InitializeEnabledBaselines\000"
+ 2090      656E7365 
+ 2090      5F496E69 
+ 2090      7469616C 
+ 2090      697A6545 
+ 2091              	.LASF180:
+ 2092 0a04 4379426C 		.ascii	"CyBle_EnterLPM\000"
+ 2092      655F456E 
+ 2092      7465724C 
+ 2092      504D00
+ 2093              	.LASF169:
+ 2094 0a13 70776D5F 		.ascii	"pwm_Stop\000"
+ 2094      53746F70 
+ 2094      00
+ 2095              	.LASF47:
+ 2096 0a1c 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
+ 2096      455F4556 
+ 2096      545F4741 
+ 2096      505F534D 
+ 2096      505F4C4F 
+ 2097 0a4f 4500     		.ascii	"E\000"
+ 2098              	.LASF76:
+ 2099 0a51 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
  2099      455F4556 
- 2099      545F4741 
- 2099      505F534D 
- 2099      505F4C4F 
- 2100 0a8b 4500     		.ascii	"E\000"
- 2101              	.LASF76:
- 2102 0a8d 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
- 2102      455F4556 
- 2102      545F4C32 
- 2102      4341505F 
- 2102      43424643 
- 2103              	.LASF54:
- 2104 0aab 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
- 2104      455F4556 
- 2104      545F4741 
- 2104      5454435F 
- 2104      52454144 
- 2105              	.LASF15:
- 2106 0acc 73697A65 		.ascii	"sizetype\000"
- 2106      74797065 
- 2106      00
- 2107              	.LASF111:
- 2108 0ad5 4359424C 		.ascii	"CYBLE_GATT_ERR_INSUFFICIENT_RESOURCE\000"
- 2108      455F4741 
- 2108      54545F45 
- 2108      52525F49 
- 2108      4E535546 
- 2109              	.LASF145:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 47
+ 2099      545F4C32 
+ 2099      4341505F 
+ 2099      43424643 
+ 2100              	.LASF54:
+ 2101 0a6f 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 2101      455F4556 
+ 2101      545F4741 
+ 2101      5454435F 
+ 2101      52454144 
+ 2102              	.LASF15:
+ 2103 0a90 73697A65 		.ascii	"sizetype\000"
+ 2103      74797065 
+ 2103      00
+ 2104              	.LASF111:
+ 2105 0a99 4359424C 		.ascii	"CYBLE_GATT_ERR_INSUFFICIENT_RESOURCE\000"
+ 2105      455F4741 
+ 2105      54545F45 
+ 2105      52525F49 
+ 2105      4E535546 
+ 2106              	.LASF145:
+ 2107 0abe 4359424C 		.ascii	"CYBLE_GATTS_WRITE_REQ_PARAM_T\000"
+ 2107      455F4741 
+ 2107      5454535F 
+ 2107      57524954 
+ 2107      455F5245 
+ 2108              	.LASF142:
+ 2109 0adc 4359424C 		.ascii	"CYBLE_GATTS_HANDLE_VALUE_NTF_T\000"
+ 2109      455F4741 
+ 2109      5454535F 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 47
 
 
- 2110 0afa 4359424C 		.ascii	"CYBLE_GATTS_WRITE_REQ_PARAM_T\000"
- 2110      455F4741 
- 2110      5454535F 
- 2110      57524954 
- 2110      455F5245 
- 2111              	.LASF142:
- 2112 0b18 4359424C 		.ascii	"CYBLE_GATTS_HANDLE_VALUE_NTF_T\000"
- 2112      455F4741 
- 2112      5454535F 
- 2112      48414E44 
- 2112      4C455F56 
- 2113              	.LASF147:
- 2114 0b37 4359424C 		.ascii	"CYBLE_STATE_INITIALIZING\000"
- 2114      455F5354 
- 2114      4154455F 
- 2114      494E4954 
- 2114      49414C49 
- 2115              	.LASF29:
- 2116 0b50 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
- 2116      455F4556 
- 2116      545F4741 
- 2116      505F4155 
- 2116      54485F46 
- 2117              	.LASF160:
- 2118 0b6a 6379426C 		.ascii	"cyBle_connHandle\000"
- 2118      655F636F 
- 2118      6E6E4861 
- 2118      6E646C65 
- 2118      00
- 2119              	.LASF61:
- 2120 0b7b 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
- 2120      455F4556 
- 2120      545F4741 
- 2120      5454435F 
- 2120      57524954 
- 2121              	.LASF42:
- 2122 0b95 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
- 2122      455F4556 
- 2122      545F4741 
- 2122      50435F44 
- 2122      49524543 
- 2123              	.LASF92:
- 2124 0bb6 4359424C 		.ascii	"CYBLE_BLESS_HIBERNATE\000"
- 2124      455F424C 
- 2124      4553535F 
- 2124      48494245 
- 2124      524E4154 
- 2125              	.LASF40:
- 2126 0bcc 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
- 2126      455F4556 
- 2126      545F4741 
- 2126      505F4441 
- 2126      54415F4C 
- 2127              	.LASF45:
- 2128 0bed 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
- 2128      455F4556 
- 2128      545F4741 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 48
+ 2109      48414E44 
+ 2109      4C455F56 
+ 2110              	.LASF147:
+ 2111 0afb 4359424C 		.ascii	"CYBLE_STATE_INITIALIZING\000"
+ 2111      455F5354 
+ 2111      4154455F 
+ 2111      494E4954 
+ 2111      49414C49 
+ 2112              	.LASF29:
+ 2113 0b14 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 2113      455F4556 
+ 2113      545F4741 
+ 2113      505F4155 
+ 2113      54485F46 
+ 2114              	.LASF160:
+ 2115 0b2e 6379426C 		.ascii	"cyBle_connHandle\000"
+ 2115      655F636F 
+ 2115      6E6E4861 
+ 2115      6E646C65 
+ 2115      00
+ 2116              	.LASF61:
+ 2117 0b3f 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 2117      455F4556 
+ 2117      545F4741 
+ 2117      5454435F 
+ 2117      57524954 
+ 2118              	.LASF42:
+ 2119 0b59 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 2119      455F4556 
+ 2119      545F4741 
+ 2119      50435F44 
+ 2119      49524543 
+ 2120              	.LASF92:
+ 2121 0b7a 4359424C 		.ascii	"CYBLE_BLESS_HIBERNATE\000"
+ 2121      455F424C 
+ 2121      4553535F 
+ 2121      48494245 
+ 2121      524E4154 
+ 2122              	.LASF40:
+ 2123 0b90 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
+ 2123      455F4556 
+ 2123      545F4741 
+ 2123      505F4441 
+ 2123      54415F4C 
+ 2124              	.LASF45:
+ 2125 0bb1 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 2125      455F4556 
+ 2125      545F4741 
+ 2125      505F5343 
+ 2125      414E5F52 
+ 2126              	.LASF102:
+ 2127 0bce 4359424C 		.ascii	"CYBLE_GATT_ERR_INSUFFICIENT_AUTHORIZATION\000"
+ 2127      455F4741 
+ 2127      54545F45 
+ 2127      52525F49 
+ 2127      4E535546 
+ 2128              	.LASF28:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 48
 
 
- 2128      505F5343 
- 2128      414E5F52 
- 2129              	.LASF102:
- 2130 0c0a 4359424C 		.ascii	"CYBLE_GATT_ERR_INSUFFICIENT_AUTHORIZATION\000"
- 2130      455F4741 
- 2130      54545F45 
- 2130      52525F49 
- 2130      4E535546 
- 2131              	.LASF28:
- 2132 0c34 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
- 2132      455F4556 
- 2132      545F4741 
- 2132      505F4155 
- 2132      54485F43 
- 2133              	.LASF161:
- 2134 0c50 66696E67 		.ascii	"fingerPos\000"
- 2134      6572506F 
- 2134      7300
- 2135              	.LASF164:
- 2136 0c5a 7265645F 		.ascii	"red_Read\000"
- 2136      52656164 
- 2136      00
- 2137              	.LASF66:
- 2138 0c63 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
- 2138      455F4556 
- 2138      545F4741 
- 2138      5454435F 
- 2138      48414E44 
- 2139              	.LASF141:
- 2140 0c84 4359424C 		.ascii	"CYBLE_GATT_HANDLE_VALUE_PAIR_T\000"
- 2140      455F4741 
- 2140      54545F48 
- 2140      414E444C 
- 2140      455F5641 
- 2141              	.LASF77:
- 2142 0ca3 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
- 2142      455F4556 
- 2142      545F4C32 
- 2142      4341505F 
- 2142      43424643 
- 2143              	.LASF128:
- 2144 0cc1 4359424C 		.ascii	"CYBLE_GATT_ERR_ANCS_INVALID_PARAMETER\000"
- 2144      455F4741 
- 2144      54545F45 
- 2144      52525F41 
- 2144      4E43535F 
- 2145              	.LASF53:
- 2146 0ce7 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
- 2146      455F4556 
- 2146      545F4741 
- 2146      5454435F 
- 2146      52454144 
- 2147              	.LASF12:
- 2148 0d0e 666C6F61 		.ascii	"float\000"
- 2148      7400
- 2149              	.LASF103:
- 2150 0d14 4359424C 		.ascii	"CYBLE_GATT_ERR_PREPARE_WRITE_QUEUE_FULL\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 49
+ 2129 0bf8 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 2129      455F4556 
+ 2129      545F4741 
+ 2129      505F4155 
+ 2129      54485F43 
+ 2130              	.LASF161:
+ 2131 0c14 66696E67 		.ascii	"fingerPos\000"
+ 2131      6572506F 
+ 2131      7300
+ 2132              	.LASF164:
+ 2133 0c1e 7265645F 		.ascii	"red_Read\000"
+ 2133      52656164 
+ 2133      00
+ 2134              	.LASF66:
+ 2135 0c27 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 2135      455F4556 
+ 2135      545F4741 
+ 2135      5454435F 
+ 2135      48414E44 
+ 2136              	.LASF141:
+ 2137 0c48 4359424C 		.ascii	"CYBLE_GATT_HANDLE_VALUE_PAIR_T\000"
+ 2137      455F4741 
+ 2137      54545F48 
+ 2137      414E444C 
+ 2137      455F5641 
+ 2138              	.LASF77:
+ 2139 0c67 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 2139      455F4556 
+ 2139      545F4C32 
+ 2139      4341505F 
+ 2139      43424643 
+ 2140              	.LASF128:
+ 2141 0c85 4359424C 		.ascii	"CYBLE_GATT_ERR_ANCS_INVALID_PARAMETER\000"
+ 2141      455F4741 
+ 2141      54545F45 
+ 2141      52525F41 
+ 2141      4E43535F 
+ 2142              	.LASF53:
+ 2143 0cab 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 2143      455F4556 
+ 2143      545F4741 
+ 2143      5454435F 
+ 2143      52454144 
+ 2144              	.LASF12:
+ 2145 0cd2 666C6F61 		.ascii	"float\000"
+ 2145      7400
+ 2146              	.LASF103:
+ 2147 0cd8 4359424C 		.ascii	"CYBLE_GATT_ERR_PREPARE_WRITE_QUEUE_FULL\000"
+ 2147      455F4741 
+ 2147      54545F45 
+ 2147      52525F50 
+ 2147      52455041 
+ 2148              	.LASF167:
+ 2149 0d00 4379426C 		.ascii	"CyBle_GappStartAdvertisement\000"
+ 2149      655F4761 
+ 2149      70705374 
+ 2149      61727441 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 49
 
 
- 2150      455F4741 
- 2150      54545F45 
- 2150      52525F50 
- 2150      52455041 
- 2151              	.LASF167:
- 2152 0d3c 4379426C 		.ascii	"CyBle_GappStartAdvertisement\000"
- 2152      655F4761 
- 2152      70705374 
- 2152      61727441 
- 2152      64766572 
- 2153              	.LASF152:
- 2154 0d59 74656D70 		.ascii	"tempHandle\000"
- 2154      48616E64 
- 2154      6C6500
- 2155              	.LASF132:
- 2156 0d64 4359424C 		.ascii	"CYBLE_GATT_ERR_OUT_OF_RANGE\000"
- 2156      455F4741 
- 2156      54545F45 
- 2156      52525F4F 
- 2156      55545F4F 
- 2157              	.LASF1:
- 2158 0d80 756E7369 		.ascii	"unsigned char\000"
- 2158      676E6564 
- 2158      20636861 
- 2158      7200
- 2159              	.LASF10:
- 2160 0d8e 75696E74 		.ascii	"uint16\000"
- 2160      313600
- 2161              	.LASF38:
- 2162 0d95 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
- 2162      455F4556 
- 2162      545F4741 
- 2162      505F4B45 
- 2162      59505245 
- 2163              	.LASF107:
- 2164 0db9 4359424C 		.ascii	"CYBLE_GATT_ERR_INVALID_ATTRIBUTE_LEN\000"
+ 2149      64766572 
+ 2150              	.LASF152:
+ 2151 0d1d 74656D70 		.ascii	"tempHandle\000"
+ 2151      48616E64 
+ 2151      6C6500
+ 2152              	.LASF183:
+ 2153 0d28 433A5C55 		.ascii	"C:\\Users\\puria\\Documents\\GitHub\\able\\psoc\\ca"
+ 2153      73657273 
+ 2153      5C707572 
+ 2153      69615C44 
+ 2153      6F63756D 
+ 2154 0d54 7073656E 		.ascii	"psenseled.cydsn\000"
+ 2154      73656C65 
+ 2154      642E6379 
+ 2154      64736E00 
+ 2155              	.LASF1:
+ 2156 0d64 756E7369 		.ascii	"unsigned char\000"
+ 2156      676E6564 
+ 2156      20636861 
+ 2156      7200
+ 2157              	.LASF10:
+ 2158 0d72 75696E74 		.ascii	"uint16\000"
+ 2158      313600
+ 2159              	.LASF38:
+ 2160 0d79 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 2160      455F4556 
+ 2160      545F4741 
+ 2160      505F4B45 
+ 2160      59505245 
+ 2161              	.LASF107:
+ 2162 0d9d 4359424C 		.ascii	"CYBLE_GATT_ERR_INVALID_ATTRIBUTE_LEN\000"
+ 2162      455F4741 
+ 2162      54545F45 
+ 2162      52525F49 
+ 2162      4E56414C 
+ 2163              	.LASF120:
+ 2164 0dc2 4359424C 		.ascii	"CYBLE_GATTS_ERR_CCCD_IMPROPERLY_CONFIGURED\000"
  2164      455F4741 
- 2164      54545F45 
- 2164      52525F49 
- 2164      4E56414C 
- 2165              	.LASF120:
- 2166 0dde 4359424C 		.ascii	"CYBLE_GATTS_ERR_CCCD_IMPROPERLY_CONFIGURED\000"
+ 2164      5454535F 
+ 2164      4552525F 
+ 2164      43434344 
+ 2165              	.LASF132:
+ 2166 0ded 4359424C 		.ascii	"CYBLE_GATT_ERR_OUT_OF_RANGE\000"
  2166      455F4741 
- 2166      5454535F 
- 2166      4552525F 
- 2166      43434344 
+ 2166      54545F45 
+ 2166      52525F4F 
+ 2166      55545F4F 
  2167              	.LASF172:
  2168 0e09 63617073 		.ascii	"capsense_Start\000"
  2168      656E7365 
@@ -2937,10 +2938,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  2170      7420696E 
  2170      7400
  2171              	.LASF163:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 50
+
+
  2172 0e22 63617073 		.ascii	"capsenseNotify\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 50
-
-
  2172      656E7365 
  2172      4E6F7469 
  2172      667900
@@ -2997,10 +2998,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  2190      54545F45 
  2190      52525F43 
  2190      4343445F 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 51
+
+
  2191              	.LASF154:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 51
-
-
  2192 0f4b 75706461 		.ascii	"updateLed\000"
  2192      74654C65 
  2192      6400
@@ -3057,10 +3058,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  2212      43424643 
  2213              	.LASF108:
  2214 1077 4359424C 		.ascii	"CYBLE_GATT_ERR_UNLIKELY_ERROR\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 52
+
+
  2214      455F4741 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 52
-
-
  2214      54545F45 
  2214      52525F55 
  2214      4E4C494B 
@@ -3117,10 +3118,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  2232      5345525F 
  2233              	.LASF109:
  2234 1190 4359424C 		.ascii	"CYBLE_GATT_ERR_INSUFFICIENT_ENCRYPTION\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 53
+
+
  2234      455F4741 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 53
-
-
  2234      54545F45 
  2234      52525F49 
  2234      4E535546 
@@ -3177,10 +3178,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  2252      534C4545 
  2253              	.LASF56:
  2254 1290 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 54
+
+
  2254      455F4556 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 54
-
-
  2254      545F4741 
  2254      5454435F 
  2254      46494E44 
@@ -3237,10 +3238,10 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 1
  2274 1398 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
  2274      455F4556 
  2274      545F4741 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccBycy8D.s 			page 55
+
+
  2274      54545F44 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccUBKLke.s 			page 55
-
-
  2274      4953434F 
  2275              	.LASF87:
  2276 13b6 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
