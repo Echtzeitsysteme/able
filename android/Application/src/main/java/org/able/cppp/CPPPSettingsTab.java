@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,7 +16,7 @@ import android.widget.Toast;
 import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEServiceListener;
 import org.able.core.BluetoothLeService;
-import org.able.core.DeviceScanActivity;
+import org.able.core.AbleDeviceScanActivity;
 import org.able.core.R;
 
 public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
@@ -97,7 +96,7 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
         thisReceiver = new BLEBroadcastReceiver(this);
         getActivity().registerReceiver(thisReceiver,
                 thisReceiver.makeGattUpdateIntentFilter());
-        mAbleBLEService = DeviceScanActivity.getmBluetoothLeService();
+        mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
 
         if (mAbleBLEService != null) {
             final boolean result = mAbleBLEService.connect(mDeviceAddress);

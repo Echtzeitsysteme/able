@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 import org.able.core.BluetoothLeService;
 import org.able.core.BLEBroadcastReceiver;
-import org.able.core.DeviceScanActivity;
+import org.able.core.AbleDeviceScanActivity;
 import org.able.core.R;
 import org.able.core.BLEServiceListener;
 
@@ -128,11 +128,14 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
         thisReceiver = new BLEBroadcastReceiver(this);
         getActivity().registerReceiver(thisReceiver,
                 thisReceiver.makeGattUpdateIntentFilter());
-        mAbleBLEService = DeviceScanActivity.getmBluetoothLeService();
+
+        mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
+
 
         if (mAbleBLEService != null) {
             final boolean result = mAbleBLEService.connect(mDeviceAddress);
         }
+
     }
 
     /**

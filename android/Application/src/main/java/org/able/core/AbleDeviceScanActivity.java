@@ -32,6 +32,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.ParcelUuid;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -45,8 +46,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 //class to make permissionhandling more clear
 
@@ -60,7 +66,7 @@ import static org.able.core.PermissionUtils.isLocationEnabled;
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
  * @version 1.0
  */
-public class DeviceScanActivity extends ListActivity implements BLEServiceListener{
+public class AbleDeviceScanActivity extends ListActivity implements BLEServiceListener{
 
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
@@ -86,7 +92,12 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     private final String scanButtonStart = "START SCAN";
     private final String scanButtonStop = "STOP SCAN";
 
-    private ServiceRegistry serviceRegistry;
+    public ServiceRegistry serviceRegistry;
+
+    private HashMap<BluetoothDevice, byte[]> deviceScanResponseMap = new HashMap<>();
+    private List<UUID> uuidList = new ArrayList<>();
+
+    private boolean CySmartFix = true;
 
     /**
      * This Listener handles button clicks of the GUI.
@@ -115,12 +126,6 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         }
     };
 
-    /**
-     * @return mBluetoothLeService
-     */
-    public BluetoothLeService getmBluetoothLeServiceFromDeviceScanActivity() {
-        return mBluetoothLeService;
-    }
 
     public void askForLocationPermission(){
         ArrayList<String> arrPerm = new ArrayList<>();
@@ -139,7 +144,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             String[] permissions = new String[arrPerm.size()];
             permissions = arrPerm.toArray(permissions);
             ActivityCompat.
-                    requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
+                    requestPermissions(AbleDeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
         }
     }
 
@@ -234,7 +239,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
                             String[] permissions = new String[arrPerm.size()];
                             permissions = arrPerm.toArray(permissions);
                             ActivityCompat.
-                                    requestPermissions(DeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
+                                    requestPermissions(AbleDeviceScanActivity.this, permissions, MY_PERMISSIONS_REQUEST);
                         }
                         setLocationSwitch();
                         scanButton.setActivated(false);
@@ -270,7 +275,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
 
         setScanButton();
 
-        mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this.getLayoutInflater());
+        mLeDeviceListAdapter = new LeDeviceListAdapter(AbleDeviceScanActivity.this.getLayoutInflater());
         setListAdapter(mLeDeviceListAdapter);
 
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
@@ -419,27 +424,31 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id)
     {
-            device = mLeDeviceListAdapter.getDevice(position);
-            if (device == null) return;
-            if (mBluetoothLeService != null)
-            {
-                final boolean result = mBluetoothLeService.connect(device.getAddress());
-                Log.d(TAG, "Connect request result=" + result);
-                if(result)
-                {
-                    Toast.makeText(this, "Connection in progress please wait.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, checkForKnownServices());
+        if (mScanning) {
+            mBluetoothAdapter.stopLeScan(mLeScanCallback);
+            mScanning = false;
+        }
+        device = mLeDeviceListAdapter.getDevice(position);
+        if (device == null) return;
 
-                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-                    if (mScanning) {
-                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
-                        mScanning = false;
-                    }
-                    startActivity(intent);
-                }
+        /*
+        if (mBluetoothLeService != null)
+        {
+            final boolean result = mBluetoothLeService.connect(device.getAddress());
+            Log.d(TAG, "Connect request result=" + result);
+            if(result)
+            {
+                Toast.makeText(this, "Connection in progress please wait.", Toast.LENGTH_SHORT).show();
             }
 
+        }
+        */
+
+        Intent intent = new Intent(this, checkForKnownServices());
+
+        intent.putExtra(AbleDeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+        intent.putExtra(AbleDeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+        startActivity(intent);
     }
 
     /**
@@ -465,6 +474,7 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             mScanning = false;
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
         }
+
         invalidateOptionsMenu();
     }
 
@@ -475,10 +485,13 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
             new BluetoothAdapter.LeScanCallback() {
 
         @Override
-        public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
+        public void onLeScan(final BluetoothDevice device, int rssi, final byte[] scanRecord) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+
+                    deviceScanResponseMap.put(device, scanRecord);
+                    Log.d(TAG, scanRecord.toString());
                     mLeDeviceListAdapter.addDevice(device);
 
                     mLeDeviceListAdapter.notifyDataSetChanged();
@@ -487,21 +500,119 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
         }
     };
 
+    public String byte2hex(byte[] a) {
+
+        String hexString = "";
+
+        for(int i = 0; i < a.length; i++){
+            String thisByte = "".format("%x", a[i]);
+            hexString += thisByte;
+        }
+
+        return hexString;
+
+    }
+
+    public void parseAdvertisementPacket(final byte[] scanRecord) {
+
+        byte[] advertisedData = Arrays.copyOf(scanRecord, scanRecord.length);
+
+        int offset = 0;
+        while (offset < (advertisedData.length - 2)) {
+            int len = advertisedData[offset++];
+            if (len == 0)
+                break;
+
+            int type = advertisedData[offset++];
+            switch (type) {
+                case 0x02: // Partial list of 16-bit UUIDs
+                case 0x03: // Complete list of 16-bit UUIDs
+                    while (len > 1) {
+                        int uuid16 = advertisedData[offset++] & 0xFF;
+                        uuid16 |= (advertisedData[offset++] << 8);
+                        len -= 2;
+                        uuidList.add(UUID.fromString(String.format(
+                                "%08x-0000-1000-8000-00805f9b34fb", uuid16)));
+                    }
+                    break;
+                case 0x06:// Partial list of 128-bit UUIDs
+                case 0x07:// Complete list of 128-bit UUIDs
+                    // Loop through the advertised 128-bit UUID's.
+                    while (len >= 16) {
+                        try {
+                            // Wrap the advertised bits and order them.
+                            ByteBuffer buffer = ByteBuffer.wrap(advertisedData,
+                                    offset++, 16).order(ByteOrder.LITTLE_ENDIAN);
+                            long mostSignificantBit = buffer.getLong();
+                            long leastSignificantBit = buffer.getLong();
+                            uuidList.add(new UUID(leastSignificantBit,
+                                    mostSignificantBit));
+                        } catch (IndexOutOfBoundsException e) {
+                            // Defensive programming.
+                            //Log.e("BlueToothDeviceFilter.parseUUID", e.toString());
+                            //continue;
+                        } finally {
+                            // Move the offset to read the next uuid.
+                            offset += 15;
+                            len -= 16;
+                        }
+                    }
+                    break;
+                case 0xFF:  // Manufacturer Specific Data
+                    /*
+                    Log.d(TAG, "Manufacturer Specific Data size:" + len + " bytes");
+                    while (len > 1) {
+                        if (i < 32) {
+                            MfgData[i++] = advertisedData[offset++];
+                        }
+                        len -= 1;
+                    }
+                    Log.d(TAG, "Manufacturer Specific Data saved." + MfgData.toString());
+                    break;
+                    */
+                default:
+                    offset += (len - 1);
+                    break;
+            }
+        }
+    }
+
     /**
      * This method checks if the found Gatt service matches one of the saved ones inside the ServiceRegistry.
      * @return
      */
-    private Class<?> checkForKnownServices()
-    {
-        List<BluetoothGattService>  tmpList = mBluetoothLeService.getSupportedGattServices();
-        Class<?> choosenActivity = DeviceControlActivity.class;
-        for(BluetoothGattService tmpGattService : tmpList)
-        {
-                if(serviceRegistry.getRegisteredServices().containsKey(tmpGattService.getUuid())) {
-                    //mBluetoothLeService.disconnect();
+    private Class<?> checkForKnownServices() {
+        /*
+        List<BluetoothGattService> tmpList = mBluetoothLeService.getSupportedGattServices();
+        Class<?> choosenActivity = AbleDeviceControlActivity.class;
+
+        if (tmpList != null){
+            for (BluetoothGattService tmpGattService : tmpList) {
+                if (serviceRegistry.getRegisteredServices().containsKey(tmpGattService.getUuid())) {
+                    //if (!CySmartFix)
+                    //    mBluetoothLeService.disconnect();
                     choosenActivity = serviceRegistry.getServiceClass(tmpGattService.getUuid());
                     break;
                 }
+            }
+        }
+        */
+
+        Class<?> choosenActivity = AbleDeviceControlActivity.class;
+
+        String testAdress = device.getAddress();
+
+        byte[] bleAdvertisementData = deviceScanResponseMap.get(device);
+
+        String hexString = byte2hex(bleAdvertisementData);
+
+        parseAdvertisementPacket(bleAdvertisementData);
+
+        for(UUID uuid : uuidList) {
+            if (serviceRegistry.getRegisteredServices().containsKey(uuid)) {
+                choosenActivity = serviceRegistry.getServiceClass(uuid);
+                break;
+            }
         }
         return choosenActivity;
     }
@@ -566,17 +677,19 @@ public class DeviceScanActivity extends ListActivity implements BLEServiceListen
     @Override
     public void gattServicesDiscovered() {
         /*
-        Intent intent = new Intent(this, checkForKnownServices());
+        if (!CySmartFix){
+            Intent intent = new Intent(this, checkForKnownServices());
 
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+            intent.putExtra(AbleDeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+            intent.putExtra(AbleDeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
             if (mScanning) {
                 mBluetoothAdapter.stopLeScan(mLeScanCallback);
                 mScanning = false;
             }
             //TODO: Is this the fix?
             //mBluetoothLeService.disconnect();
-        startActivity(intent);
+            startActivity(intent);
+        }
         */
     }
 

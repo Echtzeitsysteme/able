@@ -353,10 +353,10 @@ public class BluetoothLeService extends Service {
 
 
     /**
-     * @return true, if DeviceScanActivity has a active BluetoothAdapter.
+     * @return true, if AbleDeviceScanActivity has a active BluetoothAdapter.
      */
     public static boolean existBluetoothAdapter(){
-        if(DeviceScanActivity.getmBluetoothLeService() != null){return true;}
+        if(AbleDeviceScanActivity.getmBluetoothLeService() != null){return true;}
         else return false;
     }
 

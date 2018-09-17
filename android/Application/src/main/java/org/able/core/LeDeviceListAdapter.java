@@ -86,7 +86,7 @@ class LeDeviceListAdapter extends BaseAdapter {
     }
 
     /**
-     * Sets the list View of the GUI inside DeviceScanActivity.
+     * Sets the list View of the GUI inside AbleDeviceScanActivity.
      * @param i
      * @param view
      * @param viewGroup
@@ -94,15 +94,15 @@ class LeDeviceListAdapter extends BaseAdapter {
      */
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        DeviceScanActivity.ViewHolder viewHolder;
+        AbleDeviceScanActivity.ViewHolder viewHolder;
         if (view == null) {
             view = mInflator.inflate(R.layout.listitem_device, null);
-            viewHolder = new DeviceScanActivity.ViewHolder();
+            viewHolder = new AbleDeviceScanActivity.ViewHolder();
             viewHolder.deviceAddress = (TextView) view.findViewById(R.id.device_address);
             viewHolder.deviceName = (TextView) view.findViewById(R.id.device_name);
             view.setTag(viewHolder);
         } else {
-            viewHolder = (DeviceScanActivity.ViewHolder) view.getTag();
+            viewHolder = (AbleDeviceScanActivity.ViewHolder) view.getTag();
         }
 
         BluetoothDevice device = mLeDevices.get(i);

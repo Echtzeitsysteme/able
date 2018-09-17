@@ -45,8 +45,8 @@ import static org.able.core.CharacteristicSorterClass.settingUpServices;
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
  * @version 1.0
  */
-public class DeviceControlActivity extends Activity implements BLEServiceListener {
-    private final static String TAG = DeviceControlActivity.class.getSimpleName();
+public class AbleDeviceControlActivity extends Activity implements BLEServiceListener {
+    private final static String TAG = AbleDeviceControlActivity.class.getSimpleName();
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
@@ -150,13 +150,13 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
         thisReceiver= new BLEBroadcastReceiver(this);
         registerReceiver(thisReceiver ,
                 thisReceiver.makeGattUpdateIntentFilter());
-        mBluetoothLeService = DeviceScanActivity.getmBluetoothLeService();
+        mBluetoothLeService = AbleDeviceScanActivity.getmBluetoothLeService();
 
-        /*
+
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
         }
-        */
+
     }
 
     /**
@@ -223,7 +223,7 @@ public class DeviceControlActivity extends Activity implements BLEServiceListene
 
     @Override
     public void onBackPressed(){
-        DeviceScanActivity.getmBluetoothLeService().disconnect();
+        AbleDeviceScanActivity.getmBluetoothLeService().disconnect();
         super.onBackPressed();
     }
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import java.util.UUID;
 
+import org.able.core.AbleDeviceControlActivity;
 import org.able.core.ServiceRegistryUpdatingBroadcastReceiver;
 
 /**
@@ -13,7 +14,7 @@ public class CapLEDServiceRegistryUpdater extends ServiceRegistryUpdatingBroadca
 
     @Override
     protected Class<? extends Activity> getActivityClass() {
-        return CapLEDActivity.class;
+        return AbleDeviceControlActivity.class;
     }
 
     @Override

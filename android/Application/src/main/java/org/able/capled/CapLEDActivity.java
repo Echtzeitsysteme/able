@@ -16,8 +16,8 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
+import org.able.core.AbleDeviceScanActivity;
 import org.able.core.BluetoothLeService;
-import org.able.core.DeviceScanActivity;
 import org.able.core.R;
 import org.able.core.BLEServiceListener;
 
@@ -41,6 +41,7 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
 
+    private BluetoothLeService mAbleBLEService;
     /**
      * Initializes activity and GUI objects.
      * @param savedInstanceState
@@ -106,7 +107,7 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
 
     @Override
     public void onBackPressed(){
-        DeviceScanActivity.getmBluetoothLeService().disconnect();
+        AbleDeviceScanActivity.getmBluetoothLeService().disconnect();
         super.onBackPressed();
     }
 

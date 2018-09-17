@@ -2,12 +2,15 @@ package org.able.core;
 
 import android.app.Activity;
 
+import org.able.capled.CapLEDActivity;
+import org.able.capled.CapLEDConstants;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 /**
- * Service Registry saves the UUID and Activity Class Tuples which are later used by DeviceScanActivity in checkForKnownServices().
+ * Service Registry saves the UUID and Activity Class Tuples which are later used by AbleDeviceScanActivity in checkForKnownServices().
  * Edit the constructor  to add your own UUID Device and Activity class.
  *
  * @author Puria Izady (puria.izady@stud.tu-darmstadt.de)
@@ -49,7 +52,7 @@ public class ServiceRegistry {
     public Class<?> getServiceClass(UUID uuid){
         if(registeredServices.containsKey(uuid))
             return registeredServices.get(uuid);
-        return DeviceControlActivity.class;
+        return AbleDeviceControlActivity.class;
     }
 
 }

@@ -17,9 +17,9 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
+import org.able.core.AbleDeviceScanActivity;
 import org.able.core.BLEServiceListener;
 import org.able.core.BluetoothLeService;
-import org.able.core.DeviceScanActivity;
 import org.able.core.R;
 import org.able.capled.CapLEDViewTab;
 
@@ -45,7 +45,7 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
 
     @Override
     public void onBackPressed(){
-        BluetoothLeService mAbleBLEService = DeviceScanActivity.getmBluetoothLeService();
+        BluetoothLeService mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
         mAbleBLEService.disconnect();
         super.onBackPressed();
     }
