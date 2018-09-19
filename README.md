@@ -1,6 +1,6 @@
 <table border="0">
 <tr align="center">
-	<img src="https://github.com/Echtzeitsysteme/able/blob/puria-dev/wik/able_github.jpeg" style="max-width:100%;" />
+	<img src="https://github.com/Echtzeitsysteme/able/blob/puria-dev/wiki/able_github.jpeg" style="max-width:100%;" />
 </tr>
 </table>
 
