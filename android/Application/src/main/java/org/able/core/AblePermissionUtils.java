@@ -14,7 +14,7 @@ import android.text.TextUtils;
  * @version 1.0
  */
 
-public class PermissionUtils {
+public class AblePermissionUtils {
 
     /**
      * This method checks if location data is accessible.

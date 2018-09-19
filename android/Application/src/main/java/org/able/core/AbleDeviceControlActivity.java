@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.able.core.CharacteristicSorterClass.settingUpServices;
+import static org.able.core.AbleCharacteristicSorter.settingUpServices;
 
 
 /**
@@ -57,9 +57,9 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
     private String mDeviceAddress;
     private ExpandableListView mGattServicesList;
 
-    private BluetoothLeService mBluetoothLeService;
+    private BLEService mBluetoothLeService;
 
-    CharacteristicSorterClass containsCollections = null;
+    AbleCharacteristicSorter containsCollections = null;
     List<HashMap<String, String>> gattServiceData = new ArrayList<>();
     List<ArrayList<HashMap<String, String>>> gattCharacteristicData = new ArrayList<>();
     BLEBroadcastReceiver thisReceiver;
@@ -152,7 +152,6 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
                 thisReceiver.makeGattUpdateIntentFilter());
         mBluetoothLeService = AbleDeviceScanActivity.getmBluetoothLeService();
 
-
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
         }
@@ -230,7 +229,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
     /**
      * @return mBluetoothLeService
      */
-    public BluetoothLeService getmBluetoothLeService() {
+    public BLEService getmBluetoothLeService() {
         return mBluetoothLeService;
     }
 
@@ -321,6 +320,6 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
      */
     @Override
     public void dataAvailable(Intent intent) {
-        displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+        displayData(intent.getStringExtra(BLEService.EXTRA_DATA));
     }
 }

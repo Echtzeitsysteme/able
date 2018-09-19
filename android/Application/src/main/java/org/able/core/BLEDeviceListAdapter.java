@@ -17,7 +17,7 @@ import java.util.List;
  * @version 1.0
  */
 
-class LeDeviceListAdapter extends BaseAdapter {
+class BLEDeviceListAdapter extends BaseAdapter {
     private List<BluetoothDevice> mLeDevices;
     private LayoutInflater mInflator;
 
@@ -25,7 +25,7 @@ class LeDeviceListAdapter extends BaseAdapter {
      * Initializes the list and the inflater.
      * @param inflater
      */
-    public LeDeviceListAdapter(LayoutInflater inflater) {
+    public BLEDeviceListAdapter(LayoutInflater inflater) {
         super();
         mLeDevices = new ArrayList<>();
         mInflator = inflater;

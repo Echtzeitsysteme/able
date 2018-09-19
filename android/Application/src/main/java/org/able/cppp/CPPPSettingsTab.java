@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEServiceListener;
-import org.able.core.BluetoothLeService;
+import org.able.core.BLEService;
 import org.able.core.AbleDeviceScanActivity;
 import org.able.core.R;
 
@@ -27,16 +27,21 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     private String mDeviceName;
     private String mDeviceAddress;
     private boolean mConnected = false;
-    private BluetoothLeService mAbleBLEService;
+    private BLEService mAbleBLEService;
     BLEBroadcastReceiver thisReceiver;
 
-    private static Button connectButton;
+    private static Button sConnectButton;
 
-
+    /**
+     * Construction of the Tab witch parameters of the parent FragmentActivity-
+     * @param mDeviceName name of the BLE device
+     * @param mDeviceAddress mac adress of the BLE device
+     * @return Fragment object of the intialized Tab
+     */
     public static CPPPSettingsTab newInstance(String mDeviceName, String mDeviceAddress) {
         Bundle args = new Bundle();
-        args.putString("mDeviceName", mDeviceName);
-        args.putString("mDeviceAddress", mDeviceAddress);
+        args.putString("sDeviceName", mDeviceName);
+        args.putString("sDeviceAddress", mDeviceAddress);
         CPPPSettingsTab fragment = new CPPPSettingsTab();
         fragment.setArguments(args);
         return fragment;
@@ -71,18 +76,18 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
 
         View rootView = inflater.inflate(R.layout.cppp_tab_settings, container, false);
         Activity act = getActivity();
-        mDeviceName = getArguments().getString("mDeviceName");
-        mDeviceAddress = getArguments().getString("mDeviceAddress");
+        mDeviceName = getArguments().getString("sDeviceName");
+        mDeviceAddress = getArguments().getString("sDeviceAddress");
 
         ((TextView) rootView.findViewById(R.id.cppp_device_address)).setText(mDeviceAddress);
 
         mConnectionState = rootView.findViewById(R.id.cppp_connection_state);
         mDataField = rootView.findViewById(R.id.cppp_data_value);
-        connectButton = new Button(act);
-        connectButton = rootView.findViewById(R.id.cppp_connect);
-        connectButton.setOnClickListener(buttonListener);
+        sConnectButton = new Button(act);
+        sConnectButton = rootView.findViewById(R.id.cppp_connect);
+        sConnectButton.setOnClickListener(buttonListener);
 
-        connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+        sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
         return rootView;
     }
 
@@ -97,12 +102,7 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
         getActivity().registerReceiver(thisReceiver,
                 thisReceiver.makeGattUpdateIntentFilter());
         mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
-
-        if (mAbleBLEService != null) {
-            final boolean result = mAbleBLEService.connect(mDeviceAddress);
-        }
         setScanButton();
-
     }
 
     /**
@@ -153,7 +153,7 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
 
     @Override
     public void gattServicesDiscovered() {
-        BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(CPPPConstants.CPPP_SERVICE_UUID);
+        BluetoothGattService mService = BLEService.mBluetoothGatt.getService(CPPPConstants.CPPP_SERVICE_UUID);
 
     }
 
@@ -172,12 +172,12 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
                 Toast.makeText(getActivity(), "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
             }
             mAbleBLEService.connect(mDeviceAddress);
-            connectButton.setText(R.string.menu_disconnect);
-            connectButton.setBackgroundColor(Color.rgb(237, 34, 34));
+            sConnectButton.setText(R.string.menu_disconnect);
+            sConnectButton.setBackgroundColor(Color.rgb(237, 34, 34));
         } else if (mConnected) {
             mAbleBLEService.disconnect();
-            connectButton.setText(R.string.menu_connect);
-            connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+            sConnectButton.setText(R.string.menu_connect);
+            sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
         }
     }
 }

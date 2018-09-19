@@ -15,15 +15,15 @@ import java.util.List;
  * @version 1.0
  */
 
-public class CharacteristicSorterClass {
+public class AbleCharacteristicSorter {
 
     private List<HashMap<String, String>> gattServiceData = null;
     private List<ArrayList<HashMap<String, String>>> gattCharacteristicData = null;
     List<List<BluetoothGattCharacteristic>> characteristicList = null;
 
-    public CharacteristicSorterClass(List<HashMap<String, String>> gattServiceData,
-                                     List<ArrayList<HashMap<String, String>>> gattCharacteristicData,
-                                     List<List<BluetoothGattCharacteristic>> characteristicList)
+    public AbleCharacteristicSorter(List<HashMap<String, String>> gattServiceData,
+                                    List<ArrayList<HashMap<String, String>>> gattCharacteristicData,
+                                    List<List<BluetoothGattCharacteristic>> characteristicList)
     {
         this.gattServiceData = gattServiceData;
         this.gattCharacteristicData = gattCharacteristicData;
@@ -41,8 +41,8 @@ public class CharacteristicSorterClass {
      * @param context Android Java context of the app
      * @return
      */
-    static CharacteristicSorterClass settingUpServices(List<BluetoothGattService> gattServices, String listName, String listUUID,
-                                                       List<List<BluetoothGattCharacteristic>> characteristicList, Context context) {
+    static AbleCharacteristicSorter settingUpServices(List<BluetoothGattService> gattServices, String listName, String listUUID,
+                                                      List<List<BluetoothGattCharacteristic>> characteristicList, Context context) {
         String uuid = null;
         String unknownServiceString = context.getResources().getString(R.string.unknown_service);
         String unknownCharaString = context.getResources().getString(R.string.unknown_characteristic);
@@ -76,7 +76,7 @@ public class CharacteristicSorterClass {
             characteristicList.add(charas);
             gattCharacteristicData.add(gattCharacteristicGroupData);
         }
-        CharacteristicSorterClass objectToReturn = new CharacteristicSorterClass(gattServiceData, gattCharacteristicData,characteristicList);
+        AbleCharacteristicSorter objectToReturn = new AbleCharacteristicSorter(gattServiceData, gattCharacteristicData,characteristicList);
         return objectToReturn;
     }
 

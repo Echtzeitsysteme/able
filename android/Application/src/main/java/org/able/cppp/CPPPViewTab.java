@@ -14,7 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import org.able.core.AbleDeviceScanActivity;
-import org.able.core.BluetoothLeService;
+import org.able.core.BLEService;
 import org.able.core.BLEBroadcastReceiver;
 import org.able.core.R;
 import org.able.core.BLEServiceListener;
@@ -29,21 +29,27 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
 
     private boolean mConnected = false;
     private String mDeviceAddress;
-    private BluetoothLeService mAbleBLEService;
+    private BLEService mAbleBLEService;
     BLEBroadcastReceiver thisReceiver;
 
-    public static BluetoothGattCharacteristic CPPP_JOYSTICK_1_CHARACTERISTIC;
-    private static BluetoothGattDescriptor CPPP_JOYSTICK_NOTIFCATION;
+    private static BluetoothGattCharacteristic sJoystick1Characteristic;
+    private static BluetoothGattDescriptor sJoystickNotification;
 
-    private static TextView CPPP_JOYSTICK_1_X_VALUE;
-    private static String Joystick1XValue = "-1";
-    private static Switch notify_switch;
-    private static boolean notifyState = false;
+    private static TextView sJoystick1XTextView;
+    private static String sJoystick1XValue = "-1";
+    private static Switch sNotifySwitch;
+    private static boolean sNotifyState = false;
 
+    /**
+     * Construction of the Tab witch parameters of the parent FragmentActivity-
+     * @param mDeviceName name of the BLE device
+     * @param mDeviceAddress mac adress of the BLE device
+     * @return Fragment object of the intialized Tab
+     */
     public static CPPPViewTab newInstance(String mDeviceName, String mDeviceAddress) {
         Bundle args = new Bundle();
-        args.putString("mDeviceName", mDeviceName);
-        args.putString("mDeviceAddress", mDeviceAddress);
+        args.putString("sDeviceName", mDeviceName);
+        args.putString("sDeviceAddress", mDeviceAddress);
         CPPPViewTab fragment = new CPPPViewTab();
         fragment.setArguments(args);
         return fragment;
@@ -60,14 +66,14 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
 
         View rootView = inflater.inflate(R.layout.cppp_tab_view, container, false);
         Activity act = getActivity();
-        mDeviceAddress = getArguments().getString("mDeviceAddress");
-        CPPP_JOYSTICK_1_X_VALUE = rootView.findViewById(R.id.CPPP_JOYSTICK_1_X_VALUE);
-        notify_switch = rootView.findViewById(R.id.cpppNotifySwitch);
+        mDeviceAddress = getArguments().getString("sDeviceAddress");
+        sJoystick1XTextView = rootView.findViewById(R.id.CPPP_JOYSTICK_1_X_VALUE);
+        sNotifySwitch = rootView.findViewById(R.id.cpppNotifySwitch);
 
-        notify_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sNotifySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 writeNotification(isChecked);
-                notifyState = isChecked;
+                sNotifyState = isChecked;
             }
         });
 
@@ -85,10 +91,6 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
         getActivity().registerReceiver(thisReceiver,
                 thisReceiver.makeGattUpdateIntentFilter());
         mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
-
-        if (mAbleBLEService != null) {
-            final boolean result = mAbleBLEService.connect(mDeviceAddress);
-        }
     }
 
     /**
@@ -123,10 +125,10 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
 
     @Override
     public void gattServicesDiscovered() {
-        BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(CPPPConstants.CPPP_SERVICE_UUID);
-        CPPP_JOYSTICK_1_CHARACTERISTIC = mService.getCharacteristic(CPPPConstants.CPPP_JOYSTICK_1_CHARACTERISTIC_UUID);
-        CPPP_JOYSTICK_NOTIFCATION = CPPP_JOYSTICK_1_CHARACTERISTIC.getDescriptor(CPPPConstants.CPPP_NOTIFICATION);
-        notify_switch.setEnabled(true);
+        BluetoothGattService mService = BLEService.mBluetoothGatt.getService(CPPPConstants.CPPP_SERVICE_UUID);
+        sJoystick1Characteristic = mService.getCharacteristic(CPPPConstants.CPPP_JOYSTICK_1_CHARACTERISTIC_UUID);
+        sJoystickNotification = sJoystick1Characteristic.getDescriptor(CPPPConstants.CPPP_NOTIFICATION);
+        sNotifySwitch.setEnabled(true);
 
         readJoystick1Characteristic();
 
@@ -134,16 +136,16 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
 
     @Override
     public void dataAvailable(Intent intent) {
-        Joystick1XValue = "-1";
-        String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
+        sJoystick1XValue = "-1";
+        String uuid = BLEService.getmCharacteristicToPass().getUuid().toString();
         if (uuid.equals(CPPPConstants.CPPP_JOYSTICK_1_CHARACTERISTIC_UUID.toString())) {
-            Joystick1XValue = BluetoothLeService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 0).toString();
+            sJoystick1XValue = BLEService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 0).toString();
         }
-        CPPP_JOYSTICK_1_X_VALUE.setText(Joystick1XValue);
+        sJoystick1XTextView.setText(sJoystick1XValue);
     }
 
     public void writeNotification(boolean value) {
-        BluetoothLeService.mBluetoothGatt.setCharacteristicNotification(CPPP_JOYSTICK_1_CHARACTERISTIC, value);
+        BLEService.mBluetoothGatt.setCharacteristicNotification(sJoystick1Characteristic, value);
         byte[] byteVal = new byte[1];
         if (value) {
             byteVal[0] = 1;
@@ -151,16 +153,16 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
             byteVal[0] = 0;
         }
         Log.i(TAG, "CapSense Notification " + value);
-        CPPP_JOYSTICK_NOTIFCATION.setValue(byteVal);
-        BluetoothLeService.mBluetoothGatt.writeDescriptor(CPPP_JOYSTICK_NOTIFCATION);
+        sJoystickNotification.setValue(byteVal);
+        BLEService.mBluetoothGatt.writeDescriptor(sJoystickNotification);
     }
 
     public void readJoystick1Characteristic() {
-        if (BluetoothLeService.existBluetoothAdapter() == false ||
-                BluetoothLeService.existBluetoothGatt() == false) {
+        if (BLEService.existBluetoothAdapter() == false ||
+                BLEService.existBluetoothGatt() == false) {
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
         }
-        BluetoothLeService.genericReadCharacteristic(CPPP_JOYSTICK_1_CHARACTERISTIC);
+        BLEService.genericReadCharacteristic(sJoystick1Characteristic);
     }
 }

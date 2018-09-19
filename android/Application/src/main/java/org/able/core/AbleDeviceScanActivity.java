@@ -21,7 +21,6 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -32,7 +31,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.ParcelUuid;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -57,7 +55,7 @@ import java.util.UUID;
 //class to make permissionhandling more clear
 
 import static android.content.ContentValues.TAG;
-import static org.able.core.PermissionUtils.isLocationEnabled;
+import static org.able.core.AblePermissionUtils.isLocationEnabled;
 
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
@@ -68,7 +66,7 @@ import static org.able.core.PermissionUtils.isLocationEnabled;
  */
 public class AbleDeviceScanActivity extends ListActivity implements BLEServiceListener{
 
-    private LeDeviceListAdapter mLeDeviceListAdapter;
+    private BLEDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
     private boolean mScanning;
     private Handler mHandler;
@@ -80,7 +78,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     //TODO: SCANNING TIME CHANGED!!
     private static final long SCAN_PERIOD = 1000; // Stops scanning after 2 seconds.
 
-    private static BluetoothLeService mBluetoothLeService;
+    private static BLEService mBluetoothLeService;
     private BLEBroadcastReceiver deviceScanActivityReiceiver;
     private String mDeviceName;
     private String mDeviceAddress;
@@ -92,7 +90,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     private final String scanButtonStart = "START SCAN";
     private final String scanButtonStop = "STOP SCAN";
 
-    public ServiceRegistry serviceRegistry;
+    public AbleServiceRegistry serviceRegistry;
 
     private HashMap<BluetoothDevice, byte[]> deviceScanResponseMap = new HashMap<>();
     private List<UUID> uuidList = new ArrayList<>();
@@ -159,9 +157,9 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
         mHandler = new Handler();
         setContentView(R.layout.permission_handling);
 
-        this.sendBroadcast(new Intent(ServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING));
+        this.sendBroadcast(new Intent(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING));
 
-        serviceRegistry = ServiceRegistry.getInstance();
+        serviceRegistry = AbleServiceRegistry.getInstance();
 
         //ableBleScanList = (ListView) findViewById(R.id.bleScanList);
 
@@ -275,10 +273,10 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
         setScanButton();
 
-        mLeDeviceListAdapter = new LeDeviceListAdapter(AbleDeviceScanActivity.this.getLayoutInflater());
+        mLeDeviceListAdapter = new BLEDeviceListAdapter(AbleDeviceScanActivity.this.getLayoutInflater());
         setListAdapter(mLeDeviceListAdapter);
 
-        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        Intent gattServiceIntent = new Intent(this, BLEService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
         askForLocationPermission();
@@ -500,6 +498,11 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
         }
     };
 
+    /**
+     * Decodes a binary input into a hex string.
+     * @param a binary byte input
+     * @return String of the hex number of the binary input
+     */
     public String byte2hex(byte[] a) {
 
         String hexString = "";
@@ -513,6 +516,10 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     }
 
+    /**
+     * Parses a byte stream of a BLE advertisement message and saves the service UUIDs.
+     * @param scanRecord byte stream input of the BLE advertisement message
+     */
     public void parseAdvertisementPacket(final byte[] scanRecord) {
 
         byte[] advertisedData = Arrays.copyOf(scanRecord, scanRecord.length);
@@ -579,35 +586,12 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * This method checks if the found Gatt service matches one of the saved ones inside the ServiceRegistry.
-     * @return
+     * @return A actitivity that will be called for the matching UUID. The Default activity is org.able.core.AbleDeviceControlActivity.
      */
     private Class<?> checkForKnownServices() {
-        /*
-        List<BluetoothGattService> tmpList = mBluetoothLeService.getSupportedGattServices();
         Class<?> choosenActivity = AbleDeviceControlActivity.class;
-
-        if (tmpList != null){
-            for (BluetoothGattService tmpGattService : tmpList) {
-                if (serviceRegistry.getRegisteredServices().containsKey(tmpGattService.getUuid())) {
-                    //if (!CySmartFix)
-                    //    mBluetoothLeService.disconnect();
-                    choosenActivity = serviceRegistry.getServiceClass(tmpGattService.getUuid());
-                    break;
-                }
-            }
-        }
-        */
-
-        Class<?> choosenActivity = AbleDeviceControlActivity.class;
-
-        String testAdress = device.getAddress();
-
         byte[] bleAdvertisementData = deviceScanResponseMap.get(device);
-
-        String hexString = byte2hex(bleAdvertisementData);
-
         parseAdvertisementPacket(bleAdvertisementData);
-
         for(UUID uuid : uuidList) {
             if (serviceRegistry.getRegisteredServices().containsKey(uuid)) {
                 choosenActivity = serviceRegistry.getServiceClass(uuid);
@@ -715,7 +699,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
-            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+            mBluetoothLeService = ((BLEService.LocalBinder) service).getService();
             if (!mBluetoothLeService.initialize()) {
                 Log.e(TAG, "Unable to initialize Bluetooth");
                 finish();
@@ -734,7 +718,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     /**
      * @return mBluetoothLeService.
      */
-    public static BluetoothLeService getmBluetoothLeService() {
+    public static BLEService getmBluetoothLeService() {
         return mBluetoothLeService;
     }
 

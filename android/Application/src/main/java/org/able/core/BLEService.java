@@ -43,8 +43,8 @@ import java.util.List;
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
  * @version 1.0
  */
-public class BluetoothLeService extends Service {
-    private final static String TAG = BluetoothLeService.class.getSimpleName();
+public class BLEService extends Service {
+    private final static String TAG = BLEService.class.getSimpleName();
 
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
@@ -180,8 +180,8 @@ public class BluetoothLeService extends Service {
      * Returns the BluetoothLeService.
      */
     public class LocalBinder extends Binder {
-        BluetoothLeService getService() {
-            return BluetoothLeService.this;
+        BLEService getService() {
+            return BLEService.this;
         }
     }
 

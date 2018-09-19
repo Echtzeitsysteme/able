@@ -14,7 +14,7 @@ import java.util.UUID;
  *
  * @author Roland Kluge
  */
-public abstract class ServiceRegistryUpdatingBroadcastReceiver extends BroadcastReceiver {
+public abstract class AbleServiceRegistryUpdatingBroadcastReceiver extends BroadcastReceiver {
 
     /**
      * The action that this {@link BroadcastReceiver} listens to.
@@ -46,7 +46,7 @@ public abstract class ServiceRegistryUpdatingBroadcastReceiver extends Broadcast
 
         final UUID serviceUuid = getUuid();
         final Class<? extends Activity> activity = getActivityClass();
-        ServiceRegistry.getInstance().registerActivity(serviceUuid, activity);
+        AbleServiceRegistry.getInstance().registerActivity(serviceUuid, activity);
         Log.i("ABLE Service Registrty", String.format("Registered UUID mapping: %s->%s", serviceUuid, activity));
     }
 

@@ -56,7 +56,7 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
      */
     private boolean isGattConnected(String action)
     {
-        return BluetoothLeService.ACTION_GATT_CONNECTED.equals(action);
+        return BLEService.ACTION_GATT_CONNECTED.equals(action);
     }
 
     /**
@@ -66,7 +66,7 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
      */
     private boolean isGattDisconnected(String action)
     {
-        return BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action);
+        return BLEService.ACTION_GATT_DISCONNECTED.equals(action);
     }
 
     /**
@@ -76,7 +76,7 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
      */
     private boolean hasDiscoveredGattservice(String action)
     {
-        return BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action);
+        return BLEService.ACTION_GATT_SERVICES_DISCOVERED.equals(action);
     }
 
     /**
@@ -86,7 +86,7 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
      */
     private boolean availableData(String action)
     {
-        return BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action);
+        return BLEService.ACTION_DATA_AVAILABLE.equals(action);
     }
 
     /**
@@ -95,10 +95,10 @@ public class BLEBroadcastReceiver extends BroadcastReceiver {
      */
     public IntentFilter makeGattUpdateIntentFilter() {
         final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_CONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_DISCONNECTED);
-        intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED);
-        intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
+        intentFilter.addAction(BLEService.ACTION_GATT_CONNECTED);
+        intentFilter.addAction(BLEService.ACTION_GATT_DISCONNECTED);
+        intentFilter.addAction(BLEService.ACTION_GATT_SERVICES_DISCOVERED);
+        intentFilter.addAction(BLEService.ACTION_DATA_AVAILABLE);
         return intentFilter;
     }
 

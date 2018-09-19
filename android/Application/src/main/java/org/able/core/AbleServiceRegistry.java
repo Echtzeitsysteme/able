@@ -2,9 +2,6 @@ package org.able.core;
 
 import android.app.Activity;
 
-import org.able.capled.CapLEDActivity;
-import org.able.capled.CapLEDConstants;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -17,23 +14,23 @@ import java.util.UUID;
  * @version 1.0
  */
 
-public class ServiceRegistry {
+public class AbleServiceRegistry {
 
     private final Map<UUID, Class<? extends Activity>> registeredServices = new HashMap<>();
-    private static final ServiceRegistry serviceRegistryINSTANCE = new ServiceRegistry();
+    private static final AbleServiceRegistry serviceRegistryINSTANCE = new AbleServiceRegistry();
 
     /**
      * Returns the singleton of this class.
-     * @return the singleton {@link ServiceRegistry}
+     * @return the singleton {@link AbleServiceRegistry}
      */
-    public static ServiceRegistry getInstance() {
+    public static AbleServiceRegistry getInstance() {
         return serviceRegistryINSTANCE;
     }
 
     /**
      * Private due to singleton pattern
      */
-    private ServiceRegistry(){
+    private AbleServiceRegistry(){
     }
 
     /**

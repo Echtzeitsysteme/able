@@ -12,12 +12,25 @@ import android.content.Intent;
 */
 public interface BLEServiceListener {
 
+    /**
+     * Called if connection to a GATT server was successful.
+     */
     void gattConnected();
 
+    /**
+     * Called if a connection to a GATT server is closed.
+     */
     void gattDisconnected();
 
+    /**
+     * Called if a GATT server is discovered.
+     */
     void gattServicesDiscovered();
 
+    /**
+     * Called if data from a GATT server is available.
+     * @param intent incoming data from a GATT server
+     */
     void dataAvailable(Intent intent);
 
 }

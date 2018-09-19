@@ -43,6 +43,7 @@
     <string name="capSenseValue">CapSense value: </string>
     <string name="joystick1Xvalue">Joystick X: </string>
     <string name="sensorDataValue">Sensor Data: </string>
+    <string name="ableDeviceControlWelcome">In this generic control area you can connect and disconnect to a BLE device running a GATT server. Furthermore you can analyze its GATT services and characteristics.</string>
 
 
     <string name="unknown_device">Unknown device</string>

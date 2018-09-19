@@ -4,17 +4,16 @@ import android.app.Activity;
 
 import java.util.UUID;
 
-import org.able.core.AbleDeviceControlActivity;
-import org.able.core.ServiceRegistryUpdatingBroadcastReceiver;
+import org.able.core.AbleServiceRegistryUpdatingBroadcastReceiver;
 
 /**
  * This class registers the UUID-to-activity mapping for the Capled device.
  */
-public class CapLEDServiceRegistryUpdater extends ServiceRegistryUpdatingBroadcastReceiver {
+public class CapLEDServiceRegistryUpdater extends AbleServiceRegistryUpdatingBroadcastReceiver {
 
     @Override
     protected Class<? extends Activity> getActivityClass() {
-        return AbleDeviceControlActivity.class;
+        return CapLEDActivity.class;
     }
 
     @Override

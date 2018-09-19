@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEServiceListener;
-import org.able.core.BluetoothLeService;
+import org.able.core.BLEService;
 import org.able.core.AbleDeviceScanActivity;
 import org.able.core.R;
 
@@ -44,7 +44,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     private String mDeviceAddress;
     private boolean mConnected = false;
 
-    private BluetoothLeService mAbleBLEService;
+    private BLEService mAbleBLEService;
 
     public static BluetoothGattCharacteristic mLedCharacteristic;
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
@@ -52,11 +52,11 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
 
     // TODO CUSTOM ABLE PROJECT: Declare your GUI elements here ...
     /*
-    private static Switch cap_switch;
-    private static boolean CapSenseNotifyState = false;
+    private static Switch sCapSenseSwitch;
+    private static boolean sCapSenseNotifyState = false;
     */
 
-    private static Button connectButton;
+    private static Button sConnectButton;
 
 
     BLEBroadcastReceiver thisReceiver;
@@ -79,12 +79,17 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
 
         }
     };
-    private int capled_tab_view;
 
+    /**
+     * Construction of the Tab witch parameters of the parent FragmentActivity-
+     * @param mDeviceName name of the BLE device
+     * @param mDeviceAddress mac adress of the BLE device
+     * @return Fragment object of the intialized Tab
+     */
     public static MyProjectSettingsTab newInstance(String mDeviceName, String mDeviceAddress) {
         Bundle args = new Bundle();
-        args.putString("mDeviceName", mDeviceName);
-        args.putString("mDeviceAddress", mDeviceAddress);
+        args.putString("sDeviceName", mDeviceName);
+        args.putString("sDeviceAddress", mDeviceAddress);
         MyProjectSettingsTab fragment = new MyProjectSettingsTab();
         fragment.setArguments(args);
         return fragment;
@@ -101,26 +106,26 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
 
         View rootView = inflater.inflate(R.layout.myproject_tab_settings, container, false);
         Activity act = getActivity();
-        mDeviceName = getArguments().getString("mDeviceName");
-        mDeviceAddress = getArguments().getString("mDeviceAddress");
+        mDeviceName = getArguments().getString("sDeviceName");
+        mDeviceAddress = getArguments().getString("sDeviceAddress");
 
         ((TextView) rootView.findViewById(R.id.myProject_device_address)).setText(mDeviceAddress);
 
         mConnectionState = rootView.findViewById(R.id.myProject_connection_state);
         mDataField = rootView.findViewById(R.id.myProject_data_value);
 
-        connectButton = new Button(act);
-        connectButton = rootView.findViewById(R.id.myProject_capled_connect);
-        connectButton.setOnClickListener(buttonListener);
-        connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+        sConnectButton = new Button(act);
+        sConnectButton = rootView.findViewById(R.id.myProject_capled_connect);
+        sConnectButton.setOnClickListener(buttonListener);
+        sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
 
         // TODO CUSTOM ABLE PROJECT: Insert your Setting switches here ...
         /*
-        cap_switch = rootView.findViewById(R.id.myProject_capsense_switch);
-        cap_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sCapSenseSwitch = rootView.findViewById(R.id.myProject_capsense_switch);
+        sCapSenseSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 writeCapSenseNotification(isChecked);
-                CapSenseNotifyState = isChecked;
+                sCapSenseNotifyState = isChecked;
             }
         });
         */
@@ -140,10 +145,6 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
         getActivity().registerReceiver(thisReceiver,
                 thisReceiver.makeGattUpdateIntentFilter());
         mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
-
-        if (mAbleBLEService != null) {
-            final boolean result = mAbleBLEService.connect(mDeviceAddress);
-        }
         setScanButton();
     }
 
@@ -222,8 +223,8 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
         getActivity().invalidateOptionsMenu();
         //TODO CUSTOM ABLE PROJECT: you can activate this part optionally
         /*
-        cap_switch.setChecked(false);
-        cap_switch.setEnabled(false);
+        sCapSenseSwitch.setChecked(false);
+        sCapSenseSwitch.setEnabled(false);
         */
     }
 
@@ -236,12 +237,12 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
         /*
         BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(MyProjectConstants.MYPROJECT_SERVICE_UUID);
 
-        mLedCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_LED_CHARACTERISTIC_UUID);
+        sRedLedCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_LED_CHARACTERISTIC_UUID);
         mCapsenseCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_CAP_CHARACTERISTIC_UUID);
         mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(MyProjectConstants.MYPROJECT_NOTIFICATION);
 
         readLedCharacteristic();
-        cap_switch.setEnabled(true);
+        sCapSenseSwitch.setEnabled(true);
         */
     }
 
@@ -265,12 +266,12 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
                 Toast.makeText(getActivity(), "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
             }
             mAbleBLEService.connect(mDeviceAddress);
-            connectButton.setText(R.string.menu_disconnect);
-            connectButton.setBackgroundColor(Color.rgb(237, 34, 34));
+            sConnectButton.setText(R.string.menu_disconnect);
+            sConnectButton.setBackgroundColor(Color.rgb(237, 34, 34));
         } else if (mConnected) {
             mAbleBLEService.disconnect();
-            connectButton.setText(R.string.menu_connect);
-            connectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+            sConnectButton.setText(R.string.menu_connect);
+            sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
         }
     }
 

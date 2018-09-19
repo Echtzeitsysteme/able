@@ -18,8 +18,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
 import org.able.core.AbleDeviceScanActivity;
+import org.able.core.BLEService;
 import org.able.core.BLEServiceListener;
-import org.able.core.BluetoothLeService;
 import org.able.core.R;
 import org.able.capled.CapLEDViewTab;
 
@@ -37,19 +37,12 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
-    public static String mDeviceName;
-    public static String mDeviceAddress;
+    public static String sDeviceName;
+    public static String sDeviceAddress;
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
-
-    @Override
-    public void onBackPressed(){
-        BluetoothLeService mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
-        mAbleBLEService.disconnect();
-        super.onBackPressed();
-    }
-
+    private BLEService mAbleBLEService;
 
     /**
      * Initializes activity and GUI objects.
@@ -82,8 +75,12 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
         }
 
         final Intent intent = getIntent();
-        mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
-        mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
+        sDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
+        sDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
+
+        if (mAbleBLEService != null) {
+            final boolean result = mAbleBLEService.connect(sDeviceAddress);
+        }
     }
 
     /**
@@ -112,6 +109,15 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
     {
         super.onDestroy();
 
+    }
+
+    /**
+     * Called if back button was pressed. In this scenario the BLE connection will be disconnected.
+     */
+    @Override
+    public void onBackPressed(){
+        AbleDeviceScanActivity.getmBluetoothLeService().disconnect();
+        super.onBackPressed();
     }
 
     /**
@@ -173,8 +179,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position) {
-                case 0: return CPPPViewTab.newInstance(mDeviceName, mDeviceAddress);
-                case 1: return CPPPSettingsTab.newInstance(mDeviceName, mDeviceAddress);
+                case 0: return CPPPViewTab.newInstance(sDeviceName, sDeviceAddress);
+                case 1: return CPPPSettingsTab.newInstance(sDeviceName, sDeviceAddress);
 
             }
             return null;

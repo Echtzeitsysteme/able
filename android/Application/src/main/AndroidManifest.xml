@@ -55,7 +55,7 @@
         <activity android:name="org.able.core.AbleDeviceControlActivity" />
 
         <service
-            android:name="org.able.core.BluetoothLeService"
+            android:name="org.able.core.BLEService"
             android:enabled="true" />
 
         <!-- Register Capled-specific activity -->
@@ -73,7 +73,7 @@
         -->
 
         <!-- Enable broadcast receiver for registering UUID-to-activity mapping for Capled -->
-        <!--
+
         <receiver
             android:name="org.able.capled.CapLEDServiceRegistryUpdater"
             android:enabled="true">
@@ -90,7 +90,7 @@
                 <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
             </intent-filter>
         </receiver>
-        -->
+
     </application>
 
 </manifest>
