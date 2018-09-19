@@ -23,13 +23,13 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
 
     private static String sDeviceName;
     private static String sDeviceAddress;
-    public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
-    public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
+    private static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
+    private static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
     private BLEService mAbleBLEService;
 
     /**
      * Initializes activity and GUI objects.
-     * @param savedInstanceState
+     * @param savedInstanceState instance state
      */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -125,7 +125,7 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
     /**
      * This method is called if data is available for the CapLED Service.
      * Then the LED switch button GUI is refreshed and the CapSense GUI View refreshed.
-     * @param intent
+     * @param intent the intent that triggered this callback
      */
     @Override
     public void dataAvailable(Intent intent) {
@@ -150,7 +150,7 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -188,6 +188,7 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
         @Override
         public int getItemPosition(Object object) {
             if (object instanceof MyProjectViewTab) {
+                // TODO CUSTOM ABLE PROJECT: You can insert your own code here ...
             }
             return super.getItemPosition(object);
         }

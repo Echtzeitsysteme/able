@@ -36,19 +36,16 @@ import org.able.core.R;
  */
 
 public class MyProjectSettingsTab extends Fragment implements BLEServiceListener {
-    private final static String TAG = MyProjectSettingsTab.class.getSimpleName();
-
     private TextView mConnectionState;
     private TextView mDataField;
-    private String mDeviceName;
     private String mDeviceAddress;
     private boolean mConnected = false;
 
     private BLEService mAbleBLEService;
 
-    public static BluetoothGattCharacteristic mLedCharacteristic;
-    private static BluetoothGattCharacteristic mCapsenseCharacteristic;
-    private static BluetoothGattDescriptor mCapsenseNotification;
+    public BluetoothGattCharacteristic mLedCharacteristic;
+    private BluetoothGattCharacteristic mCapsenseCharacteristic;
+    private BluetoothGattDescriptor mCapsenseNotification;
 
     // TODO CUSTOM ABLE PROJECT: Declare your GUI elements here ...
     /*
@@ -56,10 +53,10 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     private static boolean sCapSenseNotifyState = false;
     */
 
-    private static Button sConnectButton;
+    private Button sConnectButton;
 
 
-    BLEBroadcastReceiver thisReceiver;
+    private BLEBroadcastReceiver thisReceiver;
 
     /**
      * This a the GUI button listener.
@@ -98,7 +95,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     /**
      * Initializes activity and GUI objects.
      *
-     * @param savedInstanceState
+     * @param savedInstanceState the instance state
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,7 +103,6 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
 
         View rootView = inflater.inflate(R.layout.myproject_tab_settings, container, false);
         Activity act = getActivity();
-        mDeviceName = getArguments().getString("sDeviceName");
         mDeviceAddress = getArguments().getString("sDeviceAddress");
 
         ((TextView) rootView.findViewById(R.id.myProject_device_address)).setText(mDeviceAddress);
@@ -191,7 +187,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     /**
      * Updates a GUI TextView object for the connection state.
      *
-     * @param resourceId
+     * @param resourceId the connection state ID
      */
     void updateConnectionState(final int resourceId) {
         getActivity().runOnUiThread(new Runnable() {
@@ -250,7 +246,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
      * This method is called if data is available for the CapLED Service.
      * Then the LED switch button GUI is refreshed and the CapSense GUI View refreshed.
      *
-     * @param intent
+     * @param intent the intent
      */
     @Override
     public void dataAvailable(Intent intent) {
@@ -260,7 +256,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     /**
      * Sets the GUI ScanButton.
      */
-    void setScanButton() {
+    private void setScanButton() {
         if (!mConnected) {
             if (mAbleBLEService == null) {
                 Toast.makeText(getActivity(), "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
@@ -268,7 +264,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
             mAbleBLEService.connect(mDeviceAddress);
             sConnectButton.setText(R.string.menu_disconnect);
             sConnectButton.setBackgroundColor(Color.rgb(237, 34, 34));
-        } else if (mConnected) {
+        } else {
             mAbleBLEService.disconnect();
             sConnectButton.setText(R.string.menu_connect);
             sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));

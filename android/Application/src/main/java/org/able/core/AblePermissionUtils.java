@@ -18,6 +18,7 @@ public class AblePermissionUtils {
 
     /**
      * This method checks if location data is accessible.
+     *
      * @param context
      * @return true if location data is accessible.
      */
@@ -27,21 +28,21 @@ public class AblePermissionUtils {
         int permissionCheckFine = 1;
         int permissionCheckCoarse = 1;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             try {
                 locationMode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE);
-                permissionCheckFine = ContextCompat.checkSelfPermission(context , Manifest.permission.ACCESS_FINE_LOCATION);
-                permissionCheckCoarse = ContextCompat.checkSelfPermission(context , Manifest.permission.ACCESS_COARSE_LOCATION);
+                permissionCheckFine = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+                permissionCheckCoarse = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION);
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
                 return false;
             }
 
-            boolean result = (locationMode != Settings.Secure.LOCATION_MODE_OFF)&&
+            final boolean result = (locationMode != Settings.Secure.LOCATION_MODE_OFF) &&
                     (0 == permissionCheckFine) && (0 == permissionCheckCoarse);
             return result;
 
-        }else{
+        } else {
             locationProviders = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
             return !TextUtils.isEmpty(locationProviders);
         }

@@ -23,22 +23,22 @@ public class AbleCharacteristicSorter {
 
     public AbleCharacteristicSorter(List<HashMap<String, String>> gattServiceData,
                                     List<ArrayList<HashMap<String, String>>> gattCharacteristicData,
-                                    List<List<BluetoothGattCharacteristic>> characteristicList)
-    {
+                                    List<List<BluetoothGattCharacteristic>> characteristicList) {
         this.gattServiceData = gattServiceData;
         this.gattCharacteristicData = gattCharacteristicData;
-        this.characteristicList= characteristicList;
+        this.characteristicList = characteristicList;
     }
 
 
     /**
      * Constructor of the class, that scans all services and puts all data sorted in the lists
      * gattServiceData, gattCharacteristicData and characteristicList.
-     * @param gattServices GATT services discovered by the ABLE scan.
-     * @param listName name of list
-     * @param listUUID name of UUID list
+     *
+     * @param gattServices       GATT services discovered by the ABLE scan.
+     * @param listName           name of list
+     * @param listUUID           name of UUID list
      * @param characteristicList here all the characteristics are added
-     * @param context Android Java context of the app
+     * @param context            Android Java context of the app
      * @return
      */
     static AbleCharacteristicSorter settingUpServices(List<BluetoothGattService> gattServices, String listName, String listUUID,
@@ -76,7 +76,7 @@ public class AbleCharacteristicSorter {
             characteristicList.add(charas);
             gattCharacteristicData.add(gattCharacteristicGroupData);
         }
-        AbleCharacteristicSorter objectToReturn = new AbleCharacteristicSorter(gattServiceData, gattCharacteristicData,characteristicList);
+        AbleCharacteristicSorter objectToReturn = new AbleCharacteristicSorter(gattServiceData, gattCharacteristicData, characteristicList);
         return objectToReturn;
     }
 
@@ -96,6 +96,7 @@ public class AbleCharacteristicSorter {
 
     /**
      * Sets the value gattServiceData
+     *
      * @param gattServiceData new value for this.gattServiceData
      */
     public void setGattServiceData(List<HashMap<String, String>> gattServiceData) {
@@ -111,6 +112,7 @@ public class AbleCharacteristicSorter {
 
     /**
      * Sets gattCharacteristicData
+     *
      * @param gattCharacteristicData new value for this.gattCharacteristicData
      */
     public void setGattCharacteristicData(List<ArrayList<HashMap<String, String>>> gattCharacteristicData) {

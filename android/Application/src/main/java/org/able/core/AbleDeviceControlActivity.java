@@ -46,32 +46,24 @@ import static org.able.core.AbleCharacteristicSorter.settingUpServices;
  * @version 1.0
  */
 public class AbleDeviceControlActivity extends Activity implements BLEServiceListener {
-    private final static String TAG = AbleDeviceControlActivity.class.getSimpleName();
-
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
-
+    private final static String TAG = AbleDeviceControlActivity.class.getSimpleName();
+    private final String LIST_NAME = "NAME";
+    private final String LIST_UUID = "UUID";
+    AbleCharacteristicSorter containsCollections = null;
+    List<HashMap<String, String>> gattServiceData = new ArrayList<>();
+    List<ArrayList<HashMap<String, String>>> gattCharacteristicData = new ArrayList<>();
+    BLEBroadcastReceiver thisReceiver;
     private TextView mConnectionState;
     private TextView mDataField;
     private String mDeviceName;
     private String mDeviceAddress;
     private ExpandableListView mGattServicesList;
-
     private BLEService mBluetoothLeService;
-
-    AbleCharacteristicSorter containsCollections = null;
-    List<HashMap<String, String>> gattServiceData = new ArrayList<>();
-    List<ArrayList<HashMap<String, String>>> gattCharacteristicData = new ArrayList<>();
-    BLEBroadcastReceiver thisReceiver;
-
     private List<List<BluetoothGattCharacteristic>> mGattCharacteristics = new ArrayList<>();
     private boolean mConnected = false;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
-
-    private final String LIST_NAME = "NAME";
-    private final String LIST_UUID = "UUID";
-
-
     /**
      * If a given GATT characteristic is selected, check for supported features.  This sample
      * demonstrates 'Read' and 'Notify' features.  See
@@ -85,7 +77,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
                                             int childPosition, long id) {
                     if (mGattCharacteristics != null) {
                         final BluetoothGattCharacteristic characteristic =
-                                    mGattCharacteristics.get(groupPosition).get(childPosition);
+                                mGattCharacteristics.get(groupPosition).get(childPosition);
                         final int charaProp = characteristic.getProperties();
                         if ((charaProp | BluetoothGattCharacteristic.PROPERTY_READ) > 0) {
                             if (mNotifyCharacteristic != null) {
@@ -104,7 +96,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
                     }
                     return false;
                 }
-    };
+            };
 
 
     /**
@@ -117,6 +109,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
 
     /**
      * Starting method for the instantiation of the GUI elements.
+     *
      * @param savedInstanceState
      */
     @Override
@@ -143,12 +136,11 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
      * Called after onCreate and sets GATT variables.
      */
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
 
-        thisReceiver= new BLEBroadcastReceiver(this);
-        registerReceiver(thisReceiver ,
+        thisReceiver = new BLEBroadcastReceiver(this);
+        registerReceiver(thisReceiver,
                 thisReceiver.makeGattUpdateIntentFilter());
         mBluetoothLeService = AbleDeviceScanActivity.getmBluetoothLeService();
 
@@ -178,6 +170,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
 
     /**
      * Initialization of the GUI menu.
+     *
      * @param menu used by the method getMenuInflater()
      * @return true if menu added successfully
      */
@@ -196,15 +189,15 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
 
     /**
      * Called if an item of the menu is selected.
+     *
      * @param item the selected item of the menu.
      * @return true, if everything was handled correctly.
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.menu_connect:
-                if(mBluetoothLeService == null)
-                {
+                if (mBluetoothLeService == null) {
                     Toast.makeText(this, "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
                 }
                 mBluetoothLeService.connect(mDeviceAddress);
@@ -221,7 +214,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         AbleDeviceScanActivity.getmBluetoothLeService().disconnect();
         super.onBackPressed();
     }
@@ -235,6 +228,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
 
     /**
      * Updates the TextView GUI object which represents the connection state.
+     *
      * @param resourceId a GUI object ID
      */
     void updateConnectionState(final int resourceId) {
@@ -248,6 +242,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
 
     /**
      * Set the TextView element mDataField of the GUI to the String data.
+     *
      * @param data
      */
     void displayData(String data) {
@@ -260,6 +255,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
      * Sorting gets done from settingsUpServices(..) and iterates through the supported GATT Services/Characteristics.
      * In this sample, we populate the data structure that is bound to the ExpandableListView
      * on the UI.
+     *
      * @param gattServices
      */
     void displayGattServices(List<BluetoothGattService> gattServices) {
@@ -274,12 +270,12 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
                 this,
                 gattServiceData,
                 android.R.layout.simple_expandable_list_item_2,
-                new String[] {LIST_NAME, LIST_UUID},
-                new int[] { android.R.id.text1, android.R.id.text2 },
+                new String[]{LIST_NAME, LIST_UUID},
+                new int[]{android.R.id.text1, android.R.id.text2},
                 gattCharacteristicData,
                 android.R.layout.simple_expandable_list_item_2,
-                new String[] {LIST_NAME, LIST_UUID},
-                new int[] { android.R.id.text1, android.R.id.text2 }
+                new String[]{LIST_NAME, LIST_UUID},
+                new int[]{android.R.id.text1, android.R.id.text2}
         );
         mGattServicesList.setAdapter(gattServiceAdapter);
     }
@@ -316,6 +312,7 @@ public class AbleDeviceControlActivity extends Activity implements BLEServiceLis
 
     /**
      * Called if data is available.
+     *
      * @param intent
      */
     @Override

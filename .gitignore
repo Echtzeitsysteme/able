@@ -1,3 +1,6 @@
+*.cyprj.*
+*.cywrk.*
+
 # Compiled source #
 ###################
 *.com

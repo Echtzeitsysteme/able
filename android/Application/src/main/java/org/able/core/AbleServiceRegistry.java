@@ -21,6 +21,7 @@ public class AbleServiceRegistry {
 
     /**
      * Returns the singleton of this class.
+     *
      * @return the singleton {@link AbleServiceRegistry}
      */
     public static AbleServiceRegistry getInstance() {
@@ -30,24 +31,25 @@ public class AbleServiceRegistry {
     /**
      * Private due to singleton pattern
      */
-    private AbleServiceRegistry(){
+    private AbleServiceRegistry() {
     }
 
     /**
      * Inserts the pair of UUID and activity into this registry
+     *
      * @param serviceUuid the UUID of the service
-     * @param activity the Android activity to launch
+     * @param activity    the Android activity to launch
      */
     public void registerActivity(final UUID serviceUuid, final Class<? extends Activity> activity) {
         registeredServices.put(serviceUuid, activity);
     }
 
-    public Map<UUID, Class<? extends Activity>> getRegisteredServices () {
+    public Map<UUID, Class<? extends Activity>> getRegisteredServices() {
         return registeredServices;
     }
 
-    public Class<?> getServiceClass(UUID uuid){
-        if(registeredServices.containsKey(uuid))
+    public Class<?> getServiceClass(UUID uuid) {
+        if (registeredServices.containsKey(uuid))
             return registeredServices.get(uuid);
         return AbleDeviceControlActivity.class;
     }

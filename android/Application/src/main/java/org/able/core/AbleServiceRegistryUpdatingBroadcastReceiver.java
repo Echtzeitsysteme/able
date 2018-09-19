@@ -23,6 +23,7 @@ public abstract class AbleServiceRegistryUpdatingBroadcastReceiver extends Broad
 
     /**
      * The {@link UUID} of the service to be registered
+     *
      * @return the UUID. Must be non-null.
      */
     @NonNull

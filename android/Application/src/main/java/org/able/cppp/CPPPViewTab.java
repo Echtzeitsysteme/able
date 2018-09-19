@@ -28,17 +28,15 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
 
 
     private boolean mConnected = false;
-    private String mDeviceAddress;
     private BLEService mAbleBLEService;
     BLEBroadcastReceiver thisReceiver;
 
     private static BluetoothGattCharacteristic sJoystick1Characteristic;
     private static BluetoothGattDescriptor sJoystickNotification;
 
-    private static TextView sJoystick1XTextView;
-    private static String sJoystick1XValue = "-1";
-    private static Switch sNotifySwitch;
-    private static boolean sNotifyState = false;
+    private TextView sJoystick1XTextView;
+    private Switch sNotifySwitch;
+    private boolean sNotifyState = false;
 
     /**
      * Construction of the Tab witch parameters of the parent FragmentActivity-
@@ -66,7 +64,6 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
 
         View rootView = inflater.inflate(R.layout.cppp_tab_view, container, false);
         Activity act = getActivity();
-        mDeviceAddress = getArguments().getString("sDeviceAddress");
         sJoystick1XTextView = rootView.findViewById(R.id.CPPP_JOYSTICK_1_X_VALUE);
         sNotifySwitch = rootView.findViewById(R.id.cpppNotifySwitch);
 
@@ -136,7 +133,7 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
 
     @Override
     public void dataAvailable(Intent intent) {
-        sJoystick1XValue = "-1";
+        String sJoystick1XValue = "-1";
         String uuid = BLEService.getmCharacteristicToPass().getUuid().toString();
         if (uuid.equals(CPPPConstants.CPPP_JOYSTICK_1_CHARACTERISTIC_UUID.toString())) {
             sJoystick1XValue = BLEService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 0).toString();
