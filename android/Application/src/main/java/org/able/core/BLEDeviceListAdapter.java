@@ -96,7 +96,7 @@ class BLEDeviceListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         AbleDeviceScanActivity.ViewHolder viewHolder;
         if (view == null) {
-            view = mInflator.inflate(R.layout.listitem_device, null);
+            view = mInflator.inflate(R.layout.able_listitem_device, null);
             viewHolder = new AbleDeviceScanActivity.ViewHolder();
             viewHolder.deviceAddress = (TextView) view.findViewById(R.id.device_address);
             viewHolder.deviceName = (TextView) view.findViewById(R.id.device_name);

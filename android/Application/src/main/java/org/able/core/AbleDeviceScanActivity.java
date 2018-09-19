@@ -155,7 +155,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
         super.onCreate(savedInstanceState);
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
-        setContentView(R.layout.permission_handling);
+        setContentView(R.layout.able_device_scan_activity);
 
         this.sendBroadcast(new Intent(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING));
 
@@ -305,7 +305,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
             scanButton.setText(scanButtonStart);
         } else {
             menu.findItem(R.id.menu_refresh).setActionView(
-                    R.layout.actionbar_indeterminate_progress);
+                    R.layout.able_actionbar_progess_icon);
             scanButton.setText(scanButtonStop);
         }
         return true;
