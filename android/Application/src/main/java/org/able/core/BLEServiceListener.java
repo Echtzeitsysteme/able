@@ -9,7 +9,7 @@ import android.content.Intent;
  *
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
  * @version 1.0
-*/
+ */
 public interface BLEServiceListener {
 
     /**
@@ -29,6 +29,7 @@ public interface BLEServiceListener {
 
     /**
      * Called if data from a GATT server is available.
+     *
      * @param intent incoming data from a GATT server
      */
     void dataAvailable(Intent intent);

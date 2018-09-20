@@ -32,21 +32,18 @@ import org.able.capled.CapLEDViewTab;
  */
 
 public class CPPPActivity extends FragmentActivity implements BLEServiceListener, ActionBar.TabListener {
-    private final static String TAG = CPPPActivity.class.getSimpleName();
-
-    private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
-    public static String sDeviceName;
-    public static String sDeviceAddress;
-    public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
-    public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
+    private static String sDeviceName;
+    private static String sDeviceAddress;
+    private static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
+    private static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
     private BLEService mAbleBLEService;
 
     /**
      * Initializes activity and GUI objects.
-     * @param savedInstanceState
+     * @param savedInstanceState instance state
      */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -57,7 +54,7 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Tab settings
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+        final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.cppp_activity);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 

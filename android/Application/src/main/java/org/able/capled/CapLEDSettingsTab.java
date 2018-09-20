@@ -32,7 +32,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 /**
  * This activity is started, if its registered in the ServiceRegistry with a matching UUID.
- * If started this activity can be used to controll the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
+ * If started this activity can be used to control the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
  *
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
  * @version 1.1
@@ -53,12 +53,12 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
     private static BluetoothGattCharacteristic mCapsenseCharacteristic;
     private static BluetoothGattDescriptor mCapsenseNotification;
 
-    private static Switch sCapSwitch;
+    private Switch sCapSwitch;
     private static boolean sCapSenseNotifyState = false;
-    private static Button sconnectButton;
+    private Button sConnectButton;
 
 
-    BLEBroadcastReceiver thisReceiver;
+    private BLEBroadcastReceiver thisReceiver;
 
     /**
      * This a the GUI button listener.
@@ -113,9 +113,9 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
         mConnectionState = rootView.findViewById(R.id.connection_state);
         mDataField = rootView.findViewById(R.id.data_value);
         sCapSwitch = rootView.findViewById(R.id.capsense_switch);
-        sconnectButton = new Button(act);
-        sconnectButton = rootView.findViewById(R.id.capledConnect);
-        sconnectButton.setOnClickListener(buttonListener);
+        sConnectButton = new Button(act);
+        sConnectButton = rootView.findViewById(R.id.capledConnect);
+        sConnectButton.setOnClickListener(buttonListener);
 
         /**
          * This will be called when the CapSense Notify On/Off switch is touched
@@ -126,7 +126,7 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
                 sCapSenseNotifyState = isChecked;
             }
         });
-        sconnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+        sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
         return rootView;
     }
 
@@ -185,9 +185,8 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
     /**
      * Reads if the LED is on or off.
      */
-    public void readLedCharacteristic() {
-        if (BLEService.existBluetoothAdapter() == false ||
-                BLEService.existBluetoothGatt() == false) {
+    private void readLedCharacteristic() {
+        if (!BLEService.existBluetoothAdapter() || !BLEService.existBluetoothGatt()) {
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
         }
@@ -199,7 +198,7 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
      *
      * @param value Turns notifications on (1) or off (0)
      */
-    public void writeCapSenseNotification(boolean value) {
+    private void writeCapSenseNotification(boolean value) {
         BLEService.mBluetoothGatt.setCharacteristicNotification(mCapsenseCharacteristic, value);
         byte[] byteVal = new byte[1];
         if (value) {
@@ -215,9 +214,9 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
     /**
      * Updates a GUI TextView object for the connection state.
      *
-     * @param resourceId
+     * @param resourceId updates the UI to show the given connection state
      */
-    void updateConnectionState(final int resourceId) {
+    private void updateConnectionState(final int resourceId) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -268,7 +267,7 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
      * This method is called if data is available for the CapLED Service.
      * Then the LED switch button GUI is refreshed and the CapSense GUI View refreshed.
      *
-     * @param intent
+     * @param intent unused
      */
     @Override
     public void dataAvailable(Intent intent) {
@@ -279,18 +278,18 @@ public class CapLEDSettingsTab extends Fragment implements BLEServiceListener {
     /**
      * Sets the GUI ScanButton.
      */
-    void setScanButton() {
+    private void setScanButton() {
         if (!mConnected) {
             if (mAbleBLEService == null) {
                 Toast.makeText(getActivity(), "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
             }
             mAbleBLEService.connect(mDeviceAddress);
-            sconnectButton.setText(R.string.menu_disconnect);
-            sconnectButton.setBackgroundColor(Color.rgb(237, 34, 34));
-        } else if (mConnected) {
+            sConnectButton.setText(R.string.menu_disconnect);
+            sConnectButton.setBackgroundColor(Color.rgb(237, 34, 34));
+        } else {
             mAbleBLEService.disconnect();
-            sconnectButton.setText(R.string.menu_connect);
-            sconnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
+            sConnectButton.setText(R.string.menu_connect);
+            sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
         }
     }
 

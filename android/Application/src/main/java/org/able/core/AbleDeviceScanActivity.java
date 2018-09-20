@@ -37,25 +37,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ListView;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
-
-//class to make permissionhandling more clear
+import java.util.*;
 
 import static android.content.ContentValues.TAG;
 import static org.able.core.AblePermissionUtils.isLocationEnabled;
+
+//class to make permissionhandling more clear
 
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
@@ -64,7 +55,7 @@ import static org.able.core.AblePermissionUtils.isLocationEnabled;
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
  * @version 1.0
  */
-public class AbleDeviceScanActivity extends ListActivity implements BLEServiceListener{
+public class AbleDeviceScanActivity extends ListActivity implements BLEServiceListener {
 
     private BLEDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
@@ -74,7 +65,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     private Button scanButton;
 
     private static final int REQUEST_ENABLE_BT = 1;
-    private static final int MY_PERMISSIONS_REQUEST= 1;
+    private static final int MY_PERMISSIONS_REQUEST = 1;
     //TODO: SCANNING TIME CHANGED!!
     private static final long SCAN_PERIOD = 1000; // Stops scanning after 2 seconds.
 
@@ -95,14 +86,12 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     private HashMap<BluetoothDevice, byte[]> deviceScanResponseMap = new HashMap<>();
     private List<UUID> uuidList = new ArrayList<>();
 
-    private boolean CySmartFix = true;
-
     /**
      * This Listener handles button clicks of the GUI.
      */
-    private View.OnClickListener buttonListener2 = new View.OnClickListener(){
+    private View.OnClickListener buttonListener2 = new View.OnClickListener() {
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.scanButton:
                     if (mBluetoothAdapter.isEnabled() && locationPermisstions && !mScanning) {
@@ -110,22 +99,21 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
                         mLeDeviceListAdapter.clear();
                         scanLeDevice(true);
                         break;
-                    }
-                    else {
+                    } else {
                         scanButton.setActivated(false);
                         scanButton.setText(scanButtonStart);
                         mLeDeviceListAdapter.clear();
                         mLeDeviceListAdapter.notifyDataSetInvalidated();
                         scanLeDevice(false);
                     }
-                break;
+                    break;
             }
 
         }
     };
 
 
-    public void askForLocationPermission(){
+    private void askForLocationPermission() {
         ArrayList<String> arrPerm = new ArrayList<>();
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
@@ -148,7 +136,8 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * Initializes activity and GUI objects.
-     * @param savedInstanceState
+     *
+     * @param savedInstanceState the instance state
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -172,29 +161,27 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
         locationSwitch = findViewById(R.id.locationSwitch);
         locationSwitch.setTag(false);
 
-        /**
+        /*
          * This is the handler of the switch button for location data.
          */
         bluetoothSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     mBluetoothAdapter.enable();
-                    if(isLocationEnabled(getApplicationContext())){
+                    if (isLocationEnabled(getApplicationContext())) {
                         scanButton.setActivated(true);
                         scanButton.setClickable(true);
-                        scanButton.setBackgroundColor(Color.rgb(45,45,45));
-                    }
-                    else{
+                        scanButton.setBackgroundColor(Color.rgb(45, 45, 45));
+                    } else {
                         scanButton.setActivated(false);
                         scanButton.setClickable(false);
-                        scanButton.setBackgroundColor(Color.rgb(220,220,220));
+                        scanButton.setBackgroundColor(Color.rgb(220, 220, 220));
                     }
-                }
-                else {
+                } else {
                     mBluetoothAdapter.disable();
                     scanButton.setActivated(false);
                     scanButton.setClickable(false);
-                    scanButton.setBackgroundColor(Color.rgb(220,220,220));
+                    scanButton.setBackgroundColor(Color.rgb(220, 220, 220));
                 }
 
             }
@@ -205,7 +192,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
          */
         locationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(locationSwitch.getTag().equals(true)) {
+                if (locationSwitch.getTag().equals(true)) {
                     if (isChecked) {
                         startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
                         setLocationSwitch();
@@ -258,12 +245,10 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
         mBluetoothAdapter = bluetoothManager.getAdapter();
 
-        if(mBluetoothAdapter == null){
+        if (mBluetoothAdapter == null) {
             bluetoothSwitch.setChecked(false);
             Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_SHORT).show();
-        }
-
-        else {
+        } else {
             setBluetoothSwitch();
         }
         setLocationSwitch();
@@ -291,6 +276,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * Called on start to initialize the GUI menu.
+     *
      * @param menu
      * @return true if menu is initialized.
      */
@@ -359,6 +345,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * Callback function for startActivityForResult(..), which is called inside the location button switch handler.
+     *
      * @param requestCode
      * @param resultCode
      * @param data
@@ -389,6 +376,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * Called if an item of the menu is pressed.
+     *
      * @param item pressed item of the menu.
      * @return true if everything handled well.
      */
@@ -396,8 +384,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_scan:
-                if(!mBluetoothAdapter.isEnabled() || !locationPermisstions)
-                {
+                if (!mBluetoothAdapter.isEnabled() || !locationPermisstions) {
                     Toast.makeText(this, "Bluetooth or Location is NOT enabled, use the buttons please.", Toast.LENGTH_SHORT).show();
                     break;
                 }
@@ -414,14 +401,14 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     /**
      * Called if an item of the ABLE scan list is clicked. Then this method will try to connect to the
      * chosen device.
+     *
      * @param l
      * @param v
      * @param position
      * @param id
      */
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id)
-    {
+    protected void onListItemClick(ListView l, View v, int position, long id) {
         if (mScanning) {
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
             mScanning = false;
@@ -451,6 +438,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * Searches for BLE devices if enabled.
+     *
      * @param enable if true scans for BLE devices.
      */
     private void scanLeDevice(final boolean enable) {
@@ -482,24 +470,25 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     private BluetoothAdapter.LeScanCallback mLeScanCallback =
             new BluetoothAdapter.LeScanCallback() {
 
-        @Override
-        public void onLeScan(final BluetoothDevice device, int rssi, final byte[] scanRecord) {
-            runOnUiThread(new Runnable() {
                 @Override
-                public void run() {
+                public void onLeScan(final BluetoothDevice device, int rssi, final byte[] scanRecord) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
 
-                    deviceScanResponseMap.put(device, scanRecord);
-                    Log.d(TAG, scanRecord.toString());
-                    mLeDeviceListAdapter.addDevice(device);
+                            deviceScanResponseMap.put(device, scanRecord);
+                            Log.d(TAG, scanRecord.toString());
+                            mLeDeviceListAdapter.addDevice(device);
 
-                    mLeDeviceListAdapter.notifyDataSetChanged();
+                            mLeDeviceListAdapter.notifyDataSetChanged();
+                        }
+                    });
                 }
-            });
-        }
-    };
+            };
 
     /**
      * Decodes a binary input into a hex string.
+     *
      * @param a binary byte input
      * @return String of the hex number of the binary input
      */
@@ -507,7 +496,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
         String hexString = "";
 
-        for(int i = 0; i < a.length; i++){
+        for (int i = 0; i < a.length; i++) {
             String thisByte = "".format("%x", a[i]);
             hexString += thisByte;
         }
@@ -518,6 +507,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * Parses a byte stream of a BLE advertisement message and saves the service UUIDs.
+     *
      * @param scanRecord byte stream input of the BLE advertisement message
      */
     public void parseAdvertisementPacket(final byte[] scanRecord) {
@@ -586,13 +576,14 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * This method checks if the found Gatt service matches one of the saved ones inside the ServiceRegistry.
+     *
      * @return A actitivity that will be called for the matching UUID. The Default activity is org.able.core.AbleDeviceControlActivity.
      */
     private Class<?> checkForKnownServices(BluetoothDevice bleDevice) {
         Class<?> choosenActivity = AbleDeviceControlActivity.class;
         byte[] bleAdvertisementData = deviceScanResponseMap.get(bleDevice);
         parseAdvertisementPacket(bleAdvertisementData);
-        for(UUID uuid : uuidList) {
+        for (UUID uuid : uuidList) {
             if (serviceRegistry.getRegisteredServices().containsKey(uuid)) {
                 choosenActivity = serviceRegistry.getServiceClass(uuid);
                 break;
@@ -604,10 +595,10 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     /**
      * Sets the View of the BluetoothSwitch.
      */
-    private void setBluetoothSwitch(){
+    private void setBluetoothSwitch() {
         if (mBluetoothAdapter.isEnabled()) {
             bluetoothSwitch.setChecked(true);
-        }else if(!mBluetoothAdapter.isEnabled() ){
+        } else if (!mBluetoothAdapter.isEnabled()) {
             bluetoothSwitch.setChecked(false);
         }
     }
@@ -615,12 +606,11 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     /**
      * Sets the View of the LocationSwitch.
      */
-    private void setLocationSwitch(){
+    private void setLocationSwitch() {
         locationPermisstions = isLocationEnabled(getApplicationContext());
-        if(!locationPermisstions)
-        {
+        if (!locationPermisstions) {
             locationSwitch.setChecked(false);
-        }else if(locationPermisstions){
+        } else if (locationPermisstions) {
             locationSwitch.setChecked(true);
         }
     }
@@ -628,16 +618,15 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     /**
      * Sets the View of the ScanButton.
      */
-    private void setScanButton(){
-        if(mBluetoothAdapter.isEnabled() && isLocationEnabled(getApplicationContext())){
+    private void setScanButton() {
+        if (mBluetoothAdapter.isEnabled() && isLocationEnabled(getApplicationContext())) {
             scanButton.setActivated(true);
             scanButton.setClickable(true);
-            scanButton.setBackgroundColor(Color.rgb(45,45,45));
-        }
-        else{
+            scanButton.setBackgroundColor(Color.rgb(45, 45, 45));
+        } else {
             scanButton.setActivated(false);
             scanButton.setClickable(false);
-            scanButton.setBackgroundColor(Color.rgb(220,220,220));
+            scanButton.setBackgroundColor(Color.rgb(220, 220, 220));
         }
     }
 
@@ -679,6 +668,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
 
     /**
      * This method is called if data is available, but is not used for this activity.
+     *
      * @param intent
      */
     @Override

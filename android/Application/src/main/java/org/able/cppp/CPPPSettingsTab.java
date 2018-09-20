@@ -20,17 +20,14 @@ import org.able.core.AbleDeviceScanActivity;
 import org.able.core.R;
 
 public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
-    private final static String TAG = CPPPSettingsTab.class.getSimpleName();
-
     private TextView mConnectionState;
     private TextView mDataField;
-    private String mDeviceName;
     private String mDeviceAddress;
     private boolean mConnected = false;
     private BLEService mAbleBLEService;
-    BLEBroadcastReceiver thisReceiver;
+    private BLEBroadcastReceiver thisReceiver;
 
-    private static Button sConnectButton;
+    private Button sConnectButton;
 
     /**
      * Construction of the Tab witch parameters of the parent FragmentActivity-
@@ -68,15 +65,14 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     /**
      * Initializes activity and GUI objects.
      *
-     * @param savedInstanceState
+     * @param savedInstanceState instance state
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.cppp_tab_settings, container, false);
-        Activity act = getActivity();
-        mDeviceName = getArguments().getString("sDeviceName");
+        final View rootView = inflater.inflate(R.layout.cppp_tab_settings, container, false);
+        final Activity act = getActivity();
         mDeviceAddress = getArguments().getString("sDeviceAddress");
 
         ((TextView) rootView.findViewById(R.id.cppp_device_address)).setText(mDeviceAddress);
@@ -127,7 +123,7 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
      *
      * @param resourceId
      */
-    void updateConnectionState(final int resourceId) {
+    private void updateConnectionState(final int resourceId) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -164,7 +160,7 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     /**
      * Sets the GUI ScanButton.
      */
-    void setScanButton() {
+    private void setScanButton() {
         if (!mConnected) {
             if (mAbleBLEService == null) {
                 Toast.makeText(getActivity(), "this should not happen, as this object is static", Toast.LENGTH_SHORT).show();
@@ -172,7 +168,7 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
             mAbleBLEService.connect(mDeviceAddress);
             sConnectButton.setText(R.string.menu_disconnect);
             sConnectButton.setBackgroundColor(Color.rgb(237, 34, 34));
-        } else if (mConnected) {
+        } else {
             mAbleBLEService.disconnect();
             sConnectButton.setText(R.string.menu_connect);
             sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));

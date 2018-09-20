@@ -23,6 +23,7 @@ class BLEDeviceListAdapter extends BaseAdapter {
 
     /**
      * Initializes the list and the inflater.
+     *
      * @param inflater
      */
     public BLEDeviceListAdapter(LayoutInflater inflater) {
@@ -33,16 +34,18 @@ class BLEDeviceListAdapter extends BaseAdapter {
 
     /**
      * Adds the item device to the list, if it is not inside the list.
+     *
      * @param device is added to the list
      */
     public void addDevice(BluetoothDevice device) {
-        if(!mLeDevices.contains(device)) {
+        if (!mLeDevices.contains(device)) {
             mLeDevices.add(device);
         }
     }
 
     /**
      * Returns the device on the a specific position of the list.
+     *
      * @param position of the device which will be returned
      * @return device on position
      */
@@ -67,6 +70,7 @@ class BLEDeviceListAdapter extends BaseAdapter {
 
     /**
      * Gets the device with the id i.
+     *
      * @param i id of device.
      * @return device with id i.
      */
@@ -77,6 +81,7 @@ class BLEDeviceListAdapter extends BaseAdapter {
 
     /**
      * Converts int to long.
+     *
      * @param i
      * @return
      */
@@ -87,6 +92,7 @@ class BLEDeviceListAdapter extends BaseAdapter {
 
     /**
      * Sets the list View of the GUI inside AbleDeviceScanActivity.
+     *
      * @param i
      * @param view
      * @param viewGroup
@@ -116,7 +122,7 @@ class BLEDeviceListAdapter extends BaseAdapter {
         return view;
     }
 
-    public List<BluetoothDevice> getListOfDevices(){
+    public List<BluetoothDevice> getListOfDevices() {
         return mLeDevices;
     }
 }

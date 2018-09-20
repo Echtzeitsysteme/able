@@ -44,6 +44,7 @@
 #include "BLE_custom.h"
 #include "ledPWM.h"
 #include "ledClock.h"
+#include "UARTISR.h"
 #include "UART_SCBCLK.h"
 #include "UART_tx.h"
 #include "UART_tx_aliases.h"

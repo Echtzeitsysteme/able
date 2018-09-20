@@ -13,10 +13,9 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="capsenseled\capsenseled\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="capsenseled\multicon_ble\Header Files\UARTControl.h">
 <ExpandedNodeIds>
 <v>capsenseled</v>
-<v>capsenseled\capsenseled</v>
 <v>capsenseled\capsenseled\TopDesign</v>
 <v>capsenseled\capsenseled\capsenseled.cydwr</v>
 <v>capsenseled\capsenseled\capsenseled.cydwr\Pins</v>
@@ -32,6 +31,7 @@
 <v>capsenseled\capsenseled\Generated_Source</v>
 <v>capsenseled\capsenseled\Generated_Source\PSoC4</v>
 <v>capsenseled\capsenseled\Generated_Source\PSoC4\ble</v>
+<v>capsenseled\multicon_ble</v>
 <v>capsenseled\multicon_ble\TopDesign</v>
 <v>capsenseled\multicon_ble\multicon_ble.cydwr</v>
 <v>capsenseled\multicon_ble\multicon_ble.cydwr\Pins</v>
@@ -46,6 +46,7 @@
 <v>capsenseled\multicon_ble\Header Files\cyapicallbacks.h</v>
 <v>capsenseled\multicon_ble\Header Files\LEDControl.h</v>
 <v>capsenseled\multicon_ble\Header Files\UARTControl.h</v>
+<v>capsenseled\multicon_ble\Source Files</v>
 <v>capsenseled\multicon_ble\Source Files\BLEControl.c</v>
 <v>capsenseled\multicon_ble\Source Files\LEDControl.c</v>
 <v>capsenseled\multicon_ble\Source Files\main.c</v>
@@ -56,52 +57,25 @@
 <VisibleNodeIds>
 <v>capsenseled</v>
 <v>capsenseled\capsenseled</v>
-<v>capsenseled\capsenseled\TopDesign</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr\Pins</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr\Analog</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr\Clocks</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr\Interrupts</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr\System</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr\Directives</v>
-<v>capsenseled\capsenseled\capsenseled.cydwr\Flash Security</v>
-<v>capsenseled\capsenseled\Header Files</v>
-<v>capsenseled\capsenseled\Source Files</v>
-<v>capsenseled\capsenseled\Source Files\main.c</v>
-<v>capsenseled\capsenseled\Generated_Source</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble.c</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_custom.c</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_custom.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_eventHandler.c</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_eventHandler.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_gatt.c</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_gatt.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_HAL_INT.c</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_HAL_PVT.c</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_HAL_PVT.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_Stack.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_STACK_PVT.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_StackGap.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_StackGatt.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_StackGattClient.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_StackGattDb.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_StackGattServer.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_StackHostMain.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble\ble_StackL2cap.h</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\ble_bless_isr</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\blue</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\capsense</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\capsense_SampleClk</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\capsense_SenseClk</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\capsense_Sns</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\Clock_1</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\cy_boot</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\cy_lfclk</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\green</v>
-<v>capsenseled\capsenseled\Generated_Source\PSoC4\pwm</v>
+<v>capsenseled\multicon_ble</v>
+<v>capsenseled\multicon_ble\TopDesign</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr\Pins</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr\Analog</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr\Clocks</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr\Interrupts</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr\System</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr\Directives</v>
+<v>capsenseled\multicon_ble\multicon_ble.cydwr\Flash Security</v>
+<v>capsenseled\multicon_ble\Header Files</v>
+<v>capsenseled\multicon_ble\Header Files\BLEControl.h</v>
+<v>capsenseled\multicon_ble\Header Files\cyapicallbacks.h</v>
+<v>capsenseled\multicon_ble\Header Files\LEDControl.h</v>
+<v>capsenseled\multicon_ble\Header Files\UARTControl.h</v>
+<v>capsenseled\multicon_ble\Source Files</v>
+<v>capsenseled\multicon_ble\Source Files\BLEControl.c</v>
+<v>capsenseled\multicon_ble\Source Files\LEDControl.c</v>
+<v>capsenseled\multicon_ble\Source Files\main.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -210,6 +184,7 @@
 <v>capsenseled\multicon_ble\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART.lst</v>
 <v>capsenseled\multicon_ble\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART_BOOT.lst</v>
 <v>capsenseled\multicon_ble\CortexM0\ARM_GCC_541\Debug\Listing Files\UARTControl.lst</v>
+<v>capsenseled\multicon_ble\CortexM0\ARM_GCC_541\Debug\Listing Files\UARTISR.lst</v>
 <v>capsenseled\multicon_ble\CortexM0\ARM_GCC_541\Debug\multicon_ble.elf</v>
 <v>capsenseled\multicon_ble\CortexM0\ARM_GCC_541\Debug\multicon_ble.hex</v>
 <v>capsenseled\multicon_ble\CortexM0\ARM_GCC_541\Debug\multicon_ble.map</v>
@@ -220,9 +195,6 @@
 <VisibleNodeIds>
 <v>capsenseled</v>
 <v>capsenseled\capsenseled</v>
-<v>capsenseled\capsenseled\capsenseled.rpt</v>
-<v>capsenseled\capsenseled\capsenseled_timing.html</v>
-<v>capsenseled\multicon_ble</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -262,6 +234,7 @@
 <v>capsenseled\multicon_ble\BLE_v3_30.pdf</v>
 <v>capsenseled\multicon_ble\cy_clock_v2_20.pdf</v>
 <v>capsenseled\multicon_ble\cy_constant_v1_0.pdf</v>
+<v>capsenseled\multicon_ble\cy_isr_v1_70.pdf</v>
 <v>capsenseled\multicon_ble\cy_pins_v2_20</v>
 <v>capsenseled\multicon_ble\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>capsenseled\multicon_ble\LED_v1_0.pdf</v>
@@ -292,22 +265,6 @@
 <v>capsenseled\capsenseled\PWM_v3_30.pdf</v>
 <v>capsenseled\capsenseled\Resistor_v1_0</v>
 <v>capsenseled\capsenseled\Resistor_v1_0\Resistor_v1_0.pdf</v>
-<v>capsenseled\multicon_ble</v>
-<v>capsenseled\multicon_ble\PSoC 4 Architecture TRM</v>
-<v>capsenseled\multicon_ble\PRoC BLE Family Datasheet</v>
-<v>capsenseled\multicon_ble\System Reference Guides</v>
-<v>capsenseled\multicon_ble\System Reference Guides\cy_boot_v5_60</v>
-<v>capsenseled\multicon_ble\System Reference Guides\cy_lfclk_v1_20</v>
-<v>capsenseled\multicon_ble\BLE_v3_30.pdf</v>
-<v>capsenseled\multicon_ble\cy_clock_v2_20.pdf</v>
-<v>capsenseled\multicon_ble\cy_constant_v1_0.pdf</v>
-<v>capsenseled\multicon_ble\cy_pins_v2_20</v>
-<v>capsenseled\multicon_ble\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>capsenseled\multicon_ble\LED_v1_0.pdf</v>
-<v>capsenseled\multicon_ble\Power_v1_0.pdf</v>
-<v>capsenseled\multicon_ble\PWM_v3_30.pdf</v>
-<v>capsenseled\multicon_ble\Resistor_v1_0.pdf</v>
-<v>capsenseled\multicon_ble\SCB_P4_v3_20.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -322,16 +279,12 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\multicon_ble.cydsn\main.c" />
-<name v=".\multicon_ble.cydsn\LEDControl.c" />
 <name v=".\multicon_ble.cydsn\UARTControl.c" />
-<name v=".\multicon_ble.cydsn\UARTControl.h" />
+<name v=".\multicon_ble.cydsn\main.c" />
 <name v=".\multicon_ble.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\multicon_ble.cydsn\UARTControl.h" />
 <name v=".\multicon_ble.cydsn\BLEControl.c" />
-<name v=".\capsenseled.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\capsenseled.cydsn\capsenseled.cydwr" />
-<name v=".\capsenseled.cydsn\main.c" />
-<name v=".\capsenseled.cydsn\Generated_Source\PSoC4\ble_custom.h" />
+<name v=".\multicon_ble.cydsn\BLEControl.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -339,7 +292,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1629, 711" SelectedTabbedMdiWindow="180646f2-46e5-4a60-a2e8-35a5c46d0b18"><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\main.c" Guid="372ae297-9804-43bf-9bf5-556198c975f9" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\LEDControl.c" Guid="306fe1fd-32fc-4c94-be1e-c9a428798ad1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.c" Guid="f08695a8-4cad-424b-bf2f-88b1f7f2bede" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.h" Guid="76bac7a0-9050-4efb-91b0-4ac80ee7c1ff" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9e93f9f9-b628-4740-afaf-591d7440e6c3" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\TopDesign\TopDesign.cysch" Guid="deabf768-889a-4e31-a8f4-037dd938b593" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\BLEControl.c" Guid="f611ae39-d4f7-482d-b7cc-e04781dd67dc" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\TopDesign\TopDesign.cysch" Guid="7d4394a8-6a90-4b44-805d-a6a5678ec275" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\capsenseled.cydwr" Guid="f7bfbfc5-4ac3-402a-9c71-cd0571445ef4" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\main.c" Guid="180646f2-46e5-4a60-a2e8-35a5c46d0b18" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\capsenseled.cydsn\Generated_Source\PSoC4\ble_custom.h" Guid="de00d37a-894c-4359-869f-8682e78834d6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="923, 431" SelectedTabbedMdiWindow="1ad8e185-09f5-4649-8e09-df61be5cf1ff"><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.c" Guid="b300d310-8ca9-4ec6-833f-de74ef8dacf1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\main.c" Guid="1ad8e185-09f5-4649-8e09-df61be5cf1ff" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\TopDesign\TopDesign.cysch" Guid="b31c9111-7875-487c-bcb3-600620866eb1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.h" Guid="1143d401-59b1-4fc9-82f1-1a67d2f35187" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\BLEControl.c" Guid="c2c1bffb-4e6a-41fb-bad9-b77d1bbee77b" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\BLEControl.h" Guid="e6ec80e6-5ef4-4f8a-b0f8-685c84062265" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

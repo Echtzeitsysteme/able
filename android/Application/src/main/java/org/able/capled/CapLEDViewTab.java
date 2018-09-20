@@ -1,11 +1,5 @@
-/*
-        CapLEDAcitivity Class for the example application of an Bluetooth IoT device with a capacitive sensor and a LED.
- */
 package org.able.capled;
 
-/*
-        IMPORTS
- */
 import android.app.Activity;
 import android.app.Fragment;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -14,6 +8,7 @@ import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +27,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 /**
  * This activity is started, if its registered in the ServiceRegistry with a matching UUID.
- * If started this activity can be used to controll the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
+ * If started this activity can be used to control the LED and read the CapSense of the Cypress® Cypress® CY8CKIT 042 BLE A.
  *
  * @author A. Poljakow, Puria Izady (puria.izady@stud.tu-darmstadt.de)
  * @version 1.2
@@ -46,7 +41,6 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
 
 
     private boolean mConnected = false;
-    private String mDeviceAddress;
 
     private BLEService mAbleBLEService;
     private static BluetoothGattCharacteristic sLedCharacteristic;
@@ -55,17 +49,17 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
     private static BluetoothGattCharacteristic sCapsenseCharacteristic;
     private static BluetoothGattDescriptor sCapsenseNotification;
 
-    private static Switch sRedLedSwitch;
-    private static Switch sGreenLedSwitch;
+    private Switch sRedLedSwitch;
+    private Switch sGreenLedSwitch;
     private static boolean sRedLedSwitchState = false;
     private static boolean sGreenLedSwitchState = false;
 
     private String mCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
-    private static ProgressBar sCapSenseProgressBar;
-    private static TextView sCapSenseDataView;
+    private ProgressBar sCapSenseProgressBar;
+    private TextView sCapSenseDataView;
 
 
-    BLEBroadcastReceiver thisReceiver;
+    private BLEBroadcastReceiver thisReceiver;
 
     /**
      * Construction of the Tab witch parameters of the parent FragmentActivity-
@@ -85,7 +79,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
     /**
      * Initializes activity and GUI objects.
      *
-     * @param savedInstanceState
+     * @param savedInstanceState currently not used
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,18 +87,19 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
 
         View rootView = inflater.inflate(R.layout.capled_tab_view, container, false);
         Activity act = getActivity();
-        mDeviceAddress = getArguments().getString("sDeviceAddress");
 
         sRedLedSwitch = rootView.findViewById(R.id.led_switch);
         sGreenLedSwitch = rootView.findViewById(R.id.green_led_switch);
         sCapSenseProgressBar = rootView.findViewById(R.id.capledProgressBar);
         sCapSenseDataView = rootView.findViewById(R.id.capSenseValue);
-        sCapSenseProgressBar.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 159, 227)));
-        sCapSenseProgressBar.setProgressBackgroundTintList(ColorStateList.valueOf(Color.rgb(19, 77, 101)));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            sCapSenseProgressBar.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 159, 227)));
+            sCapSenseProgressBar.setProgressBackgroundTintList(ColorStateList.valueOf(Color.rgb(19, 77, 101)));
+        }
         sCapSenseProgressBar.setProgress(0);
 
 
-        /**
+        /*
          *  This will be called when the LED On/Off switch is touched
          */
         sRedLedSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -161,7 +156,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
      *
      * @param value if 1 then LED is on and if 0 LED is off.
      */
-    public void writeLedCharacteristic(boolean value) {
+    private void writeLedCharacteristic(boolean value) {
         byte[] byteVal = new byte[1];
         if (value) {
             byteVal[0] = (byte) (1);
@@ -174,7 +169,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
         BLEService.genericWriteCharacteristic(sLedCharacteristic);
     }
 
-    public void writeGreenLedCharacteristic(boolean value) {
+    private void writeGreenLedCharacteristic(boolean value) {
         byte[] byteVal = new byte[1];
         if (value) {
             byteVal[0] = (byte) (1);
@@ -190,9 +185,9 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
     /**
      * Reads if the LED is on or off.
      */
-    public void readLedCharacteristic() {
-        if (BLEService.existBluetoothAdapter() == false ||
-                BLEService.existBluetoothGatt() == false) {
+    private void readLedCharacteristic() {
+        if (!BLEService.existBluetoothAdapter() ||
+                !BLEService.existBluetoothGatt()) {
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
         }
@@ -263,7 +258,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
      * This method is called if data is available for the CapLED Service.
      * Then the LED switch button GUI is refreshed and the CapSense GUI View refreshed.
      *
-     * @param intent
+     * @param intent currently not used
      */
     @Override
     public void dataAvailable(Intent intent) {
@@ -290,7 +285,7 @@ public class CapLEDViewTab extends Fragment implements BLEServiceListener {
     /**
      * Sets the CapSense GUI picture.
      */
-    public void setCapSenseView(int capSensePosition) {
+    private void setCapSenseView(int capSensePosition) {
         if (mCapSenseValue.equals("-1")) {
             sCapSenseProgressBar.setProgress(0);
             sCapSenseDataView.setText(R.string.no_data);

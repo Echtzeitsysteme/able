@@ -10,6 +10,8 @@
  * ========================================
 */
 #include "UARTControl.h"
+#include <project.h>
+#include <stdlib.h>
 
 void LEDRainbow(){
     UART_UartPutChar(0u);
@@ -39,5 +41,6 @@ uint8_t uartRead(){
     uint8_t data = UART_UartGetChar();
     return data;
 }
+
 
 /* [] END OF FILE */

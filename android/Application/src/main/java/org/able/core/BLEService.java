@@ -17,14 +17,7 @@
 package org.able.core;
 
 import android.app.Service;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothGatt;
-import android.bluetooth.BluetoothGattCallback;
-import android.bluetooth.BluetoothGattCharacteristic;
-import android.bluetooth.BluetoothGattService;
-import android.bluetooth.BluetoothManager;
-import android.bluetooth.BluetoothProfile;
+import android.bluetooth.*;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
@@ -148,6 +141,7 @@ public class BLEService extends Service {
 
     /**
      * Broadcast a chosen action.
+     *
      * @param action that is braodcasted
      */
     private void broadcastUpdate(final String action) {
@@ -157,17 +151,18 @@ public class BLEService extends Service {
 
     /**
      * This method broadcasts the new value of a characteristic.
+     *
      * @param action
      * @param characteristic characteristic of the value
      */
     private void broadcastUpdate(final String action,
                                  final BluetoothGattCharacteristic characteristic) {
         final Intent intent = new Intent(action);
-            {
+        {
             final byte[] data = characteristic.getValue();
             if (data != null && data.length > 0) {
                 final StringBuilder stringBuilder = new StringBuilder(data.length);
-                for(byte byteChar : data)
+                for (byte byteChar : data)
                     stringBuilder.append(String.format("%02X ", byteChar));
                 intent.putExtra(EXTRA_DATA, new String(data) + "\n" + stringBuilder.toString());
             }
@@ -187,6 +182,7 @@ public class BLEService extends Service {
 
     /**
      * Returns mBinder.
+     *
      * @param intent not used
      * @return IBinder
      */
@@ -199,6 +195,7 @@ public class BLEService extends Service {
      * After using a given device, you should make sure that BluetoothGatt.close() is called
      * such that resources are cleaned up properly.  In this particular example, close() is
      * invoked when the UI is disconnected from the Service.
+     *
      * @param intent
      * @return
      */
@@ -224,13 +221,11 @@ public class BLEService extends Service {
                 return INITIALIZATION_FAILED;
             }
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             mBluetoothAdapter = mBluetoothManager.getAdapter();
-        }else
-            {
-                mBluetoothAdapter.getDefaultAdapter();
-            }
+        } else {
+            mBluetoothAdapter.getDefaultAdapter();
+        }
         if (mBluetoothAdapter == null) {
             Log.e(TAG, "Unable to obtain a BluetoothAdapter.");
             return INITIALIZATION_FAILED;
@@ -243,9 +238,9 @@ public class BLEService extends Service {
      *
      * @param address The device address of the destination device.
      * @return Return true if the connection is initiated successfully. The connection result
-     *         is reported asynchronously through the
-     *         {@code BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt, int, int)}
-     *         callback.
+     * is reported asynchronously through the
+     * {@code BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt, int, int)}
+     * callback.
      */
     public boolean connect(final String address) {
         if (mBluetoothAdapter == null || address == null) {
@@ -327,8 +322,8 @@ public class BLEService extends Service {
      * Enables or disables notification on a give characteristic.
      *
      * @param characteristic Characteristic to act on.
-     * @param enabled If true, enable notification.  False otherwise.
-     * */
+     * @param enabled        If true, enable notification.  False otherwise.
+     */
     public void setCharacteristicNotification(BluetoothGattCharacteristic characteristic,
                                               boolean enabled) {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
@@ -355,33 +350,37 @@ public class BLEService extends Service {
     /**
      * @return true, if AbleDeviceScanActivity has a active BluetoothAdapter.
      */
-    public static boolean existBluetoothAdapter(){
-        if(AbleDeviceScanActivity.getmBluetoothLeService() != null){return true;}
-        else return false;
+    public static boolean existBluetoothAdapter() {
+        if (AbleDeviceScanActivity.getmBluetoothLeService() != null) {
+            return true;
+        } else return false;
     }
 
     /**
      * @return true, if a GATT server is active.
      */
-    public static boolean existBluetoothGatt(){
-        if(mBluetoothGatt != null){return true;}
-        else return false;
+    public static boolean existBluetoothGatt() {
+        if (mBluetoothGatt != null) {
+            return true;
+        } else return false;
     }
 
     /**
      * Read a characteristic of a GATT server.
+     *
      * @param someCharToRead the chosen characteristic.
      */
-    public static void genericReadCharacteristic(BluetoothGattCharacteristic someCharToRead){
+    public static void genericReadCharacteristic(BluetoothGattCharacteristic someCharToRead) {
         mBluetoothGatt.readCharacteristic(someCharToRead);
         return;
     }
 
     /**
      * Rewrites a chosen characteristic.
+     *
      * @param someCharToWrite the characteristic which is overwritten.
      */
-    public static void genericWriteCharacteristic(BluetoothGattCharacteristic someCharToWrite){
+    public static void genericWriteCharacteristic(BluetoothGattCharacteristic someCharToWrite) {
         mBluetoothGatt.writeCharacteristic(someCharToWrite);
         return;
     }
