@@ -4,4 +4,4 @@
     android:id="@+id/myProjectActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.tudarmstadt.es.myProject.myProjectActivity" />
+    tools:context="org.able.myproject.MyProjectActivity" />

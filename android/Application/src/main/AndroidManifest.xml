@@ -14,7 +14,7 @@
  limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.tudarmstadt.es.able"
+    package="org.able.core"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -37,14 +37,14 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:icon="@drawable/es_fg_logo"
+        android:icon="@mipmap/able_icon_ble"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light" >
         <!-- Modern UI + DarkMode option
         android:theme="@android:style/ThemeOverlay.Material" >
         -->
         <activity
-            android:name=".DeviceScanActivity"
+            android:name="org.able.core.AbleDeviceScanActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,21 +52,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceControlActivity" />
+        <activity android:name="org.able.core.AbleDeviceControlActivity" />
 
         <service
-            android:name=".BluetoothLeService"
+            android:name="org.able.core.BLEService"
             android:enabled="true" />
 
         <!-- Register Capled-specific activity -->
-        <activity android:name="de.tudarmstadt.es.cppp.CPPPActivity" />
-        <activity android:name="de.tudarmstadt.es.myProject.myProjectActivity" />
+        <activity android:name="org.able.capled.CapLEDActivity" />
+        <activity android:name="org.able.cppp.CPPPActivity" />
+        <activity android:name="org.able.myproject.MyProjectActivity" />
         <!--
         <receiver
-            android:name="de.tudarmstadt.es.myProject.myProjectServiceRegistryUpdater"
+            android:name="org.able.myProject.MyProjectServiceRegistryUpdater"
             android:enabled="true">
             <intent-filter>
-                <action android:name="de.tudarmstadt.es.able.action.RegisterUuidToActivityMapping" />
+                <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
             </intent-filter>
         </receiver>
         -->
@@ -74,21 +75,22 @@
         <!-- Enable broadcast receiver for registering UUID-to-activity mapping for Capled -->
 
         <receiver
-            android:name="de.tudarmstadt.es.capled.CapLEDServiceRegistryUpdater"
+            android:name="org.able.capled.CapLEDServiceRegistryUpdater"
             android:enabled="true">
             <intent-filter>
-                <action android:name="de.tudarmstadt.es.able.action.RegisterUuidToActivityMapping" />
+                <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
             </intent-filter>
         </receiver>
 
 
         <receiver
-            android:name="de.tudarmstadt.es.cppp.CPPPServiceRegistryUpdater"
+            android:name="org.able.cppp.CPPPServiceRegistryUpdater"
             android:enabled="true">
             <intent-filter>
-                <action android:name="de.tudarmstadt.es.able.action.RegisterUuidToActivityMapping" />
+                <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>

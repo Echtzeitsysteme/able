@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 1
 
 
    1              		.syntax unified
@@ -40,9 +40,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
   10:UARTControl.c ****  * ========================================
   11:UARTControl.c **** */
   12:UARTControl.c **** #include "UARTControl.h"
-  13:UARTControl.c **** 
-  14:UARTControl.c **** void LEDRainbow(){
-  28              		.loc 1 14 0
+  13:UARTControl.c **** #include <project.h>
+  14:UARTControl.c **** #include <stdlib.h>
+  15:UARTControl.c **** 
+  16:UARTControl.c **** void LEDRainbow(){
+  28              		.loc 1 16 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -52,51 +54,51 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
   35              		.cfi_offset 14, -4
   36 0002 00AF     		add	r7, sp, #0
   37              		.cfi_def_cfa_register 7
-  15:UARTControl.c ****     UART_UartPutChar(0u);
-  38              		.loc 1 15 0
+  17:UARTControl.c ****     UART_UartPutChar(0u);
+  38              		.loc 1 17 0
   39 0004 0020     		movs	r0, #0
   40 0006 FFF7FEFF 		bl	UART_SpiUartWriteTxData
-  16:UARTControl.c ****     LED_ON();
-  41              		.loc 1 16 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 2
 
 
+  18:UARTControl.c ****     LED_ON();
+  41              		.loc 1 18 0
   42 000a FFF7FEFF 		bl	LED_ON
-  17:UARTControl.c ****     delay();
-  43              		.loc 1 17 0
+  19:UARTControl.c ****     delay();
+  43              		.loc 1 19 0
   44 000e FFF7FEFF 		bl	delay
-  18:UARTControl.c ****     UART_UartPutChar(1u);
-  45              		.loc 1 18 0
+  20:UARTControl.c ****     UART_UartPutChar(1u);
+  45              		.loc 1 20 0
   46 0012 0120     		movs	r0, #1
   47 0014 FFF7FEFF 		bl	UART_SpiUartWriteTxData
-  19:UARTControl.c ****     LED_OFF();
-  48              		.loc 1 19 0
+  21:UARTControl.c ****     LED_OFF();
+  48              		.loc 1 21 0
   49 0018 FFF7FEFF 		bl	LED_OFF
-  20:UARTControl.c ****     delay();
-  50              		.loc 1 20 0
+  22:UARTControl.c ****     delay();
+  50              		.loc 1 22 0
   51 001c FFF7FEFF 		bl	delay
-  21:UARTControl.c ****     UART_UartPutChar(2u);
-  52              		.loc 1 21 0
+  23:UARTControl.c ****     UART_UartPutChar(2u);
+  52              		.loc 1 23 0
   53 0020 0220     		movs	r0, #2
   54 0022 FFF7FEFF 		bl	UART_SpiUartWriteTxData
-  22:UARTControl.c ****     LED_OFF();
-  55              		.loc 1 22 0
+  24:UARTControl.c ****     LED_OFF();
+  55              		.loc 1 24 0
   56 0026 FFF7FEFF 		bl	LED_OFF
-  23:UARTControl.c ****     delay();
-  57              		.loc 1 23 0
+  25:UARTControl.c ****     delay();
+  57              		.loc 1 25 0
   58 002a FFF7FEFF 		bl	delay
-  24:UARTControl.c ****     UART_UartPutChar(3u);
-  59              		.loc 1 24 0
+  26:UARTControl.c ****     UART_UartPutChar(3u);
+  59              		.loc 1 26 0
   60 002e 0320     		movs	r0, #3
   61 0030 FFF7FEFF 		bl	UART_SpiUartWriteTxData
-  25:UARTControl.c ****     LED_OFF();
-  62              		.loc 1 25 0
+  27:UARTControl.c ****     LED_OFF();
+  62              		.loc 1 27 0
   63 0034 FFF7FEFF 		bl	LED_OFF
-  26:UARTControl.c ****     delay();
-  64              		.loc 1 26 0
+  28:UARTControl.c ****     delay();
+  64              		.loc 1 28 0
   65 0038 FFF7FEFF 		bl	delay
-  27:UARTControl.c **** }
-  66              		.loc 1 27 0
+  29:UARTControl.c **** }
+  66              		.loc 1 29 0
   67 003c C046     		nop
   68 003e BD46     		mov	sp, r7
   69              		@ sp needed
@@ -112,15 +114,15 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
   79              		.type	testListen, %function
   80              	testListen:
   81              	.LFB36:
-  28:UARTControl.c **** 
-  29:UARTControl.c **** void testListen(){
-  82              		.loc 1 29 0
+  30:UARTControl.c **** 
+  31:UARTControl.c **** void testListen(){
+  82              		.loc 1 31 0
   83              		.cfi_startproc
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 3
+
+
   84              		@ args = 0, pretend = 0, frame = 8
   85              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 3
-
-
   86 0000 80B5     		push	{r7, lr}
   87              		.cfi_def_cfa_offset 8
   88              		.cfi_offset 7, -8
@@ -129,36 +131,36 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
   91              		.cfi_def_cfa_offset 16
   92 0004 00AF     		add	r7, sp, #0
   93              		.cfi_def_cfa_register 7
-  30:UARTControl.c ****     uint8_t data = UART_UartGetChar();
-  94              		.loc 1 30 0
+  32:UARTControl.c ****     uint8_t data = UART_UartGetChar();
+  94              		.loc 1 32 0
   95 0006 FFF7FEFF 		bl	UART_UartGetChar
   96 000a 0200     		movs	r2, r0
   97 000c FB1D     		adds	r3, r7, #7
   98 000e 1A70     		strb	r2, [r3]
-  31:UARTControl.c ****     while(data != 'a'){
-  99              		.loc 1 31 0
+  33:UARTControl.c ****     while(data != 'a'){
+  99              		.loc 1 33 0
  100 0010 04E0     		b	.L3
  101              	.L4:
-  32:UARTControl.c ****         data = UART_UartGetChar();
- 102              		.loc 1 32 0
+  34:UARTControl.c ****         data = UART_UartGetChar();
+ 102              		.loc 1 34 0
  103 0012 FFF7FEFF 		bl	UART_UartGetChar
  104 0016 0200     		movs	r2, r0
  105 0018 FB1D     		adds	r3, r7, #7
  106 001a 1A70     		strb	r2, [r3]
  107              	.L3:
-  31:UARTControl.c ****     while(data != 'a'){
- 108              		.loc 1 31 0
+  33:UARTControl.c ****     while(data != 'a'){
+ 108              		.loc 1 33 0
  109 001c FB1D     		adds	r3, r7, #7
  110 001e 1B78     		ldrb	r3, [r3]
  111 0020 612B     		cmp	r3, #97
  112 0022 F6D1     		bne	.L4
-  33:UARTControl.c ****     }
-  34:UARTControl.c ****     flashLED();
- 113              		.loc 1 34 0
+  35:UARTControl.c ****     }
+  36:UARTControl.c ****     flashLED();
+ 113              		.loc 1 36 0
  114 0024 FFF7FEFF 		bl	flashLED
-  35:UARTControl.c ****     
-  36:UARTControl.c **** }
- 115              		.loc 1 36 0
+  37:UARTControl.c ****     
+  38:UARTControl.c **** }
+ 115              		.loc 1 38 0
  116 0028 C046     		nop
  117 002a BD46     		mov	sp, r7
  118 002c 02B0     		add	sp, sp, #8
@@ -175,12 +177,12 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  129              		.type	uartRead, %function
  130              	uartRead:
  131              	.LFB37:
-  37:UARTControl.c **** 
-  38:UARTControl.c **** uint8_t uartRead(){
- 132              		.loc 1 38 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 4
+  39:UARTControl.c **** 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 4
 
 
+  40:UARTControl.c **** uint8_t uartRead(){
+ 132              		.loc 1 40 0
  133              		.cfi_startproc
  134              		@ args = 0, pretend = 0, frame = 8
  135              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -192,18 +194,18 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  141              		.cfi_def_cfa_offset 16
  142 0004 00AF     		add	r7, sp, #0
  143              		.cfi_def_cfa_register 7
-  39:UARTControl.c ****     uint8_t data = UART_UartGetChar();
- 144              		.loc 1 39 0
+  41:UARTControl.c ****     uint8_t data = UART_UartGetChar();
+ 144              		.loc 1 41 0
  145 0006 FFF7FEFF 		bl	UART_UartGetChar
  146 000a 0200     		movs	r2, r0
  147 000c FB1D     		adds	r3, r7, #7
  148 000e 1A70     		strb	r2, [r3]
-  40:UARTControl.c ****     return data;
- 149              		.loc 1 40 0
+  42:UARTControl.c ****     return data;
+ 149              		.loc 1 42 0
  150 0010 FB1D     		adds	r3, r7, #7
  151 0012 1B78     		ldrb	r3, [r3]
-  41:UARTControl.c **** }
- 152              		.loc 1 41 0
+  43:UARTControl.c **** }
+ 152              		.loc 1 43 0
  153 0014 1800     		movs	r0, r3
  154 0016 BD46     		mov	sp, r7
  155 0018 02B0     		add	sp, sp, #8
@@ -236,11 +238,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  182 0027 06       		.byte	0x6
  183 0028 02010000 		.4byte	.LASF0
  184 002c 03       		.uleb128 0x3
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 5
+
+
  185 002d 9B000000 		.4byte	.LASF9
  186 0031 02       		.byte	0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 5
-
-
  187 0032 1D       		.byte	0x1d
  188 0033 37000000 		.4byte	0x37
  189 0037 02       		.uleb128 0x2
@@ -296,11 +298,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  239 0094 02       		.uleb128 0x2
  240 0095 08       		.byte	0x8
  241 0096 04       		.byte	0x4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 6
+
+
  242 0097 E8000000 		.4byte	.LASF13
  243 009b 02       		.uleb128 0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 6
-
-
  244 009c 01       		.byte	0x1
  245 009d 08       		.byte	0x8
  246 009e DA000000 		.4byte	.LASF14
@@ -315,7 +317,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  255 00b0 06       		.uleb128 0x6
  256 00b1 A5000000 		.4byte	.LASF23
  257 00b5 01       		.byte	0x1
- 258 00b6 0E       		.byte	0xe
+ 258 00b6 10       		.byte	0x10
  259 00b7 00000000 		.4byte	.LFB35
  260 00bb 42000000 		.4byte	.LFE35-.LFB35
  261 00bf 01       		.uleb128 0x1
@@ -323,7 +325,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  263 00c1 07       		.uleb128 0x7
  264 00c2 B9000000 		.4byte	.LASF17
  265 00c6 01       		.byte	0x1
- 266 00c7 1D       		.byte	0x1d
+ 266 00c7 1F       		.byte	0x1f
  267 00c8 00000000 		.4byte	.LFB36
  268 00cc 30000000 		.4byte	.LFE36-.LFB36
  269 00d0 01       		.uleb128 0x1
@@ -332,7 +334,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  272 00d6 08       		.uleb128 0x8
  273 00d7 22000000 		.4byte	.LASF19
  274 00db 01       		.byte	0x1
- 275 00dc 1E       		.byte	0x1e
+ 275 00dc 20       		.byte	0x20
  276 00dd 76000000 		.4byte	0x76
  277 00e1 02       		.uleb128 0x2
  278 00e2 91       		.byte	0x91
@@ -341,7 +343,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  281 00e5 09       		.uleb128 0x9
  282 00e6 B0000000 		.4byte	.LASF18
  283 00ea 01       		.byte	0x1
- 284 00eb 26       		.byte	0x26
+ 284 00eb 28       		.byte	0x28
  285 00ec 76000000 		.4byte	0x76
  286 00f0 00000000 		.4byte	.LFB37
  287 00f4 1C000000 		.4byte	.LFE37-.LFB37
@@ -350,17 +352,17 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  290 00fa 08       		.uleb128 0x8
  291 00fb 22000000 		.4byte	.LASF19
  292 00ff 01       		.byte	0x1
- 293 0100 27       		.byte	0x27
+ 293 0100 29       		.byte	0x29
  294 0101 76000000 		.4byte	0x76
  295 0105 02       		.uleb128 0x2
  296 0106 91       		.byte	0x91
  297 0107 77       		.sleb128 -9
  298 0108 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 7
+
+
  299 0109 00       		.byte	0
  300              		.section	.debug_abbrev,"",%progbits
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 7
-
-
  301              	.Ldebug_abbrev0:
  302 0000 01       		.uleb128 0x1
  303 0001 11       		.uleb128 0x11
@@ -416,11 +418,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  353 0033 08       		.uleb128 0x8
  354 0034 00       		.byte	0
  355 0035 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 8
+
+
  356 0036 05       		.uleb128 0x5
  357 0037 16       		.uleb128 0x16
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 8
-
-
  358 0038 00       		.byte	0
  359 0039 03       		.uleb128 0x3
  360 003a 0E       		.uleb128 0xe
@@ -476,11 +478,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  410 006e 13       		.uleb128 0x13
  411 006f 00       		.byte	0
  412 0070 00       		.byte	0
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 9
+
+
  413 0071 08       		.uleb128 0x8
  414 0072 34       		.uleb128 0x34
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 9
-
-
  415 0073 00       		.byte	0
  416 0074 03       		.uleb128 0x3
  417 0075 0E       		.uleb128 0xe
@@ -536,11 +538,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  467 002c 00000000 		.4byte	0
  468              		.section	.debug_ranges,"",%progbits
  469              	.Ldebug_ranges0:
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 10
+
+
  470 0000 00000000 		.4byte	.LFB35
  471 0004 42000000 		.4byte	.LFE35
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 10
-
-
  472 0008 00000000 		.4byte	.LFB36
  473 000c 30000000 		.4byte	.LFE36
  474 0010 00000000 		.4byte	.LFB37
@@ -596,11 +598,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  497 0084 6C6F6E67 		.ascii	"long long unsigned int\000"
  497      206C6F6E 
  497      6720756E 
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 11
+
+
  497      7369676E 
  497      65642069 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 11
-
-
  498              	.LASF9:
  499 009b 5F5F7569 		.ascii	"__uint8_t\000"
  499      6E74385F 
@@ -656,11 +658,11 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 1
  525 0120 73686F72 		.ascii	"short int\000"
  525      7420696E 
  525      7400
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccsmCdGA.s 			page 12
+
+
  526              	.LASF20:
  527 012a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccnGsEjR.s 			page 12
-
-
  527      43313120 
  527      352E342E 
  527      31203230 

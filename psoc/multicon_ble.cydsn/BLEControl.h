@@ -18,7 +18,8 @@
 uint16 joystickPos;
 uint16 joystickPosOld;
 int joystickNotify;//on if notifications are on, off otherwise
-uint8 data;
+uint8 sensorData;
+uint8 led;
     
 void BleCallBack(uint32 event, void* eventParam);
 void testUpdateCharacteristic();

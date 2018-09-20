@@ -12,7 +12,9 @@ void updateLed()
 {
     CYBLE_GATTS_HANDLE_VALUE_NTF_T 	tempHandle;
    
-    uint8 red_State = !red_Read();//led is active low, 0 means on, to not confuse its inverted so 1 is on
+    uint8 red_State = !red_Read();
+    uint8 green_State = !green_Read(); //led is active low, 0 means on, to not confuse its inverted so 1 is on
+    uint8 blue_State = !blue_Read();
     //CyBLE_getState() checks if the ble is conntected, if connected it is reasonable to update the database, not otherwise
   
     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
@@ -21,7 +23,15 @@ void updateLed()
     tempHandle.attrHandle = CYBLE_LEDCAPSENSE_LED_CHAR_HANDLE;
   	tempHandle.value.val = (uint8 *) &red_State;
     tempHandle.value.len = 1;
-    CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED);//information gets written to the GATT-Database  
+    CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED); //information gets written to the GATT-Database  
+    
+    tempHandle.attrHandle = CYBLE_LEDCAPSENSE_GREEN_LED_CHAR_HANDLE;
+  	tempHandle.value.val = (uint8 *) &green_State;
+    CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED); //information gets written to the GATT-Database
+    
+    tempHandle.attrHandle = CYBLE_LEDCAPSENSE_BLUE_LED_CHAR_HANDLE;
+  	tempHandle.value.val = (uint8 *) &blue_State;
+    CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED); //information gets written to the GATT-Database
 }
 
 /***************************************************************
@@ -76,7 +86,7 @@ void BleCallBack(uint32 event, void* eventParam)//ble event handler, statemachin
         case CYBLE_EVT_GATTS_WRITE_REQ://this event gets active, if remoteside wants to write data into GATT database
             wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;//the stack tells which characteristic its trying to write
 			      
-            /* request write the LED value */
+            /* request write the red LED value */
             if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_LED_CHAR_HANDLE)//check if the characteristic is trying to write led values
             //does the remote tries to change the state of the led
             {
@@ -85,6 +95,38 @@ void BleCallBack(uint32 event, void* eventParam)//ble event handler, statemachin
                 {   
                     //if no error the write operation is allowed 
                     red_Write(!wrReqParam->handleValPair.value.val[0]);
+                    //turn on or off the led considering the wished value, red led is active 0, have to invert the values
+                    
+                    //send an response 
+                    CyBle_GattsWriteRsp(cyBle_connHandle);
+                }
+            }
+            
+            /* request write the green LED value */
+            if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_GREEN_LED_CHAR_HANDLE)//check if the characteristic is trying to write led values
+            //does the remote tries to change the state of the led
+            {
+                /* only update the value and write the response if the requested write is allowed */
+                if(CYBLE_GATT_ERR_NONE == CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair, 0, &cyBle_connHandle, CYBLE_GATT_DB_PEER_INITIATED))
+                {   
+                    //if no error the write operation is allowed 
+                    green_Write(!wrReqParam->handleValPair.value.val[0]);
+                    //turn on or off the led considering the wished value, red led is active 0, have to invert the values
+                    
+                    //send an response 
+                    CyBle_GattsWriteRsp(cyBle_connHandle);
+                }
+            }
+            
+            /* request write the green LED value */
+            if(wrReqParam->handleValPair.attrHandle == CYBLE_LEDCAPSENSE_BLUE_LED_CHAR_HANDLE)//check if the characteristic is trying to write led values
+            //does the remote tries to change the state of the led
+            {
+                /* only update the value and write the response if the requested write is allowed */
+                if(CYBLE_GATT_ERR_NONE == CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair, 0, &cyBle_connHandle, CYBLE_GATT_DB_PEER_INITIATED))
+                {   
+                    //if no error the write operation is allowed 
+                    blue_Write(!wrReqParam->handleValPair.value.val[0]);
                     //turn on or off the led considering the wished value, red led is active 0, have to invert the values
                     
                     //send an response 

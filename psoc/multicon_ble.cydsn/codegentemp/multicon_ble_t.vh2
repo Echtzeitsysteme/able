@@ -1,5 +1,5 @@
 -- Project:   C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj
--- Generated: 08/27/2018 10:29:28
+-- Generated: 09/20/2018 14:31:00
 -- PSoC Creator  4.1
 
 ENTITY multicon_ble IS
@@ -33,15 +33,15 @@ ARCHITECTURE __DEFAULT__ OF multicon_ble IS
     SIGNAL ClockBlock_SysClk : bit;
     SIGNAL ClockBlock_WCO : bit;
     SIGNAL LED(0)__PA : bit;
-    SIGNAL Net_342 : bit;
-    SIGNAL Net_344 : bit;
-    SIGNAL Net_345 : bit;
     SIGNAL Net_359 : bit;
     SIGNAL Net_489_digital : bit;
     ATTRIBUTE udbclken_assigned OF Net_489_digital : SIGNAL IS "True";
     ATTRIBUTE global_signal OF Net_489_digital : SIGNAL IS true;
     SIGNAL Net_575 : bit;
     ATTRIBUTE placement_force OF Net_575 : SIGNAL IS "U(1,0,A)0";
+    SIGNAL Net_598 : bit;
+    SIGNAL Net_599 : bit;
+    SIGNAL Net_612 : bit;
     SIGNAL \BLE:Net_15\ : bit;
     SIGNAL \UART:Net_847_ff1\ : bit;
     ATTRIBUTE global_signal OF \UART:Net_847_ff1\ : SIGNAL IS true;
@@ -107,6 +107,7 @@ ARCHITECTURE __DEFAULT__ OF multicon_ble IS
     ATTRIBUTE Location OF \ledPWM:PWMUDB:genblk8:stsreg\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \ledPWM:PWMUDB:sP8:pwmdp:u0\ : LABEL IS "datapathcell1";
     ATTRIBUTE Location OF \ledPWM:PWMUDB:sP8:pwmdp:u0\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF UARTISR : LABEL IS "[IntrContainer=(0)][IntrId=(9)]";
     ATTRIBUTE lib_model OF \ledPWM:PWMUDB:runmode_enable\ : LABEL IS "macrocell2";
     ATTRIBUTE Location OF \ledPWM:PWMUDB:runmode_enable\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \ledPWM:PWMUDB:prevCompare1\ : LABEL IS "macrocell3";
@@ -894,7 +895,7 @@ BEGIN
             scb_mode => 2)
         PORT MAP(
             clock => \UART:Net_847_ff1\,
-            interrupt => Net_342,
+            interrupt => Net_612,
             uart_rx => \UART:rx_wire\,
             uart_tx => \UART:tx_wire\,
             uart_cts => open,
@@ -910,8 +911,8 @@ BEGIN
             miso_s => \UART:miso_s_wire\,
             select_s => open,
             sclk_s => open,
-            tr_tx_req => Net_345,
-            tr_rx_req => Net_344);
+            tr_tx_req => Net_599,
+            tr_rx_req => Net_598);
 
     \BLE:cy_m0s8_ble\:p4blecell
         GENERIC MAP(
@@ -1001,6 +1002,14 @@ BEGIN
             z0_comb => \ledPWM:PWMUDB:tc_i\,
             f1_blk_stat_comb => \ledPWM:PWMUDB:status_3\,
             busclk => ClockBlock_HFClk);
+
+    UARTISR:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_612,
+            clock => ClockBlock_HFClk);
 
     \ledPWM:PWMUDB:runmode_enable\:macrocell
         GENERIC MAP(

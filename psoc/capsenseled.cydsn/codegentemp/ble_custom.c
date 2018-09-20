@@ -51,6 +51,28 @@ const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
                     0x0013u, /* Handle of the Characteristic User Description descriptor */ 
                 }, 
             },
+
+            /* green_led characteristic */
+            {
+                0x0015u, /* Handle of the green_led characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x0016u, /* Handle of the Characteristic User Description descriptor */ 
+                    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                }, 
+            },
+
+            /* blue_led characteristic */
+            {
+                0x0018u, /* Handle of the blue_led characteristic */ 
+                
+                /* Array of Descriptors handles */
+                {
+                    0x0019u, /* Handle of the Characteristic User Description descriptor */ 
+                    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                }, 
+            },
         }, 
     },
 };

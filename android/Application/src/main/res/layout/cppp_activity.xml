@@ -4,4 +4,4 @@
     android:id="@+id/cppp_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.tudarmstadt.es.cppp.CPPPActivity" />
+    tools:context="org.able.cppp.CPPPActivity" />

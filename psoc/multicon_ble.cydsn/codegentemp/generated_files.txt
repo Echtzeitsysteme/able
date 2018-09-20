@@ -59,6 +59,8 @@
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\ledPWM_PM.c" value="SOURCE_C;CortexM0;;;;ledPWM" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\ledClock.c" value="SOURCE_C;CortexM0;;;;ledClock" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\ledClock.h" value="HEADER;;;;;ledClock" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UARTISR.c" value="SOURCE_C;CortexM0;;;;UARTISR" />
+  <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UARTISR.h" value="HEADER;;;;;UARTISR" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UART_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_SCBCLK" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UART_SCBCLK.h" value="HEADER;;;;;UART_SCBCLK" />
   <file name="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\codegentemp\UART_tx.c" value="SOURCE_C;CortexM0;;;;UART_tx" />

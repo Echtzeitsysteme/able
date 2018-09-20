@@ -4,4 +4,4 @@
     android:id="@+id/CapLEDTab"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.tudarmstadt.es.capled.CapLEDActivity" />
+    tools:context="org.able.capled.CapLEDActivity" />

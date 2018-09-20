@@ -2,7 +2,7 @@
 --	Conversion of multicon_ble.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Aug 27 10:29:25 2018
+--	Thu Sep 20 14:30:58 2018
 --
 
 USE cypress.cypress.all;
@@ -37,7 +37,7 @@ SIGNAL \UART:tmpIO_0__rx_net_0\ : bit;
 TERMINAL \UART:tmpSIOVREF__rx_net_0\ : bit;
 SIGNAL \UART:tmpINTERRUPT_0__rx_net_0\ : bit;
 SIGNAL \UART:cts_wire\ : bit;
-SIGNAL Net_342 : bit;
+SIGNAL Net_612 : bit;
 SIGNAL \UART:rts_wire\ : bit;
 SIGNAL \UART:mosi_m_wire\ : bit;
 SIGNAL \UART:select_m_wire_3\ : bit;
@@ -48,18 +48,18 @@ SIGNAL \UART:sclk_m_wire\ : bit;
 SIGNAL \UART:miso_s_wire\ : bit;
 SIGNAL \UART:scl_wire\ : bit;
 SIGNAL \UART:sda_wire\ : bit;
-SIGNAL Net_345 : bit;
-SIGNAL Net_344 : bit;
+SIGNAL Net_599 : bit;
+SIGNAL Net_598 : bit;
 SIGNAL \UART:Net_1000\ : bit;
-SIGNAL Net_340 : bit;
-SIGNAL Net_341 : bit;
-SIGNAL Net_350 : bit;
-SIGNAL Net_351 : bit;
-SIGNAL Net_352 : bit;
-SIGNAL Net_353 : bit;
-SIGNAL Net_354 : bit;
-SIGNAL Net_355 : bit;
-SIGNAL Net_356 : bit;
+SIGNAL Net_594 : bit;
+SIGNAL Net_595 : bit;
+SIGNAL Net_604 : bit;
+SIGNAL Net_605 : bit;
+SIGNAL Net_606 : bit;
+SIGNAL Net_607 : bit;
+SIGNAL Net_608 : bit;
+SIGNAL Net_609 : bit;
+SIGNAL Net_610 : bit;
 TERMINAL Net_4800 : bit;
 TERMINAL Net_4801 : bit;
 TERMINAL Net_216 : bit;
@@ -625,7 +625,7 @@ one <=  ('1') ;
 	GENERIC MAP(cy_registers=>"",
 		scb_mode=>2)
 	PORT MAP(clock=>\UART:Net_847\,
-		interrupt=>Net_342,
+		interrupt=>Net_612,
 		rx=>\UART:rx_wire\,
 		tx=>\UART:tx_wire\,
 		cts=>zero,
@@ -640,8 +640,8 @@ one <=  ('1') ;
 		sclk_s=>zero,
 		scl=>\UART:scl_wire\,
 		sda=>\UART:sda_wire\,
-		tx_req=>Net_345,
-		rx_req=>Net_344);
+		tx_req=>Net_599,
+		rx_req=>Net_598);
 LED1_1:cy_annotation_universal_v1_0
 	GENERIC MAP(comp_name=>"LED_v1_0",
 		port_names=>"A, K",
@@ -944,6 +944,10 @@ ledClock:cy_clock_v1_0
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_489,
 		dig_domain_out=>open);
+UARTISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_612);
 \ledPWM:PWMUDB:min_kill_reg\:cy_dsrff
 	PORT MAP(d=>one,
 		s=>zero,
