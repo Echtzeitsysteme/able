@@ -62,15 +62,15 @@
         <activity android:name="org.able.capled.CapLEDActivity" />
         <activity android:name="org.able.cppp.CPPPActivity" />
         <activity android:name="org.able.myproject.MyProjectActivity" />
-        <!--
+
         <receiver
-            android:name="org.able.myProject.MyProjectServiceRegistryUpdater"
+            android:name="org.able.myproject.MyProjectServiceRegistryUpdater"
             android:enabled="true">
             <intent-filter>
                 <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
             </intent-filter>
         </receiver>
-        -->
+
 
         <!-- Enable broadcast receiver for registering UUID-to-activity mapping for Capled -->
 
