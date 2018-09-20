@@ -82,7 +82,6 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
         ((TextView) rootView.findViewById(R.id.cppp_device_address)).setText(mDeviceAddress);
 
         mConnectionState = rootView.findViewById(R.id.cppp_connection_state);
-        mDataField = rootView.findViewById(R.id.cppp_data_value);
         sConnectButton = new Button(act);
         sConnectButton = rootView.findViewById(R.id.cppp_connect);
         sConnectButton.setOnClickListener(buttonListener);
@@ -147,7 +146,6 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     public void gattDisconnected() {
         mConnected = false;
         updateConnectionState(R.string.disconnected);
-        mDataField.setText(R.string.no_data);
         getActivity().invalidateOptionsMenu();
     }
 

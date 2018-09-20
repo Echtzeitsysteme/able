@@ -442,7 +442,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
         }
         */
 
-        Intent intent = new Intent(this, checkForKnownServices());
+        Intent intent = new Intent(this, checkForKnownServices(device));
 
         intent.putExtra(AbleDeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(AbleDeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
@@ -523,7 +523,7 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
     public void parseAdvertisementPacket(final byte[] scanRecord) {
 
         byte[] advertisedData = Arrays.copyOf(scanRecord, scanRecord.length);
-
+        uuidList.clear();
         int offset = 0;
         while (offset < (advertisedData.length - 2)) {
             int len = advertisedData[offset++];
@@ -588,9 +588,9 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
      * This method checks if the found Gatt service matches one of the saved ones inside the ServiceRegistry.
      * @return A actitivity that will be called for the matching UUID. The Default activity is org.able.core.AbleDeviceControlActivity.
      */
-    private Class<?> checkForKnownServices() {
+    private Class<?> checkForKnownServices(BluetoothDevice bleDevice) {
         Class<?> choosenActivity = AbleDeviceControlActivity.class;
-        byte[] bleAdvertisementData = deviceScanResponseMap.get(device);
+        byte[] bleAdvertisementData = deviceScanResponseMap.get(bleDevice);
         parseAdvertisementPacket(bleAdvertisementData);
         for(UUID uuid : uuidList) {
             if (serviceRegistry.getRegisteredServices().containsKey(uuid)) {

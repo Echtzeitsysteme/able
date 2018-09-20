@@ -48,6 +48,22 @@ android:scrollbars="vertical">
         android:textSize="18sp" />
 
     <Switch
+        android:id="@+id/cpppRedLedSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-condensed"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:text="@string/RedLED"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Switch
         android:id="@+id/cpppNotifySwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,6 +79,15 @@ android:scrollbars="vertical">
         android:textOn="ON"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/cpppProgressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:max="100" />
 
     <LinearLayout
         android:layout_width="match_parent"

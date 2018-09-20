@@ -6,10 +6,13 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -32,12 +35,17 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
     private BLEService mAbleBLEService;
     BLEBroadcastReceiver thisReceiver;
 
+    private static BluetoothGattCharacteristic sRedLedCharacteristic;
     private static BluetoothGattCharacteristic sJoystick1Characteristic;
     private static BluetoothGattDescriptor sJoystickNotification;
+
+    private static Switch sRedLedSwitch;
+    private static boolean sRedLedSwitchState = false;
 
     private static TextView sJoystick1XTextView;
     private static String sJoystick1XValue = "-1";
     private static Switch sNotifySwitch;
+    private static ProgressBar sSensorDataProgressBar;
     private static boolean sNotifyState = false;
 
     /**
@@ -68,14 +76,23 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
         Activity act = getActivity();
         mDeviceAddress = getArguments().getString("sDeviceAddress");
         sJoystick1XTextView = rootView.findViewById(R.id.CPPP_JOYSTICK_1_X_VALUE);
+        sRedLedSwitch = rootView.findViewById(R.id.cpppRedLedSwitch);
+        sRedLedSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                writeRedLedCharacteristic(isChecked);
+            }
+        });
         sNotifySwitch = rootView.findViewById(R.id.cpppNotifySwitch);
-
         sNotifySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 writeNotification(isChecked);
                 sNotifyState = isChecked;
             }
         });
+        sSensorDataProgressBar = rootView.findViewById(R.id.cpppProgressBar);
+        sSensorDataProgressBar.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 159, 227)));
+        sSensorDataProgressBar.setProgressBackgroundTintList(ColorStateList.valueOf(Color.rgb(19, 77, 101)));
+        sSensorDataProgressBar.setProgress(0);
 
         return rootView;
     }
@@ -121,17 +138,22 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
     public void gattDisconnected() {
         mConnected = false;
         getActivity().invalidateOptionsMenu();
+        //sSensorDataProgressBar.setEnabled(false);
+        sRedLedSwitch.setChecked(false);
+        sRedLedSwitch.setEnabled(false);
     }
 
     @Override
     public void gattServicesDiscovered() {
         BluetoothGattService mService = BLEService.mBluetoothGatt.getService(CPPPConstants.CPPP_SERVICE_UUID);
+        sRedLedCharacteristic = mService.getCharacteristic(CPPPConstants.CPPP_RED_LED_CHARACTERISTIC_UUID);
         sJoystick1Characteristic = mService.getCharacteristic(CPPPConstants.CPPP_JOYSTICK_1_CHARACTERISTIC_UUID);
         sJoystickNotification = sJoystick1Characteristic.getDescriptor(CPPPConstants.CPPP_NOTIFICATION);
         sNotifySwitch.setEnabled(true);
 
         readJoystick1Characteristic();
-
+        sRedLedSwitch.setEnabled(true);
+        sSensorDataProgressBar.setEnabled(true);
     }
 
     @Override
@@ -142,6 +164,9 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
             sJoystick1XValue = BLEService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 0).toString();
         }
         sJoystick1XTextView.setText(sJoystick1XValue);
+        int sensorDataValue = Integer.parseInt(sJoystick1XValue);
+
+        setSensorDataProgressBar(sensorDataValue);
     }
 
     public void writeNotification(boolean value) {
@@ -157,6 +182,9 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
         BLEService.mBluetoothGatt.writeDescriptor(sJoystickNotification);
     }
 
+    /**
+     * Read position of Joystick 1
+     */
     public void readJoystick1Characteristic() {
         if (BLEService.existBluetoothAdapter() == false ||
                 BLEService.existBluetoothGatt() == false) {
@@ -164,5 +192,37 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
             return;
         }
         BLEService.genericReadCharacteristic(sJoystick1Characteristic);
+    }
+
+    /**
+     * Sets the LED characteristic to the boolean value.
+     *
+     * @param value if 1 then LED is on and if 0 LED is off.
+     */
+    public void writeRedLedCharacteristic(boolean value) {
+        byte[] byteVal = new byte[1];
+        if (value) {
+            byteVal[0] = (byte) (1);
+        } else {
+            byteVal[0] = (byte) (0);
+        }
+        Log.i(TAG, "LED " + value);
+        sRedLedSwitchState = value;
+        sRedLedCharacteristic.setValue(byteVal);
+        BLEService.genericWriteCharacteristic(sRedLedCharacteristic);
+    }
+
+
+    /**
+     * Sets the CapSense GUI picture.
+     */
+    public void setSensorDataProgressBar(int capSensePosition) {
+        if (sJoystick1XValue.equals("-1")) {
+            sSensorDataProgressBar.setProgress(0);
+            sJoystick1XTextView.setText(R.string.no_data);
+        } else {
+            sSensorDataProgressBar.setProgress(capSensePosition);
+            sJoystick1XTextView.setText(sJoystick1XValue);
+        }
     }
 }
