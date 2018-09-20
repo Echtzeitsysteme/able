@@ -42,12 +42,5 @@ uint8_t uartRead(){
     return data;
 }
 
-CY_ISR(UARTRX){
-    UARTISR_Disable();
-    uint8_t brightness = UART_UartGetChar();
-    UART_UartPutChar(brightness);
-    UART_ClearRxInterruptSource(UART_INTR_RX_NOT_EMPTY);
-    UARTISR_Enable();
-}
 
 /* [] END OF FILE */

@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2018-09-20T10:55:13Z")
+ (DATE "2018-09-20T12:31:00Z")
  (DESIGN "multicon_ble")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")

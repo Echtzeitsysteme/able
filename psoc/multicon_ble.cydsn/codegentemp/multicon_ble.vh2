@@ -2,7 +2,7 @@
 --	Conversion of multicon_ble.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Sep 20 12:55:11 2018
+--	Thu Sep 20 14:30:58 2018
 --
 
 USE cypress.cypress.all;

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="capsenseled\multicon_ble\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="capsenseled\multicon_ble\Header Files\UARTControl.h">
 <ExpandedNodeIds>
 <v>capsenseled</v>
 <v>capsenseled\capsenseled\TopDesign</v>
@@ -55,6 +55,8 @@
 <v>capsenseled\multicon_ble\Generated_Source\PSoC4\BLE</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>capsenseled</v>
+<v>capsenseled\capsenseled</v>
 <v>capsenseled\multicon_ble</v>
 <v>capsenseled\multicon_ble\TopDesign</v>
 <v>capsenseled\multicon_ble\multicon_ble.cydwr</v>
@@ -74,8 +76,6 @@
 <v>capsenseled\multicon_ble\Source Files\BLEControl.c</v>
 <v>capsenseled\multicon_ble\Source Files\LEDControl.c</v>
 <v>capsenseled\multicon_ble\Source Files\main.c</v>
-<v>capsenseled\multicon_ble\Source Files\UARTControl.c</v>
-<v>capsenseled\multicon_ble\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -283,6 +283,8 @@
 <name v=".\multicon_ble.cydsn\main.c" />
 <name v=".\multicon_ble.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\multicon_ble.cydsn\UARTControl.h" />
+<name v=".\multicon_ble.cydsn\BLEControl.c" />
+<name v=".\multicon_ble.cydsn\BLEControl.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -290,7 +292,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="923, 431" SelectedTabbedMdiWindow="b300d310-8ca9-4ec6-833f-de74ef8dacf1"><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.c" Guid="b300d310-8ca9-4ec6-833f-de74ef8dacf1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\main.c" Guid="1ad8e185-09f5-4649-8e09-df61be5cf1ff" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\TopDesign\TopDesign.cysch" Guid="b31c9111-7875-487c-bcb3-600620866eb1" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9e93f9f9-b628-4740-afaf-591d7440e6c3" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.h" Guid="1143d401-59b1-4fc9-82f1-1a67d2f35187" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="923, 431" SelectedTabbedMdiWindow="1ad8e185-09f5-4649-8e09-df61be5cf1ff"><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.c" Guid="b300d310-8ca9-4ec6-833f-de74ef8dacf1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\main.c" Guid="1ad8e185-09f5-4649-8e09-df61be5cf1ff" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\TopDesign\TopDesign.cysch" Guid="b31c9111-7875-487c-bcb3-600620866eb1" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\UARTControl.h" Guid="1143d401-59b1-4fc9-82f1-1a67d2f35187" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\BLEControl.c" Guid="c2c1bffb-4e6a-41fb-bad9-b77d1bbee77b" /><DocumentWindow Key="C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\BLEControl.h" Guid="e6ec80e6-5ef4-4f8a-b0f8-685c84062265" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

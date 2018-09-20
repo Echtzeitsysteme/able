@@ -14,23 +14,24 @@
 
 #include "BLEControl.h"
 
+
 void testUpdateCharacteristic(){
     CYBLE_GATTS_HANDLE_VALUE_NTF_T 	tempHandle;
     
-    joystickPos = data;
+    joystickPos = sensorData;
     /*
     if(CyBle_GetState() != CYBLE_STATE_CONNECTED)
         return; */
     
     tempHandle.attrHandle = CYBLE_PERIPHERY_JOYSTICK_1_CHAR_HANDLE;
-  	tempHandle.value.val = (uint8 *) &data;
+  	tempHandle.value.val = (uint8 *) &sensorData;
     tempHandle.value.len = 1;
     CyBle_GattsWriteAttributeValue(&tempHandle,0,&cyBle_connHandle,CYBLE_GATT_DB_LOCALLY_INITIATED);//information gets written to the GATT-Database  
     if (joystickNotify && (joystickPos != joystickPosOld) )
         CyBle_GattsNotification(cyBle_connHandle,&tempHandle);//this method sends an notification via bluetooth to the client, that something has changed
         joystickPosOld = joystickPos;
-    if(data > 255)
-        data = 0;
+    if(sensorData > 255)
+        sensorData = 0;
 }
 
 void BleCallBack(uint32 event, void* eventParam){
@@ -59,7 +60,23 @@ void BleCallBack(uint32 event, void* eventParam){
                 joystickNotify = wrReqParam->handleValPair.value.val[0] & 0x01;
                 //send an response 
                 CyBle_GattsWriteRsp(cyBle_connHandle);
-            }		
+            }	
+            
+            if(wrReqParam->handleValPair.attrHandle == CYBLE_PERIPHERY_LED_CHAR_HANDLE)//changing capsense 
+            {
+                /* only update the value and write the response if the requested write is allowed */
+                if(CYBLE_GATT_ERR_NONE == CyBle_GattsWriteAttributeValue(&wrReqParam->handleValPair, 0, &cyBle_connHandle, CYBLE_GATT_DB_PEER_INITIATED))
+                {   
+                    //if no error the write operation is allowed 
+                    //green_Write(!wrReqParam->handleValPair.value.val[0]);
+                    led = wrReqParam->handleValPair.value.val[0];
+                    // update LED through UART
+                    //turn on or off the led considering the wished value, red led is active 0, have to invert the values
+                    
+                    //send an response 
+                    CyBle_GattsWriteRsp(cyBle_connHandle);
+                }
+            }
             break;
         default: break;
     }
