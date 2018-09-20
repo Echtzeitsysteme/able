@@ -47,16 +47,7 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
     private static BluetoothGattDescriptor sCapsenseNotification;
 
     // TODO CUSTOM ABLE PROJECT: Declare your GUI elements here ...
-    /*
-    private static Switch sRedLedSwitch;
-    private static Switch sGreenLedSwitch;
-    private static boolean sRedLedSwitchState = false;
-    private static boolean sGreenLedSwitchState = false;
 
-    private static String sCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
-    private static ProgressBar sCapSenseProgressBar;
-    private static TextView sCapSenseDataView;
-    */
 
     BLEBroadcastReceiver thisReceiver;
 
@@ -90,29 +81,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
 
         //TODO CUSTOM ABLE PROJECT: Initialize your UI elements here ...
 
-        /*
-        sRedLedSwitch = rootView.findViewById(R.id.myProject_led_switch);
-        sGreenLedSwitch = rootView.findViewById(R.id.myProject_green_led_switch);
-        sCapSenseProgressBar = rootView.findViewById(R.id.myProject_capledProgressBar);
-        sCapSenseDataView = rootView.findViewById(R.id.myProject_capSenseValue);
-        sCapSenseProgressBar.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 159, 227)));
-        sCapSenseProgressBar.setProgressBackgroundTintList(ColorStateList.valueOf(Color.rgb(19, 77, 101)));
-        sCapSenseProgressBar.setProgress(0);
-
-
-
-        sRedLedSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                writeLedCharacteristic(isChecked);
-            }
-        });
-
-        sGreenLedSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                writeGreenLedCharacteristic(isChecked);
-            }
-        });
-        */
         return rootView;
     }
 
@@ -156,33 +124,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
      */
     public void writeLedCharacteristic(boolean value) {
         //TODO CUSTOM ABLE PROJECT: BLE write the redLed on
-        /*
-        byte[] byteVal = new byte[1];
-        if (value) {
-            byteVal[0] = (byte) (1);
-        } else {
-            byteVal[0] = (byte) (0);
-        }
-        Log.i(TAG, "LED " + value);
-        sRedLedSwitchState = value;
-        sRedLedCharacteristic.setValue(byteVal);
-        BluetoothLeService.genericWriteCharacteristic(sRedLedCharacteristic);
-        */
-    }
-
-    public void writeGreenLedCharacteristic(boolean value) {
-        /*
-        byte[] byteVal = new byte[1];
-        if (value) {
-            byteVal[0] = (byte) (1);
-        } else {
-            byteVal[0] = (byte) (0);
-        }
-        Log.i(TAG, "LED " + value);
-        sGreenLedSwitchState = value;
-        sGreenLedCharacteristic.setValue(byteVal);
-        BluetoothLeService.genericWriteCharacteristic(sGreenLedCharacteristic);
-        */
     }
 
     /**
@@ -190,14 +131,7 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
      */
     public void readLedCharacteristic() {
         //TODO CUSTOM ABLE PROJECT: BLE read
-        /*
-        if (BluetoothLeService.existBluetoothAdapter() == false ||
-                BluetoothLeService.existBluetoothGatt() == false) {
-            Log.w(TAG, "BluetoothAdapter not initialized");
-            return;
-        }
-        BluetoothLeService.genericReadCharacteristic(sRedLedCharacteristic);
-        */
+
     }
 
 
@@ -218,10 +152,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
         mConnected = false;
         getActivity().invalidateOptionsMenu();
         // TODO CUSTOM ABLE PROJECT: Activate this optionally
-        /*
-        sRedLedSwitch.setChecked(false);
-        sRedLedSwitch.setEnabled(false);
-        */
     }
 
     /**
@@ -230,18 +160,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
     @Override
     public void gattServicesDiscovered() {
         // TODO CUSTOM ABLE PROJECT: Initialize your UUIDS here ...
-        /*
-        BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(MyProjectConstants.MYPROJECT_SERVICE_UUID);
-
-        sRedLedCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_LED_CHARACTERISTIC_UUID);
-        sGreenLedCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_GREEN_LED_CHARACTERISTIC_UUID);
-        sCapsenseCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_CAP_CHARACTERISTIC_UUID);
-        sCapsenseNotification = sCapsenseCharacteristic.getDescriptor(MyProjectConstants.MYPROJECT_NOTIFICATION);
-
-        readLedCharacteristic();
-
-        sRedLedSwitch.setEnabled(true);
-        */
     }
 
     /**
@@ -253,27 +171,11 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
     @Override
     public void dataAvailable(Intent intent) {
         //TODO CUSTOM ABLE PROJECT: Get BLE data here ...
-        /*
-        // TODO(ME): check this part ...
-        if (sRedLedSwitchState) {
-            sRedLedSwitch.setChecked(true);
-        } else {
-            sRedLedSwitch.setChecked(false);
-        }
-        if(sGreenLedSwitchState)
-            sGreenLedSwitch.setChecked(true);
-        else
-            sGreenLedSwitch.setChecked(false);
 
-        String uuid = BluetoothLeService.getmCharacteristicToPass().getUuid().toString();
 
-        if (uuid.equals(MyProjectConstants.MYPROJECT_CAP_CHARACTERISTIC_UUID.toString())) {
-            sCapSenseValue = BluetoothLeService.getmCharacteristicToPass().getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16, 0).toString();
-            int capSensePosition = Integer.parseInt(sCapSenseValue);
-            setCapSenseView(capSensePosition);
-        }
+
         // TODO CUSTOM ABLE PROJECT: Check here for more UUIDs
-        */
+
     }
 
     /**
@@ -281,14 +183,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
      */
     public void setCapSenseView(int capSensePosition) {
         //TODO CUSTOM ABLE PROJECT: Change GUI for the CapSense progress bar here ...
-        /*
-        if (sCapSenseValue.equals("-1")) {
-            sCapSenseProgressBar.setProgress(0);
-            sCapSenseDataView.setText(R.string.no_data);
-        } else {
-            sCapSenseProgressBar.setProgress(capSensePosition);
-            sCapSenseDataView.setText(sCapSenseValue);
-        }
-        */
+
     }
 }

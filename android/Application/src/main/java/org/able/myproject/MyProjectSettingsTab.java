@@ -116,15 +116,6 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
         sConnectButton.setBackgroundColor(Color.rgb(42, 42, 42));
 
         // TODO CUSTOM ABLE PROJECT: Insert your Setting switches here ...
-        /*
-        sCapSenseSwitch = rootView.findViewById(R.id.myProject_capsense_switch);
-        sCapSenseSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                writeCapSenseNotification(isChecked);
-                sCapSenseNotifyState = isChecked;
-            }
-        });
-        */
 
         return rootView;
     }
@@ -170,18 +161,6 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
      */
     public void writeCapSenseNotification(boolean value) {
         //TODO CUSTOM ABLE PROJECT: Activate/Deactivate Capsense notification here ...
-        /*
-        BluetoothLeService.mBluetoothGatt.setCharacteristicNotification(mCapsenseCharacteristic, value);
-        byte[] byteVal = new byte[1];
-        if (value) {
-            byteVal[0] = 1;
-        } else {
-            byteVal[0] = 0;
-        }
-        Log.i(TAG, "CapSense Notification " + value);
-        mCapsenseNotification.setValue(byteVal);
-        BluetoothLeService.mBluetoothGatt.writeDescriptor(mCapsenseNotification);
-        */
     }
 
     /**
@@ -218,10 +197,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
         mDataField.setText(R.string.no_data);
         getActivity().invalidateOptionsMenu();
         //TODO CUSTOM ABLE PROJECT: you can activate this part optionally
-        /*
-        sCapSenseSwitch.setChecked(false);
-        sCapSenseSwitch.setEnabled(false);
-        */
+
     }
 
     /**
@@ -230,16 +206,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     @Override
     public void gattServicesDiscovered() {
         //TODO CUSTOM ABLE PROJECT: Initialize your UUIDs here ...
-        /*
-        BluetoothGattService mService = BluetoothLeService.mBluetoothGatt.getService(MyProjectConstants.MYPROJECT_SERVICE_UUID);
 
-        sRedLedCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_LED_CHARACTERISTIC_UUID);
-        mCapsenseCharacteristic = mService.getCharacteristic(MyProjectConstants.MYPROJECT_CAP_CHARACTERISTIC_UUID);
-        mCapsenseNotification = mCapsenseCharacteristic.getDescriptor(MyProjectConstants.MYPROJECT_NOTIFICATION);
-
-        readLedCharacteristic();
-        sCapSenseSwitch.setEnabled(true);
-        */
     }
 
     /**
