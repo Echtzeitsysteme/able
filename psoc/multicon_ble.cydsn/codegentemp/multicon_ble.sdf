@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2018-08-29T11:31:58Z")
+ (DATE "2018-09-20T10:55:13Z")
  (DESIGN "multicon_ble")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -15,6 +15,7 @@
     (INTERCONNECT ClockBlock.hfclk \\BLE\:bless_isr\\.clock (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.hfclk \\ledPWM\:PWMUDB\:genblk1\:ctrlreg\\.busclk (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.hfclk \\ledPWM\:PWMUDB\:sP8\:pwmdp\:u0\\.busclk (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.hfclk UARTISR.clock (0.000:0.000:0.000))
     (INTERCONNECT LED\(0\).pad_out LED\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT ClockGenBlock.gen_clk_out_0 Net_575.clock_0 (0.000:0.000:0.000))
     (INTERCONNECT ClockGenBlock.gen_clk_out_0 \\ledPWM\:PWMUDB\:genblk1\:ctrlreg\\.clock (0.000:0.000:0.000))
@@ -24,6 +25,7 @@
     (INTERCONNECT ClockGenBlock.gen_clk_out_0 \\ledPWM\:PWMUDB\:sP8\:pwmdp\:u0\\.clock (0.000:0.000:0.000))
     (INTERCONNECT ClockGenBlock.gen_clk_out_0 \\ledPWM\:PWMUDB\:status_0\\.clock_0 (0.000:0.000:0.000))
     (INTERCONNECT Net_575.q LED\(0\).pin_input (5.334:5.334:5.334))
+    (INTERCONNECT \\UART\:SCB\\.interrupt UARTISR.interrupt (0.000:0.000:0.000))
     (INTERCONNECT \\BLE\:cy_m0s8_ble\\.interrupt \\BLE\:bless_isr\\.interrupt (1.000:1.000:1.000))
     (INTERCONNECT ClockBlock.ff_div_1 \\UART\:SCB\\.clock (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:rx\(0\)\\.fb \\UART\:SCB\\.uart_rx (0.000:0.000:0.000))

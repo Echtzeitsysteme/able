@@ -16,6 +16,7 @@
 void LEDRainbow();
 void testListen();
 uint8_t uartRead();
+CY_ISR(UARTRX);
 #endif
 
 /* [] END OF FILE */

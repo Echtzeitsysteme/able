@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.250ms
+Loading plugins phase: Elapsed time ==> 0s.109ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj -d CYBLE-022001-00 -s C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 2s.250ms
+Elaboration phase: Elapsed time ==> 1s.671ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.140ms
+HDL generation phase: Elapsed time ==> 0s.046ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed Aug 29 13:31:54 2018
+Thu Sep 20 12:55:10 2018
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 multicon_ble.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed Aug 29 13:31:54 2018
+Thu Sep 20 12:55:10 2018
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -91,7 +91,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed Aug 29 13:31:54 2018
+Thu Sep 20 12:55:11 2018
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -125,7 +125,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed Aug 29 13:31:55 2018
+Thu Sep 20 12:55:11 2018
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -158,15 +158,15 @@ Detecting unused logic.
 	\UART:uncfg_rx_irq\
 	\UART:Net_1099\
 	\UART:Net_1258\
-	Net_340
-	Net_341
-	Net_350
-	Net_351
-	Net_352
-	Net_353
-	Net_354
-	Net_355
-	Net_356
+	Net_594
+	Net_595
+	Net_604
+	Net_605
+	Net_606
+	Net_607
+	Net_608
+	Net_609
+	Net_610
 	Net_358
 	\BLE:Net_55\
 	\ledPWM:PWMUDB:km_run\
@@ -489,15 +489,15 @@ Removing Lhs of wire \ledPWM:PWMUDB:MODIN1_0\[275] = \ledPWM:PWMUDB:dith_count_0
 Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[407] = one[18]
 Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[408] = one[18]
 Removing Lhs of wire Net_529[415] = zero[17]
-Removing Lhs of wire \ledPWM:PWMUDB:prevCapture\\D\[418] = zero[17]
-Removing Lhs of wire \ledPWM:PWMUDB:trig_last\\D\[419] = zero[17]
-Removing Lhs of wire \ledPWM:PWMUDB:prevCompare1\\D\[425] = \ledPWM:PWMUDB:cmp1\[148]
-Removing Lhs of wire \ledPWM:PWMUDB:cmp1_status_reg\\D\[426] = \ledPWM:PWMUDB:cmp1_status\[149]
-Removing Lhs of wire \ledPWM:PWMUDB:cmp2_status_reg\\D\[427] = zero[17]
-Removing Lhs of wire \ledPWM:PWMUDB:pwm_i_reg\\D\[429] = \ledPWM:PWMUDB:pwm_i\[200]
-Removing Lhs of wire \ledPWM:PWMUDB:pwm1_i_reg\\D\[430] = zero[17]
-Removing Lhs of wire \ledPWM:PWMUDB:pwm2_i_reg\\D\[431] = zero[17]
-Removing Lhs of wire \ledPWM:PWMUDB:tc_i_reg\\D\[432] = \ledPWM:PWMUDB:status_2\[143]
+Removing Lhs of wire \ledPWM:PWMUDB:prevCapture\\D\[419] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:trig_last\\D\[420] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:prevCompare1\\D\[426] = \ledPWM:PWMUDB:cmp1\[148]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp1_status_reg\\D\[427] = \ledPWM:PWMUDB:cmp1_status\[149]
+Removing Lhs of wire \ledPWM:PWMUDB:cmp2_status_reg\\D\[428] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm_i_reg\\D\[430] = \ledPWM:PWMUDB:pwm_i\[200]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm1_i_reg\\D\[431] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:pwm2_i_reg\\D\[432] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:tc_i_reg\\D\[433] = \ledPWM:PWMUDB:status_2\[143]
 
 ------------------------------------------------------
 Aliased 0 equations, 95 wires.
@@ -632,10 +632,10 @@ Removing Lhs of wire \ledPWM:PWMUDB:final_capture\[166] = zero[17]
 Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\[378] = zero[17]
 Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\[388] = zero[17]
 Removing Lhs of wire \ledPWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\[398] = zero[17]
-Removing Lhs of wire \ledPWM:PWMUDB:min_kill_reg\\D\[417] = one[18]
-Removing Lhs of wire \ledPWM:PWMUDB:runmode_enable\\D\[420] = \ledPWM:PWMUDB:control_7\[85]
-Removing Lhs of wire \ledPWM:PWMUDB:ltch_kill_reg\\D\[422] = one[18]
-Removing Lhs of wire \ledPWM:PWMUDB:final_kill_reg\\D\[428] = zero[17]
+Removing Lhs of wire \ledPWM:PWMUDB:min_kill_reg\\D\[418] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:runmode_enable\\D\[421] = \ledPWM:PWMUDB:control_7\[85]
+Removing Lhs of wire \ledPWM:PWMUDB:ltch_kill_reg\\D\[423] = one[18]
+Removing Lhs of wire \ledPWM:PWMUDB:final_kill_reg\\D\[429] = zero[17]
 
 ------------------------------------------------------
 Aliased 0 equations, 8 wires.
@@ -668,14 +668,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj -dcpsoc3 multicon_ble.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.812ms
+Warp synthesis phase: Elapsed time ==> 0s.968ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.1.0.2686, Family: PSoC3, Started at: Wednesday, 29 August 2018 13:31:55
+cyp3fit: V4.1.0.2686, Family: PSoC3, Started at: Thursday, 20 September 2018 12:55:11
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\puria\Documents\GitHub\able\psoc\multicon_ble.cydsn\multicon_ble.cyprj -d CYBLE-022001-00 multicon_ble.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.093ms
+Design parsing phase: Elapsed time ==> 0s.031ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -1063,6 +1063,15 @@ Design Equations
             int_type = "10"
             is_nmi = 0
         }
+
+    interrupt: Name =UARTISR
+        PORT MAP (
+            interrupt => Net_612 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
     </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Technology mapping summary" expanded>
@@ -1074,7 +1083,7 @@ Technology mapping summary
 Resource Type                 : Used : Free :  Max :  % Used
 ============================================================
 Digital Clocks                :    1 :    3 :    4 : 25.00 %
-Interrupts                    :    1 :   31 :   32 :  3.13 %
+Interrupts                    :    2 :   30 :   32 :  6.25 %
 IO                            :    6 :   11 :   17 : 35.29 %
 Segment LCD                   :    0 :    1 :    1 :  0.00 %
 CapSense                      :    0 :    1 :    1 :  0.00 %
@@ -1088,8 +1097,8 @@ DAC                           :      :      :      :
   7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
   8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.281ms
-Tech Mapping phase: Elapsed time ==> 0s.421ms
+Technology Mapping: Elapsed time ==> 0s.078ms
+Tech Mapping phase: Elapsed time ==> 0s.109ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -1108,13 +1117,13 @@ ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.1146814s
+Elapsed time ==> 0.0539710s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.390ms
+Analog Placement phase: Elapsed time ==> 0s.187ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0069533 secs
+Route success=True, Iterations=1 Elapsed=0.0007542 secs
 </CYPRESSTAG>
 Analog Routing phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
@@ -1127,11 +1136,11 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.046ms
+Analog Code Generation phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 0.2 sec.
+I2076: Total run-time: 0.3 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -1155,14 +1164,14 @@ PLD Packing Summary
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.046ms
+PLD Packing: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.078ms
+Partitioning: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -1339,6 +1348,15 @@ controlcell: Name =\ledPWM:PWMUDB:genblk1:ctrlreg\
 
 UDB [UDB=(1,1)] is empty.
 Intr container @ [IntrContainer=(0)]: 
+  Intr@ [IntrContainer=(0)][IntrId=(9)] 
+    interrupt: Name =UARTISR
+        PORT MAP (
+            interrupt => Net_612 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
   Intr@ [IntrContainer=(0)][IntrId=(12)] 
     interrupt: Name =\BLE:bless_isr\
         PORT MAP (
@@ -1543,7 +1561,7 @@ SCB group 0:
     m0s8scbcell: Name =\UART:SCB\
         PORT MAP (
             clock => \UART:Net_847_ff1\ ,
-            interrupt => Net_342 ,
+            interrupt => Net_612 ,
             uart_rx => \UART:rx_wire\ ,
             uart_tx => \UART:tx_wire\ ,
             uart_rts => \UART:rts_wire\ ,
@@ -1554,8 +1572,8 @@ SCB group 0:
             select_m_0 => \UART:select_m_wire_0\ ,
             sclk_m => \UART:sclk_m_wire\ ,
             miso_s => \UART:miso_s_wire\ ,
-            tr_tx_req => Net_345 ,
-            tr_rx_req => Net_344 );
+            tr_tx_req => Net_599 ,
+            tr_rx_req => Net_598 );
         Properties:
         {
             cy_registers = ""
@@ -1610,33 +1628,33 @@ Port | Pin | Fixed |      Type |       Drive Mode |         Name | Connections
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.031ms
-Digital Placement phase: Elapsed time ==> 0s.796ms
+Digital component placer commit/Report: Elapsed time ==> 0s.015ms
+Digital Placement phase: Elapsed time ==> 0s.484ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\dev\psoc4/3/128k/route_arch-rrg.cydata" --vh2-path "multicon_ble_r.vh2" --pcf-path "multicon_ble.pco" --des-name "multicon_ble" --dsf-path "multicon_ble.dsf" --sdc-path "multicon_ble.sdc" --lib-path "multicon_ble_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.656ms
+Digital Routing phase: Elapsed time ==> 0s.484ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.390ms
+Bitstream Generation phase: Elapsed time ==> 0s.249ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.109ms
+Bitstream Verification phase: Elapsed time ==> 0s.046ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in multicon_ble_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.250ms
+Static timing analysis phase: Elapsed time ==> 0s.218ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
-Data reporting phase: Elapsed time ==> 0s.015ms
+Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.156ms
+Design database save phase: Elapsed time ==> 0s.171ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 3s.406ms
+cydsfit: Elapsed time ==> 2s.062ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 3s.422ms
-API generation phase: Elapsed time ==> 1s.765ms
-Dependency generation phase: Elapsed time ==> 0s.031ms
+Fitter phase: Elapsed time ==> 2s.062ms
+API generation phase: Elapsed time ==> 2s.077ms
+Dependency generation phase: Elapsed time ==> 0s.015ms
 Cleanup phase: Elapsed time ==> 0s.000ms

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
   51 000f 00       		.space	1
   52              		.global	cyBle_discoveryData
   53              		.align	2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 2
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 2
 
 
   54              		.type	cyBle_discoveryData, %object
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  104 0034 00000000 		.word	cyBle_discoveryParam
  105 0038 00000000 		.word	cyBle_discoveryData
  106 003c 00000000 		.word	cyBle_scanRspData
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 3
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 3
 
 
  107 0040 1E00     		.short	30
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
   25:Generated_Source\PSoC4/BLE.c **** #if(CYBLE_GATT_ROLE_SERVER)
   26:Generated_Source\PSoC4/BLE.c ****     #if(CYBLE_GAP_ROLE_PERIPHERAL)
   27:Generated_Source\PSoC4/BLE.c ****         static void CyBle_ChangeAdLocalName(const char8 name[], uint8 dest);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 4
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 4
 
 
   28:Generated_Source\PSoC4/BLE.c ****     #endif /* (CYBLE_GAP_ROLE_PERIPHERAL) */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
   82:Generated_Source\PSoC4/BLE.c **** {
   83:Generated_Source\PSoC4/BLE.c ****     { 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
   84:Generated_Source\PSoC4/BLE.c ****     0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 5
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 5
 
 
   85:Generated_Source\PSoC4/BLE.c ****     0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  139:Generated_Source\PSoC4/BLE.c **** CYBLE_GAP_BD_ADDR_T * cyBle_sflashDeviceAddress = CYBLE_SFLASH_DEVICE_ADDRESS_PTR;
  140:Generated_Source\PSoC4/BLE.c **** 
  141:Generated_Source\PSoC4/BLE.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 6
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 6
 
 
  142:Generated_Source\PSoC4/BLE.c **** /******************************************************************************
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  174:Generated_Source\PSoC4/BLE.c ****         cyBle_connectionParameters.supervisionTO = CYBLE_GAPC_CONNECTION_TIME_OUT;
  175:Generated_Source\PSoC4/BLE.c ****         cyBle_connectionParameters.minCeLength = 0x0000u;
  176:Generated_Source\PSoC4/BLE.c ****         cyBle_connectionParameters.maxCeLength = 0xFFFFu;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 7
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 7
 
 
  177:Generated_Source\PSoC4/BLE.c ****         
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  187 0000 80B5     		push	{r7, lr}
  188              		.cfi_def_cfa_offset 8
  189              		.cfi_offset 7, -8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 8
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 8
 
 
  190              		.cfi_offset 14, -4
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  254:Generated_Source\PSoC4/BLE.c ****     
  255:Generated_Source\PSoC4/BLE.c ****     #ifdef CYBLE_CTS
  256:Generated_Source\PSoC4/BLE.c ****         CyBle_CtsInit();
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 9
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 9
 
 
  257:Generated_Source\PSoC4/BLE.c ****     #endif /* CYBLE_CTS */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  309:Generated_Source\PSoC4/BLE.c ****     #endif /* CYBLE_NDCS */
  310:Generated_Source\PSoC4/BLE.c ****     
  311:Generated_Source\PSoC4/BLE.c ****     #ifdef CYBLE_PASS
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 10
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 10
 
 
  312:Generated_Source\PSoC4/BLE.c ****         CyBle_PassInit();
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  214 000b 00       		.space	1
  215 000c 2400     		.short	36
  216 000e 01       		.byte	1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 11
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 11
 
 
  217 000f 00       		.space	1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  389:Generated_Source\PSoC4/BLE.c **** *       <td>CYBLE_ERROR_REPEATED_ATTEMPTS</td>
  390:Generated_Source\PSoC4/BLE.c **** *       <td>On invoking this function more than once without calling CyBle_Shutdown() 
  391:Generated_Source\PSoC4/BLE.c **** *           function between calls to this function.</td>
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 12
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 12
 
 
  392:Generated_Source\PSoC4/BLE.c **** *     </tr>
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  417:Generated_Source\PSoC4/BLE.c ****         {CYBLE_L2CAP_CBFC_PLUS_L2CAP_MEM_EXT, 2u * CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT},
  418:Generated_Source\PSoC4/BLE.c ****         {CYBLE_L2CAP_MTU_PLUS_L2CAP_MEM_EXT, CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT},
  419:Generated_Source\PSoC4/BLE.c ****         {CYBLE_L2CAP_MPS_PLUS_L2CAP_MEM_EXT, CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT * (CYBLE_L2CAP_MTU_M
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 13
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 13
 
 
  420:Generated_Source\PSoC4/BLE.c ****     }; 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  447:Generated_Source\PSoC4/BLE.c ****             CYBLE_DLE_CONFIG_PARAM_T dleConfigParams;
  448:Generated_Source\PSoC4/BLE.c ****             CYBLE_PRIVACY_1_2_CONFIG_PARAM_T privacyConfigParams;
  449:Generated_Source\PSoC4/BLE.c ****             CYBLE_STACK_CONFIG_PARAM_T stackConfig;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 14
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 14
 
 
  450:Generated_Source\PSoC4/BLE.c ****             uint16 featureHeapReq;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  320 0082 0022     		movs	r2, #0
  321 0084 1A70     		strb	r2, [r3]
  469:Generated_Source\PSoC4/BLE.c ****         #if(CYBLE_LL_PRIVACY_FEATURE_ENABLED)
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 15
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 15
 
 
  470:Generated_Source\PSoC4/BLE.c ****             CyBle_EnablePrivacyFeature();          /* Enable LL Privacy code in stack */
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  360 00cc 2380     		strh	r3, [r4]
  486:Generated_Source\PSoC4/BLE.c ****                     CYBLE_STACK_RAM_SIZE - CYBLE_GATT_PREPARE_WRITE_BUFF_LEN, cyBle_stackDataBuff, 
  487:Generated_Source\PSoC4/BLE.c ****                     CYBLE_STACK_APP_MIN_POOL, NULL, 0u);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 16
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 16
 
 
  488:Generated_Source\PSoC4/BLE.c ****             #endif  /* CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES */
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  520:Generated_Source\PSoC4/BLE.c ****     {
  521:Generated_Source\PSoC4/BLE.c ****         apiResult = CYBLE_ERROR_INVALID_PARAMETER;
  383              		.loc 1 521 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 17
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 17
 
 
  384 00f4 3E23     		movs	r3, #62
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  540:Generated_Source\PSoC4/BLE.c **** void CyBle_Stop(void)
  541:Generated_Source\PSoC4/BLE.c **** {
  420              		.loc 1 541 0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 18
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 18
 
 
  421              		.cfi_startproc
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  561:Generated_Source\PSoC4/BLE.c **** *  location as defined by the component. It performs data comparing between RAM
  562:Generated_Source\PSoC4/BLE.c **** *  and Flash before writing to Flash. If there is no change between RAM and Flash
  563:Generated_Source\PSoC4/BLE.c **** *  data, then no write is performed. It writes only one flash row in one call.
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 19
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 19
 
 
  564:Generated_Source\PSoC4/BLE.c **** *  Application should keep calling this function till API return CYBLE_ERROR_OK. 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  618:Generated_Source\PSoC4/BLE.c ****     {
  619:Generated_Source\PSoC4/BLE.c ****         apiResult = CyBle_StoreAppData(cyBle_attValuesCCCD, cyBle_flashStorage.attValuesCCCDFlashMe
  620:Generated_Source\PSoC4/BLE.c ****                         cyBle_connHandle.bdHandle], CYBLE_GATT_DB_CCCD_COUNT, isForceWrite);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 20
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 20
 
 
  621:Generated_Source\PSoC4/BLE.c ****         if(apiResult == CYBLE_ERROR_OK)
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  675:Generated_Source\PSoC4/BLE.c **** *                 removed from trusted list and white list.
  676:Generated_Source\PSoC4/BLE.c **** *
  677:Generated_Source\PSoC4/BLE.c **** * \return
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 21
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 21
 
 
  678:Generated_Source\PSoC4/BLE.c **** *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  732:Generated_Source\PSoC4/BLE.c ****     return(apiResult);
  733:Generated_Source\PSoC4/BLE.c **** }
  734:Generated_Source\PSoC4/BLE.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 22
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 22
 
 
  735:Generated_Source\PSoC4/BLE.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  789:Generated_Source\PSoC4/BLE.c ****     *******************************************************************************/
  790:Generated_Source\PSoC4/BLE.c ****     CYBLE_API_RESULT_T CyBle_GappStartAdvertisement(uint8 advertisingIntervalType)
  791:Generated_Source\PSoC4/BLE.c ****     {
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 23
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 23
 
 
  456              		.loc 1 791 0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  501 003a 0BD1     		bne	.L21
  801:Generated_Source\PSoC4/BLE.c ****             {
  802:Generated_Source\PSoC4/BLE.c ****                 cyBle_discoveryModeInfo.advTo = CYBLE_FAST_ADV_TIMEOUT;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 24
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 24
 
 
  502              		.loc 1 802 0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  543 007a 1278     		ldrb	r2, [r2]
  544 007c 1A70     		strb	r2, [r3]
  816:Generated_Source\PSoC4/BLE.c ****             apiResult = CyBle_GappEnterDiscoveryMode(&cyBle_discoveryModeInfo);
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 25
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 25
 
 
  545              		.loc 1 816 0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  585 00be 05B0     		add	sp, sp, #20
  586              		@ sp needed
  587 00c0 90BD     		pop	{r4, r7, pc}
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 26
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 26
 
 
  588              	.L26:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  854:Generated_Source\PSoC4/BLE.c ****         cyBle_eventHandlerFlag |= CYBLE_STOP_FLAG;
  618              		.loc 1 854 0
  619 0008 054B     		ldr	r3, .L28
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 27
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 27
 
 
  620 000a 1B78     		ldrb	r3, [r3]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  654              		.cfi_offset 14, -4
  655 0002 84B0     		sub	sp, sp, #16
  656              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 28
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 28
 
 
  657 0004 00AF     		add	r7, sp, #0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  687 0032 BA68     		ldr	r2, [r7, #8]
  688 0034 D318     		adds	r3, r2, r3
  689 0036 0F22     		movs	r2, #15
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 29
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 29
 
 
  690 0038 BA18     		adds	r2, r7, r2
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  914:Generated_Source\PSoC4/BLE.c ****     *   parameters entered in the component's customizer.
  915:Generated_Source\PSoC4/BLE.c ****     *   
  916:Generated_Source\PSoC4/BLE.c ****     *   As soon as the discovery operation starts, CYBLE_EVT_GAPC_SCAN_START_STOP 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 30
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 30
 
 
  917:Generated_Source\PSoC4/BLE.c ****     *   event is generated. The CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT event is 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  971:Generated_Source\PSoC4/BLE.c ****     *
  972:Generated_Source\PSoC4/BLE.c ****     *   Errors codes                       | Description
  973:Generated_Source\PSoC4/BLE.c ****     *   ---------------------------------- | -----------------------------------
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 31
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 31
 
 
  974:Generated_Source\PSoC4/BLE.c ****     *   CYBLE_ERROR_OK                     | On successful operation.
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
 1028:Generated_Source\PSoC4/BLE.c ****     *   Possible events generated are:
 1029:Generated_Source\PSoC4/BLE.c ****     *    * CYBLE_EVT_GAPC_SCAN_START_STOP
 1030:Generated_Source\PSoC4/BLE.c ****     * 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 32
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 32
 
 
 1031:Generated_Source\PSoC4/BLE.c ****     *  \return
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
 1085:Generated_Source\PSoC4/BLE.c ****     *   CYBLE_ERROR_INVALID_STATE          | On calling this API not in Disconnected state.
 1086:Generated_Source\PSoC4/BLE.c ****     *  
 1087:Generated_Source\PSoC4/BLE.c ****     ******************************************************************************/
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 33
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 33
 
 
 1088:Generated_Source\PSoC4/BLE.c ****     CYBLE_API_RESULT_T CyBle_GapcConnectDevice(const CYBLE_GAP_BD_ADDR_T * address)
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
 1142:Generated_Source\PSoC4/BLE.c ****     *  
 1143:Generated_Source\PSoC4/BLE.c ****     *******************************************************************************/
 1144:Generated_Source\PSoC4/BLE.c ****     CYBLE_API_RESULT_T CyBle_GapcCancelDeviceConnection(void)
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 34
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 34
 
 
 1145:Generated_Source\PSoC4/BLE.c ****     {
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  732              		.cfi_def_cfa_offset 8
  733              		.cfi_offset 7, -8
  734              		.cfi_offset 14, -4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 35
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 35
 
 
  735 0002 86B0     		sub	sp, sp, #24
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  774              		.loc 1 1208 0
  775 003e 594B     		ldr	r3, .L53+4
  776 0040 3B61     		str	r3, [r7, #16]
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 36
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 36
 
 
 1209:Generated_Source\PSoC4/BLE.c ****                 maxLength = cyBle_scanRspData.scanRspDataLen;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  818 0086 07D0     		beq	.L40
 1222:Generated_Source\PSoC4/BLE.c ****                        (destBuffer[byteCounter] == CYBLE_COMPLETE_LOCAL_NAME))
  819              		.loc 1 1222 0 discriminator 1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 37
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 37
 
 
  820 0088 1423     		movs	r3, #20
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  864 00d0 00E0     		b	.L43
  865              	.L51:
 1230:Generated_Source\PSoC4/BLE.c ****                     }
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 38
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 38
 
 
 1231:Generated_Source\PSoC4/BLE.c ****                 }
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  902              	.L48:
 1249:Generated_Source\PSoC4/BLE.c ****                 {
 1250:Generated_Source\PSoC4/BLE.c ****                     destBuffer[i] = (uint8)name[i - byteCounter];
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 39
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 39
 
 
  903              		.loc 1 1250 0 discriminator 4
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
 1252:Generated_Source\PSoC4/BLE.c ****                 
 1253:Generated_Source\PSoC4/BLE.c ****                 /* This loop handles the case when new local name is shorted than old one.
 1254:Generated_Source\PSoC4/BLE.c ****                    In this case all remaining characters should be null characters. */
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 40
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 40
 
 
 1255:Generated_Source\PSoC4/BLE.c ****                 while(adLength > i)
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  998              		.align	2
  999              		.global	CyBle_GapSetLocalName
  1000              		.code	16
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 41
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 41
 
 
  1001              		.thumb_func
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1022 000e 1A80     		strh	r2, [r3]
 1296:Generated_Source\PSoC4/BLE.c ****         uint8 i;
 1297:Generated_Source\PSoC4/BLE.c ****         char8 *ptr;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 42
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 42
 
 
 1298:Generated_Source\PSoC4/BLE.c ****         uint8 charLen;
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1062              	.L59:
 1313:Generated_Source\PSoC4/BLE.c ****             {
 1314:Generated_Source\PSoC4/BLE.c ****                 ptr[i] = name[i];
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 43
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 43
 
 
  1063              		.loc 1 1314 0 discriminator 4
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1111 00a8 9A42     		cmp	r2, r3
  1112 00aa 06D2     		bcs	.L60
 1318:Generated_Source\PSoC4/BLE.c ****             {
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 44
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 44
 
 
 1319:Generated_Source\PSoC4/BLE.c ****                 /* Terminate string */
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1148              		@ sp needed
  1149 00e4 80BD     		pop	{r7, pc}
  1150              	.L64:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 45
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 45
 
 
  1151 00e6 C046     		.align	2
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1176 0004 00AF     		add	r7, sp, #0
  1177              		.cfi_def_cfa_register 7
  1178 0006 7860     		str	r0, [r7, #4]
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 46
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 46
 
 
 1367:Generated_Source\PSoC4/BLE.c ****         CYBLE_API_RESULT_T apiResult = CYBLE_ERROR_OK;
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
 1382:Generated_Source\PSoC4/BLE.c **** 
 1383:Generated_Source\PSoC4/BLE.c ****             /* Copy name from characteristic */
 1384:Generated_Source\PSoC4/BLE.c ****             for(i = 0u; ((i < charLen) && (CYBLE_NULL_CHARCTER != ptr[i])); i++)
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 47
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 47
 
 
  1218              		.loc 1 1384 0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
 1388:Generated_Source\PSoC4/BLE.c **** 
 1389:Generated_Source\PSoC4/BLE.c ****             /* Terminate string */
 1390:Generated_Source\PSoC4/BLE.c ****             name[i] = CYBLE_NULL_CHARCTER;
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 48
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 48
 
 
  1266              		.loc 1 1390 0 is_stmt 1
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
 1403:Generated_Source\PSoC4/BLE.c **** /******************************************************************************
 1404:Generated_Source\PSoC4/BLE.c **** * Function Name: CyBle_Get16ByPtr
 1405:Generated_Source\PSoC4/BLE.c **** ***************************************************************************//**
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 49
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 49
 
 
 1406:Generated_Source\PSoC4/BLE.c **** * 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1349              	.LFB13:
 1419:Generated_Source\PSoC4/BLE.c **** 
 1420:Generated_Source\PSoC4/BLE.c **** 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 50
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 50
 
 
 1421:Generated_Source\PSoC4/BLE.c **** /******************************************************************************
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1386 002e 80BD     		pop	{r7, pc}
  1387              		.cfi_endproc
  1388              	.LFE13:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 51
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 51
 
 
  1389              		.size	CyBle_Set16ByPtr, .-CyBle_Set16ByPtr
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1443 0057 08       		.byte	0x8
  1444 0058 07       		.byte	0x7
  1445 0059 D7070000 		.4byte	.LASF7
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 52
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 52
 
 
  1446 005d 03       		.uleb128 0x3
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1500 00c7 CB000000 		.4byte	0xcb
  1501 00cb 08       		.uleb128 0x8
  1502 00cc DB000000 		.4byte	0xdb
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 53
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 53
 
 
  1503 00d0 09       		.uleb128 0x9
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1557 013d 150A0000 		.4byte	.LASF32
  1558 0141 27       		.byte	0x27
  1559 0142 0B       		.uleb128 0xb
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 54
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 54
 
 
  1560 0143 67110000 		.4byte	.LASF33
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1614 01af 26160000 		.4byte	.LASF51
  1615 01b3 42       		.byte	0x42
  1616 01b4 0B       		.uleb128 0xb
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 55
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 55
 
 
  1617 01b5 40060000 		.4byte	.LASF52
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1671 0221 09090000 		.4byte	.LASF70
  1672 0225 55       		.byte	0x55
  1673 0226 0B       		.uleb128 0xb
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 56
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 56
 
 
  1674 0227 17080000 		.4byte	.LASF71
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1728 0293 17070000 		.4byte	.LASF89
  1729 0297 FF       		.byte	0xff
  1730 0298 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 57
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 57
 
 
  1731 0299 0A       		.uleb128 0xa
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1785 0306 0B       		.uleb128 0xb
  1786 0307 3D120000 		.4byte	.LASF106
  1787 030b 10       		.byte	0x10
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 58
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 58
 
 
  1788 030c 0B       		.uleb128 0xb
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1842 037e 0D       		.uleb128 0xd
  1843 037f 07       		.byte	0x7
  1844 0380 03       		.byte	0x3
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 59
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 59
 
 
  1845 0381 3F05     		.2byte	0x53f
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1899 03f3 1F040000 		.4byte	0x41f
  1900 03f7 0E       		.uleb128 0xe
  1901 03f8 83020000 		.4byte	.LASF130
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 60
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 60
 
 
  1902 03fc 03       		.byte	0x3
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  1956 046c 85040000 		.4byte	0x485
  1957 0470 04       		.byte	0x4
  1958 0471 0E       		.uleb128 0xe
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 61
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 61
 
 
  1959 0472 8C130000 		.4byte	.LASF138
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2013 04e1 04       		.byte	0x4
  2014 04e2 2702     		.2byte	0x227
  2015 04e4 77000000 		.4byte	0x77
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 62
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 62
 
 
  2016 04e8 00       		.byte	0
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2070 055a 0E       		.uleb128 0xe
  2071 055b 52100000 		.4byte	.LASF155
  2072 055f 04       		.byte	0x4
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 63
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 63
 
 
  2073 0560 6702     		.2byte	0x267
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2127 05d2 6B000000 		.4byte	0x6b
  2128 05d6 00       		.byte	0
  2129 05d7 0E       		.uleb128 0xe
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 64
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 64
 
 
  2130 05d8 65130000 		.4byte	.LASF162
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2184 064a 14       		.uleb128 0x14
  2185 064b C70D0000 		.4byte	.LASF167
  2186 064f 06       		.byte	0x6
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 65
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 65
 
 
  2187 0650 D0       		.byte	0xd0
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2241 06b9 EE       		.byte	0xee
  2242 06ba 94060000 		.4byte	0x694
  2243 06be 13       		.uleb128 0x13
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 66
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 66
 
 
  2244 06bf 14       		.byte	0x14
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2298 0731 0B       		.uleb128 0xb
  2299 0732 860C0000 		.4byte	.LASF183
  2300 0736 01       		.byte	0x1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 67
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 67
 
 
  2301 0737 0B       		.uleb128 0xb
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2355 07a8 2A060000 		.4byte	0x62a
  2356 07ac 0A       		.byte	0xa
  2357 07ad 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 68
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 68
 
 
  2358 07ae 04       		.uleb128 0x4
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2412 0823 58       		.sleb128 -40
  2413 0824 1B       		.uleb128 0x1b
  2414 0825 4A000000 		.4byte	.LBB2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 69
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 69
 
 
  2415 0829 54000000 		.4byte	.LBE2-.LBB2
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2469 0896 72030000 		.4byte	0x372
  2470 089a 00000000 		.4byte	.LFB6
  2471 089e D4000000 		.4byte	.LFE6-.LFB6
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 70
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 70
 
 
  2472 08a2 01       		.uleb128 0x1
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2526 090e 6900     		.ascii	"i\000"
  2527 0910 01       		.byte	0x1
  2528 0911 6B03     		.2byte	0x36b
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 71
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 71
 
 
  2529 0913 6B000000 		.4byte	0x6b
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2583 097c AB04     		.2byte	0x4ab
  2584 097e 6B000000 		.4byte	0x6b
  2585 0982 02       		.uleb128 0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 72
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 72
 
 
  2586 0983 91       		.byte	0x91
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2640 09ef C2090000 		.4byte	0x9c2
  2641 09f3 02       		.uleb128 0x2
  2642 09f4 91       		.byte	0x91
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 73
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 73
 
 
  2643 09f5 64       		.sleb128 -28
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2697 0a5f 64       		.sleb128 -28
  2698 0a60 1A       		.uleb128 0x1a
  2699 0a61 530D0000 		.4byte	.LASF197
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 74
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 74
 
 
  2700 0a65 01       		.byte	0x1
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2754 0acc 6B000000 		.4byte	0x6b
  2755 0ad0 1D       		.uleb128 0x1d
  2756 0ad1 420A0000 		.4byte	.LASF221
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 75
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 75
 
 
  2757 0ad5 01       		.byte	0x1
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2811 0b45 00000000 		.4byte	cyBle_stackMemoryRam
  2812 0b49 25       		.uleb128 0x25
  2813 0b4a D00B0000 		.4byte	.LASF226
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 76
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 76
 
 
  2814 0b4e 07       		.byte	0x7
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2868 0bc1 0F       		.uleb128 0xf
  2869 0bc2 D10B0000 		.4byte	0xbd1
  2870 0bc6 D10B0000 		.4byte	0xbd1
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 77
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 77
 
 
  2871 0bca 10       		.uleb128 0x10
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2925 0010 17       		.uleb128 0x17
  2926 0011 00       		.byte	0
  2927 0012 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 78
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 78
 
 
  2928 0013 02       		.uleb128 0x2
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  2982 0049 49       		.uleb128 0x49
  2983 004a 13       		.uleb128 0x13
  2984 004b 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 79
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 79
 
 
  2985 004c 00       		.byte	0
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3039 0082 0B       		.uleb128 0xb
  3040 0083 3A       		.uleb128 0x3a
  3041 0084 0B       		.uleb128 0xb
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 80
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 80
 
 
  3042 0085 3B       		.uleb128 0x3b
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3096 00bb 12       		.uleb128 0x12
  3097 00bc 16       		.uleb128 0x16
  3098 00bd 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 81
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 81
 
 
  3099 00be 03       		.uleb128 0x3
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3153 00f4 03       		.uleb128 0x3
  3154 00f5 0E       		.uleb128 0xe
  3155 00f6 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 82
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 82
 
 
  3156 00f7 0B       		.uleb128 0xb
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3210 012f 13       		.uleb128 0x13
  3211 0130 00       		.byte	0
  3212 0131 00       		.byte	0
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 83
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 83
 
 
  3213 0132 19       		.uleb128 0x19
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3267 0168 12       		.uleb128 0x12
  3268 0169 06       		.uleb128 0x6
  3269 016a 40       		.uleb128 0x40
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 84
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 84
 
 
  3270 016b 18       		.uleb128 0x18
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3324 01a3 01       		.byte	0x1
  3325 01a4 03       		.uleb128 0x3
  3326 01a5 0E       		.uleb128 0xe
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 85
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 85
 
 
  3327 01a6 3A       		.uleb128 0x3a
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3381 01de 49       		.uleb128 0x49
  3382 01df 13       		.uleb128 0x13
  3383 01e0 02       		.uleb128 0x2
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 86
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 86
 
 
  3384 01e1 18       		.uleb128 0x18
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3438 0217 0B       		.uleb128 0xb
  3439 0218 49       		.uleb128 0x49
  3440 0219 13       		.uleb128 0x13
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 87
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 87
 
 
  3441 021a 3F       		.uleb128 0x3f
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3495 002c 24000000 		.4byte	.LFE7
  3496 0030 00000000 		.4byte	.LFB8
  3497 0034 62000000 		.4byte	.LFE8
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 88
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 88
 
 
  3498 0038 00000000 		.4byte	.LFB9
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3525              	.LASF93:
  3526 0097 4359424C 		.ascii	"CYBLE_ERROR_MEMORY_ALLOCATION_FAILED\000"
  3526      455F4552 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 89
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 89
 
 
  3526      524F525F 
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3544      69615C44 
  3544      6F63756D 
  3545 01fb 6C746963 		.ascii	"lticon_ble.cydsn\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 90
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 90
 
 
  3545      6F6E5F62 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3565 02d3 4359424C 		.ascii	"CYBLE_PRIVACY_1_2_CONFIG_PARAM_T\000"
  3565      455F5052 
  3565      49564143 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 91
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 91
 
 
  3565      595F315F 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3585 03df 4359424C 		.ascii	"CYBLE_GAP_BD_ADDR_T\000"
  3585      455F4741 
  3585      505F4244 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 92
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 92
 
 
  3585      5F414444 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3605 04d5 4359424C 		.ascii	"CYBLE_ERROR_DEVICE_ALREADY_EXISTS\000"
  3605      455F4552 
  3605      524F525F 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 93
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 93
 
 
  3605      44455649 
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3625      434F4D4D 
  3626              	.LASF186:
  3627 05c9 4359424C 		.ascii	"CYBLE_STATE_DISCONNECTED\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 94
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 94
 
 
  3627      455F5354 
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3649 06bc 64697363 		.ascii	"discMode\000"
  3649      4D6F6465 
  3649      00
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 95
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 95
 
 
  3650              	.LASF91:
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3671      4341505F 
  3671      43424643 
  3672              	.LASF176:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 96
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 96
 
 
  3673 07a7 61747454 		.ascii	"attType\000"
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3693      72766963 
  3693      65496E69 
  3693      7400
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 97
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 97
 
 
  3694              	.LASF163:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3715 0970 62756666 		.ascii	"bufferUnits\000"
  3715      6572556E 
  3715      69747300 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 98
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 98
 
 
  3716              	.LASF118:
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3735      756D5478 
  3735      42756666 
  3735      657200
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 99
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 99
 
 
  3736              	.LASF47:
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3755 0b81 63686172 		.ascii	"charLen\000"
  3755      4C656E00 
  3756              	.LASF83:
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 100
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 100
 
 
  3757 0b89 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3776      4154455F 
  3776      494E4954 
  3776      49414C49 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 101
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 101
 
 
  3777              	.LASF149:
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3797              	.LASF67:
  3798 0d7b 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
  3798      455F4556 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 102
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 102
 
 
  3798      545F4741 
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3819              	.LASF77:
  3820 0e6a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
  3820      455F4556 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 103
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 103
 
 
  3820      545F4C32 
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3841              	.LASF68:
  3842 0f56 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
  3842      455F4556 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 104
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 104
 
 
  3842      545F4741 
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3862      50505F43 
  3862      4F4E4E45 
  3862      43544142 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 105
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 105
 
 
  3863              	.LASF155:
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3883              	.LASF16:
  3884 112d 6C6F6E67 		.ascii	"long double\000"
  3884      20646F75 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 106
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 106
 
 
  3884      626C6500 
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3906      3800
  3907              	.LASF236:
  3908 120d 6379426C 		.ascii	"cyBle_gaps\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 107
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 107
 
 
  3908      655F6761 
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3926      6700
  3927              	.LASF181:
  3928 130e 4359424C 		.ascii	"CYBLE_CALLBACK_T\000"
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 108
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 108
 
 
  3928      455F4341 
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3948      50505F4E 
  3948      4F4E5F43 
  3948      4F4E4E45 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 109
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 109
 
 
  3949              	.LASF59:
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3968      455F5354 
  3968      4154455F 
  3968      434F4E4E 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 110
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 110
 
 
  3968      45435445 
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 1
  3988      645F536F 
  3988      75726365 
  3988      5C50536F 
-ARM GAS  C:\Users\puria\AppData\Local\Temp\ccjeUEak.s 			page 111
+ARM GAS  C:\Users\puria\AppData\Local\Temp\ccSmvPmh.s 			page 111
 
 
  3989              	.LASF42:
