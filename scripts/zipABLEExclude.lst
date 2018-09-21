@@ -1,12 +1,26 @@
 #### CAPLED FILES
-../android/Application/src/main/java/de/tudarmstadt/es/capled/*
+../android/Application/src/main/java/org/able/capled/*
+../android/Application/src/main/java/org/able/cppp/*
+../android/Application/src/main/java/org/able/myproject/*
 ../android/Application/src/main/res/drawable-hdpi/capled.png
+../android/Application/src/main/res/drawable-hdpi/cppp.png
 
 *.md
 *.DS_Store
 *.rawproto
 ../android/screenshots/*
-../android/Application/src/main/res/drawable-hdpi/able_github.jpg
+../android/Application/src/main/res/layout/drawable-hdpi/able_github.jpg
+../android/Application/src/main/res/layout/capled_activity.xml
+../android/Application/src/main/res/layout/capled_tab_settings.xml
+../android/Application/src/main/res/layout/capled_tab_view.xml
+../android/Application/src/main/res/layout/cppp_activity.xml
+../android/Application/src/main/res/layout/cppp_tab_settings.xml
+../android/Application/src/main/res/layout/cppp_tab_view.xml
+../android/Application/src/main/res/layout/myproject_activity.xml
+../android/Application/src/main/res/layout/myproject_tab_settings.xml
+../android/Application/src/main/res/layout/myproject_tab_view.xml
+
+
 ../psoc/capsenseled.cywrk.puria
 ###################
 *.com
