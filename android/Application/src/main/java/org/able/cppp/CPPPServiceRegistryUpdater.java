@@ -8,7 +8,7 @@ import org.able.core.AbleServiceRegistryUpdatingBroadcastReceiver;
 
 
 /**
- * This class registers the UUID-to-activity mapping for the Capled device.
+ * This class registers the UUID-to-activity mapping for the CPPP device.
  */
 public class CPPPServiceRegistryUpdater extends AbleServiceRegistryUpdatingBroadcastReceiver {
 

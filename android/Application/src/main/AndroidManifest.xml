@@ -58,37 +58,14 @@
             android:name="org.able.core.BLEService"
             android:enabled="true" />
 
-        <!-- Register Capled-specific activity -->
+        <!--
         <activity android:name="org.able.capled.CapLEDActivity" />
         <activity android:name="org.able.cppp.CPPPActivity" />
+        -->
         <activity android:name="org.able.myproject.MyProjectActivity" />
 
-        <receiver
-            android:name="org.able.myproject.MyProjectServiceRegistryUpdater"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
-            </intent-filter>
-        </receiver>
 
 
-        <receiver
-            android:name="org.able.capled.CapLEDServiceRegistryUpdater"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
-            </intent-filter>
-        </receiver>
-
-
-        <receiver
-            android:name="org.able.cppp.CPPPServiceRegistryUpdater"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="org.able.core.action.RegisterUuidToActivityMapping" />
-            </intent-filter>
-        </receiver>
-        
     </application>
 
 </manifest>

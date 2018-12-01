@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.bluetooth.BluetoothGatt;
 
 import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEServiceListener;
@@ -65,7 +66,7 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.capledConnect:
+                case R.id.myProject_capled_connect:
                     setScanButton();
                     break;
                 case android.R.id.home:

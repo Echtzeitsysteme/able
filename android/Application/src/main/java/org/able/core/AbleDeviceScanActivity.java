@@ -22,9 +22,11 @@ import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -38,6 +40,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
+
+import org.able.capled.CapLEDServiceRegistryUpdater;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -146,11 +150,12 @@ public class AbleDeviceScanActivity extends ListActivity implements BLEServiceLi
         mHandler = new Handler();
         setContentView(R.layout.able_device_scan_activity);
 
-        this.sendBroadcast(new Intent(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING));
 
         serviceRegistry = AbleServiceRegistry.getInstance();
 
-        //ableBleScanList = (ListView) findViewById(R.id.bleScanList);
+        serviceRegistry.initializeServices(this);
+
+        this.sendBroadcast(new Intent(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING));
 
         scanButton = new Button(this);
         scanButton = findViewById(R.id.scanButton);
