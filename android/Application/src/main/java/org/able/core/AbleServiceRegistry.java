@@ -1,6 +1,13 @@
 package org.able.core;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
+
+import org.able.capled.CapLEDServiceRegistryUpdater;
+import org.able.cppp.CPPPServiceRegistryUpdater;
+import org.able.myproject.MyProjectServiceRegistryUpdater;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,6 +59,30 @@ public class AbleServiceRegistry {
         if (registeredServices.containsKey(uuid))
             return registeredServices.get(uuid);
         return AbleDeviceControlActivity.class;
+    }
+
+    /***
+     * Intializes Services that will be mapped to specific Activity classes.
+     */
+    public void initializeServices(Context context){
+        // TODO CUSTOM ABLE PROJECT: Insert your Broadcast receiver here...
+
+        BroadcastReceiver brCapLED = new CapLEDServiceRegistryUpdater();
+        IntentFilter capLedFilter = new IntentFilter("org.able.capled.CapLEDServiceRegistryUpdater");
+        capLedFilter.addAction(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING);
+        context.registerReceiver(brCapLED, capLedFilter);
+
+        BroadcastReceiver brCPPP = new CPPPServiceRegistryUpdater();
+        IntentFilter cpppFilter = new IntentFilter("org.able.cppp.CPPPServiceRegistryUpdater");
+        cpppFilter.addAction(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING);
+        context.registerReceiver(brCPPP, cpppFilter);
+
+        BroadcastReceiver brMyProject = new MyProjectServiceRegistryUpdater();
+        IntentFilter myProjectFilter = new IntentFilter("org.able.myproject.MyProjectServiceRegistryUpdater");
+        myProjectFilter.addAction(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING);
+        context.registerReceiver(brMyProject, myProjectFilter);
+
+
     }
 
 }
