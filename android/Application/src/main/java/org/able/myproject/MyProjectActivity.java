@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.bluetooth.BluetoothGatt;
 
 
 import org.able.core.AbleDeviceScanActivity;
