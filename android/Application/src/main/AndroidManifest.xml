@@ -58,10 +58,9 @@
             android:name="org.able.core.BLEService"
             android:enabled="true" />
 
-        <!--
+
         <activity android:name="org.able.capled.CapLEDActivity" />
         <activity android:name="org.able.cppp.CPPPActivity" />
-        -->
         <activity android:name="org.able.myproject.MyProjectActivity" />
 
 

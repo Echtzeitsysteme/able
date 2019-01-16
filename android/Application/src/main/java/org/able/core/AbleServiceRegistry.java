@@ -66,7 +66,6 @@ public class AbleServiceRegistry {
      */
     public void initializeServices(Context context){
         // TODO CUSTOM ABLE PROJECT: Insert your Broadcast receiver here...
-
         BroadcastReceiver brCapLED = new CapLEDServiceRegistryUpdater();
         IntentFilter capLedFilter = new IntentFilter("org.able.capled.CapLEDServiceRegistryUpdater");
         capLedFilter.addAction(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING);
@@ -81,7 +80,6 @@ public class AbleServiceRegistry {
         IntentFilter myProjectFilter = new IntentFilter("org.able.myproject.MyProjectServiceRegistryUpdater");
         myProjectFilter.addAction(AbleServiceRegistryUpdatingBroadcastReceiver.INTENT_ACTION_UPDATE_UUID_MAPPING);
         context.registerReceiver(brMyProject, myProjectFilter);
-
 
     }
 

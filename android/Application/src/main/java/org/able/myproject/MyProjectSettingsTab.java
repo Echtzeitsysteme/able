@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.bluetooth.BluetoothGatt;
 
 import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEServiceListener;
