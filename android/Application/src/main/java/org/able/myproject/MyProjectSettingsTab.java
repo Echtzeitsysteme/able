@@ -55,9 +55,6 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
 
     private Button sConnectButton;
 
-
-    private BLEBroadcastReceiver thisReceiver;
-
     /**
      * This a the GUI button listener.
      */
@@ -127,10 +124,6 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     @Override
     public void onResume() {
         super.onResume();
-
-        thisReceiver = new BLEBroadcastReceiver(this);
-        getActivity().registerReceiver(thisReceiver,
-                thisReceiver.makeGattUpdateIntentFilter());
         mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
         setScanButton();
     }
@@ -141,7 +134,6 @@ public class MyProjectSettingsTab extends Fragment implements BLEServiceListener
     @Override
     public void onPause() {
         super.onPause();
-        getActivity().unregisterReceiver(thisReceiver);
     }
 
     /**

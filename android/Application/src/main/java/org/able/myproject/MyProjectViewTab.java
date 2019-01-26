@@ -50,8 +50,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
     // TODO CUSTOM ABLE PROJECT: Declare your GUI elements here ...
 
 
-    BLEBroadcastReceiver thisReceiver;
-
     /**
      * Construction of the Tab witch parameters of the parent FragmentActivity-
      * @param mDeviceName name of the BLE device
@@ -92,10 +90,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
     @Override
     public void onResume() {
         super.onResume();
-
-        thisReceiver = new BLEBroadcastReceiver(this);
-        getActivity().registerReceiver(thisReceiver,
-                thisReceiver.makeGattUpdateIntentFilter());
         mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
     }
 
@@ -105,7 +99,6 @@ public class MyProjectViewTab extends Fragment implements BLEServiceListener {
     @Override
     public void onPause() {
         super.onPause();
-        getActivity().unregisterReceiver(thisReceiver);
     }
 
     /**
