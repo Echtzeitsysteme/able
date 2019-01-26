@@ -17,6 +17,8 @@ cd ./android
 # See also: https://developer.android.com/studio/intro/update.html#download-with-gradle
 mkdir -p $ANDROID_HOME/licenses
 cp -r ./licenses/* $ANDROID_HOME/licenses
+echo "License files in $ANDROID_HOME/licenses"
+ll $ANDROID_HOME/licenses
 
 bash ./gradlew clean test assemble
 exitCode=$?
