@@ -103,10 +103,6 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
     @Override
     public void onResume() {
         super.onResume();
-
-        thisReceiver = new BLEBroadcastReceiver(this);
-        getActivity().registerReceiver(thisReceiver,
-                thisReceiver.makeGattUpdateIntentFilter());
         mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
     }
 
@@ -116,7 +112,6 @@ public class CPPPViewTab extends Fragment implements BLEServiceListener  {
     @Override
     public void onPause() {
         super.onPause();
-        getActivity().unregisterReceiver(thisReceiver);
     }
 
     /**

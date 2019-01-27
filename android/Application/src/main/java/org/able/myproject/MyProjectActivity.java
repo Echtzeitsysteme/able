@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 
 
 import org.able.core.AbleDeviceScanActivity;
+import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEService;
 import org.able.core.BLEServiceListener;
 import org.able.core.R;
@@ -27,6 +28,10 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
     private static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     private static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
     private BLEService mAbleBLEService;
+
+    private MyProjectViewTab myProjectViewTab;
+    private MyProjectSettingsTab myProjectSettingsTab;
+    private BLEBroadcastReceiver thisReceiver;
 
     /**
      * Initializes activity and GUI objects.
@@ -73,6 +78,8 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
     protected void onResume()
     {
         super.onResume();
+        thisReceiver = new BLEBroadcastReceiver(this);
+        this.registerReceiver(thisReceiver, thisReceiver.makeGattUpdateIntentFilter());
     }
 
     /**
@@ -81,6 +88,7 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
     @Override
     protected void onPause() {
         super.onPause();
+        unregisterReceiver(thisReceiver);
     }
 
     /**
@@ -106,7 +114,8 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
      */
     @Override
     public void gattConnected() {
-
+        myProjectViewTab.gattConnected();
+        myProjectSettingsTab.gattConnected();
     }
 
     /**
@@ -114,6 +123,8 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
      */
     @Override
     public void gattDisconnected() {
+        myProjectViewTab.gattDisconnected();
+        myProjectSettingsTab.gattDisconnected();
     }
 
     /**
@@ -121,6 +132,8 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
      */
     @Override
     public void gattServicesDiscovered() {
+        myProjectViewTab.gattServicesDiscovered();
+        myProjectSettingsTab.gattServicesDiscovered();
     }
 
     /**
@@ -130,6 +143,8 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
      */
     @Override
     public void dataAvailable(Intent intent) {
+        myProjectViewTab.dataAvailable(intent);
+        myProjectSettingsTab.dataAvailable(intent);
     }
 
 
@@ -153,6 +168,10 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
 
         SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+            myProjectViewTab = MyProjectViewTab.newInstance(sDeviceName, sDeviceAddress);
+            myProjectSettingsTab = MyProjectSettingsTab.newInstance(sDeviceName, sDeviceAddress);
+            // TODO CUSTOM ABLE PROJECT: Add a case, if a tab is added ...
+
         }
 
         @Override
@@ -160,10 +179,9 @@ public class MyProjectActivity extends FragmentActivity implements BLEServiceLis
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position) {
-                case 0: return MyProjectViewTab.newInstance(sDeviceName, sDeviceAddress);
-                case 1: return MyProjectSettingsTab.newInstance(sDeviceName, sDeviceAddress);
+                case 0: return myProjectViewTab;
+                case 1: return myProjectSettingsTab;
                 // TODO CUSTOM ABLE PROJECT: Add a case, if a tab is added ...
-
             }
             return null;
         }

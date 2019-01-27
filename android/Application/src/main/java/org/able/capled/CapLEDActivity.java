@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
 import org.able.core.AbleDeviceScanActivity;
+import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEService;
 import org.able.core.R;
 import org.able.core.BLEServiceListener;
@@ -42,6 +43,10 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
 
 
     private BLEService mAbleBLEService;
+    private CapLEDSettingsTab capLEDSettingsTab;
+    private CapLEDViewTab capLEDViewTab;
+    private BLEBroadcastReceiver thisReceiver;
+
     /**
      * Initializes activity and GUI objects.
      * @param savedInstanceState
@@ -88,6 +93,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
     protected void onResume()
     {
         super.onResume();
+        thisReceiver = new BLEBroadcastReceiver(this);
+        this.registerReceiver(thisReceiver, thisReceiver.makeGattUpdateIntentFilter());
     }
 
     /**
@@ -96,6 +103,7 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
     @Override
     protected void onPause() {
         super.onPause();
+        unregisterReceiver(thisReceiver);
     }
 
     /**
@@ -121,7 +129,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
      */
     @Override
     public void gattConnected() {
-
+        capLEDViewTab.gattConnected();
+        capLEDSettingsTab.gattConnected();
     }
 
     /**
@@ -129,6 +138,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
      */
     @Override
     public void gattDisconnected() {
+        capLEDViewTab.gattDisconnected();
+        capLEDSettingsTab.gattDisconnected();
     }
 
     /**
@@ -136,6 +147,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
      */
     @Override
     public void gattServicesDiscovered() {
+        capLEDViewTab.gattServicesDiscovered();
+        capLEDSettingsTab.gattServicesDiscovered();
     }
 
     /**
@@ -145,6 +158,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
      */
     @Override
     public void dataAvailable(Intent intent) {
+        capLEDViewTab.dataAvailable(intent);
+        capLEDSettingsTab.dataAvailable(intent);
     }
 
 
@@ -168,6 +183,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+            capLEDViewTab = CapLEDViewTab.newInstance(sDeviceName, sDeviceAddress);
+            capLEDSettingsTab = CapLEDSettingsTab.newInstance(sDeviceName, sDeviceAddress);
         }
 
         @Override
@@ -175,8 +192,8 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position) {
-                case 0: return CapLEDViewTab.newInstance(sDeviceName, sDeviceAddress);
-                case 1: return CapLEDSettingsTab.newInstance(sDeviceName, sDeviceAddress);
+                case 0: return capLEDViewTab;
+                case 1: return capLEDSettingsTab;
 
             }
             return null;
@@ -200,13 +217,6 @@ public class CapLEDActivity extends FragmentActivity implements BLEServiceListen
 
         @Override
         public int getItemPosition(Object object) {
-            if (object instanceof CapLEDViewTab) {
-                /*
-                ((CapLEDViewTab) object).updateData(mConnected, mLedSwitchEnabled, mLedSwitchState,
-                mCapSwitchState, mCapSwitchEnabled, mCapSensePosition,
-                mCapSenseValue);
-                */
-            }
             return super.getItemPosition(object);
         }
     }

@@ -18,10 +18,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
 import org.able.core.AbleDeviceScanActivity;
+import org.able.core.BLEBroadcastReceiver;
 import org.able.core.BLEService;
 import org.able.core.BLEServiceListener;
 import org.able.core.R;
-import org.able.capled.CapLEDViewTab;
 
 /**
  * This activity is started, if its registered in the ServiceRegistry with a matching UUID.
@@ -40,6 +40,10 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
     private static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
     private BLEService mAbleBLEService;
+
+    private CPPPViewTab cpppViewTab;
+    private CPPPSettingsTab cpppSettingsTab;
+    private BLEBroadcastReceiver thisReceiver;
 
     /**
      * Initializes activity and GUI objects.
@@ -87,6 +91,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
     protected void onResume()
     {
         super.onResume();
+        thisReceiver = new BLEBroadcastReceiver(this);
+        this.registerReceiver(thisReceiver, thisReceiver.makeGattUpdateIntentFilter());
     }
 
     /**
@@ -95,7 +101,7 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
     @Override
     protected void onPause() {
         super.onPause();
-
+        unregisterReceiver(thisReceiver);
     }
 
     /**
@@ -122,7 +128,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
      */
     @Override
     public void gattConnected() {
-
+        cpppViewTab.gattConnected();
+        cpppSettingsTab.gattConnected();
     }
 
     /**
@@ -130,6 +137,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
      */
     @Override
     public void gattDisconnected() {
+        cpppViewTab.gattDisconnected();
+        cpppSettingsTab.gattDisconnected();
     }
 
     /**
@@ -137,6 +146,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
      */
     @Override
     public void gattServicesDiscovered() {
+        cpppViewTab.gattServicesDiscovered();
+        cpppSettingsTab.gattServicesDiscovered();
     }
 
     /**
@@ -146,6 +157,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
      */
     @Override
     public void dataAvailable(Intent intent) {
+        cpppViewTab.dataAvailable(intent);
+        cpppSettingsTab.dataAvailable(intent);
     }
 
 
@@ -169,6 +182,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+            cpppViewTab = CPPPViewTab.newInstance(sDeviceName, sDeviceAddress);
+            cpppSettingsTab = CPPPSettingsTab.newInstance(sDeviceName, sDeviceAddress);
         }
 
         @Override
@@ -176,8 +191,8 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position) {
-                case 0: return CPPPViewTab.newInstance(sDeviceName, sDeviceAddress);
-                case 1: return CPPPSettingsTab.newInstance(sDeviceName, sDeviceAddress);
+                case 0: return cpppViewTab;
+                case 1: return cpppSettingsTab;
 
             }
             return null;
@@ -201,8 +216,6 @@ public class CPPPActivity extends FragmentActivity implements BLEServiceListener
 
         @Override
         public int getItemPosition(Object object) {
-            if (object instanceof CapLEDViewTab) {
-            }
             return super.getItemPosition(object);
         }
     }

@@ -21,7 +21,6 @@ import org.able.core.R;
 
 public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     private TextView mConnectionState;
-    private TextView mDataField;
     private String mDeviceAddress;
     private boolean mConnected = false;
     private BLEService mAbleBLEService;
@@ -92,10 +91,6 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     @Override
     public void onResume() {
         super.onResume();
-
-        thisReceiver = new BLEBroadcastReceiver(this);
-        getActivity().registerReceiver(thisReceiver,
-                thisReceiver.makeGattUpdateIntentFilter());
         mAbleBLEService = AbleDeviceScanActivity.getmBluetoothLeService();
         setScanButton();
     }
@@ -106,7 +101,6 @@ public class CPPPSettingsTab extends Fragment implements BLEServiceListener {
     @Override
     public void onPause() {
         super.onPause();
-        getActivity().unregisterReceiver(thisReceiver);
     }
 
     /**
